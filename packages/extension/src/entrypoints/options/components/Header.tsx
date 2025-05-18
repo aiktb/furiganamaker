@@ -19,7 +19,7 @@ export default function Header({ icon, title }: HeaderProps) {
             <ThemeSwitch />
             <a
               className="flex size-9 items-center justify-center rounded-md text-black hover:bg-gray-100 dark:text-white dark:hover:bg-slate-800 dark:hover:text-white"
-              href="https://github.com/aiktb/FuriganaMaker"
+              href="https://github.com/aiktb/furiganamaker"
             >
               <span className="sr-only">{t("srGithub")}</span>
               <i className="i-fa6-brands-github size-5" />

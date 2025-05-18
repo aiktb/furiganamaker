@@ -15,10 +15,10 @@
   "homepage": "https://furiganamaker.app",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aiktb/FuriganaMaker.git"
+    "url": "git+https://github.com/aiktb/furiganamaker.git"
   },
   "bugs": {
-    "url": "https://github.com/aiktb/FuriganaMaker/issues"
+    "url": "https://github.com/aiktb/furiganamaker/issues"
   },
   "scripts": {
     "format": "biome format --write .",

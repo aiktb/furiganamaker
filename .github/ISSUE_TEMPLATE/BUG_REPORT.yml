@@ -64,9 +64,9 @@ body:
           required: true
         - label: Follow our [Code of Conduct](https://www.contributor-covenant.org/version/1/4/code-of-conduct/)
           required: true
-        - label: Check that there isn't [already an issue](https://github.com/aiktb/FuriganaMaker/issues) that asks for the same feature to avoid creating a duplicate.
+        - label: Check that there isn't [already an issue](https://github.com/aiktb/furiganamaker/issues) that asks for the same feature to avoid creating a duplicate.
           required: true
-        - label: Read the [Contributing Guidelines](https://github.com/aiktb/FuriganaMaker/blob/main/.github/CONTRIBUTING.md).
+        - label: Read the [Contributing Guidelines](https://github.com/aiktb/furiganamaker/blob/main/.github/CONTRIBUTING.md).
           required: true
         - label: I would like to fix this BUG via a PR.
           required: false
