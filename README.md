@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://furiganamaker.app" target="_blank">
-      <img src="./packages/extension/assets/icons/Logo.svg" alt="homepage" width="100" height="100">
+      <img src="./packages/extension/src/assets/icons/Logo.svg" alt="homepage" width="100" height="100">
     </a>
     <h1>Furigana Maker</h1>
     <p>
