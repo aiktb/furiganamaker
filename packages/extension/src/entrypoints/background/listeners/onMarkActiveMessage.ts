@@ -1,5 +1,3 @@
-import type { Action } from "wxt/browser";
-
 import { ExtEvent } from "@/commons/constants";
 
 export const registerOnMarkActiveMessage = () => {
@@ -40,7 +38,7 @@ export const registerOnMarkActiveMessage = () => {
         const RADIUS = 5;
         context.arc(SIZE - RADIUS, SIZE - RADIUS, RADIUS, 0, 2 * Math.PI);
         context.fill();
-        const imageData = context.getImageData(0, 0, SIZE, SIZE) as Action.ImageDataType;
+        const imageData = context.getImageData(0, 0, SIZE, SIZE);
         browser.action.setIcon({ imageData, tabId: sender.tab!.id! });
       });
   });

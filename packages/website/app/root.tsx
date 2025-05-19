@@ -16,7 +16,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const links = {
     chrome:
       "https://chromewebstore.google.com/detail/furigana-maker/heodojceeinbkfjfilnfminlkgbacpfp",
-    github: "https://github.com/aiktb/FuriganaMaker",
+    github: "https://github.com/aiktb/furiganamaker",
   };
 
   const backgroundAnimeGroup = [

@@ -1,6 +1,6 @@
 import { DisplayMode, ExtEvent, ExtStorage } from "@/commons/constants";
 import { getGeneralSettings, sendMessage, setGeneralSettings } from "@/commons/utils";
-import type { Command } from "@/wxt.config";
+import type { Command } from "@@/wxt.config";
 
 export const registerOnCommand = () => {
   // Please see `wxt.config.ts` for a list of shortcut keys.

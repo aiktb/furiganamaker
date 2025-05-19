@@ -2,7 +2,7 @@
   "name": "furigana-maker",
   "description": "Add furigana to Japanese text on any page for learning kanji pronunciation.",
   "type": "module",
-  "packageManager": "pnpm@10.3.0",
+  "packageManager": "pnpm@10.11.0",
   "engines": {
     "node": ">=22.0.0"
   },
@@ -15,10 +15,10 @@
   "homepage": "https://furiganamaker.app",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aiktb/FuriganaMaker.git"
+    "url": "git+https://github.com/aiktb/furiganamaker.git"
   },
   "bugs": {
-    "url": "https://github.com/aiktb/FuriganaMaker/issues"
+    "url": "https://github.com/aiktb/furiganamaker/issues"
   },
   "scripts": {
     "format": "biome format --write .",

@@ -21,7 +21,7 @@ export default function Sidebar() {
       icon: "i-tabler-puzzle",
     },
     {
-      to: "https://github.com/aiktb/FuriganaMaker",
+      to: "https://github.com/aiktb/furiganamaker",
       target: "_blank",
       label: "GitHub",
       icon: "i-tabler-brand-github",

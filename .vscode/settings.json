@@ -6,7 +6,7 @@
     "quickfix.biome": "explicit",
     "source.organizeImports.biome": "explicit"
   },
-  "i18n-ally.localesPaths": ["packages/extension/assets/_locales"],
+  "i18n-ally.localesPaths": ["packages/extension/src/assets/_locales"],
   "i18n-ally.keystyle": "flat",
   "i18n-ally.enabledFrameworks": ["react-i18next"]
 }

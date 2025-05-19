@@ -11,7 +11,7 @@ interface Repo {
 export const loader = async () => {
   let data = 0;
   try {
-    const res = await fetch("https://api.github.com/repos/aiktb/FuriganaMaker", {
+    const res = await fetch("https://api.github.com/repos/aiktb/furiganamaker", {
       headers: {
         // Necessary for GitHub API
         // The absence of this header in Cloudflare Pages will result in an HTTP 403

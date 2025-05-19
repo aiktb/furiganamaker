@@ -219,7 +219,7 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
       <MenuItem icon={<GithubIcon />}>
         <Link
           tip={t("tipOpenIssue")}
-          href="https://github.com/aiktb/FuriganaMaker/issues"
+          href="https://github.com/aiktb/furiganamaker/issues"
           text={t("linkFeedback")}
         />
       </MenuItem>

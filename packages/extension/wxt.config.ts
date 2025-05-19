@@ -27,7 +27,6 @@ export type Command = keyof typeof commands;
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
-  extensionApi: "chrome",
   manifest: {
     name: "__MSG_extName__",
     description: "__MSG_extDescription__",
@@ -37,6 +36,7 @@ export default defineConfig({
     commands,
   },
   modules: ["@wxt-dev/auto-icons"],
+  srcDir: "src",
   autoIcons: {
     baseIconPath: "assets/icons/Logo.svg",
   },
@@ -56,7 +56,7 @@ export default defineConfig({
   }),
   hooks: {
     "build:publicAssets": ({ config }, publicFiles) => {
-      const srcDir = path.resolve(__dirname, "./node_modules/@sglkc/kuromoji/dict");
+      const srcDir = path.resolve(import.meta.dirname, "./node_modules/@sglkc/kuromoji/dict");
       const filenames = fs.readdirSync(srcDir);
       const destDir = path.resolve(config.outDir, "dict");
       fs.mkdirSync(destDir);

@@ -5,7 +5,7 @@ export const registerOnInstalled = () => {
     // If the context menu is not re-registered upon update, the menu may become missing or out of date.
     // Remove the contextMenu before creating it to avoid creating multiple contextMenus.
     browser.contextMenus.removeAll();
-    const contextMenuItem: chrome.contextMenus.CreateProperties = {
+    const contextMenuItem: Browser.contextMenus.CreateProperties = {
       id: ExtEvent.AddFurigana,
       title: browser.i18n.getMessage("shortcutAddFurigana"),
       contexts: ["page"],
@@ -14,11 +14,11 @@ export const registerOnInstalled = () => {
     browser.contextMenus.create(contextMenuItem);
 
     switch (details.reason) {
-      case chrome.runtime.OnInstalledReason.INSTALL: {
+      case browser.runtime.OnInstalledReason.INSTALL: {
         browser.tabs.create({ url: "https://furiganamaker.app/welcome" });
         break;
       }
-      case chrome.runtime.OnInstalledReason.UPDATE: {
+      case browser.runtime.OnInstalledReason.UPDATE: {
         // V1.2.3 -> major.minor.patch
         // Only open the Changelog page to prompt the user when a new feature is available.
         const [majorPrevVersion, minorPrevVersion] = details.previousVersion!.split(".");

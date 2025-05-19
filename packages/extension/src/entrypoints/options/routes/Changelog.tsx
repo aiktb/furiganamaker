@@ -1,4 +1,4 @@
-import changelog from "@/CHANGELOG.md?raw";
+import changelog from "@@/CHANGELOG.md?raw";
 
 import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";

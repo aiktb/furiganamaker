@@ -6,7 +6,7 @@ describe("Extension background script", () => {
   });
 
   test("Icons have been generated", async ({ page }) => {
-    const manifest: chrome.runtime.Manifest = await page.evaluate("chrome.runtime.getManifest()");
+    const manifest: Browser.runtime.Manifest = await page.evaluate("chrome.runtime.getManifest()");
     const expectedIcons = {
       16: "icons/16.png",
       32: "icons/32.png",
@@ -20,7 +20,7 @@ describe("Extension background script", () => {
   });
 
   test("Shortcuts have been registered", async ({ page }) => {
-    const shortcuts: chrome.commands.Command[] = await page.evaluate("chrome.commands.getAll()");
+    const shortcuts: Browser.commands.Command[] = await page.evaluate("chrome.commands.getAll()");
     const shortcutNames = shortcuts.map((shortcut) => shortcut.name);
     const expectedShortcuts = [
       "_execute_action",

@@ -3,3 +3,6 @@ name = "furigana-maker"
 pages_build_output_dir = "build/client"
 
 compatibility_date = "2024-12-18"
+
+[vars]
+NODE_VERSION = "22.12.0"
