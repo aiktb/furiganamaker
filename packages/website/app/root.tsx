@@ -4,7 +4,7 @@ import "@fontsource/lobster/400.css";
 import "@fontsource/noto-sans-jp/400.css";
 import "@fontsource/noto-sans-jp/700.css";
 
-import "./assets/style.css";
+import "./tailwind.css";
 
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import Footer from "./components/Footer";
