@@ -60,7 +60,7 @@ export default function ExclusionHandler({ sites, onChange }: ExclusionHandlerPr
                     placeholder="example.com"
                     autoFocus={true}
                     className={
-                      "mt-3 block w-full rounded-lg border-none bg-white/5 px-3 py-1.5 text-sm/6 text-white focus:outline-none data-[focus]:outline-2 data-[focus]:outline-sky-400 data-[focus]:outline-offset-1"
+                      "mt-3 block w-full rounded-lg border-none bg-white/5 px-3 py-1.5 text-sm/6 text-white focus:outline-hidden data-[focus]:outline-2 data-[focus]:outline-sky-400 data-[focus]:outline-offset-1"
                     }
                   />
                 </Field>

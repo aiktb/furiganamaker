@@ -10,7 +10,7 @@ export default function Header({ icon, title }: HeaderProps) {
   return (
     <header className="sticky top-0 z-10 border-gray-200 border-b dark:border-slate-800">
       <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-5 backdrop-blur backdrop-filter">
+        <div className="flex items-center justify-between py-5 backdrop-blur-sm backdrop-filter">
           <div className="flex items-center text-base">
             <i className={`mr-3 size-6 text-sky-500 ${icon}`} />
             <span className="font-bold text-black dark:text-white">{title}</span>

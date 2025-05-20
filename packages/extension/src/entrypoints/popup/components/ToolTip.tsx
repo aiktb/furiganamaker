@@ -69,7 +69,7 @@ export default function ToolTip({ tip, children }: ToolTipProps) {
           ref={refs.setFloating}
           style={floatingStyles}
           {...getFloatingProps()}
-          className="z-50 inline-flex rounded bg-slate-900 px-2 text-slate-20 text-white dark:bg-slate-200 dark:text-slate-800"
+          className="z-50 inline-flex rounded-sm bg-slate-900 px-2 text-slate-20 text-white dark:bg-slate-200 dark:text-slate-800"
         >
           <FloatingArrow
             ref={arrowRef}

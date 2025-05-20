@@ -74,7 +74,7 @@ export default function Welcome() {
         </h1>
         <div className="animeRising mt-10 flex flex-col-reverse items-center justify-center gap-10 sm:flex-row">
           <div
-            className="relative overflow-hidden rounded-3xl transition duration-[400ms] ease-[cubic-bezier(0.03,0.98,0.52,0.99)] will-change-transform hover:shadow-[hsla(201,80%,66%,.5)_0_0_15px_0,hsla(161,55%,49%,.5)_0_0_30px_0]"
+            className="relative overflow-hidden rounded-3xl transition duration-[400ms] ease-[cubic-bezier(0.03,0.98,0.52,0.99)] will-change-transform hover:shadow-[0_0_15px_0_hsla(201,80%,66%,.5),0_0_30px_0_hsla(161,55%,49%,.5)]"
             style={{
               transform:
                 "perspective(1000px) rotateX(calc((var(--welcome-y) - 0.5) * -32deg)) rotateY(calc((var(--welcome-x) - 0.5) * -32deg)) scale3d(1, 1, 1)",
@@ -144,7 +144,7 @@ export default function Welcome() {
       <Link
         to={links.github}
         target="_blank"
-        className="hover:-translate-y-2 mb-12 flex select-none items-center gap-2 rounded-xl border-2 border-sky-400 border-solid bg-slate-900 px-4 py-2 font-bold transition duration-300 hover:shadow-[hsla(201,80%,66%,.5)_0_0_15px_0,hsla(161,55%,49%,.5)_0_0_30px_0] lg:mb-15 xl:mb-20"
+        className="hover:-translate-y-2 mb-12 flex select-none items-center gap-2 rounded-xl border-2 border-sky-400 border-solid bg-slate-900 px-4 py-2 font-bold transition duration-300 hover:shadow-[0_0_15px_0_hsla(201,80%,66%,.5),0_0_30px_0_hsla(161,55%,49%,.5)] lg:mb-15 xl:mb-20"
       >
         <i className="i-mdi-github size-5" />
         View on GitHub

@@ -51,7 +51,7 @@ function FeatureItem({ title, description, icon }: FeatureItemProps) {
   return (
     <div className="animeRising hover:-translate-y-2 animeRising flex w-full flex-col gap-4 rounded-lg border border-slate-700 bg-slate-800 p-7 transition duration-300 hover:bg-slate-700 md:w-96 xl:p-12">
       <div className="flex items-center justify-between">
-        <div className="flex size-10 items-center justify-center rounded bg-sky-400">
+        <div className="flex size-10 items-center justify-center rounded-sm bg-sky-400">
           <div className={`${icon} size-7`} />
         </div>
         <i className="i-mdi-checkbox-marked-circle-outline size-6 text-green-400" />
