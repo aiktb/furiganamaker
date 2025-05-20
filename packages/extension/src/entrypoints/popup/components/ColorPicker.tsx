@@ -15,7 +15,7 @@ export default function ColorPicker({ color, onChange }: ColorPickerProps) {
     <Popover className="flex grow">
       {({ open }) => (
         <>
-          <PopoverButton className="group flex flex-1 items-center justify-between rounded-sm px-2 capitalize transition-all hover:bg-gray-200 focus-visible:bg-gray-200 dark:focus-visible:bg-slate-700 dark:hover:bg-slate-700">
+          <PopoverButton className="group flex flex-1 cursor-pointer items-center justify-between rounded-sm px-2 capitalize transition-all hover:bg-gray-200 focus-visible:bg-gray-200 dark:focus-visible:bg-slate-700 dark:hover:bg-slate-700">
             {t("btnSelectColor")}
             <div
               className="hidden size-3 rounded-full group-hover:block group-focus-visible:block"
@@ -34,7 +34,7 @@ export default function ColorPicker({ color, onChange }: ColorPickerProps) {
           >
             <PopoverPanel focus className="absolute inset-0 z-50 bg-white dark:bg-slate-900">
               <ColorPickerPanel color={color} onChange={onChange}>
-                <PopoverButton className="flex items-center justify-center gap-2 rounded-sm border-none px-1.5 font-sans shadow-xs outline-hidden ring-1 ring-gray-300 transition-all hover:text-sky-500 focus-visible:text-sky-500 focus-visible:ring-2 focus-visible:ring-sky-500 dark:ring-slate-700 dark:focus-visible:ring-sky-500">
+                <PopoverButton className="flex cursor-pointer items-center justify-center gap-2 rounded-sm border-none px-1.5 font-sans shadow-xs outline-hidden ring-1 ring-gray-300 transition-all hover:text-sky-500 focus-visible:text-sky-500 focus-visible:ring-2 focus-visible:ring-sky-500 dark:ring-slate-700 dark:focus-visible:ring-sky-500">
                   {t("btnClosePanel")}
                   <i className="i-tabler-x size-4" />
                 </PopoverButton>
@@ -124,7 +124,7 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
             />
           </label>
           <button
-            className="flex h-6 max-w-[7ch] items-center justify-center gap-0.5 rounded-sm border-none px-1.5 font-sans shadow-xs outline-hidden ring-1 ring-gray-300 transition-all hover:text-sky-500 focus-visible:text-sky-500 focus-visible:ring-2 focus-visible:ring-sky-500 dark:bg-slate-950 dark:ring-slate-700 dark:focus-visible:ring-sky-500"
+            className="flex h-6 max-w-[7ch] cursor-pointer items-center justify-center gap-0.5 rounded-sm border-none px-1.5 font-sans shadow-xs outline-hidden ring-1 ring-gray-300 transition-all hover:text-sky-500 focus-visible:text-sky-500 focus-visible:ring-2 focus-visible:ring-sky-500 dark:bg-slate-950 dark:ring-slate-700 dark:focus-visible:ring-sky-500"
             onClick={() => {
               setHue(0);
               setSaturationAndValue({ s: 1, v: 1 });

@@ -35,7 +35,7 @@ export default function RuleEditor({ rule, mode, onChange }: RuleEditorProps) {
       <Disclosure>
         {({ open }) => (
           <>
-            <DisclosureButton className="flex w-full items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-medium text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
+            <DisclosureButton className="flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-medium text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
               <h1>{t("disclosureSelector")}</h1>
               <i
                 className={`${
@@ -147,7 +147,7 @@ export default function RuleEditor({ rule, mode, onChange }: RuleEditorProps) {
 
             <div>
               <button
-                className="flex w-full justify-center rounded-md bg-sky-600 px-3 py-1.5 font-semibold text-sm text-white leading-6 shadow-xs hover:bg-sky-500 focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 disabled:cursor-not-allowed"
+                className="flex w-full cursor-pointer justify-center rounded-md bg-sky-600 px-3 py-1.5 font-semibold text-sm text-white leading-6 shadow-xs hover:bg-sky-500 focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 disabled:cursor-not-allowed"
                 disabled={!(domain && selector)}
                 onClick={submit}
               >

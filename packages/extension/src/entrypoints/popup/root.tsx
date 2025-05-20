@@ -129,7 +129,7 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
   ];
 
   return (
-    <menu className="space-y-2 border-sky-500 border-r-2 pr-1">
+    <menu className="space-y-2 border-sky-500 border-r-2 pr-1 font-sans">
       <MenuItem icon={<CursorOutlineIcon />}>
         <Button tip={t("tipEscShortcut")} text={t("btnAddFurigana")} onClick={addFurigana} />
       </MenuItem>

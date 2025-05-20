@@ -11,7 +11,7 @@ export default function ThemeSwitch() {
   return (
     <button
       onClick={toggleTheme}
-      className="flex size-9 items-center justify-center rounded-md text-black hover:bg-gray-100 dark:text-white dark:hover:bg-slate-800"
+      className="flex size-9 cursor-pointer items-center justify-center rounded-md text-black hover:bg-gray-100 dark:text-white dark:hover:bg-slate-800"
     >
       <span className="sr-only">{t("srToggleTheme")}</span>
       {resolvedTheme === "light" && <i className="i-tabler-sun-filled size-5" />}

@@ -42,7 +42,7 @@ export default function Sidebar() {
   return (
     <>
       <button
-        className="-mx-2 fixed top-24 left-4 z-20 flex items-center justify-center rounded-sm border-2 border-gray-300 border-solid bg-white p-2 lg:hidden dark:border-slate-700 dark:bg-slate-900"
+        className="-mx-2 fixed top-24 left-4 z-20 flex cursor-pointer items-center justify-center rounded-sm border-2 border-gray-300 border-solid bg-white p-2 lg:hidden dark:border-slate-700 dark:bg-slate-900"
         onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
       >
         <span className="sr-only">{t("srToggleSidebar")}</span>

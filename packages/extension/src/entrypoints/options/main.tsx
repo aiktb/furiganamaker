@@ -1,5 +1,4 @@
-import "@/assets/style.css";
-
+import "@/tailwind.css";
 import "@/commons/i18n";
 
 import { ThemeProvider } from "next-themes";
