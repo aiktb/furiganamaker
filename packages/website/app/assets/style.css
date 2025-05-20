@@ -1,6 +1,7 @@
 @import "tailwindcss";
-
-@config '../../tailwind.config.ts';
+@plugin '@tailwindcss/forms';
+@plugin '@headlessui/tailwindcss';
+@plugin '@egoist/tailwindcss-icons';
 
 @utility container {
   margin-inline: auto;
