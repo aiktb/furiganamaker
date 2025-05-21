@@ -42,7 +42,7 @@ export default function Footer() {
   return (
     <footer className="w-full border-slate-600 border-stroke border-t bg-slate-800">
       <button
-        className={`fixed right-6 bottom-6 size-10 rounded-full bg-sky-400 transition-all duration-500 ${
+        className={`fixed right-6 bottom-6 size-10 cursor-pointer rounded-full bg-sky-400 transition-all duration-500 ${
           isAtBottom ? "" : "pointer-events-none opacity-0"
         }`}
         onClick={toTop}
