@@ -1,5 +1,6 @@
 name: Check for dead links
-
+permissions:
+  contents: read
 on:
   workflow_dispatch:
   schedule:
