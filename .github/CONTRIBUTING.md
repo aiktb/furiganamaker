@@ -41,7 +41,7 @@ After cloning the repo, run:
 
 ```bash
 pnpm install
-cd packages/extension
+cd apps/extension
 ```
 
 Please read [WXT Documentation](https://wxt.dev/get-started/introduction.html) for more information on how to develop and test the extension.
