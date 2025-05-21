@@ -10,7 +10,7 @@ export default function PopupTransition({ show, children }: PopupTransitionProps
     <Transition appear show={show}>
       <div className="relative z-30">
         {/* Background overlay */}
-        <div className="fixed inset-0 backdrop-blur backdrop-filter" />
+        <div className="fixed inset-0 backdrop-blur-sm backdrop-filter" />
         <TransitionChild
           enter="duration-300 ease-out"
           enterFrom="opacity-0"

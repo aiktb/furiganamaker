@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@plugin '@tailwindcss/forms';
+@plugin '@headlessui/tailwindcss';
+@plugin '@egoist/tailwindcss-icons';
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+@theme {
+  --font-display: "Lobster", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+  --font-japanese: "Noto Sans JP", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+
+  @keyframes rising {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes float {
+    from {
+      transform: translateY(0px) rotate(0deg);
+      opacity: 1;
+      border-radius: 5%;
+    }
+
+    to {
+      transform: translateY(-3500px) rotate(720deg);
+      opacity: 0.2;
+      border-radius: 50%;
+    }
+  }
+
+  @keyframes firework {
+    0% {
+      transform: translate(-50%, 60vh);
+      width: 0.5vmin;
+      opacity: 1;
+    }
+
+    50% {
+      width: 0.5vmin;
+      opacity: 1;
+    }
+
+    100% {
+      width: 45vmin;
+      opacity: 0;
+    }
+  }
+
+  --animate-rising: rising 2s ease;
+  --animate-floating: float 25s linear infinite;
+  --animate-firework: firework 2s infinite;
+}
+
+@property --welcome-x {
+  syntax: "<number>";
+  initial-value: 0.5;
+  inherits: false;
+}
+
+@property --welcome-y {
+  syntax: "<number>";
+  initial-value: 0.5;
+  inherits: false;
+}
+
+@property --welcome-deg {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --welcome-radius {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: false;
+}

@@ -31,11 +31,12 @@
     "@iconify-json/fa6-brands": "catalog:",
     "@iconify-json/mdi": "^1.2.2",
     "@tailwindcss/forms": "catalog:",
+    "@tailwindcss/vite": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "autoprefixer": "catalog:",
     "tailwindcss": "catalog:",
     "vite": "catalog:",
+    "vite-plugin-devtools-json": "^0.1.0",
     "wrangler": "^3.99.0"
   }
 }

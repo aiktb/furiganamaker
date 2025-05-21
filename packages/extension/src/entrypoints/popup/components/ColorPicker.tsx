@@ -15,7 +15,7 @@ export default function ColorPicker({ color, onChange }: ColorPickerProps) {
     <Popover className="flex grow">
       {({ open }) => (
         <>
-          <PopoverButton className="group flex flex-1 items-center justify-between rounded px-2 capitalize transition-all hover:bg-gray-200 focus-visible:bg-gray-200 dark:focus-visible:bg-slate-700 dark:hover:bg-slate-700">
+          <PopoverButton className="group flex flex-1 cursor-pointer items-center justify-between rounded-sm px-2 capitalize transition-all hover:bg-gray-200 focus-visible:bg-gray-200 dark:focus-visible:bg-slate-700 dark:hover:bg-slate-700">
             {t("btnSelectColor")}
             <div
               className="hidden size-3 rounded-full group-hover:block group-focus-visible:block"
@@ -34,7 +34,7 @@ export default function ColorPicker({ color, onChange }: ColorPickerProps) {
           >
             <PopoverPanel focus className="absolute inset-0 z-50 bg-white dark:bg-slate-900">
               <ColorPickerPanel color={color} onChange={onChange}>
-                <PopoverButton className="flex items-center justify-center gap-2 rounded border-none px-1.5 font-sans shadow-sm outline-none ring-1 ring-gray-300 transition-all hover:text-sky-500 focus-visible:text-sky-500 focus-visible:ring-2 focus-visible:ring-sky-500 dark:ring-slate-700 dark:focus-visible:ring-sky-500">
+                <PopoverButton className="flex cursor-pointer items-center justify-center gap-2 rounded-sm border-none px-1.5 font-sans shadow-xs outline-hidden ring-1 ring-gray-300 transition-all hover:text-sky-500 focus-visible:text-sky-500 focus-visible:ring-2 focus-visible:ring-sky-500 dark:ring-slate-700 dark:focus-visible:ring-sky-500">
                   {t("btnClosePanel")}
                   <i className="i-tabler-x size-4" />
                 </PopoverButton>
@@ -93,7 +93,7 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
           }}
         />
         <div
-          className="size-4 rounded-sm"
+          className="size-4 rounded-xs"
           style={{
             boxShadow:
               "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.25) 0px 0px 4px inset",
@@ -106,7 +106,7 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
           <label>
             <span>HEX </span>
             <input
-              className="h-6 w-[4.5rem] rounded border-none px-1.5 font-mono text-sm uppercase shadow-sm ring-1 ring-gray-300 ring-inset focus:border-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-950 dark:ring-slate-700 dark:focus-visible:ring-sky-500"
+              className="h-6 w-[4.5rem] rounded-sm border-none px-1.5 font-mono text-sm uppercase shadow-xs ring-1 ring-gray-300 ring-inset focus:border-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-950 dark:ring-slate-700 dark:focus-visible:ring-sky-500"
               value={input}
               onChange={(event) => {
                 setInput(event.target.value);
@@ -124,7 +124,7 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
             />
           </label>
           <button
-            className="flex h-6 max-w-[7ch] items-center justify-center gap-0.5 rounded border-none px-1.5 font-sans shadow-sm outline-none ring-1 ring-gray-300 transition-all hover:text-sky-500 focus-visible:text-sky-500 focus-visible:ring-2 focus-visible:ring-sky-500 dark:bg-slate-950 dark:ring-slate-700 dark:focus-visible:ring-sky-500"
+            className="flex h-6 max-w-[7ch] cursor-pointer items-center justify-center gap-0.5 rounded-sm border-none px-1.5 font-sans shadow-xs outline-hidden ring-1 ring-gray-300 transition-all hover:text-sky-500 focus-visible:text-sky-500 focus-visible:ring-2 focus-visible:ring-sky-500 dark:bg-slate-950 dark:ring-slate-700 dark:focus-visible:ring-sky-500"
             onClick={() => {
               setHue(0);
               setSaturationAndValue({ s: 1, v: 1 });
@@ -198,10 +198,10 @@ function SaturationAndValuePicker({ color, hue, onChange }: SaturationAndValuePi
   }
 
   return (
-    <div className="relative aspect-[7/6] w-full cursor-crosshair rounded-sm">
+    <div className="relative aspect-[7/6] w-full cursor-crosshair rounded-xs">
       <div
         onPointerDown={handleSaturationCanvasPointerDown}
-        className="absolute inset-0 rounded-sm shadow-inner"
+        className="absolute inset-0 rounded-xs shadow-inner"
         style={{
           background: `linear-gradient(to right, white, ${new TinyColor({
             h: hue,
@@ -210,7 +210,7 @@ function SaturationAndValuePicker({ color, hue, onChange }: SaturationAndValuePi
           }).toHexString()})`,
         }}
       >
-        <div className="absolute inset-0 rounded-sm bg-gradient-to-b from-transparent to-black" />
+        <div className="absolute inset-0 rounded-xs bg-gradient-to-b from-transparent to-black" />
         <div
           className="-translate-x-1/2 -translate-y-1/2 absolute size-1 rounded-full "
           style={{
@@ -243,7 +243,7 @@ function HuePicker({ hue, onChange }: HuePickerProps) {
   return (
     <div
       onPointerDown={handlePointerDown}
-      className="relative h-4 flex-1 cursor-crosshair rounded-sm"
+      className="relative h-4 flex-1 cursor-crosshair rounded-xs"
       style={{
         background:
           "linear-gradient(to right, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%)",
@@ -277,7 +277,7 @@ function ColorSwitcher({ onChange }: { onChange: (color: string) => void }) {
         return (
           <button
             key={color}
-            className="h-4 w-full cursor-pointer rounded-sm outline-offset-2"
+            className="h-4 w-full cursor-pointer rounded-xs outline-offset-2"
             style={{ boxShadow: baseShadow, backgroundColor: color }}
             onFocus={(event) => {
               event.currentTarget.style.boxShadow = focusShadow;

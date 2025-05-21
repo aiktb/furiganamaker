@@ -1,16 +1,10 @@
-import autoprefixer from "autoprefixer";
-import tailwind from "tailwindcss";
-
+import { reactRouter } from "@react-router/dev/vite";
 import { cloudflareDevProxy } from "@react-router/dev/vite/cloudflare";
+import tailwindcss from "@tailwindcss/vite";
+import devtoolsJson from "vite-plugin-devtools-json";
+
 import { defineConfig } from "vite";
 
-import { reactRouter } from "@react-router/dev/vite";
-
 export default defineConfig({
-  plugins: [cloudflareDevProxy(), reactRouter()],
-  css: {
-    postcss: {
-      plugins: [tailwind, autoprefixer],
-    },
-  },
+  plugins: [cloudflareDevProxy(), reactRouter(), tailwindcss(), devtoolsJson()],
 });

@@ -37,8 +37,8 @@ describe("Extension popup page", () => {
     expect(selectModeSelect).toBeVisible();
     const slider = page.getByRole("slider");
     expect(await slider.getAttribute("aria-valuenow")).toBe("75");
-    await page.getByRole("button", { name: "Select Color" }).hover();
-    await page.waitForSelector("div[style='background-color: currentcolor;']");
+    const fontColorIndicator = page.locator("div[style='background-color: currentcolor;']");
+    expect(fontColorIndicator).toBeHidden();
   });
 
   test("Setting switches, and correctly saves the settings to storage", async ({ page }) => {

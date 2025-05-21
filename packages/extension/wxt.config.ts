@@ -1,9 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import autoprefixer from "autoprefixer";
-import tailwind from "tailwindcss";
-
+import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react-swc";
 import svgr from "vite-plugin-svgr";
 import { defineConfig } from "wxt";
@@ -44,14 +42,9 @@ export default defineConfig({
     name: "furigana-maker",
   },
   vite: () => ({
-    plugins: [react({ devTarget: "esnext" }), svgr()],
+    plugins: [react({ devTarget: "esnext" }), svgr(), tailwindcss()],
     build: {
       target: "esnext",
-    },
-    css: {
-      postcss: {
-        plugins: [tailwind, autoprefixer],
-      },
     },
   }),
   hooks: {

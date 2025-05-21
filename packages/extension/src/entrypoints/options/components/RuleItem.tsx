@@ -48,7 +48,7 @@ export default function RuleItem({ rule, onChange, onDelete, index }: RuleItemPr
         <div className="flex shrink-0 flex-col items-end">
           <div className="flex w-full items-center justify-between gap-x-1.5 sm:flex-col sm:items-end sm:justify-evenly">
             <button
-              className="flex items-center gap-1 rounded-md px-1.5 py-0.5"
+              className="flex cursor-pointer items-center gap-1 rounded-md px-1.5 py-0.5"
               onClick={() => {
                 onChange({ ...rule, active: !rule.active });
               }}
@@ -71,7 +71,7 @@ export default function RuleItem({ rule, onChange, onDelete, index }: RuleItemPr
             </button>
             <div className="mt-1 flex gap-x-1.5">
               <button
-                className="flex items-center gap-1 rounded-md bg-slate-950/5 px-2 py-1 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white"
+                className="flex cursor-pointer items-center gap-1 rounded-md bg-slate-950/5 px-2 py-1 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white"
                 onClick={() => {
                   setEditorIsOpen(true);
                 }}
@@ -80,7 +80,7 @@ export default function RuleItem({ rule, onChange, onDelete, index }: RuleItemPr
                 {t("btnEdit")}
               </button>
               <button
-                className="flex items-center gap-1 rounded-md bg-slate-950/5 px-2 py-1 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white"
+                className="flex cursor-pointer items-center gap-1 rounded-md bg-slate-950/5 px-2 py-1 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white"
                 onClick={() => {
                   setDeleteDialogIsOpen(true);
                 }}
@@ -134,7 +134,7 @@ export default function RuleItem({ rule, onChange, onDelete, index }: RuleItemPr
             </div>
             <div className="mt-4 flex gap-2.5">
               <button
-                className="inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-slate-900 text-sm transition hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
+                className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-slate-900 text-sm transition hover:bg-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
                 onClick={() => {
                   onDelete(rule);
                   setDeleteDialogIsOpen(false);
@@ -143,7 +143,7 @@ export default function RuleItem({ rule, onChange, onDelete, index }: RuleItemPr
                 {t("btnDelete")}
               </button>
               <button
-                className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
                 onClick={() => {
                   setDeleteDialogIsOpen(false);
                 }}

@@ -4,10 +4,9 @@ import "@fontsource/lobster/400.css";
 import "@fontsource/noto-sans-jp/400.css";
 import "@fontsource/noto-sans-jp/700.css";
 
-import "./assets/style.css";
+import "./tailwind.css";
 
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
-import favicon from "./assets/favicon.ico";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { LinksContext } from "./contexts";
@@ -41,7 +40,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="aiktb <ai.ourship@gmail.com>" />
         <meta name="color-scheme" content="light dark" />
-        <link rel="icon" href={favicon} />
         <Meta />
         <Links />
       </head>

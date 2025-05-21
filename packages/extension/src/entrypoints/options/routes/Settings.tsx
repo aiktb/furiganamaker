@@ -124,7 +124,7 @@ function SettingSwitch({
       <Switch
         checked={enabled}
         onChange={onChange}
-        className="group relative flex h-7 w-14 cursor-pointer rounded-full bg-slate-900/10 p-1 transition-colors duration-200 ease-in-out focus:outline-none data-[checked]:bg-black/10 data-[focus]:outline-1 data-[focus]:outline-white dark:bg-white/10 dark:data-[checked]:bg-white/10"
+        className="group relative flex h-7 w-14 cursor-pointer rounded-full bg-slate-900/10 p-1 transition-colors duration-200 ease-in-out focus:outline-hidden data-[checked]:bg-black/10 data-[focus]:outline-1 data-[focus]:outline-white dark:bg-white/10 dark:data-[checked]:bg-white/10"
       >
         <span
           aria-hidden="true"

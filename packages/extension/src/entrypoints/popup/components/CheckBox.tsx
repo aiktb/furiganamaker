@@ -13,7 +13,7 @@ function InlineCheckBox({ text, checked, onChange }: CheckBoxProps) {
     <Switch
       checked={checked}
       onChange={onChange}
-      className="flex items-center gap-x-1.5 rounded px-2 capitalize transition-all hover:bg-gray-200 focus-visible:bg-gray-200 dark:focus-visible:bg-slate-700 dark:hover:bg-slate-700"
+      className="flex flex-1 cursor-pointer items-center gap-x-1.5 rounded-sm px-2 capitalize transition-all hover:bg-gray-200 focus-visible:bg-gray-200 dark:focus-visible:bg-slate-700 dark:hover:bg-slate-700"
     >
       <span>{text}</span>
     </Switch>

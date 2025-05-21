@@ -60,7 +60,7 @@ export default function RangeSlider({ value, min, max, step, label, onChange }: 
       aria-valuenow={value}
       aria-valuetext={`${value}%`}
       aria-label={label}
-      className="relative flex h-5 grow cursor-pointer items-center justify-start gap-x-1 rounded px-2 leading-5 transition-all hover:bg-gray-200 focus-visible:bg-gray-200 dark:focus-visible:bg-slate-700 dark:hover:bg-slate-700"
+      className="relative flex h-5 grow cursor-pointer items-center justify-start gap-x-1 rounded-sm px-2 leading-5 transition-all hover:bg-gray-200 focus-visible:bg-gray-200 dark:focus-visible:bg-slate-700 dark:hover:bg-slate-700"
       onPointerDown={handlePointerDown}
       onKeyDown={handleKeyDown}
     >

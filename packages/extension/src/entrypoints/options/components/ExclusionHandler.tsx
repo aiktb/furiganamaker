@@ -24,7 +24,7 @@ export default function ExclusionHandler({ sites, onChange }: ExclusionHandlerPr
         </div>
         <div className="flex flex-col gap-2 sm:flex-row">
           <button
-            className="rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 dark:bg-white/5 dark:text-white"
+            className="cursor-pointer rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 dark:bg-white/5 dark:text-white"
             onClick={() => {
               setDialogIsOpen(true);
             }}
@@ -60,13 +60,13 @@ export default function ExclusionHandler({ sites, onChange }: ExclusionHandlerPr
                     placeholder="example.com"
                     autoFocus={true}
                     className={
-                      "mt-3 block w-full rounded-lg border-none bg-white/5 px-3 py-1.5 text-sm/6 text-white focus:outline-none data-[focus]:outline-2 data-[focus]:outline-sky-400 data-[focus]:outline-offset-1"
+                      "mt-6 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-sky-600 focus:ring-inset disabled:cursor-not-allowed sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white dark:ring-gray-700 dark:focus:ring-sky-600"
                     }
                   />
                 </Field>
                 <div className="mt-3 flex w-full justify-end gap-2">
                   <button
-                    className="rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 dark:bg-white/5 dark:text-white"
+                    className="cursor-pointer rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 dark:bg-white/5 dark:text-white"
                     onClick={() => {
                       setInput("");
                       setDialogIsOpen(false);
@@ -75,7 +75,7 @@ export default function ExclusionHandler({ sites, onChange }: ExclusionHandlerPr
                     {t("btnCancel")}
                   </button>
                   <button
-                    className="rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white/5 dark:text-white"
+                    className="cursor-pointer rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white/5 dark:text-white"
                     disabled={!input}
                     onClick={() => {
                       onChange([...sites, input]);
@@ -90,7 +90,7 @@ export default function ExclusionHandler({ sites, onChange }: ExclusionHandlerPr
             </Dialog>
           </PopupTransition>
           <button
-            className="text-nowrap rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 dark:bg-white/5 dark:text-white"
+            className="cursor-pointer text-nowrap rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 dark:bg-white/5 dark:text-white"
             onClick={() => onChange([])}
           >
             {t("btnClearAll")}
@@ -112,7 +112,7 @@ function SiteList({ sites, onChange }: ExclusionHandlerProps) {
           <div key={site} className="flex justify-between">
             <div className="select-all">{site}</div>
             <button
-              className="flex items-center text-slate-300 hover:text-slate-100"
+              className="flex cursor-pointer items-center text-slate-300 hover:text-slate-100"
               onClick={() => {
                 onChange(sites.filter((s) => s !== site));
               }}
