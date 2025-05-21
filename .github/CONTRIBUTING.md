@@ -28,7 +28,7 @@ Hi! We're Really excited that you are interested in contributing to Furigana Mak
 ## Development Setup
 
 > [!IMPORTANT]
-> The exact node version used by this project is located in the `.nvmrc` file.
+> The exact node version used by this project is located in the `.node-version` file.
 > If you are using [fnm](https://github.com/Schniz/fnm), you can run `fnm use` to switch to the correct version.
 
 You will need [pnpm](https://pnpm.io):
@@ -41,7 +41,7 @@ After cloning the repo, run:
 
 ```bash
 pnpm install
-cd packages/extension
+cd apps/extension
 ```
 
 Please read [WXT Documentation](https://wxt.dev/get-started/introduction.html) for more information on how to develop and test the extension.

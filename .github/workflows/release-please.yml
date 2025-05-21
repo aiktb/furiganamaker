@@ -13,8 +13,8 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     outputs:
-      tag_name: ${{ steps.release.outputs['packages/extension--tag_name'] }}
-      release_created: ${{ steps.release.outputs['packages/extension--release_created'] }}
+      tag_name: ${{ steps.release.outputs['apps/extension--tag_name'] }}
+      release_created: ${{ steps.release.outputs['apps/extension--release_created'] }}
 
     steps:
       - uses: googleapis/release-please-action@v4
@@ -33,7 +33,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: '.node-version'
           cache: 'pnpm'
           cache-dependency-path: 'pnpm-lock.yaml'
       - run: pnpm install --frozen-lockfile
@@ -45,16 +45,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_NOTES: |
-            Please refer to [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/packages/extension/CHANGELOG.md) for details.
+            Please refer to [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/apps/extension/CHANGELOG.md) for details.
             ## Download
             - [Chrome](https://chromewebstore.google.com/detail/furigana-maker/heodojceeinbkfjfilnfminlkgbacpfp)
         run: |
-         gh release upload ${{ needs.release-please.outputs.tag_name }} ./packages/extension/.output/*.zip
+         gh release upload ${{ needs.release-please.outputs.tag_name }} ./apps/extension/.output/*.zip
          gh release edit ${{ needs.release-please.outputs.tag_name }} --notes "$RELEASE_NOTES"
       - name: Submit to stores
         run: |
           pnpm --filter extension exec wxt submit \
-            --chrome-zip ./packages/extension/.output/*-chrome.zip \
+            --chrome-zip ./apps/extension/.output/*-chrome.zip \
         env:
           CHROME_EXTENSION_ID: ${{ secrets.CHROME_EXTENSION_ID }}
           CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}

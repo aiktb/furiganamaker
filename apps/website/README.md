@@ -8,7 +8,7 @@ Preview in development environment(Assuming you are in the project root):
 
 ```bash
 pnpm install
-cd packages/website
+cd apps/website
 pnpm run dev
 ```
 
