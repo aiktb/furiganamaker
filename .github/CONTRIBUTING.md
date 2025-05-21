@@ -28,7 +28,7 @@ Hi! We're Really excited that you are interested in contributing to Furigana Mak
 ## Development Setup
 
 > [!IMPORTANT]
-> The exact node version used by this project is located in the `.nvmrc` file.
+> The exact node version used by this project is located in the `.node-version` file.
 > If you are using [fnm](https://github.com/Schniz/fnm), you can run `fnm use` to switch to the correct version.
 
 You will need [pnpm](https://pnpm.io):
