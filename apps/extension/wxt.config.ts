@@ -33,6 +33,9 @@ export default defineConfig({
     homepage_url: "https://furiganamaker.app",
     commands,
   },
+  webExt: {
+    disabled: true,
+  },
   modules: ["@wxt-dev/auto-icons"],
   srcDir: "src",
   autoIcons: {
