@@ -61,7 +61,7 @@
   "msgDeleteRule": "The deletion rule is not undoable, sure about this?",
   "markActive": "Active",
   "markInactive": "Inactive",
-  "navEditRules": "Rules editor",
+  "navSelector": "Selector",
   "navChangelog": "Changelog",
   "navSettings": "Settings",
   "navPopup": "Popup",

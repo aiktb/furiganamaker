@@ -11,7 +11,7 @@ export default function RuleEditor() {
   const { t } = useTranslation();
 
   return (
-    <Page title={t("navEditRules")} icon="i-tabler-list-details">
+    <Page title={t("navSelector")} icon="i-tabler-list-details">
       <Suspense>
         <Transition
           as="div"

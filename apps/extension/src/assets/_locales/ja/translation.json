@@ -61,7 +61,7 @@
   "msgDeleteRule": "削除ルールは元に戻せません。よろしいですか？",
   "markActive": "アクティブ",
   "markInactive": "非アクティブ",
-  "navEditRules": "ルールエディタ",
+  "navSelector": "セレクター",
   "navChangelog": "変更履歴",
   "navSettings": "設定",
   "navPopup": "ポップアップ",

@@ -12,7 +12,12 @@ export default function Sidebar() {
 
   const navItems: CustomLink[] = [
     { to: "/", target: "_self", label: t("navSettings"), icon: "i-tabler-settings" },
-    { to: "/rules-editor", target: "_self", label: t("navEditRules"), icon: "i-tabler-list-details" },
+    {
+      to: "/selector",
+      target: "_self",
+      label: t("navSelector"),
+      icon: "i-tabler-list-details",
+    },
     { to: "/changelog", target: "_self", label: t("navChangelog"), icon: "i-tabler-history" },
     {
       to: browser.runtime.getURL("/popup.html"),
