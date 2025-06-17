@@ -16,7 +16,7 @@ export default function Sidebar() {
       to: "/selector",
       target: "_self",
       label: t("navSelector"),
-      icon: "i-tabler-list-details",
+      icon: "i-tabler-click",
     },
     { to: "/changelog", target: "_self", label: t("navChangelog"), icon: "i-tabler-history" },
     {

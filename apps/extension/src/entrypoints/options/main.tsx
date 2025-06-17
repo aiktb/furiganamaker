@@ -9,6 +9,7 @@ import { RouterProvider, createHashRouter } from "react-router";
 import ErrorPage from "./components/ErrorPage";
 import Root from "./root";
 import Changelog from "./routes/Changelog";
+import KanjiFilter from "./routes/KanjiFilter";
 import Selector from "./routes/Selector";
 import Settings from "./routes/Settings";
 
@@ -20,6 +21,7 @@ const router = createHashRouter([
     children: [
       { path: "/", element: <Settings /> },
       { path: "/selector", element: <Selector /> },
+      { path: "/kanji-filter", element: <KanjiFilter /> },
       { path: "/changelog", element: <Changelog /> },
     ],
   },
