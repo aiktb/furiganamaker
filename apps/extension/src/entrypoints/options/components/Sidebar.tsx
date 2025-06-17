@@ -18,6 +18,12 @@ export default function Sidebar() {
       label: t("navSelector"),
       icon: "i-tabler-click",
     },
+    {
+      to: "/kanji-filter",
+      target: "_self",
+      label: t("navKanjiFilter"),
+      icon: "i-tabler-filter",
+    },
     { to: "/changelog", target: "_self", label: t("navChangelog"), icon: "i-tabler-history" },
     {
       to: browser.runtime.getURL("/popup.html"),

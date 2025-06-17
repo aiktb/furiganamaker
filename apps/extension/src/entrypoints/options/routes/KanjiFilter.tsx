@@ -1,17 +1,13 @@
+import { Transition } from "@headlessui/react";
 import { Suspense } from "react";
 import { useTranslation } from "react-i18next";
-
-import { customRules } from "@/commons/utils";
-
-import { Transition } from "@headlessui/react";
 import Page from "../components/Page";
-import RulePage from "../components/RulePage";
 
-export default function RuleEditor() {
+export default function KanjiFilter() {
   const { t } = useTranslation();
 
   return (
-    <Page title={t("navSelector")} icon="i-tabler-click">
+    <Page title={t("navKanjiFilter")} icon="i-tabler-filter">
       <Suspense>
         <Transition
           as="div"
@@ -24,7 +20,7 @@ export default function RuleEditor() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <RulePage rulesPromise={customRules.getValue()} />
+          HELLO
         </Transition>
       </Suspense>
     </Page>

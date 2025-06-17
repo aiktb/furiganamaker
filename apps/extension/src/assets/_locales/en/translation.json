@@ -89,5 +89,6 @@
   "messageEmptyList": " The list is empty, please add it first.",
   "btnResetConfig": "Reset Config",
   "resetWarning": "Are you sure you want to reset the rule list to its initial state?",
-  "undoneDesc": "This action cannot be undone."
+  "undoneDesc": "This action cannot be undone.",
+  "navKanjiFilter": "Kanji Filter"
 }
