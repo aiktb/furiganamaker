@@ -71,10 +71,8 @@ const getKanjiFilterMap = async () => {
   }
   const db = await openDB<KanjiFilterDB>(DATABASE.name, DATABASE.version, {
     /**
-     *
      * @param transaction
-     * Don't use `db.transaction(...)`,
-     * the upgrade callback will run a version change transaction,
+     * Don't use `db.transaction(...)`, the upgrade callback will run a version change transaction,
      * and new transactions can't be created until this transaction ends.
      */
     upgrade(db, _, __, transaction) {
