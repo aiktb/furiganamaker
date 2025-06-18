@@ -97,8 +97,7 @@ export const registerOnGetKanjiMarksMessage = () => {
     const tokens = toKanjiToken(mojiTokens).map((token) => {
       return {
         ...token,
-        isFiltered:
-          filterMap.has(token.original) && filterMap.get(token.original)!.includes(token.reading),
+        isFiltered: filterMap.get(token.original)?.includes(token.reading) ?? false,
       };
     });
 
