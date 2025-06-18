@@ -23,25 +23,30 @@ class Deferred {
   }
 }
 
-const deferred = new Deferred();
-let isLoading = false;
+const deferredTokenizer = new Deferred();
+let tokenizerIsLoading = true;
 
 const getTokenizer = async () => {
-  if (isLoading) {
-    return await deferred.promise;
+  if (!tokenizerIsLoading) {
+    return await deferredTokenizer.promise;
   }
-  isLoading = true;
-  const builder = kuromoji.builder({
-    dicPath: "/dict",
-  });
-  builder.build((err: undefined | Error, tokenizer: Tokenizer) => {
-    if (err) {
-      deferred.reject(err);
-    } else {
-      deferred.resolve(tokenizer);
-    }
-  });
-  return await deferred.promise;
+  try {
+    const builder = kuromoji.builder({
+      dicPath: "/dict",
+    });
+    builder.build((err: undefined | Error, tokenizer: Tokenizer) => {
+      if (err) {
+        deferredTokenizer.reject(err);
+      } else {
+        deferredTokenizer.resolve(tokenizer);
+      }
+    });
+  } catch (error) {
+    deferredTokenizer.reject(error as Error);
+  } finally {
+    tokenizerIsLoading = false;
+  }
+  return await deferredTokenizer.promise;
 };
 
 export interface KanjiMark extends KanjiToken {
