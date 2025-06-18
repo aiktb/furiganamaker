@@ -1,10 +1,11 @@
-import { onMessage } from "@/commons/message";
 import kuromoji from "@sglkc/kuromoji";
+import { type DBSchema, openDB } from "idb";
 
+import type { FilterRule } from "@/commons/constants";
+import { onMessage } from "@/commons/message";
 import { type KanjiToken, type MojiToken, toKanjiToken } from "@/commons/toKanjiToken";
 
-// `filter.json` exceeded chrome.storage.local` maximum limit.
-import filterList from "@/assets/rules/filter.json";
+import defaultKanjiFilterRules from "@/assets/rules/filter.json";
 
 interface Tokenizer {
   tokenize: (text: string) => MojiToken[];
@@ -46,14 +47,43 @@ const getTokenizer = async () => {
 export interface KanjiMark extends KanjiToken {
   isFiltered: boolean;
 }
+const DATABASE = {
+  name: "kanjiFilterDB",
+  version: 1,
+  onlyTable: "kanjiFilterTable",
+} as const;
+interface KanjiFilterDB extends DBSchema {
+  [DATABASE.onlyTable]: {
+    key: string;
+    value: FilterRule;
+  };
+}
 
+const kanjiFilterMap: Promise<Map<string, string[]>> | null = null;
+const getKanjiFilterMap = async () => {
+  if (kanjiFilterMap) {
+    return kanjiFilterMap;
+  }
+  const db = await openDB<KanjiFilterDB>(DATABASE.name, DATABASE.version, {
+    upgrade(db, _, __, transaction) {
+      db.createObjectStore(DATABASE.onlyTable, { keyPath: "kanji" });
+      const store = transaction.objectStore(DATABASE.onlyTable);
+      for (const rule of defaultKanjiFilterRules) {
+        store.put(rule);
+      }
+    },
+  });
+  const filterRules = await db.getAll(DATABASE.onlyTable);
+  const filterMap = new Map<string, string[]>(
+    filterRules.map((filterRule) => [filterRule.kanji, filterRule.reading]),
+  );
+  return filterMap;
+};
 export const registerOnGetKanjiMarksMessage = () => {
   onMessage("getKanjiMarks", async ({ data }) => {
     const tokenizer = await getTokenizer();
     const mojiTokens = tokenizer.tokenize(data.text);
-    const filterMap = new Map<string, string[]>(
-      filterList.map((filterRule) => [filterRule.kanji, filterRule.reading]),
-    );
+    const filterMap = await getKanjiFilterMap();
     const tokens = toKanjiToken(mojiTokens).map((token) => {
       return {
         ...token,

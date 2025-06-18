@@ -113,6 +113,9 @@ importers:
       i18next:
         specifier: ^24.1.2
         version: 24.1.2(typescript@5.7.2)
+      idb:
+        specifier: ^8.0.3
+        version: 8.0.3
       next-themes:
         specifier: ^0.4.4
         version: 0.4.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -2809,6 +2812,9 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  idb@8.0.3:
+    resolution: {integrity: sha512-LtwtVyVYO5BqRvcsKuB2iUMnHwPVByPCXFXOpuU96IZPPoPN6xjOGxZQ74pgSVVLQWtUOYgyeL4GE98BY5D3wg==}
 
   ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
@@ -7124,6 +7130,8 @@ snapshots:
       '@babel/runtime': 7.27.0
     optionalDependencies:
       typescript: 5.7.2
+
+  idb@8.0.3: {}
 
   ieee754@1.2.1: {}
 
