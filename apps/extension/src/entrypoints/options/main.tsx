@@ -20,8 +20,8 @@ const router = createHashRouter([
     errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <Settings /> },
-      { path: "/selector", element: <Selector /> },
       { path: "/kanji-filter", element: <KanjiFilter /> },
+      { path: "/selector", element: <Selector /> },
       { path: "/changelog", element: <Changelog /> },
     ],
   },

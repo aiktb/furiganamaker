@@ -96,7 +96,7 @@ export async function getMoreSettings<K extends keyof MoreSettings>(key: K) {
   return (await moreSettings.getValue())[key];
 }
 
-export const customRules = storage.defineItem<SelectorRule[]>("local:customRules", {
+export const customSelectors = storage.defineItem<SelectorRule[]>("local:customRules", {
   version: 1,
   fallback: defaultSelectorRules,
 });

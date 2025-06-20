@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { z } from "zod";
 
 import type { SelectorRule } from "@/commons/constants";
-import { customRules } from "@/commons/utils";
+import { customSelectors } from "@/commons/utils";
 
 import NotFoundRule from "./NotFoundRule";
 import PopupTransition from "./PopupTransition";
@@ -15,7 +15,7 @@ import RuleItem from "./RuleItem";
 
 import defaultSelectorRules from "@/assets/rules/selector.json";
 
-export default function RulePage({ rulesPromise }: { rulesPromise: Promise<SelectorRule[]> }) {
+export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<SelectorRule[]> }) {
   const [rules, setRules] = useState(use(rulesPromise));
   const [createRuleDialogIsOpen, setCreateRuleDialogIsOpen] = useState(false);
   const [importDialogIsOpen, setImportDialogIsOpen] = useState(false);
@@ -24,7 +24,7 @@ export default function RulePage({ rulesPromise }: { rulesPromise: Promise<Selec
   const [importFailedMessage, setImportFailedMessage] = useState("");
 
   useEffect(() => {
-    customRules.setValue(rules);
+    customSelectors.setValue(rules);
   }, [rules]);
 
   function resetConfig() {
@@ -75,7 +75,7 @@ export default function RulePage({ rulesPromise }: { rulesPromise: Promise<Selec
         const importedRules = JSON.parse(reader.result as string) as SelectorRule[];
         const mergedRules = mergeSameDomainRules(importedRules);
 
-        await customRules.setValue(mergedRules);
+        await customSelectors.setValue(mergedRules);
         setRules(mergedRules);
       };
       reader.readAsText(file);
@@ -113,8 +113,8 @@ export default function RulePage({ rulesPromise }: { rulesPromise: Promise<Selec
 
   return (
     <>
-      <div className="flex grow flex-col items-center justify-start">
-        <div className="my-2 flex max-w-80 flex-wrap items-center justify-center gap-1.5 font-bold text-base text-slate-700 lg:max-w-5xl lg:px-8 dark:text-slate-300">
+      <div className="flex max-w-80 grow flex-col items-center justify-start lg:max-w-5xl lg:px-8">
+        <div className="flex flex-wrap items-center justify-center gap-1.5 font-bold text-base text-slate-700 dark:text-slate-300">
           <button
             className="flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
             onClick={() => {
@@ -161,7 +161,7 @@ export default function RulePage({ rulesPromise }: { rulesPromise: Promise<Selec
             </span>
           </button>
         </div>
-        <div className="flex max-w-3xl items-center justify-between lg:max-w-7xl">
+        <div className="flex items-center justify-between">
           {rules.length === 0 ? (
             <NotFoundRule />
           ) : (

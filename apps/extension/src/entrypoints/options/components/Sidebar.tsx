@@ -13,16 +13,16 @@ export default function Sidebar() {
   const navItems: CustomLink[] = [
     { to: "/", target: "_self", label: t("navSettings"), icon: "i-tabler-settings" },
     {
-      to: "/selector",
-      target: "_self",
-      label: t("navSelector"),
-      icon: "i-tabler-click",
-    },
-    {
       to: "/kanji-filter",
       target: "_self",
       label: t("navKanjiFilter"),
       icon: "i-tabler-filter",
+    },
+    {
+      to: "/selector",
+      target: "_self",
+      label: t("navSelector"),
+      icon: "i-tabler-click",
     },
     { to: "/changelog", target: "_self", label: t("navChangelog"), icon: "i-tabler-history" },
     {
