@@ -1,10 +1,7 @@
 import { onMessage } from "@/commons/message";
-import kuromoji from "@sglkc/kuromoji";
-
 import { type KanjiToken, type MojiToken, toKanjiToken } from "@/commons/toKanjiToken";
-
-// `filter.json` exceeded chrome.storage.local` maximum limit.
-import filterList from "@/assets/rules/filter.json";
+import { DB, getKanjiFilterDB } from "@/commons/utils";
+import kuromoji from "@sglkc/kuromoji";
 
 interface Tokenizer {
   tokenize: (text: string) => MojiToken[];
@@ -22,43 +19,57 @@ class Deferred {
   }
 }
 
-const deferred = new Deferred();
-let isLoading = false;
+const deferredTokenizer = new Deferred();
+let tokenizerIsLoading = true;
 
 const getTokenizer = async () => {
-  if (isLoading) {
-    return await deferred.promise;
+  if (!tokenizerIsLoading) {
+    return await deferredTokenizer.promise;
   }
-  isLoading = true;
-  const builder = kuromoji.builder({
-    dicPath: "/dict",
-  });
-  builder.build((err: undefined | Error, tokenizer: Tokenizer) => {
-    if (err) {
-      deferred.reject(err);
-    } else {
-      deferred.resolve(tokenizer);
-    }
-  });
-  return await deferred.promise;
+  try {
+    const builder = kuromoji.builder({
+      dicPath: "/dict",
+    });
+    builder.build((err: undefined | Error, tokenizer: Tokenizer) => {
+      if (err) {
+        deferredTokenizer.reject(err);
+      } else {
+        deferredTokenizer.resolve(tokenizer);
+      }
+    });
+  } catch (error) {
+    deferredTokenizer.reject(error as Error);
+  } finally {
+    tokenizerIsLoading = false;
+  }
+  return await deferredTokenizer.promise;
 };
 
 export interface KanjiMark extends KanjiToken {
   isFiltered: boolean;
 }
 
+const kanjiFilterMap: Promise<Map<string, string[]>> | null = null;
+const getKanjiFilterMap = async () => {
+  if (kanjiFilterMap) {
+    return kanjiFilterMap;
+  }
+  const db = await getKanjiFilterDB();
+  const filterRules = await db.getAll(DB.onlyTable);
+  const filterMap = new Map<string, string[]>(
+    filterRules.map((filterRule) => [filterRule.kanji, filterRule.reading]),
+  );
+  return filterMap;
+};
 export const registerOnGetKanjiMarksMessage = () => {
   onMessage("getKanjiMarks", async ({ data }) => {
     const tokenizer = await getTokenizer();
     const mojiTokens = tokenizer.tokenize(data.text);
-    const filterMap = new Map<string, string[]>(
-      filterList.map((filterRule) => [filterRule.kanji, filterRule.reading]),
-    );
+    const filterMap = await getKanjiFilterMap();
     const tokens = toKanjiToken(mojiTokens).map((token) => {
       return {
         ...token,
-        isFiltered:
-          filterMap.has(token.original) && filterMap.get(token.original)!.includes(token.reading),
+        isFiltered: filterMap.get(token.original)?.includes(token.reading) ?? false,
       };
     });
 

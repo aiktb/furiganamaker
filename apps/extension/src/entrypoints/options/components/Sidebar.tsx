@@ -11,8 +11,19 @@ export default function Sidebar() {
   const { t } = useTranslation();
 
   const navItems: CustomLink[] = [
-    { to: "/", target: "_self", label: t("navSettings"), icon: "i-tabler-list-details" },
-    { to: "/rules-editor", target: "_self", label: t("navEditRules"), icon: "i-tabler-settings" },
+    { to: "/", target: "_self", label: t("navSettings"), icon: "i-tabler-settings" },
+    {
+      to: "/kanji-filter",
+      target: "_self",
+      label: t("navKanjiFilter"),
+      icon: "i-tabler-filter",
+    },
+    {
+      to: "/selector",
+      target: "_self",
+      label: t("navSelector"),
+      icon: "i-tabler-click",
+    },
     { to: "/changelog", target: "_self", label: t("navChangelog"), icon: "i-tabler-history" },
     {
       to: browser.runtime.getURL("/popup.html"),

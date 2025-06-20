@@ -61,7 +61,7 @@
   "msgDeleteRule": "삭제된 규칙은 복구할 수 없습니다. 계속 하시겠습니까?",
   "markActive": "활성화됨",
   "markInactive": "비활성화됨",
-  "navEditRules": "규칙 편집기",
+  "navSelector": "선택자",
   "navChangelog": "변경 로그",
   "navSettings": "설정",
   "navPopup": "팝업",

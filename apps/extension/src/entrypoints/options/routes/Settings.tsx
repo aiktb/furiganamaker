@@ -70,7 +70,7 @@ function MoreSettingsMenu({ settingsPromise }: { settingsPromise: Promise<MoreSe
     setSettings({ ...settings, [ExtStorage.ExcludeSites]: unrepeatedSites });
   }
   return (
-    <menu className="flex flex-col items-center justify-between space-y-10 text-pretty xl:w-[800px]">
+    <menu className="flex flex-col items-center justify-between space-y-10 text-pretty lg:max-w-5xl lg:px-8">
       <li className="flex w-full items-center justify-between gap-4">
         <div>
           <div className="font-bold text-lg text-slate-800 dark:text-slate-200">

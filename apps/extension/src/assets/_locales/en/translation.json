@@ -61,7 +61,7 @@
   "msgDeleteRule": "The deletion rule is not undoable, sure about this?",
   "markActive": "Active",
   "markInactive": "Inactive",
-  "navEditRules": "Rules editor",
+  "navSelector": "Selector",
   "navChangelog": "Changelog",
   "navSettings": "Settings",
   "navPopup": "Popup",
@@ -89,5 +89,6 @@
   "messageEmptyList": " The list is empty, please add it first.",
   "btnResetConfig": "Reset Config",
   "resetWarning": "Are you sure you want to reset the rule list to its initial state?",
-  "undoneDesc": "This action cannot be undone."
+  "undoneDesc": "This action cannot be undone.",
+  "navKanjiFilter": "Kanji Filter"
 }
