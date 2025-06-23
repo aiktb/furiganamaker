@@ -41,6 +41,7 @@
     "@tailwindcss/forms": "catalog:",
     "@tailwindcss/typography": "catalog:",
     "@tailwindcss/vite": "catalog:",
+    "@total-typescript/ts-reset": "catalog:",
     "@types/file-saver": "^2.0.7",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",

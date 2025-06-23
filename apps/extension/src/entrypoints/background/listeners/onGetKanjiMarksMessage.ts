@@ -1,3 +1,4 @@
+import { ExtEvent } from "@/commons/constants";
 import { onMessage } from "@/commons/message";
 import { type KanjiToken, type MojiToken, toKanjiToken } from "@/commons/toKanjiToken";
 import { DB, getKanjiFilterDB } from "@/commons/utils";
@@ -49,7 +50,7 @@ export interface KanjiMark extends KanjiToken {
   isFiltered: boolean;
 }
 
-const kanjiFilterMap: Promise<Map<string, string[]>> | null = null;
+let kanjiFilterMap: Map<string, string[]> | null = null;
 const getKanjiFilterMap = async () => {
   if (kanjiFilterMap) {
     return kanjiFilterMap;
@@ -59,9 +60,16 @@ const getKanjiFilterMap = async () => {
   const filterMap = new Map<string, string[]>(
     filterRules.map((filterRule) => [filterRule.kanji, filterRule.reading]),
   );
+  kanjiFilterMap = filterMap;
   return filterMap;
 };
+
 export const registerOnGetKanjiMarksMessage = () => {
+  browser.runtime.onMessage.addListener((event) => {
+    if (event === ExtEvent.ModifyKanjiFilter) {
+      kanjiFilterMap = null;
+    }
+  });
   onMessage("getKanjiMarks", async ({ data }) => {
     const tokenizer = await getTokenizer();
     const mojiTokens = tokenizer.tokenize(data.text);

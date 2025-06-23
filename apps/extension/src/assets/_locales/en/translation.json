@@ -58,7 +58,7 @@
   "update": "Update",
   "btnEdit": "Edit",
   "btnDelete": "Delete",
-  "msgDeleteRule": "The deletion rule is not undoable, sure about this?",
+  "msgDeleteRule": "This deletion cannot be undone, are you sure?",
   "markActive": "Active",
   "markInactive": "Inactive",
   "navSelector": "Selector",
@@ -90,5 +90,6 @@
   "btnResetConfig": "Reset Config",
   "resetWarning": "Are you sure you want to reset the rule list to its initial state?",
   "undoneDesc": "This action cannot be undone.",
-  "navKanjiFilter": "Kanji Filter"
+  "navKanjiFilter": "Kanji Filter",
+  "msgDeleteKanjiFilterDesc": "You are deleting the kanji filter corresponding to \"{{kanji}}\"."
 }

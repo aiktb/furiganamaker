@@ -11,6 +11,7 @@ export const ExtEvent = {
   AdjustFontColor: "adjustFontColor",
   MarkActiveTab: "markActiveTab",
   MarkDisabledTab: "markDisabledTab",
+  ModifyKanjiFilter: "modifyKanjiFilter",
 } as const;
 export type ExtEvent = (typeof ExtEvent)[keyof typeof ExtEvent];
 

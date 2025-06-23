@@ -39,6 +39,9 @@ catalogs:
     '@tailwindcss/vite':
       specifier: ^4.1.7
       version: 4.1.7
+    '@total-typescript/ts-reset':
+      specifier: ^0.4.2
+      version: 0.4.2
     '@types/react':
       specifier: ^19.0.1
       version: 19.0.1
@@ -168,6 +171,9 @@ importers:
       '@tailwindcss/vite':
         specifier: 'catalog:'
         version: 4.1.7(vite@6.3.5(@types/node@22.10.2)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.6.1))
+      '@total-typescript/ts-reset':
+        specifier: 'catalog:'
+        version: 0.4.2
       '@types/file-saver':
         specifier: ^2.0.7
         version: 2.0.7
@@ -1788,6 +1794,9 @@ packages:
 
   '@tanstack/virtual-core@3.13.8':
     resolution: {integrity: sha512-BT6w89Hqy7YKaWewYzmecXQzcJh6HTBbKYJIIkMaNU49DZ06LoTV3z32DWWEdUsgW6n1xTmwTLs4GtWrZC261w==}
+
+  '@total-typescript/ts-reset@0.4.2':
+    resolution: {integrity: sha512-vqd7ZUDSrXFVT1n8b2kc3LnklncDQFPvR58yUS1kEP23/nHPAO9l1lMjUfnPrXYYk4Hj54rrLKMW5ipwk7k09A==}
 
   '@types/conventional-commits-parser@5.0.1':
     resolution: {integrity: sha512-7uz5EHdzz2TqoMfV7ee61Egf5y6NkcO4FB/1iCCQnbeiI1F3xzv3vK5dBCXUCLQgGYS+mUeigK1iKQzvED+QnQ==}
@@ -6044,6 +6053,8 @@ snapshots:
       react-dom: 19.0.0(react@19.0.0)
 
   '@tanstack/virtual-core@3.13.8': {}
+
+  '@total-typescript/ts-reset@0.4.2': {}
 
   '@types/conventional-commits-parser@5.0.1':
     dependencies:
