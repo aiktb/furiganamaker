@@ -10,8 +10,8 @@ import { customSelectors } from "@/commons/utils";
 
 import NotFoundRule from "./NotFoundRule";
 import PopupTransition from "./PopupTransition";
-import RuleEditor from "./RuleEditor";
-import RuleItem from "./RuleItem";
+import SelectorRuleEditor from "./SelectorRuleEditor";
+import SelectorRuleItem from "./SelectorRuleItem";
 
 import defaultSelectorRules from "@/assets/rules/selector.json";
 
@@ -180,7 +180,7 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <RuleItem
+                    <SelectorRuleItem
                       index={index}
                       rule={rule}
                       onChange={(rule) => {
@@ -213,7 +213,7 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
           }}
         >
           <DialogPanel className="w-full min-w-[28rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
-            <RuleEditor mode="create" onChange={createNewRule} />
+            <SelectorRuleEditor mode="create" onChange={createNewRule} />
           </DialogPanel>
         </Dialog>
       </PopupTransition>

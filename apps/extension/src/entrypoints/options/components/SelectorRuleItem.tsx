@@ -5,16 +5,21 @@ import { useTranslation } from "react-i18next";
 import type { SelectorRule } from "@/commons/constants";
 
 import PopupTransition from "./PopupTransition";
-import RuleEditor from "./RuleEditor";
+import RuleEditor from "./SelectorRuleEditor";
 
-interface RuleItemProps {
+interface SelectorRuleItemProps {
   rule: SelectorRule;
   index: number;
   onChange: (rule: SelectorRule) => void;
   onDelete: (rule: SelectorRule) => void;
 }
 
-export default function RuleItem({ rule, onChange, onDelete, index }: RuleItemProps) {
+export default function SelectorRuleItem({
+  rule,
+  onChange,
+  onDelete,
+  index,
+}: SelectorRuleItemProps) {
   const [editorDialogIsOpen, setEditorIsOpen] = useState(false);
   const [deleteDialogIsOpen, setDeleteDialogIsOpen] = useState(false);
 
