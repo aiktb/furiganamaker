@@ -96,7 +96,7 @@ export interface SelectorRule {
 
 export interface FilterRule {
   kanji: string;
-  reading: string[];
+  katakanas: string[];
 }
 
 export type StorageChangeEvent =
