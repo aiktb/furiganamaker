@@ -32,7 +32,7 @@ export default function SelectorRuleEditor({ rule, mode, onChange }: RuleEditorP
 
   return (
     <div className="mx-auto w-full max-w-md rounded-2xl p-2">
-      <Disclosure>
+      <Disclosure as="div">
         {({ open }) => (
           <>
             <DisclosureButton className="flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-medium text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
