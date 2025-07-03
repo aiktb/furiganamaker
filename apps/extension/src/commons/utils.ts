@@ -1,6 +1,10 @@
+import { type ClassValue, clsx } from "clsx";
+import { type DBSchema, openDB } from "idb";
+import { twMerge } from "tailwind-merge";
+
 import defaultKanjiFilterRules from "@/assets/rules/filter.json";
 import defaultSelectorRules from "@/assets/rules/selector.json";
-import { type DBSchema, openDB } from "idb";
+
 import {
   DisplayMode,
   ExtEvent,
@@ -130,3 +134,7 @@ export const getKanjiFilterDB = async () => {
   });
   return db;
 };
+
+export function cn(...args: ClassValue[]) {
+  return twMerge(clsx(args));
+}
