@@ -113,7 +113,7 @@ export default function KanjiFilterDialogEditor({
                 <Input
                   value={kanjiInput}
                   onChange={(e) => setKanjiInput(e.target.value.trim())}
-                  placeholder="カタカナ"
+                  placeholder="漢字"
                   autoFocus={true}
                   className={
                     "mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-sky-600 focus:ring-inset disabled:cursor-not-allowed sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white dark:ring-gray-700 dark:focus:ring-sky-600"
