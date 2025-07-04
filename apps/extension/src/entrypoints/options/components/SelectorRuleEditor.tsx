@@ -91,7 +91,7 @@ export default function SelectorRuleEditor({ rule, mode, onChange }: RuleEditorP
         )}
       </Disclosure>
 
-      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="flex min-h-full flex-col justify-center p-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="text-center font-bold text-2xl text-gray-900 leading-9 tracking-tight dark:text-white">
             {t("titleEditorDialog", {

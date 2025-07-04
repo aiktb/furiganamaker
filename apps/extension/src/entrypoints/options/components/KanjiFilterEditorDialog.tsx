@@ -12,7 +12,7 @@ import {
   Label,
 } from "@headlessui/react";
 import { useRef, useState } from "react";
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import PopupTransition from "./PopupTransition";
 
 interface KanjiFilterEditorDialogProps {
@@ -43,7 +43,7 @@ export default function KanjiFilterDialogEditor({
             {({ open }) => (
               <>
                 <DisclosureButton className="flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-medium text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
-                  <h1>How to use?</h1>
+                  <h1>How to use kanji filter?</h1>
                   <i
                     className={`${
                       open ? "rotate-180 transform" : ""
@@ -54,42 +54,16 @@ export default function KanjiFilterDialogEditor({
                   <section>
                     <ul className="list-disc marker:text-black dark:marker:text-white">
                       <li className="my-2">
-                        <Trans
-                          i18nKey="msgCssSelector"
-                          components={{
-                            code: (
-                              <code className="font-bold font-mono text-slate-900 text-sm before:content-['`'] after:content-['`'] dark:text-slate-200">
-                                {t("fieldSelector")}
-                              </code>
-                            ),
-                            link: (
-                              <a
-                                className="cursor-pointer border-sky-500 border-b font-bold text-slate-900 hover:border-b-2 dark:text-slate-200"
-                                href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors"
-                              >
-                                {t("cssSelector")}
-                              </a>
-                            ),
-                          }}
-                        />
+                        Please use the web search tool in your browser to search for a specific
+                        Kanji or Yomikata and click the button to start editing. Editing the Kanji
+                        field is prohibited in edit mode. In addition, Yomikata must be in Katakana
+                        format. Romaji or Hiragana aren't accepted.
                       </li>
-                      <li className="my-2">{t("msgDoNotModify")}</li>
                       <li className="my-2">
-                        <Trans
-                          i18nKey="msgSelectorMerge"
-                          components={{
-                            codeSelector: (
-                              <code className="font-bold font-mono text-slate-900 text-sm before:content-['`'] after:content-['`'] dark:text-slate-200">
-                                {t("fieldSelector")}
-                              </code>
-                            ),
-                            codeDomain: (
-                              <code className="font-bold font-mono text-slate-900 text-sm before:content-['`'] after:content-['`'] dark:text-slate-200">
-                                {t("fieldDomain")}
-                              </code>
-                            ),
-                          }}
-                        />
+                        It is recommended to first use the word segmentation tool at the top of this
+                        page to enter the complete Japanese sentence to obtain the corresponding
+                        Kanji and Yomikata, and fill them in the table below respectively.
+                        Otherwise, the Kanji filter can't be guaranteed to work properly.
                       </li>
                     </ul>
                   </section>
@@ -98,7 +72,7 @@ export default function KanjiFilterDialogEditor({
             )}
           </Disclosure>
 
-          <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+          <div className="flex min-h-full flex-col justify-center p-6 lg:px-8">
             <DialogTitle
               as="h3"
               className="text-center font-bold text-2xl text-gray-900 leading-9 tracking-tight dark:text-white"
@@ -122,7 +96,7 @@ export default function KanjiFilterDialogEditor({
               </Field>
               <Field>
                 <Label className="font-medium text-slate-950 text-sm/6 dark:text-white">
-                  Reading
+                  Yomikata
                 </Label>
                 <KatakanaTagsAdder
                   className="mt-2"
