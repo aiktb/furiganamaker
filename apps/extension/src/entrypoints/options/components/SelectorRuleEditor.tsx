@@ -151,7 +151,7 @@ export default function SelectorRuleEditor({ rule, mode, onChange }: RuleEditorP
                 disabled={!(domain && selector)}
                 onClick={submit}
               >
-                Submit
+                {t("submit")}
               </button>
             </div>
           </form>
