@@ -4,7 +4,9 @@ import { Dialog, DialogPanel, DialogTitle, Transition } from "@headlessui/react"
 import { Suspense, use, useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import KanjiFilterDashboard from "../components/KanjiFilterDashboard";
 import KanjiFilterEditorDialog from "../components/KanjiFilterEditorDialog";
+import NotFoundRule from "../components/NotFoundRule";
 import Page from "../components/Page";
 import PopupTransition from "../components/PopupTransition";
 
@@ -65,40 +67,52 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
   };
   return (
     <>
-      <div className="flex w-full justify-center lg:max-w-5xl lg:px-8">
-        <div className="grid grid-cols-2 flex-wrap gap-3 sm:grid-cols-3 2xl:grid-cols-4">
-          {rules.map(({ kanji, katakanas }) => (
-            <div className="relative" key={kanji}>
-              <button
-                onClick={() => {
-                  setRuleToEditOrCreate({ kanji, katakanas });
-                  setEditOrCreateDialogIsOpen(true);
-                }}
-                className="group grid w-40 cursor-pointer grid-cols-5 grid-rows-2 rounded-md bg-slate-950/5 px-4 py-2 sm:w-50 lg:w-55 dark:bg-white/5"
-              >
-                <div className="col-span-4 row-start-1 max-w-full justify-self-start overflow-hidden text-ellipsis whitespace-nowrap text-lg text-slate-800 dark:text-white">
-                  {kanji}
-                </div>
-                <div className="col-span-5 row-start-2 max-w-full justify-self-start overflow-hidden text-ellipsis whitespace-nowrap">
-                  {katakanas.join(", ")}
-                </div>
-                <i className="i-tabler-edit col-start-5 row-start-1 size-5 scale-0 self-center justify-self-center text-slate-800 opacity-0 transition-all group-hover:scale-100 group-hover:opacity-100 dark:text-white" />
-              </button>
-              <button
-                onClick={() => {
-                  setKanjiToDelete(kanji);
-                  setDeleteDialogIsOpen(true);
-                }}
-                className="-translate-y-1/2 absolute top-0 right-0 translate-x-1/2 cursor-pointer rounded-full bg-white transition hover:text-slate-800 dark:bg-slate-900 dark:hover:text-white"
-              >
-                <div className="grid size-5 place-content-center rounded-full bg-slate-950/5 dark:bg-white/5">
-                  <i className="i-tabler-x size-4" />
-                  <span className="sr-only">{t("btnDelete")}</span>
-                </div>
-              </button>
-            </div>
-          ))}
-        </div>
+      <div className="flex w-full flex-col items-center justify-center lg:max-w-5xl lg:px-8">
+        <KanjiFilterDashboard
+          className="mb-5"
+          disableExport={rules.length === 0}
+          onChange={(rules) => {
+            setRules(rules);
+            browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
+          }}
+        />
+        {rules.length > 0 ? (
+          <div className="grid grid-cols-2 flex-wrap gap-3 sm:grid-cols-3 2xl:grid-cols-4">
+            {rules.map(({ kanji, katakanas }) => (
+              <div className="relative" key={kanji}>
+                <button
+                  onClick={() => {
+                    setRuleToEditOrCreate({ kanji, katakanas });
+                    setEditOrCreateDialogIsOpen(true);
+                  }}
+                  className="group grid w-40 cursor-pointer grid-cols-5 grid-rows-2 rounded-md bg-slate-950/5 px-4 py-2 sm:w-50 lg:w-55 dark:bg-white/5"
+                >
+                  <div className="col-span-4 row-start-1 max-w-full justify-self-start overflow-hidden text-ellipsis whitespace-nowrap text-lg text-slate-800 dark:text-white">
+                    {kanji}
+                  </div>
+                  <div className="col-span-5 row-start-2 max-w-full justify-self-start overflow-hidden text-ellipsis whitespace-nowrap">
+                    {katakanas.join(", ")}
+                  </div>
+                  <i className="i-tabler-edit col-start-5 row-start-1 size-5 scale-0 self-center justify-self-center text-slate-800 opacity-0 transition-all group-hover:scale-100 group-hover:opacity-100 dark:text-white" />
+                </button>
+                <button
+                  onClick={() => {
+                    setKanjiToDelete(kanji);
+                    setDeleteDialogIsOpen(true);
+                  }}
+                  className="-translate-y-1/2 absolute top-0 right-0 translate-x-1/2 cursor-pointer rounded-full bg-white transition hover:text-slate-800 dark:bg-slate-900 dark:hover:text-white"
+                >
+                  <div className="grid size-5 place-content-center rounded-full bg-slate-950/5 dark:bg-white/5">
+                    <i className="i-tabler-x size-4" />
+                    <span className="sr-only">{t("btnDelete")}</span>
+                  </div>
+                </button>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <NotFoundRule />
+        )}
       </div>
       {editOrCreateDialogIsOpen && (
         <KanjiFilterEditorDialog
