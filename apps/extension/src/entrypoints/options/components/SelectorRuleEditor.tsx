@@ -105,7 +105,7 @@ export default function SelectorRuleEditor({ rule, mode, onChange }: RuleEditorP
             <div>
               <label
                 htmlFor="domain"
-                className="block font-medium text-gray-900 text-sm capitalize leading-6 dark:text-slate-200"
+                className="block font-medium text-gray-900 text-sm capitalize leading-6 after:ml-0.5 after:text-red-500 after:content-['*'] dark:text-slate-200"
               >
                 {t("fieldDomain")}
               </label>
@@ -127,7 +127,7 @@ export default function SelectorRuleEditor({ rule, mode, onChange }: RuleEditorP
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="selector"
-                  className="block font-medium text-gray-900 text-sm capitalize leading-6 dark:text-slate-200"
+                  className="block font-medium text-gray-900 text-sm capitalize leading-6 after:ml-0.5 after:text-red-500 after:content-['*'] dark:text-slate-200"
                 >
                   {t("fieldSelector")}
                 </label>

@@ -81,7 +81,7 @@ export default function KanjiFilterDialogEditor({
             </DialogTitle>
             <div className="mt-10 space-y-6 sm:mx-auto sm:w-full sm:max-w-sm">
               <Field>
-                <Label className="font-medium text-slate-950 text-sm/6 dark:text-white">
+                <Label className="font-medium text-slate-950 text-sm/6 after:ml-0.5 after:text-red-500 after:content-['*'] dark:text-white">
                   Kanji
                 </Label>
                 <Input
@@ -95,7 +95,7 @@ export default function KanjiFilterDialogEditor({
                 />
               </Field>
               <Field>
-                <Label className="font-medium text-slate-950 text-sm/6 dark:text-white">
+                <Label className="font-medium text-slate-950 text-sm/6 after:ml-0.5 after:text-red-500 after:content-['*'] dark:text-white">
                   Yomikata
                 </Label>
                 <KatakanaTagsAdder
