@@ -12,11 +12,13 @@ import PopupTransition from "./PopupTransition";
 interface KanjiFilterDashboardProps {
   className?: string;
   disableExport: boolean;
+  onNewButtonClick: () => void;
   onChange: (rules: FilterRule[]) => void;
 }
 export default function KanjiFilterDashboard({
   className,
   disableExport,
+  onNewButtonClick,
   onChange,
 }: KanjiFilterDashboardProps) {
   const { t } = useTranslation();
@@ -49,7 +51,10 @@ export default function KanjiFilterDashboard({
       )}
     >
       <div className="flex flex-wrap items-center justify-center gap-1.5 font-bold text-base text-slate-700 dark:text-slate-300">
-        <button className="flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white">
+        <button
+          onClick={onNewButtonClick}
+          className="flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
+        >
           <i className="i-tabler-code-plus size-5" />
           <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
             {t("btnAddRule")}

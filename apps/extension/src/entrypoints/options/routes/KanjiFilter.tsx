@@ -75,6 +75,10 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
             setRules(rules);
             browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
           }}
+          onNewButtonClick={() => {
+            setRuleToEditOrCreate(undefined);
+            setEditOrCreateDialogIsOpen(true);
+          }}
         />
         {rules.length > 0 ? (
           <div className="grid grid-cols-2 flex-wrap gap-3 sm:grid-cols-3 2xl:grid-cols-4">
