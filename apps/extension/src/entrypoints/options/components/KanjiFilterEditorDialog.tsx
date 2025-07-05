@@ -204,7 +204,10 @@ const KatakanaTagsAdder = ({ katakanas, className, onChange }: KatakanaTagsAdder
         }}
         onBlur={handleInputConfirm}
         type="text"
-        className="min-w-8 flex-1 border-0 p-0 text-gray-900 ring-0 sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white"
+        className={cn(
+          "min-w-8 flex-1 border-0 px-2 py-0 text-gray-900 ring-0 sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white",
+          katakanas.length > 0 && "p-0",
+        )}
       />
     </div>
   );
