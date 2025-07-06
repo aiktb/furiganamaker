@@ -114,7 +114,7 @@ export default function KanjiFilterDialogEditor({
               as="h3"
               className="text-center font-bold text-2xl text-gray-900 leading-9 tracking-tight dark:text-white"
             >
-              Edit your kanji filter
+              {rule.kanji ? "Update" : "Create"} your kanji filter
             </DialogTitle>
             <div className="mt-10 space-y-6 sm:mx-auto sm:w-full sm:max-w-sm">
               <Field className="relative">
