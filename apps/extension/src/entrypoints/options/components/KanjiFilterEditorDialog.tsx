@@ -59,12 +59,6 @@ export default function KanjiFilterDialogEditor({
                         field is prohibited in edit mode. In addition, Yomikata must be in Katakana
                         format. Romaji or Hiragana aren't accepted.
                       </li>
-                      <li className="my-2">
-                        It is recommended to first use the word segmentation tool at the top of this
-                        page to enter the complete Japanese sentence to obtain the corresponding
-                        Kanji and Yomikata, and fill them in the form below respectively. Otherwise,
-                        the Kanji filter can't be guaranteed to work properly.
-                      </li>
                     </ul>
                   </section>
                 </DisclosurePanel>
