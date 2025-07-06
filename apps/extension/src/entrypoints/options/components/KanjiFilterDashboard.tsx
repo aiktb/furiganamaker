@@ -4,6 +4,7 @@ import { DB, cn, getKanjiFilterDB } from "@/commons/utils";
 import defaultKanjiFilterRules from "@/assets/rules/filter.json";
 
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import { saveAs } from "file-saver";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -11,13 +12,13 @@ import PopupTransition from "./PopupTransition";
 
 interface KanjiFilterDashboardProps {
   className?: string;
-  disableExport: boolean;
+  disableExportAndClear: boolean;
   onNewButtonClick: () => void;
   onChange: (rules: FilterRule[]) => void;
 }
 export default function KanjiFilterDashboard({
   className,
-  disableExport,
+  disableExportAndClear,
   onNewButtonClick,
   onChange,
 }: KanjiFilterDashboardProps) {
@@ -43,6 +44,12 @@ export default function KanjiFilterDashboard({
     onChange([]);
   };
 
+  const exportConfig = async () => {
+    const db = await getKanjiFilterDB();
+    const rules = await db.getAll(DB.onlyTable);
+    const blob = new Blob([JSON.stringify(rules, null, 2)], { type: "application/json" });
+    saveAs(blob, "furigana-maker-kanji-filter.json");
+  };
   return (
     <div
       className={cn(
@@ -64,7 +71,11 @@ export default function KanjiFilterDashboard({
           onClick={() => {
             setClearRuleDialogIsOpen(true);
           }}
-          className="flex max-w-40 grow cursor-pointer items-center justify-center gap-1 rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
+          className={cn(
+            "flex max-w-40 grow cursor-pointer items-center justify-center gap-1 rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition enabled:hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white",
+            disableExportAndClear && "cursor-not-allowed opacity-50",
+          )}
+          disabled={disableExportAndClear}
         >
           <i className="i-tabler-clear-all size-5" />
           <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
@@ -163,9 +174,11 @@ export default function KanjiFilterDashboard({
 
         <button
           className={cn(
-            "flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white",
-            disableExport && "cursor-not-allowed",
+            "flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition enabled:hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white",
+            disableExportAndClear && "cursor-not-allowed opacity-50",
           )}
+          disabled={disableExportAndClear}
+          onClick={exportConfig}
         >
           <i className="i-tabler-file-export size-5" />
           <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">

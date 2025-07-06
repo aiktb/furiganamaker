@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { z } from "zod";
 
 import type { SelectorRule } from "@/commons/constants";
-import { customSelectors } from "@/commons/utils";
+import { cn, customSelectors } from "@/commons/utils";
 
 import NotFoundRule from "./NotFoundRule";
 import PopupTransition from "./PopupTransition";
@@ -48,7 +48,7 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
 
   function exportConfig() {
     const blob = new Blob([JSON.stringify(rules, null, 2)], { type: "application/json" });
-    saveAs(blob, "FuriganaMakerConfig.json");
+    saveAs(blob, "furigana-maker-selectors.json");
   }
 
   async function importConfig() {
@@ -109,6 +109,13 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
     }
   }
 
+  const [clearRuleDialogIsOpen, setClearRuleDialogIsOpen] = useState(false);
+  async function clearConfig() {
+    await customSelectors.setValue([]);
+    setRules([]);
+    setClearRuleDialogIsOpen(false);
+  }
+
   const { t } = useTranslation();
 
   return (
@@ -127,6 +134,60 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
             </span>
           </button>
           <button
+            onClick={() => {
+              setClearRuleDialogIsOpen(true);
+            }}
+            className={cn(
+              "flex max-w-40 grow cursor-pointer items-center justify-center gap-1 rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition enabled:hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white",
+              rules.length === 0 && "cursor-not-allowed opacity-50",
+            )}
+            disabled={rules.length === 0}
+          >
+            <i className="i-tabler-clear-all size-5" />
+            <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
+              Clear Config
+            </span>
+          </button>
+          <PopupTransition show={clearRuleDialogIsOpen}>
+            <Dialog
+              as="div"
+              className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 min-w-80"
+              onClose={() => {
+                setClearRuleDialogIsOpen(false);
+              }}
+            >
+              <DialogPanel className="w-full min-w-[20rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
+                <DialogTitle
+                  as="h3"
+                  className="font-medium text-gray-900 text-lg leading-6 dark:text-white"
+                >
+                  Are you sure you want to clear the rule list?
+                </DialogTitle>
+                <div className="mt-2">
+                  <p className="whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
+                    {t("undoneDesc")}
+                  </p>
+                </div>
+                <div className="mt-4 flex gap-2.5">
+                  <button
+                    className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-slate-900 text-sm transition hover:bg-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
+                    onClick={clearConfig}
+                  >
+                    Clear
+                  </button>
+                  <button
+                    className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                    onClick={() => {
+                      setClearRuleDialogIsOpen(false);
+                    }}
+                  >
+                    {t("btnCancel")}
+                  </button>
+                </div>
+              </DialogPanel>
+            </Dialog>
+          </PopupTransition>
+          <button
             className="flex max-w-40 grow cursor-pointer items-center justify-center gap-1 rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
             onClick={() => {
               setResetRuleDialogIsOpen(true);
@@ -138,9 +199,10 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
             </span>
           </button>
           <button
-            className={`${
-              rules.length === 0 ? "cursor-not-allowed" : "cursor-pointer"
-            } flex max-w-40 grow items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white`}
+            className={cn(
+              "flex max-w-40 grow items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition enabled:hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white",
+              rules.length === 0 && "cursor-not-allowed opacity-50",
+            )}
             onClick={exportConfig}
             disabled={rules.length === 0}
           >

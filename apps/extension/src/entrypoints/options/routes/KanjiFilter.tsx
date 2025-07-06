@@ -70,7 +70,7 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
       <div className="flex w-full flex-col items-center justify-center lg:max-w-5xl lg:px-8">
         <KanjiFilterDashboard
           className="mb-5"
-          disableExport={rules.length === 0}
+          disableExportAndClear={rules.length === 0}
           onChange={(rules) => {
             setRules(rules);
             browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
