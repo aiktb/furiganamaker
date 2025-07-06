@@ -139,7 +139,6 @@ const KatakanaTagsAdder = ({ katakanas, className, onChange }: KatakanaTagsAdder
       onChange([...katakanas, trimmedValue]);
     }
     setInputValue("");
-    setInputting(false);
   };
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -202,7 +201,10 @@ const KatakanaTagsAdder = ({ katakanas, className, onChange }: KatakanaTagsAdder
             handleInputConfirm();
           }
         }}
-        onBlur={handleInputConfirm}
+        onBlur={() => {
+          handleInputConfirm();
+          setInputting(false);
+        }}
         type="text"
         className={cn(
           "min-w-8 flex-1 border-0 px-2 py-0 text-gray-900 ring-0 sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white",
