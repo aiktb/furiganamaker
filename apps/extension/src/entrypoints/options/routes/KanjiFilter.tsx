@@ -82,8 +82,11 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
         />
         {rules.length > 0 ? (
           <div className="grid grid-cols-2 flex-wrap gap-3 sm:grid-cols-3 2xl:grid-cols-4">
-            {rules.map(({ kanji, katakanas }) => (
+            {rules.map(({ kanji, katakanas }, index) => (
               <div className="relative" key={kanji}>
+                <div className="pointer-events-none absolute right-4 bottom-4 font-semibold text-lg italic opacity-30">
+                  #{index + 1}
+                </div>
                 <button
                   onClick={() => {
                     setRuleToEditOrCreate({ kanji, katakanas });
