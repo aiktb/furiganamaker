@@ -147,7 +147,7 @@ export default function SelectorRuleEditor({ rule, mode, onChange }: RuleEditorP
 
             <div>
               <button
-                className="flex w-full cursor-pointer justify-center rounded-md bg-sky-600 px-3 py-1.5 font-semibold text-sm text-white leading-6 shadow-xs hover:bg-sky-500 focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 disabled:cursor-not-allowed"
+                className="flex w-full cursor-pointer justify-center rounded-md bg-sky-600 px-3 py-1.5 font-semibold text-sm text-white leading-6 shadow-xs focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 enabled:hover:bg-sky-500 disabled:cursor-not-allowed disabled:opacity-50"
                 disabled={!(domain && selector)}
                 onClick={submit}
               >

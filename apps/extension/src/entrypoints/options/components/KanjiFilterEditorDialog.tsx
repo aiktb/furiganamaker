@@ -101,7 +101,7 @@ export default function KanjiFilterDialogEditor({
               <div className="mt-4 flex gap-2.5">
                 <button
                   type="button"
-                  className="flex w-full cursor-pointer justify-center rounded-md bg-sky-600 px-3 py-1.5 font-semibold text-sm text-white leading-6 shadow-xs hover:bg-sky-500 focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 disabled:cursor-not-allowed"
+                  className="flex w-full cursor-pointer justify-center rounded-md bg-sky-600 px-3 py-1.5 font-semibold text-sm text-white leading-6 shadow-xs focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 enabled:hover:bg-sky-500 disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={() => {
                     onConfirm({ kanji: kanjiInput, katakanas: katakanasInput });
                   }}
