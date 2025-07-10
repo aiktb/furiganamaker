@@ -41,30 +41,32 @@ export default function KanjiFilterDialogEditor({
     setKanjiInputErrorMessage("");
     setKatakanasInputErrorMessage("");
 
-    let hasError = false;
-
-    if (isKanji(filterRule.kanji)) {
+    let kanjiInputHasError = true;
+    let katakanasInputHasError = true;
+    if (filterRule.kanji.length === 0) {
+      setKanjiInputErrorMessage("Required.");
+    } else if (isKanji(filterRule.kanji)) {
       const db = await getKanjiFilterDB();
       const isDuplicate =
         (await db.get(DB.onlyTable, filterRule.kanji)) && rule.kanji !== filterRule.kanji;
       if (isDuplicate) {
         setKanjiInputErrorMessage("This kanji is already in use.");
-        hasError = true;
       }
     } else if (filterRule.kanji.length > 0) {
       setKanjiInputErrorMessage("Must be pure Japanese kanji.");
-      hasError = true;
+    } else {
+      kanjiInputHasError = false;
     }
 
-    for (const input of rule.katakanas) {
-      if (!isKatakana(input)) {
-        setKatakanasInputErrorMessage("Must be pure katakana.");
-        hasError = true;
-        break;
-      }
+    if (filterRule.katakanas.length === 0) {
+      setKatakanasInputErrorMessage("Required.");
+    } else if (filterRule.katakanas.some((input) => !isKatakana(input))) {
+      setKatakanasInputErrorMessage("Must be pure katakana.");
+    } else {
+      katakanasInputHasError = false;
     }
 
-    return !hasError;
+    return !(katakanasInputHasError || kanjiInputHasError);
   };
 
   const handleSubmit = async () => {
@@ -159,12 +161,7 @@ export default function KanjiFilterDialogEditor({
                   type="button"
                   className="flex w-full cursor-pointer justify-center rounded-md bg-sky-600 px-3 py-1.5 font-semibold text-sm text-white leading-6 shadow-xs focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 enabled:hover:bg-sky-500 disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={handleSubmit}
-                  disabled={
-                    !kanjiInput ||
-                    katakanasInput.length === 0 ||
-                    !!kanjiInputErrorMessage ||
-                    !!katakanasInputErrorMessage
-                  }
+                  disabled={!!kanjiInputErrorMessage || !!katakanasInputErrorMessage}
                 >
                   {t("submit")}
                 </button>
