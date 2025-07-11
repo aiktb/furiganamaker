@@ -43,17 +43,14 @@ export default function KanjiFilterDialogEditor({
 
     let kanjiInputHasError = true;
     let katakanasInputHasError = true;
+
+    const db = await getKanjiFilterDB();
     if (filterRule.kanji.length === 0) {
       setKanjiInputErrorMessage("Required.");
-    } else if (isKanji(filterRule.kanji)) {
-      const db = await getKanjiFilterDB();
-      const isDuplicate =
-        (await db.get(DB.onlyTable, filterRule.kanji)) && rule.kanji !== filterRule.kanji;
-      if (isDuplicate) {
-        setKanjiInputErrorMessage("This kanji is already in use.");
-      }
-    } else if (filterRule.kanji.length > 0) {
+    } else if (!isKanji(filterRule.kanji)) {
       setKanjiInputErrorMessage("Must be pure Japanese kanji.");
+    } else if (rule.kanji !== filterRule.kanji && (await db.get(DB.onlyTable, filterRule.kanji))) {
+      setKanjiInputErrorMessage("This kanji is already in use.");
     } else {
       kanjiInputHasError = false;
     }
