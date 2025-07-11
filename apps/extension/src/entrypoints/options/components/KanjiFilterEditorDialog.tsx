@@ -19,16 +19,20 @@ import PopupTransition from "./PopupTransition";
 
 interface KanjiFilterEditorDialogProps {
   rule?: FilterRule | undefined;
+  mode: "update" | "create";
   open: boolean;
-  onConfirm: (rule: FilterRule) => void;
+  onUpdate: (oldRule: FilterRule, newRule: FilterRule) => void;
+  onCreate: (rule: FilterRule) => void;
   onClose: () => void;
 }
 
-export default function KanjiFilterDialogEditor({
+export default function KanjiFilterEditorDialog({
   rule = { kanji: "", katakanas: [] },
   onClose,
-  onConfirm,
+  onUpdate,
+  onCreate,
   open,
+  mode,
 }: KanjiFilterEditorDialogProps) {
   const { t } = useTranslation();
   const [kanjiInput, setKanjiInput] = useState(rule.kanji);
@@ -69,7 +73,16 @@ export default function KanjiFilterDialogEditor({
   const handleSubmit = async () => {
     const valid = await validateInputs({ kanji: kanjiInput, katakanas: katakanasInput });
     if (valid) {
-      onConfirm({ kanji: kanjiInput, katakanas: katakanasInput });
+      const newRule: FilterRule = {
+        kanji: kanjiInput,
+        katakanas: katakanasInput,
+      };
+      if (mode === "update") {
+        onUpdate(rule, newRule);
+      } else {
+        onCreate(newRule);
+      }
+      onClose();
     }
   };
 
@@ -113,7 +126,7 @@ export default function KanjiFilterDialogEditor({
               as="h3"
               className="text-center font-bold text-2xl text-gray-900 leading-9 tracking-tight dark:text-white"
             >
-              {rule.kanji ? "Update" : "Create"} your kanji filter
+              {mode === "update" ? "Update" : "Create"} your kanji filter
             </DialogTitle>
             <div className="mt-10 space-y-6 sm:mx-auto sm:w-full sm:max-w-sm">
               <Field className="relative">

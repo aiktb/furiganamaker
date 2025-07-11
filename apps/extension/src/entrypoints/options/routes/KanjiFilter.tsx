@@ -53,15 +53,23 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
     browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
   };
 
-  const [editOrCreateDialogIsOpen, setEditOrCreateDialogIsOpen] = useState(false);
-  const [ruleToEditOrCreate, setRuleToEditOrCreate] = useState<FilterRule>();
-  const editOrCreateKanjiFilter = async (rule: FilterRule) => {
+  const [updateOrCreateDialogIsOpen, setUpdateOrCreateDialogIsOpen] = useState(false);
+  const [ruleToUpdateOrCreate, setRuleToUpdateOrCreate] = useState<FilterRule>();
+
+  const handleCreateKanjiFilter = async (rule: FilterRule) => {
     const db = await getKanjiFilterDB();
-    await db.put(DB.onlyTable, rule);
-    const updatedRules = rules.map((r) => (r.kanji === rule.kanji ? rule : r));
-    if (!updatedRules.some((r) => r.kanji === rule.kanji)) {
-      updatedRules.push(rule);
-    }
+    await db.add(DB.onlyTable, rule);
+    setRules([rule, ...rules]);
+    browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
+  };
+
+  const handleUpdateKanjiFilter = async (oldRule: FilterRule, newRule: FilterRule) => {
+    const db = await getKanjiFilterDB();
+    const tx = db.transaction(DB.onlyTable, "readwrite");
+    await tx.store.delete(oldRule.kanji);
+    await tx.store.add(newRule);
+    await tx.done;
+    const updatedRules = rules.map((rule) => (rule.kanji === oldRule.kanji ? newRule : rule));
     setRules(updatedRules);
     browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
   };
@@ -76,8 +84,8 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
             browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
           }}
           onNewButtonClick={() => {
-            setRuleToEditOrCreate(undefined);
-            setEditOrCreateDialogIsOpen(true);
+            setRuleToUpdateOrCreate(undefined);
+            setUpdateOrCreateDialogIsOpen(true);
           }}
         />
         {rules.length > 0 ? (
@@ -89,8 +97,8 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
                 </div>
                 <button
                   onClick={() => {
-                    setRuleToEditOrCreate({ kanji, katakanas });
-                    setEditOrCreateDialogIsOpen(true);
+                    setRuleToUpdateOrCreate({ kanji, katakanas });
+                    setUpdateOrCreateDialogIsOpen(true);
                   }}
                   className="group grid w-40 cursor-pointer grid-cols-5 grid-rows-2 rounded-md bg-slate-950/5 px-4 py-2 sm:w-50 lg:w-55 dark:bg-white/5"
                 >
@@ -121,17 +129,16 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
           <NotFoundRule />
         )}
       </div>
-      {editOrCreateDialogIsOpen && (
+      {updateOrCreateDialogIsOpen && (
         <KanjiFilterEditorDialog
-          open={editOrCreateDialogIsOpen}
-          onConfirm={(newRule) => {
-            editOrCreateKanjiFilter(newRule);
-            setEditOrCreateDialogIsOpen(false);
-          }}
+          mode={ruleToUpdateOrCreate ? "update" : "create"}
+          open={updateOrCreateDialogIsOpen}
+          onCreate={handleCreateKanjiFilter}
+          onUpdate={handleUpdateKanjiFilter}
           onClose={() => {
-            setEditOrCreateDialogIsOpen(false);
+            setUpdateOrCreateDialogIsOpen(false);
           }}
-          rule={ruleToEditOrCreate}
+          rule={ruleToUpdateOrCreate}
         />
       )}
       <PopupTransition show={deleteDialogIsOpen}>
