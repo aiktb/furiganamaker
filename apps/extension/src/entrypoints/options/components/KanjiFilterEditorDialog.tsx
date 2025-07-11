@@ -120,7 +120,7 @@ export default function KanjiFilterDialogEditor({
             </DialogTitle>
             <div className="mt-10 space-y-6 sm:mx-auto sm:w-full sm:max-w-sm">
               <Field className="relative">
-                <Label className="font-medium text-slate-950 text-sm/6 after:ml-0.5 after:text-red-500 after:content-['*'] dark:text-white">
+                <Label className="font-medium text-slate-950 text-sm/6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-white">
                   Kanji
                 </Label>
                 <Input
@@ -138,7 +138,7 @@ export default function KanjiFilterDialogEditor({
                 <p className="-bottom-5 absolute left-0 text-red-500">{kanjiInputErrorMessage}</p>
               </Field>
               <Field className="relative">
-                <Label className="font-medium text-slate-950 text-sm/6 after:ml-0.5 after:text-red-500 after:content-['*'] dark:text-white">
+                <Label className="font-medium text-slate-950 text-sm/6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-white">
                   Yomikata
                 </Label>
                 <KatakanaTagsAdder
