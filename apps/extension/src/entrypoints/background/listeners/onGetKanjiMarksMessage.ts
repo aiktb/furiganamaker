@@ -58,7 +58,7 @@ const getKanjiFilterMap = async () => {
   const db = await getKanjiFilterDB();
   const filterRules = await db.getAll(DB.onlyTable);
   const filterMap = new Map<string, string[]>(
-    filterRules.map((filterRule) => [filterRule.kanji, filterRule.katakanas]),
+    filterRules.map((filterRule) => [filterRule.kanji, filterRule.yomikatas]),
   );
   kanjiFilterMap = filterMap;
   return filterMap;

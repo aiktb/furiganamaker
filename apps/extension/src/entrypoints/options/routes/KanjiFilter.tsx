@@ -90,14 +90,14 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
         />
         {rules.length > 0 ? (
           <div className="grid grid-cols-2 flex-wrap gap-3 sm:grid-cols-3 2xl:grid-cols-4">
-            {rules.map(({ kanji, katakanas }, index) => (
+            {rules.map(({ kanji, yomikatas }, index) => (
               <div className="relative" key={kanji}>
                 <div className="pointer-events-none absolute right-4 bottom-4 font-semibold text-lg italic opacity-30">
                   #{index + 1}
                 </div>
                 <button
                   onClick={() => {
-                    setRuleToUpdateOrCreate({ kanji, katakanas });
+                    setRuleToUpdateOrCreate({ kanji, yomikatas: yomikatas });
                     setUpdateOrCreateDialogIsOpen(true);
                   }}
                   className="group grid w-40 cursor-pointer grid-cols-5 grid-rows-2 rounded-md bg-slate-950/5 px-4 py-2 sm:w-50 lg:w-55 dark:bg-white/5"
@@ -106,7 +106,7 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
                     {kanji}
                   </div>
                   <div className="col-span-5 row-start-2 max-w-full justify-self-start overflow-hidden text-ellipsis whitespace-nowrap">
-                    {katakanas.join(", ")}
+                    {yomikatas.join(", ")}
                   </div>
                   <i className="i-tabler-edit col-start-5 row-start-1 size-5 scale-0 self-center justify-self-center text-slate-800 opacity-0 transition-all group-hover:scale-100 group-hover:opacity-100 dark:text-white" />
                 </button>

@@ -83,11 +83,11 @@ export default function KanjiFilterDashboard({
             const existingRule = await db.get(DB.onlyTable, rule.kanji);
             if (existingRule) {
               const mergedYomikatas = Array.from(
-                new Set([...existingRule.katakanas, ...rule.katakanas]),
+                new Set([...existingRule.yomikatas, ...rule.yomikatas]),
               );
               await db.put(DB.onlyTable, {
                 ...existingRule,
-                katakanas: mergedYomikatas,
+                yomikatas: mergedYomikatas,
               });
             } else {
               await db.put(DB.onlyTable, rule);
@@ -103,7 +103,7 @@ export default function KanjiFilterDashboard({
       try {
         const RuleSchema = z.object({
           kanji: z.string(),
-          katakanas: z.array(z.string()),
+          yomikatas: z.array(z.string()),
         });
         const RulesSchema = z.array(RuleSchema);
         const result = RulesSchema.safeParse(JSON.parse(data));

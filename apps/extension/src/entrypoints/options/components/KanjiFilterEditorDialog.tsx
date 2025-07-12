@@ -27,7 +27,7 @@ interface KanjiFilterEditorDialogProps {
 }
 
 export default function KanjiFilterEditorDialog({
-  rule = { kanji: "", katakanas: [] },
+  rule = { kanji: "", yomikatas: [] },
   onClose,
   onUpdate,
   onCreate,
@@ -36,17 +36,17 @@ export default function KanjiFilterEditorDialog({
 }: KanjiFilterEditorDialogProps) {
   const { t } = useTranslation();
   const [kanjiInput, setKanjiInput] = useState(rule.kanji);
-  const [katakanasInput, setKatakanasInput] = useState(rule.katakanas);
+  const [yomikatasInput, setyomikatasInput] = useState(rule.yomikatas);
 
   const [kanjiInputErrorMessage, setKanjiInputErrorMessage] = useState("");
-  const [katakanasInputErrorMessage, setKatakanasInputErrorMessage] = useState("");
+  const [yomikatasInputErrorMessage, setyomikatasInputErrorMessage] = useState("");
 
   const validateInputs = async (filterRule: FilterRule) => {
     setKanjiInputErrorMessage("");
-    setKatakanasInputErrorMessage("");
+    setyomikatasInputErrorMessage("");
 
     let kanjiInputHasError = true;
-    let katakanasInputHasError = true;
+    let yomikatasInputHasError = true;
 
     const db = await getKanjiFilterDB();
     if (filterRule.kanji.length === 0) {
@@ -59,23 +59,23 @@ export default function KanjiFilterEditorDialog({
       kanjiInputHasError = false;
     }
 
-    if (filterRule.katakanas.length === 0) {
-      setKatakanasInputErrorMessage("Required.");
-    } else if (filterRule.katakanas.some((input) => !isKatakana(input))) {
-      setKatakanasInputErrorMessage("Must be pure katakana.");
+    if (filterRule.yomikatas.length === 0) {
+      setyomikatasInputErrorMessage("Required.");
+    } else if (filterRule.yomikatas.some((input) => !isKatakana(input))) {
+      setyomikatasInputErrorMessage("Must be pure katakana.");
     } else {
-      katakanasInputHasError = false;
+      yomikatasInputHasError = false;
     }
 
-    return !(katakanasInputHasError || kanjiInputHasError);
+    return !(yomikatasInputHasError || kanjiInputHasError);
   };
 
   const handleSubmit = async () => {
-    const valid = await validateInputs({ kanji: kanjiInput, katakanas: katakanasInput });
+    const valid = await validateInputs({ kanji: kanjiInput, yomikatas: yomikatasInput });
     if (valid) {
       const newRule: FilterRule = {
         kanji: kanjiInput,
-        katakanas: katakanasInput,
+        yomikatas: yomikatasInput,
       };
       if (mode === "update") {
         onUpdate(rule, newRule);
@@ -137,7 +137,7 @@ export default function KanjiFilterEditorDialog({
                   value={kanjiInput}
                   onChange={(e) => {
                     setKanjiInput(e.target.value.trim());
-                    validateInputs({ kanji: e.target.value.trim(), katakanas: katakanasInput });
+                    validateInputs({ kanji: e.target.value.trim(), yomikatas: yomikatasInput });
                   }}
                   placeholder="漢字"
                   autoFocus={true}
@@ -153,17 +153,17 @@ export default function KanjiFilterEditorDialog({
                 </Label>
                 <KatakanaTagsAdder
                   className="mt-2"
-                  katakanas={katakanasInput}
-                  onChange={(newKatakanas) => {
-                    setKatakanasInput(newKatakanas);
+                  yomikatas={yomikatasInput}
+                  onChange={(newyomikatas) => {
+                    setyomikatasInput(newyomikatas);
                     validateInputs({
                       kanji: kanjiInput,
-                      katakanas: newKatakanas,
+                      yomikatas: newyomikatas,
                     });
                   }}
                 />
                 <p className="-bottom-5 absolute left-0 text-red-500">
-                  {katakanasInputErrorMessage}
+                  {yomikatasInputErrorMessage}
                 </p>
               </Field>
               <div className="mt-4 flex gap-2.5">
@@ -171,7 +171,7 @@ export default function KanjiFilterEditorDialog({
                   type="button"
                   className="flex w-full cursor-pointer justify-center rounded-md bg-sky-600 px-3 py-1.5 font-semibold text-sm text-white leading-6 shadow-xs focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 enabled:hover:bg-sky-500 disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={handleSubmit}
-                  disabled={!!kanjiInputErrorMessage || !!katakanasInputErrorMessage}
+                  disabled={!!kanjiInputErrorMessage || !!yomikatasInputErrorMessage}
                 >
                   {t("submit")}
                 </button>
@@ -185,18 +185,18 @@ export default function KanjiFilterEditorDialog({
 }
 
 interface KatakanaTagsAdderProps {
-  katakanas: string[];
-  onChange: (katakanas: string[]) => void;
+  yomikatas: string[];
+  onChange: (yomikatas: string[]) => void;
   className?: string;
 }
 
-const KatakanaTagsAdder = ({ katakanas, className, onChange }: KatakanaTagsAdderProps) => {
+const KatakanaTagsAdder = ({ yomikatas, className, onChange }: KatakanaTagsAdderProps) => {
   const [inputValue, setInputValue] = useState("");
   const [inputting, setInputting] = useState(false);
   const handleInputConfirm = () => {
     const trimmedValue = inputValue.trim();
-    if (trimmedValue && !katakanas.includes(trimmedValue)) {
-      onChange([...katakanas, trimmedValue]);
+    if (trimmedValue && !yomikatas.includes(trimmedValue)) {
+      onChange([...yomikatas, trimmedValue]);
     }
     setInputValue("");
   };
@@ -214,7 +214,7 @@ const KatakanaTagsAdder = ({ katakanas, className, onChange }: KatakanaTagsAdder
         setInputting(true);
       }}
     >
-      {katakanas.map((katakana) => {
+      {yomikatas.map((katakana) => {
         return (
           <div
             className="flex items-center justify-center gap-1 rounded-md bg-slate-950/5 px-1.5 dark:bg-white/5"
@@ -223,7 +223,7 @@ const KatakanaTagsAdder = ({ katakanas, className, onChange }: KatakanaTagsAdder
             <span className="text-slate-950 dark:text-white">{katakana}</span>
             <button
               onClick={() => {
-                onChange(katakanas.filter((k) => k !== katakana));
+                onChange(yomikatas.filter((k) => k !== katakana));
               }}
               className="flex cursor-pointer items-center justify-center transition hover:text-slate-950 dark:hover:text-white"
             >
@@ -262,7 +262,7 @@ const KatakanaTagsAdder = ({ katakanas, className, onChange }: KatakanaTagsAdder
           type="text"
           className={cn(
             "min-w-8 flex-1 border-0 px-2 py-0 text-gray-900 ring-0 sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white",
-            katakanas.length > 0 && "p-0",
+            yomikatas.length > 0 && "p-0",
           )}
         />
       ) : (
