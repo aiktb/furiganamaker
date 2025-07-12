@@ -97,7 +97,7 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
                 </div>
                 <button
                   onClick={() => {
-                    setRuleToUpdateOrCreate({ kanji, yomikatas: yomikatas });
+                    setRuleToUpdateOrCreate({ kanji, yomikatas });
                     setUpdateOrCreateDialogIsOpen(true);
                   }}
                   className="group grid w-40 cursor-pointer grid-cols-5 grid-rows-2 rounded-md bg-slate-950/5 px-4 py-2 sm:w-50 lg:w-55 dark:bg-white/5"
