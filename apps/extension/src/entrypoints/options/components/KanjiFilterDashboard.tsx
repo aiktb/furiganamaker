@@ -116,12 +116,7 @@ export default function KanjiFilterDashboard({
     }
   }
   return (
-    <div
-      className={cn(
-        "flex max-w-80 grow flex-col items-center justify-start lg:max-w-5xl lg:px-8",
-        className,
-      )}
-    >
+    <div className={cn("flex grow flex-col items-center justify-start lg:px-8", className)}>
       <div className="flex flex-wrap items-center justify-center gap-1.5 font-bold text-base text-slate-700 dark:text-slate-300">
         <button
           onClick={onNewButtonClick}

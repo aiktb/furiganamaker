@@ -120,7 +120,7 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
 
   return (
     <>
-      <div className="flex max-w-80 grow flex-col items-center justify-start lg:max-w-5xl lg:px-8">
+      <div className="flex grow flex-col items-center justify-start lg:px-8">
         <div className="flex flex-wrap items-center justify-center gap-1.5 font-bold text-base text-slate-700 dark:text-slate-300">
           <button
             className="flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
