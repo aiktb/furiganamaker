@@ -388,7 +388,7 @@ export default function KanjiFilterDashboard({
                 value={quickStartInput}
                 onChange={(e) => setQuickStartInput(e.target.value)}
                 className={cn(
-                  "mt-3 block w-full resize-none rounded-lg border-none bg-white/5 px-3 py-1.5 text-sm/6 text-white ring-0",
+                  "mt-3 block w-full resize-none rounded-lg border-none bg-slate-950/5 px-3 py-1.5 text-slate-950 text-sm/6 ring-0 dark:bg-white/5 dark:text-white",
                   "data-focus:-outline-offset-2 resize-y focus:not-data-focus:outline-none data-focus:outline-2 data-focus:outline-sky-500",
                 )}
                 rows={3}
