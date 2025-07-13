@@ -3,12 +3,13 @@ import { DB, cn, getKanjiFilterDB } from "@/commons/utils";
 
 import defaultKanjiFilterRules from "@/assets/rules/filter.json";
 
-import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import { Dialog, DialogPanel, DialogTitle, Textarea } from "@headlessui/react";
 import { saveAs } from "file-saver";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
 
+import { isKanji } from "wanakana";
 import PopupTransition from "./PopupTransition";
 
 interface KanjiFilterDashboardProps {
@@ -115,6 +116,22 @@ export default function KanjiFilterDashboard({
       }
     }
   }
+
+  const [quickStartDialogIsOpen, setQuickStartDialogIsOpen] = useState(false);
+  const [quickStartInput, setQuickStartInput] = useState("");
+  const batchCreateKanjiFilters = async () => {
+    const db = await getKanjiFilterDB();
+    const kanjiList = Array.from(
+      new Set(
+        quickStartInput.split(/[\s\n]+/).filter((kanji) => kanji.length > 0 && isKanji(kanji)),
+      ),
+    );
+
+    await Promise.all(kanjiList.map((kanji) => db.put(DB.onlyTable, { kanji })));
+
+    onChange(await db.getAll(DB.onlyTable));
+    setQuickStartDialogIsOpen(false);
+  };
   return (
     <div className={cn("flex grow flex-col items-center justify-start lg:px-8", className)}>
       <div className="flex flex-wrap items-center justify-center gap-1.5 font-bold text-base text-slate-700 dark:text-slate-300">
@@ -257,6 +274,17 @@ export default function KanjiFilterDashboard({
             {t("btnImportConfig")}
           </span>
         </button>
+        <button
+          onClick={() => {
+            setQuickStartDialogIsOpen(true);
+          }}
+          className="flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
+        >
+          <i className="i-tabler-star size-5" />
+          <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
+            Quick Create
+          </span>
+        </button>
         <PopupTransition show={importDialogIsOpen}>
           <Dialog
             as="div"
@@ -326,6 +354,62 @@ export default function KanjiFilterDashboard({
                   }}
                 >
                   {t("iGotIt")}
+                </button>
+              </div>
+            </DialogPanel>
+          </Dialog>
+        </PopupTransition>
+        <PopupTransition show={quickStartDialogIsOpen}>
+          <Dialog
+            as="div"
+            className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 min-w-80"
+            onClose={() => {
+              setQuickStartDialogIsOpen(false);
+              setQuickStartInput("");
+            }}
+          >
+            <DialogPanel className="w-full min-w-[20rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
+              <DialogTitle
+                as="h3"
+                className="font-medium text-gray-900 text-lg leading-6 dark:text-white"
+              >
+                Quickly create batch kanji filters
+              </DialogTitle>
+              <p className="mt-2 text-gray-500 text-sm dark:text-gray-400">
+                Please separate them with spaces or line breaks. Enter a large number of kanji words
+                and the corresponding kanji filter will be auto created for you.
+              </p>
+              <p className="mt-2 text-gray-500 text-sm dark:text-gray-400">
+                Non-pure kanji words will be filtered. If the input kanji already has yomikatas
+                recorded in the system, the corresponding yomikatas will be cleared and replaced
+                with the "Match ALL" mode.
+              </p>
+              <Textarea
+                value={quickStartInput}
+                onChange={(e) => setQuickStartInput(e.target.value)}
+                className={cn(
+                  "mt-3 block w-full resize-none rounded-lg border-none bg-white/5 px-3 py-1.5 text-sm/6 text-white ring-0",
+                  "data-focus:-outline-offset-2 resize-y focus:not-data-focus:outline-none data-focus:outline-2 data-focus:outline-sky-500",
+                )}
+                rows={3}
+              />
+              <div className="mt-4 flex gap-2.5">
+                <button
+                  className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-sky-600 px-4 py-2 font-medium text-sm text-white shadow-xs transition hover:bg-sky-500 focus:outline-hidden focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 focus-visible:ring-2 focus-visible:ring-offset-2"
+                  onClick={() => {
+                    batchCreateKanjiFilters();
+                  }}
+                >
+                  Confirm
+                </button>
+                <button
+                  className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                  onClick={() => {
+                    setQuickStartDialogIsOpen(false);
+                    setQuickStartInput("");
+                  }}
+                >
+                  {t("btnCancel")}
                 </button>
               </div>
             </DialogPanel>
