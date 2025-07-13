@@ -50,15 +50,15 @@ export interface KanjiMark extends KanjiToken {
   isFiltered: boolean;
 }
 
-let kanjiFilterMap: Map<string, string[]> | null = null;
+let kanjiFilterMap: Map<string, string[] | "*"> | null = null;
 const getKanjiFilterMap = async () => {
   if (kanjiFilterMap) {
     return kanjiFilterMap;
   }
   const db = await getKanjiFilterDB();
   const filterRules = await db.getAll(DB.onlyTable);
-  const filterMap = new Map<string, string[]>(
-    filterRules.map((filterRule) => [filterRule.kanji, filterRule.yomikatas]),
+  const filterMap = new Map<string, string[] | "*">(
+    filterRules.map((filterRule) => [filterRule.kanji, filterRule.yomikatas ?? "*"]),
   );
   kanjiFilterMap = filterMap;
   return filterMap;
@@ -75,9 +75,12 @@ export const registerOnGetKanjiMarksMessage = () => {
     const mojiTokens = tokenizer.tokenize(data.text);
     const filterMap = await getKanjiFilterMap();
     const tokens = toKanjiToken(mojiTokens).map((token) => {
+      const yomikatas = filterMap.get(token.original);
+      const isFiltered =
+        yomikatas !== undefined && (yomikatas === "*" || yomikatas.includes(token.reading));
       return {
         ...token,
-        isFiltered: filterMap.get(token.original)?.includes(token.reading) ?? false,
+        isFiltered,
       };
     });
 

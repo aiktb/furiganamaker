@@ -82,9 +82,11 @@ export default function KanjiFilterDashboard({
           importedRules.map(async (rule) => {
             const existingRule = await db.get(DB.onlyTable, rule.kanji);
             if (existingRule) {
-              const mergedYomikatas = Array.from(
-                new Set([...existingRule.yomikatas, ...rule.yomikatas]),
-              );
+              const mergedYomikatas =
+                existingRule.yomikatas === undefined || rule.yomikatas === undefined
+                  ? undefined
+                  : Array.from(new Set([...existingRule.yomikatas, ...rule.yomikatas]));
+
               await db.put(DB.onlyTable, {
                 ...existingRule,
                 yomikatas: mergedYomikatas,

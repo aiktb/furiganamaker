@@ -94,10 +94,10 @@ export interface SelectorRule {
   active: boolean;
 }
 
-export interface FilterRule {
+export type FilterRule = {
   kanji: string;
-  yomikatas: string[];
-}
+  yomikatas?: string[] | undefined; // If undefined, it matches all yomikatas.
+};
 
 export type StorageChangeEvent =
   | typeof ExtEvent.ToggleKanjiFilter
