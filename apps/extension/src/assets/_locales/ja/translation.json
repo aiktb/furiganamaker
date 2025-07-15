@@ -53,7 +53,7 @@
   "fieldSelector": "セレクタ",
   "fieldDomain": "ドメイン",
   "submit": "送信",
-  "titleEditorDialog": "{{verbs}} あなたのカスタムルール",
+  "titleEditSelectorDialog": "{{verbs}} あなたのカスタムルール",
   "create": "作成",
   "update": "更新",
   "btnEdit": "編集",

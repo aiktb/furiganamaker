@@ -49,11 +49,11 @@ export default function KanjiFilterEditorDialog({
 
     const db = await getKanjiFilterDB();
     if (kanji.length === 0) {
-      setKanjiInputErrorMessage("Required.");
+      setKanjiInputErrorMessage(t("validationRequired"));
     } else if (!isKanji(kanji)) {
-      setKanjiInputErrorMessage("Must be pure Japanese kanji.");
+      setKanjiInputErrorMessage(t("validationPureKanji"));
     } else if (rule.kanji !== kanji && (await db.get(DB.onlyTable, kanji))) {
-      setKanjiInputErrorMessage("This kanji is already in use.");
+      setKanjiInputErrorMessage(t("validationNonRepetitiveKanji"));
     } else {
       kanjiInputHasError = false;
     }
@@ -65,9 +65,9 @@ export default function KanjiFilterEditorDialog({
     let yomikatasInputHasError = true;
 
     if (yomikatas.length === 0 && !matchAll) {
-      setYomikatasInputErrorMessage("Required.");
+      setYomikatasInputErrorMessage(t("validationRequired"));
     } else if (yomikatas.some((input) => !isKatakana(input))) {
-      setYomikatasInputErrorMessage("Must be pure katakana.");
+      setYomikatasInputErrorMessage(t("validationPureKatakana"));
     } else {
       yomikatasInputHasError = false;
     }
@@ -105,22 +105,20 @@ export default function KanjiFilterEditorDialog({
             {({ open }) => (
               <>
                 <DisclosureButton className="flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-medium text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
-                  <h1>How to use kanji filter?</h1>
+                  <h1>{t("createKanjiFilterDialogTitle")}</h1>
                   <i
                     className={`${
                       open ? "rotate-180 transform" : ""
                     } -rotate-90 i-tabler-chevron-left size-4 text-sky-500`}
                   />
                 </DisclosureButton>
-                <DisclosurePanel className="px-4 pt-4 pb-2 text-sm">
+                <DisclosurePanel className="text-pretty px-4 pt-4 pb-2 text-sm">
                   <section>
                     <ul className="list-disc marker:text-black dark:marker:text-white">
-                      <li className="my-2">
-                        Please use the web search tool in your browser to search for a specific
-                        Kanji or Yomikata and click the button to start editing. Editing the Kanji
-                        field is prohibited in edit mode. In addition, Yomikata must be in Katakana
-                        format. Romaji or Hiragana aren't accepted.
-                      </li>
+                      <li className="my-2">{t("createKanjiFilterDialogDesc1")}</li>
+                    </ul>
+                    <ul className="list-disc marker:text-black dark:marker:text-white">
+                      <li className="my-2">{t("createKanjiFilterDialogDesc2")}</li>
                     </ul>
                   </section>
                 </DisclosurePanel>
@@ -133,7 +131,9 @@ export default function KanjiFilterEditorDialog({
               as="h3"
               className="text-center font-bold text-2xl text-gray-900 leading-9 tracking-tight dark:text-white"
             >
-              {mode === "update" ? "Update" : "Create"} your kanji filter
+              {t("titleKanjiFilterEditor", {
+                verbs: mode === "update" ? t("update") : t("create"),
+              })}
             </DialogTitle>
             <div className="mt-10 space-y-6 sm:mx-auto sm:w-full sm:max-w-sm">
               <Field className="relative">
@@ -156,9 +156,9 @@ export default function KanjiFilterEditorDialog({
               </Field>
               <Field className="relative">
                 <Label className="flex items-center font-medium text-slate-950 text-sm/6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-white">
-                  Yomikata
+                  {t("fieldYomikata")}
                   <Field className="flex flex-1 items-center justify-end gap-1">
-                    <Label>Match ALL</Label>
+                    <Label>{t("fieldYomikata")}</Label>
                     <Switch
                       checked={matchAll}
                       onChange={(checked) => {

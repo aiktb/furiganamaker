@@ -79,7 +79,7 @@
   "tipRefreshPage": "請重新整理頁面",
   "tipShareOn": "在 {{media}} 上分享",
   "titleEditor": "使用者規則編輯器",
-  "titleEditorDialog": "{{verbs}} 您的自訂規則",
+  "titleEditSelectorDialog": "{{verbs}} 您的自訂規則",
   "titleNotFound": "未找到規則",
   "titleWarning": "警告！",
   "toggleAutoMode": "開關自動模式",

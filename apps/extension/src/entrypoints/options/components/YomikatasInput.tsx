@@ -1,5 +1,6 @@
 import { cn } from "@/commons/utils";
 import { Input } from "@headlessui/react";
+import { t } from "i18next";
 import { useRef, useState } from "react";
 
 interface YomikatasInputProps {
@@ -108,10 +109,10 @@ export default function YomikatasInput({
           )}
         >
           <i className="i-tabler-plus size-4 transition group-enabled:hover:text-slate-950 group-enabled:dark:hover:text-white" />
-          <span className="sr-only">Add Katakana</span>
+          <span className="sr-only">{t("btnAddKatakana")}</span>
         </button>
       )}
-      {disabled && yomikatas.length === 0 && "Input is prohibited."}
+      {disabled && yomikatas.length === 0 && t("inputProhibitedTip")}
     </div>
   );
 }

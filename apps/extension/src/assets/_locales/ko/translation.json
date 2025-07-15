@@ -53,7 +53,7 @@
   "fieldSelector": "선택기",
   "fieldDomain": "도메인",
   "submit": "제출",
-  "titleEditorDialog": "{{verbs}} 사용자 정의 규칙",
+  "titleEditSelectorDialog": "{{verbs}} 사용자 정의 규칙",
   "create": "생성",
   "update": "업데이트",
   "btnEdit": "수정",
