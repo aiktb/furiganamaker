@@ -34,3 +34,18 @@ describe("Extension options page", () => {
     expect(await getThemeLocalStorage()).toBe("light");
   });
 });
+
+describe("Kanji filter page", () => {
+  test("Default kanji filters are loaded", async ({ page, extensionId }) => {
+    await page.goto(`chrome-extension://${extensionId}/options.html#/kanji-filter`);
+    await page.waitForSelector(".playwright-locator-kanji-filter-item");
+    const kanjiElements = await page.$$(".playwright-locator-kanji-filter-item");
+    expect(kanjiElements.length).toBe(995);
+    const firstKanji = await kanjiElements.at(0)!.innerText();
+    expect(firstKanji).toContain("一");
+    expect(firstKanji).toContain("イチ, ヒト");
+    const lastKanji = await kanjiElements.at(-1)!.innerText();
+    expect(lastKanji).toContain("鼻");
+    expect(lastKanji).toContain("ハナ");
+  });
+});

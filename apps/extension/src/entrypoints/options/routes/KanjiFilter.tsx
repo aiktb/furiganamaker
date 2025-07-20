@@ -91,7 +91,7 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
         {rules.length > 0 ? (
           <div className="grid grid-cols-2 flex-wrap gap-3 sm:grid-cols-3 2xl:grid-cols-4">
             {rules.map((rule, index) => (
-              <div className="relative" key={rule.kanji}>
+              <div className="playwright-locator-kanji-filter-item relative" key={rule.kanji}>
                 <div className="pointer-events-none absolute right-4 bottom-4 font-semibold text-lg italic opacity-30">
                   #{index + 1}
                 </div>
