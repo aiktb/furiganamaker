@@ -137,7 +137,7 @@ export default function KanjiFilterDashboard({
       <div className="flex flex-wrap items-center justify-center gap-1.5 font-bold text-base text-slate-700 dark:text-slate-300">
         <button
           onClick={onNewButtonClick}
-          className="flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
+          className="playwright-kanji-filter-add-new-rule-btn flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
         >
           <i className="i-tabler-code-plus size-5" />
           <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
@@ -149,6 +149,7 @@ export default function KanjiFilterDashboard({
             setClearRuleDialogIsOpen(true);
           }}
           className={cn(
+            "playwright-kanji-filter-clear-config-btn",
             "flex max-w-40 grow cursor-pointer items-center justify-center gap-1 rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition enabled:hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white",
             disableExportAndClear && "cursor-not-allowed opacity-50",
           )}
@@ -184,7 +185,7 @@ export default function KanjiFilterDashboard({
                   className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-slate-900 text-sm transition hover:bg-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
                   onClick={clearConfig}
                 >
-                  Clear
+                  {t("btnConfirm")}
                 </button>
                 <button
                   className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
@@ -199,7 +200,7 @@ export default function KanjiFilterDashboard({
           </Dialog>
         </PopupTransition>
         <button
-          className="flex max-w-40 grow cursor-pointer items-center justify-center gap-1 rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
+          className="playwright-kanji-filter-reset-config-btn flex max-w-40 grow cursor-pointer items-center justify-center gap-1 rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
           onClick={() => {
             setResetRuleDialogIsOpen(true);
           }}
@@ -234,7 +235,7 @@ export default function KanjiFilterDashboard({
                   className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-slate-900 text-sm transition hover:bg-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
                   onClick={resetConfig}
                 >
-                  {t("btnReset")}
+                  {t("btnConfirm")}
                 </button>
                 <button
                   className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
@@ -251,6 +252,7 @@ export default function KanjiFilterDashboard({
 
         <button
           className={cn(
+            "playwright-kanji-filter-export-config-btn",
             "flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition enabled:hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white",
             disableExportAndClear && "cursor-not-allowed opacity-50",
           )}
@@ -267,7 +269,7 @@ export default function KanjiFilterDashboard({
           onClick={() => {
             setImportDialogIsOpen(true);
           }}
-          className="flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
+          className="playwright-kanji-filter-import-config-btn flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
         >
           <i className="i-tabler-file-import size-5" />
           <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
@@ -278,11 +280,11 @@ export default function KanjiFilterDashboard({
           onClick={() => {
             setQuickStartDialogIsOpen(true);
           }}
-          className="flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
+          className="playwright-kanji-filter-quick-create-btn flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
         >
           <i className="i-tabler-star size-5" />
           <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
-            Quick Create
+            {t("btnQuickCreate")}
           </span>
         </button>
         <PopupTransition show={importDialogIsOpen}>
@@ -311,7 +313,7 @@ export default function KanjiFilterDashboard({
                     setImportDialogIsOpen(false);
                   }}
                 >
-                  {t("btnConfirmConfig")}
+                  {t("btnConfirm")}
                 </button>
                 <button
                   className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"

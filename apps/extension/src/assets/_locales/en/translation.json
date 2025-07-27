@@ -92,6 +92,7 @@
   "undoneDesc": "This action cannot be undone.",
   "navKanjiFilter": "Kanji Filter",
   "msgDeleteKanjiFilterDesc": "You are deleting the kanji filter corresponding to \"{{kanji}}\".",
+  "btnQuickCreate": "Quick Create",
   "quickCreateModalTitle": "Quickly create batch kanji filters",
   "quickCreateModalDesc1": "Please separate them with spaces or line breaks. Enter a large number of kanji words and the corresponding kanji filter will be auto created for you.",
   "quickCreateModalDesc2": "Non-pure kanji words will be filtered. If the input kanji already has yomikatas recorded in the system, the corresponding yomikatas will be cleared and replaced with the \"Match ALL\" mode.",

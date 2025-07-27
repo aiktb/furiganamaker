@@ -68,6 +68,7 @@ describe("Kanji filter page", () => {
     const confirmBtn = page.getByRole("button", { name: "Confirm" });
     expect(confirmBtn).toBeTruthy();
     await confirmBtn.click();
+    expect(confirmBtn).toBeHidden();
     expect(await firstKanjiElement.isVisible()).toBeFalsy();
 
     await page.reload();
@@ -76,5 +77,23 @@ describe("Kanji filter page", () => {
     expect(reloadKanjiElements.length).toBe(kanjiElementCount - 1);
     const firstReloadKanjiText = await reloadKanjiElements.at(0)!.innerText();
     expect(firstReloadKanjiText).not.toContain(firstKanjiText);
+  });
+
+  test("Clear all kanji filters", async ({ page }) => {
+    expect(await page.$(FILTER_ITEM_SELECTOR)).toBeTruthy();
+    const clearBtn = await page.$(".playwright-kanji-filter-clear-config-btn");
+    expect(clearBtn).toBeTruthy();
+    await clearBtn!.click();
+    const confirmBtn = page.getByRole("button", { name: "Confirm" });
+    expect(confirmBtn).toBeTruthy();
+    await confirmBtn.click();
+    expect(confirmBtn).toBeHidden();
+    expect(await page.$(".playwright-not-found-mark")).toBeTruthy();
+    expect(await page.$(FILTER_ITEM_SELECTOR)).toBeNull();
+
+    await page.reload();
+    await page.waitForSelector(PAGE_SELECTOR);
+    expect(await page.$(".playwright-not-found-mark")).toBeTruthy();
+    expect(await page.$(FILTER_ITEM_SELECTOR)).toBeNull();
   });
 });
