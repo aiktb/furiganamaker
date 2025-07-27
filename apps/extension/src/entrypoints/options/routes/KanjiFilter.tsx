@@ -1,5 +1,5 @@
 import { ExtEvent, type FilterRule } from "@/commons/constants";
-import { DB, getKanjiFilterDB } from "@/commons/utils";
+import { DB, cn, getKanjiFilterDB } from "@/commons/utils";
 import { Dialog, DialogPanel, DialogTitle, Transition } from "@headlessui/react";
 import { Suspense, use, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -32,14 +32,22 @@ export default function KanjiFilter() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <KanjiFilterPage promise={getKanjiFilterRules()} />
+          <KanjiFilterPage
+            className="playwright-kanji-filter-page"
+            promise={getKanjiFilterRules()}
+          />
         </Transition>
       </Suspense>
     </Page>
   );
 }
 
-export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> }) => {
+interface KanjiFilterPageProps {
+  promise: Promise<FilterRule[]>;
+  className?: string;
+}
+
+const KanjiFilterPage = ({ promise, className }: KanjiFilterPageProps) => {
   const [rules, setRules] = useState(use(promise));
   const { t } = useTranslation();
 
@@ -75,7 +83,12 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
   };
   return (
     <>
-      <div className="flex w-full flex-col items-center justify-center lg:max-w-5xl lg:px-8">
+      <div
+        className={cn(
+          "flex w-full flex-col items-center justify-center lg:max-w-5xl lg:px-8",
+          className,
+        )}
+      >
         <KanjiFilterDashboard
           className="mb-5"
           disableExportAndClear={rules.length === 0}
@@ -91,7 +104,7 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
         {rules.length > 0 ? (
           <div className="grid grid-cols-2 flex-wrap gap-3 sm:grid-cols-3 2xl:grid-cols-4">
             {rules.map((rule, index) => (
-              <div className="playwright-locator-kanji-filter-item relative" key={rule.kanji}>
+              <div className="playwright-kanji-filter-item relative" key={rule.kanji}>
                 <div className="pointer-events-none absolute right-4 bottom-4 font-semibold text-lg italic opacity-30">
                   #{index + 1}
                 </div>
@@ -115,7 +128,7 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
                     setKanjiToDelete(rule.kanji);
                     setDeleteDialogIsOpen(true);
                   }}
-                  className="-translate-y-1/2 absolute top-0 right-0 translate-x-1/2 cursor-pointer rounded-full bg-white transition hover:text-slate-800 dark:bg-slate-900 dark:hover:text-white"
+                  className="playwright-kanji-filter-item-delete-btn -translate-y-1/2 absolute top-0 right-0 translate-x-1/2 cursor-pointer rounded-full bg-white transition hover:text-slate-800 dark:bg-slate-900 dark:hover:text-white"
                 >
                   <div className="grid size-5 place-content-center rounded-full bg-slate-950/5 dark:bg-white/5">
                     <i className="i-tabler-x size-4" />
@@ -173,7 +186,7 @@ export const KanjiFilterPage = ({ promise }: { promise: Promise<FilterRule[]> })
                   setDeleteDialogIsOpen(false);
                 }}
               >
-                {t("btnDelete")}
+                {t("btnConfirm")}
               </button>
               <button
                 className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"

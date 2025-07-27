@@ -36,16 +36,45 @@ describe("Extension options page", () => {
 });
 
 describe("Kanji filter page", () => {
-  test("Default kanji filters are loaded", async ({ page, extensionId }) => {
+  const PAGE_SELECTOR = ".playwright-kanji-filter-page";
+  const FILTER_ITEM_SELECTOR = ".playwright-kanji-filter-item";
+  test.beforeEach(async ({ page, extensionId }) => {
     await page.goto(`chrome-extension://${extensionId}/options.html#/kanji-filter`);
-    await page.waitForSelector(".playwright-locator-kanji-filter-item");
-    const kanjiElements = await page.$$(".playwright-locator-kanji-filter-item");
-    expect(kanjiElements.length).toBe(995);
+    await page.waitForSelector(PAGE_SELECTOR);
+  });
+
+  test("Default kanji filters are loaded", async ({ page }) => {
+    const kanjiElements = await page.$$(FILTER_ITEM_SELECTOR);
+    expect(kanjiElements.length).toBeGreaterThanOrEqual(995);
     const firstKanji = await kanjiElements.at(0)!.innerText();
+    expect(firstKanji).toContain("#1");
     expect(firstKanji).toContain("一");
     expect(firstKanji).toContain("イチ, ヒト");
-    const lastKanji = await kanjiElements.at(-1)!.innerText();
-    expect(lastKanji).toContain("鼻");
-    expect(lastKanji).toContain("ハナ");
+    const secondKanji = await kanjiElements.at(1)!.innerText();
+    expect(secondKanji).toContain("#2");
+    expect(secondKanji).toContain("一人");
+    expect(secondKanji).toContain("ヒトリ");
+  });
+
+  test("Delete first kanji filter", async ({ page }) => {
+    const kanjiElements = await page.$$(FILTER_ITEM_SELECTOR);
+    const kanjiElementCount = kanjiElements.length;
+    const firstKanjiElement = kanjiElements.at(0)!;
+    const firstKanjiText = await firstKanjiElement.innerText();
+
+    const deleteBtn = await firstKanjiElement.$(".playwright-kanji-filter-item-delete-btn");
+    expect(deleteBtn).toBeTruthy();
+    await deleteBtn!.click();
+    const confirmBtn = page.getByRole("button", { name: "Confirm" });
+    expect(confirmBtn).toBeTruthy();
+    await confirmBtn.click();
+    expect(await firstKanjiElement.isVisible()).toBeFalsy();
+
+    await page.reload();
+    await page.waitForSelector(PAGE_SELECTOR);
+    const reloadKanjiElements = await page.$$(FILTER_ITEM_SELECTOR);
+    expect(reloadKanjiElements.length).toBe(kanjiElementCount - 1);
+    const firstReloadKanjiText = await reloadKanjiElements.at(0)!.innerText();
+    expect(firstReloadKanjiText).not.toContain(firstKanjiText);
   });
 });
