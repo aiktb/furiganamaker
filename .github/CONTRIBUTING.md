@@ -78,7 +78,7 @@ pnpm run test:e2e
 This command is recommended for development mode:
 ```bash
 pnpm exec playwright install chromium # Just run once
-NODE_ENV=development pnpm exec playwright test --ui
+pnpm run test:e2e:dev
 ```
 
 ### Lint

@@ -10,7 +10,8 @@
     "postinstall": "wxt prepare",
     "typecheck": "tsc --noEmit",
     "test:unit": "vitest -r __TEST__/unit",
-    "test:e2e": "playwright test"
+    "test:e2e:prod": "playwright test",
+    "test:e2e:dev": "NODE_ENV=development pnpm exec playwright test --ui"
   },
   "dependencies": {
     "@ctrl/tinycolor": "^4.1.0",
