@@ -34,8 +34,8 @@ export default function KanjiFilterDashboard({
     for (const rule of defaultKanjiFilterRules) {
       store.put(rule);
     }
+    onChange(await db.getAll(DB.onlyTable));
     setResetRuleDialogIsOpen(false);
-    onChange(defaultKanjiFilterRules);
   };
 
   const [clearRuleDialogIsOpen, setClearRuleDialogIsOpen] = useState(false);

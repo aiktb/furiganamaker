@@ -90,10 +90,52 @@ describe("Kanji filter page", () => {
     expect(confirmBtn).toBeHidden();
     expect(await page.$(".playwright-not-found-mark")).toBeTruthy();
     expect(await page.$(FILTER_ITEM_SELECTOR)).toBeNull();
+    expect(await clearBtn!.isDisabled()).toBeTruthy();
 
     await page.reload();
     await page.waitForSelector(PAGE_SELECTOR);
     expect(await page.$(".playwright-not-found-mark")).toBeTruthy();
     expect(await page.$(FILTER_ITEM_SELECTOR)).toBeNull();
+  });
+
+  test("Reset kanji filters", async ({ page }) => {
+    const deleteIndexes = [0, 500, 900] as const;
+    const deleteInfos = await Promise.all(
+      deleteIndexes.map(async (index) => {
+        const kanjiElements = await page.$$(FILTER_ITEM_SELECTOR);
+        const kanjiElement = kanjiElements[index]!;
+        const kanjiText = await kanjiElement.innerText();
+        return {
+          index,
+          text: kanjiText,
+          element: kanjiElement,
+        };
+      }),
+    );
+    for (const { element } of deleteInfos.toReversed()) {
+      const deleteBtn = await element.$(".playwright-kanji-filter-item-delete-btn");
+      expect(deleteBtn).toBeTruthy();
+      await deleteBtn!.click();
+      const confirmBtn = page.getByRole("button", { name: "Confirm" });
+      expect(confirmBtn).toBeTruthy();
+      await confirmBtn.click();
+      expect(confirmBtn).toBeHidden();
+      expect(await element.isVisible()).toBeFalsy();
+    }
+
+    const resetBtn = await page.$(".playwright-kanji-filter-reset-config-btn");
+    expect(resetBtn).toBeTruthy();
+    await resetBtn!.click();
+    const confirmBtn = page.getByRole("button", { name: "Confirm" });
+    expect(confirmBtn).toBeTruthy();
+    await confirmBtn.click();
+    expect(confirmBtn).toBeHidden();
+    await page.waitForTimeout(200);
+    const kanjiElements = await page.$$(FILTER_ITEM_SELECTOR);
+    for (const { index, text } of deleteInfos) {
+      const element = kanjiElements[index]!;
+      const kanjiText = await element.innerText();
+      expect(kanjiText).toEqual(text);
+    }
   });
 });
