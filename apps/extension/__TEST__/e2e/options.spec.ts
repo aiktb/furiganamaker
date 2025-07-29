@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import { describe, expect, test } from "./fixtures";
 
 describe("Extension options page", () => {
@@ -137,5 +138,47 @@ describe("Kanji filter page", () => {
       const kanjiText = await element.innerText();
       expect(kanjiText).toEqual(text);
     }
+  });
+
+  test("Export kanji filters file with JSON format", async ({ page }) => {
+    const exportBtn = await page.$(".playwright-kanji-filter-export-config-btn");
+    const downloadPromise = page.waitForEvent("download");
+    expect(exportBtn).toBeTruthy();
+    await exportBtn!.click();
+    const download = await downloadPromise;
+    expect(download.suggestedFilename()).toBe("furigana-maker-kanji-filter.json");
+    const path = await download.path();
+    const content = fs.readFileSync(path!, "utf-8");
+    const json = JSON.parse(content);
+    expect(json).toBeInstanceOf(Array);
+    const kanjiElements = await page.$$(FILTER_ITEM_SELECTOR);
+    const kanjiElementsCount = kanjiElements.length;
+    expect((json as unknown[]).length).toBeGreaterThanOrEqual(kanjiElementsCount);
+    expect((json as unknown[])[0]).toEqual({
+      kanji: "一",
+      yomikatas: ["イチ", "ヒト"],
+    });
+
+    const firstKanjiElement = await page.$(`${FILTER_ITEM_SELECTOR}:nth-child(1)`);
+    expect(firstKanjiElement).toBeTruthy();
+    const deleteBtn = await firstKanjiElement!.$(".playwright-kanji-filter-item-delete-btn");
+    expect(deleteBtn).toBeTruthy();
+    await deleteBtn!.click();
+    const confirmBtn = page.getByRole("button", { name: "Confirm" });
+    expect(confirmBtn).toBeTruthy();
+    await confirmBtn.click();
+    expect(confirmBtn).toBeHidden();
+    const newDownloadPromise = page.waitForEvent("download");
+    await exportBtn!.click();
+    const newDownload = await newDownloadPromise;
+    const newPath = await newDownload.path();
+    const newContent = fs.readFileSync(newPath!, "utf-8");
+    const newJson = JSON.parse(newContent);
+    expect(newJson).toBeInstanceOf(Array);
+    expect((newJson as unknown[]).length).toBeGreaterThanOrEqual(kanjiElementsCount - 1);
+    expect((newJson as unknown[])[0]).toEqual({
+      kanji: "一人",
+      yomikatas: ["ヒトリ"],
+    });
   });
 });
