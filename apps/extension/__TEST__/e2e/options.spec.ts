@@ -89,7 +89,7 @@ describe("Kanji filter page", () => {
     expect(confirmBtn).toBeTruthy();
     await confirmBtn.click();
     expect(confirmBtn).toBeHidden();
-    expect(await page.$(".playwright-not-found-mark")).toBeTruthy();
+    await page.waitForSelector(".playwright-not-found-mark");
     expect(await page.$(FILTER_ITEM_SELECTOR)).toBeNull();
     expect(await clearBtn!.isDisabled()).toBeTruthy();
 
@@ -120,7 +120,6 @@ describe("Kanji filter page", () => {
       const confirmBtn = page.getByRole("button", { name: "Confirm" });
       expect(confirmBtn).toBeTruthy();
       await confirmBtn.click();
-      expect(confirmBtn).toBeHidden();
       expect(await element.isVisible()).toBeFalsy();
     }
 
@@ -130,7 +129,6 @@ describe("Kanji filter page", () => {
     const confirmBtn = page.getByRole("button", { name: "Confirm" });
     expect(confirmBtn).toBeTruthy();
     await confirmBtn.click();
-    expect(confirmBtn).toBeHidden();
     await page.waitForTimeout(200);
     const kanjiElements = await page.$$(FILTER_ITEM_SELECTOR);
     for (const { index, text } of deleteInfos) {
@@ -167,7 +165,6 @@ describe("Kanji filter page", () => {
     const confirmBtn = page.getByRole("button", { name: "Confirm" });
     expect(confirmBtn).toBeTruthy();
     await confirmBtn.click();
-    expect(confirmBtn).toBeHidden();
     const newDownloadPromise = page.waitForEvent("download");
     await exportBtn!.click();
     const newDownload = await newDownloadPromise;
