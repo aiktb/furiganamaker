@@ -18,19 +18,6 @@ export const registerOnInstalled = () => {
         browser.tabs.create({ url: "https://furiganamaker.app/welcome" });
         break;
       }
-      case browser.runtime.OnInstalledReason.UPDATE: {
-        // V1.2.3 -> major.minor.patch
-        // Only open the Changelog page to prompt the user when a new feature is available.
-        const [majorPrevVersion, minorPrevVersion] = details.previousVersion!.split(".");
-        const [majorCurrVersion, minorCurrVersion] = browser.runtime
-          .getManifest()
-          .version.split(".");
-
-        if (majorPrevVersion !== majorCurrVersion || minorPrevVersion !== minorCurrVersion) {
-          browser.tabs.create({ url: browser.runtime.getURL("/options.html#/changelog") });
-        }
-        break;
-      }
     }
   });
 };
