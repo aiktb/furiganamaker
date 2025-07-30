@@ -45,6 +45,7 @@ export const DisplayMode = {
   Never: "never show",
   Hover: "hover gap",
   HoverNoGap: "hover no-gap",
+  HoverMask: "hover mask",
 } as const;
 export type DisplayMode = (typeof DisplayMode)[keyof typeof DisplayMode];
 

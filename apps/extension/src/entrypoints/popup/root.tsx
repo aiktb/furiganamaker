@@ -116,6 +116,7 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
     { label: t("optionNeverShow"), value: DisplayMode.Never },
     { label: t("optionHoverGap"), value: DisplayMode.Hover },
     { label: t("optionHoverNoGap"), value: DisplayMode.HoverNoGap },
+    { label: t("optionHoverMask"), value: DisplayMode.HoverMask },
   ];
   const furiganaTypeOptions = [
     { label: t("optionHiragana"), value: FuriganaType.Hiragana },
