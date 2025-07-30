@@ -145,7 +145,7 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
           >
             <i className="i-tabler-clear-all size-5" />
             <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
-              Clear Config
+              {t("btnClearConfig")}
             </span>
           </button>
           <PopupTransition show={clearRuleDialogIsOpen}>
@@ -161,7 +161,7 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
                   as="h3"
                   className="font-medium text-gray-900 text-lg leading-6 dark:text-white"
                 >
-                  Are you sure you want to clear the rule list?
+                  {t("clearConfigDialogTitle")}
                 </DialogTitle>
                 <div className="mt-2">
                   <p className="whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
@@ -173,7 +173,7 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
                     className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-slate-900 text-sm transition hover:bg-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
                     onClick={clearConfig}
                   >
-                    Clear
+                    {t("btnConfirm")}
                   </button>
                   <button
                     className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"

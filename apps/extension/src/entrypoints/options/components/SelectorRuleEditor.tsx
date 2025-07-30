@@ -58,7 +58,7 @@ export default function SelectorRuleEditor({ rule, mode, onChange }: RuleEditorP
                         link: (
                           <a
                             className="cursor-pointer border-sky-500 border-b font-bold text-slate-900 hover:border-b-2 dark:text-slate-200"
-                            href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors"
+                            href="https://developer.mozilla.org/docs/Web/CSS/CSS_selectors"
                           >
                             {t("cssSelector")}
                           </a>

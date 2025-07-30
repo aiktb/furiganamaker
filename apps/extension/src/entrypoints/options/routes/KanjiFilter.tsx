@@ -119,7 +119,7 @@ const KanjiFilterPage = ({ promise, className }: KanjiFilterPageProps) => {
                     {rule.kanji}
                   </div>
                   <div className="col-span-5 row-start-2 max-w-full justify-self-start overflow-hidden text-ellipsis whitespace-nowrap">
-                    {rule.yomikatas ? rule.yomikatas.join(", ") : "Match ALL"}
+                    {rule.yomikatas ? rule.yomikatas.join(", ") : t("fieldMatchAll")}
                   </div>
                   <i className="i-tabler-edit col-start-5 row-start-1 size-5 scale-0 self-center justify-self-center text-slate-800 opacity-0 transition-all group-hover:scale-100 group-hover:opacity-100 dark:text-white" />
                 </button>

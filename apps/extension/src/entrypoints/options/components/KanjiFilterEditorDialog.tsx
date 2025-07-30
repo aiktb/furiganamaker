@@ -138,7 +138,7 @@ export default function KanjiFilterEditorDialog({
             <div className="mt-10 space-y-6 sm:mx-auto sm:w-full sm:max-w-sm">
               <Field className="relative">
                 <Label className="font-medium text-slate-950 text-sm/6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-white">
-                  Kanji
+                  {t("fieldKanji")}
                 </Label>
                 <Input
                   value={kanjiInput}
@@ -158,7 +158,7 @@ export default function KanjiFilterEditorDialog({
                 <Label className="flex items-center font-medium text-slate-950 text-sm/6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-white">
                   {t("fieldYomikata")}
                   <Field className="flex flex-1 items-center justify-end gap-1">
-                    <Label>{t("fieldYomikata")}</Label>
+                    <Label>{t("fieldMatchAll")}</Label>
                     <Switch
                       checked={matchAll}
                       onChange={(checked) => {

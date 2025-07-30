@@ -110,5 +110,6 @@
   "fieldYomikata": "Yomikata",
   "fieldMatchAll": "Match ALL",
   "btnAddKatakana": "Add katakana",
-  "inputProhibitedTip": "Input is prohibited."
+  "inputProhibitedTip": "Input is prohibited.",
+  "fieldKanji": "Kanji"
 }
