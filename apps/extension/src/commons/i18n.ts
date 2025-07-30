@@ -3,7 +3,6 @@ import { initReactI18next } from "react-i18next";
 
 import en from "@/assets/_locales/en/translation.json";
 import ja from "@/assets/_locales/ja/translation.json";
-import ko from "@/assets/_locales/ko/translation.json";
 import zhCN from "@/assets/_locales/zh-CN/translation.json";
 import zhTW from "@/assets/_locales/zh-TW/translation.json";
 
@@ -16,7 +15,6 @@ i18n.use(initReactI18next).init({
     "zh-CN": { translation: zhCN },
     "zh-TW": { translation: zhTW },
     ja: { translation: ja },
-    ko: { translation: ko },
   },
   fallbackLng: "en",
   interpolation: {
