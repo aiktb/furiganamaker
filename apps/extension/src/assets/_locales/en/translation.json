@@ -9,6 +9,7 @@
   "optionAlwaysShow": "Always Show",
   "optionNeverShow": "Never Show",
   "optionHoverGap": "Hover Gap",
+  "optionHoverMask": "Hover Mask",
   "optionHoverNoGap": "Hover No Gap",
   "optionDefault": "Default",
   "optionOriginal": "Original",

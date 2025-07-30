@@ -10,6 +10,7 @@
   "optionNeverShow": "从不显示",
   "optionHoverGap": "悬停显示有间隔",
   "optionHoverNoGap": "悬停显示无间隔",
+  "optionHoverMask": "悬停显示遮罩",
   "optionDefault": "默认不处理",
   "optionOriginal": "原始文本",
   "optionParentheses": "包含括号",

@@ -10,6 +10,7 @@
   "optionNeverShow": "表示しない",
   "optionHoverGap": "ホバー（間隔あり）",
   "optionHoverNoGap": "ホバー（間隔なし）",
+  "optionHoverMask": "ホバー（マスク）",
   "optionDefault": "デフォルト",
   "optionOriginal": "元のテキスト",
   "optionParentheses": "括弧を含む",
