@@ -100,6 +100,9 @@ export async function getMoreSettings<K extends keyof MoreSettings>(key: K) {
   return (await moreSettings.getValue())[key];
 }
 
+/**
+ * Changing this key will result in destructive changes, so it cannot be modified.
+ */
 export const customSelectors = storage.defineItem<SelectorRule[]>("local:customRules", {
   version: 1,
   fallback: defaultSelectorRules,
