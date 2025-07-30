@@ -1,8 +1,10 @@
 import path from "node:path";
 import { type BrowserContext, test as base, chromium } from "@playwright/test";
 
-// Notice: This is not the product of `pnpm run dev`.
-const pathToExtension = path.resolve(".output/chrome-mv3");
+const pathToExtension =
+  process.env.NODE_ENV === "development"
+    ? path.resolve(".output/chrome-mv3-dev")
+    : path.resolve(".output/chrome-mv3");
 
 export const test = base.extend<{
   context: BrowserContext;

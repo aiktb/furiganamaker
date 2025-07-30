@@ -17,6 +17,14 @@
     "lineWidth": 100,
     "lineEnding": "lf"
   },
+  "css": {
+    "formatter": {
+      "enabled": false
+    },
+    "linter": {
+      "enabled": false
+    }
+  },
   "linter": {
     "enabled": true,
     "rules": {

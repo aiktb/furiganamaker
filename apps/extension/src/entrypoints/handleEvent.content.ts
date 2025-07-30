@@ -27,22 +27,14 @@ export default defineContentScript({
       ExtEvent.ToggleKanjiFilter,
     ];
     await Promise.all(styleEvents.map((item) => styleHandler(item)));
-
+    const isStyleEvent = (event: ExtEvent): event is StyleEvent => styleEvents.includes(event);
     browser.runtime.onMessage.addListener((event: ExtEvent) => {
-      switch (event) {
-        case ExtEvent.SwitchFuriganaType:
-          switchFuriganaHandler();
-          break;
-        case ExtEvent.AddFurigana:
-          addFuriganaHandler();
-          break;
-        case ExtEvent.MarkActiveTab:
-          break;
-        case ExtEvent.MarkDisabledTab:
-          break;
-        default:
-          styleHandler(event);
-          break;
+      if (event === ExtEvent.AddFurigana) {
+        addFuriganaHandler();
+      } else if (event === ExtEvent.SwitchFuriganaType) {
+        switchFuriganaHandler();
+      } else if (isStyleEvent(event)) {
+        styleHandler(event);
       }
     });
   },

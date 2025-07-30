@@ -11,6 +11,7 @@ export const ExtEvent = {
   AdjustFontColor: "adjustFontColor",
   MarkActiveTab: "markActiveTab",
   MarkDisabledTab: "markDisabledTab",
+  ModifyKanjiFilter: "modifyKanjiFilter",
 } as const;
 export type ExtEvent = (typeof ExtEvent)[keyof typeof ExtEvent];
 
@@ -93,10 +94,10 @@ export interface SelectorRule {
   active: boolean;
 }
 
-export interface FilterRule {
+export type FilterRule = {
   kanji: string;
-  reading: string[];
-}
+  yomikatas?: string[] | undefined; // If undefined, it matches all yomikatas.
+};
 
 export type StorageChangeEvent =
   | typeof ExtEvent.ToggleKanjiFilter

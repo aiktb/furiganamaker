@@ -10,7 +10,8 @@
     "postinstall": "wxt prepare",
     "typecheck": "tsc --noEmit",
     "test:unit": "vitest -r __TEST__/unit",
-    "test:e2e": "playwright test"
+    "test:e2e:prod": "playwright test",
+    "test:e2e:dev": "NODE_ENV=development pnpm exec playwright test --ui"
   },
   "dependencies": {
     "@ctrl/tinycolor": "^4.1.0",
@@ -19,15 +20,18 @@
     "@js-temporal/polyfill": "catalog:",
     "@sglkc/kuromoji": "^1.1.0",
     "@webext-core/messaging": "^2.1.0",
+    "clsx": "catalog:",
     "file-saver": "^2.0.5",
     "i18next": "^24.1.2",
+    "idb": "^8.0.3",
     "next-themes": "^0.4.4",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-i18next": "15.2.0",
+    "react-i18next": "15.5.3",
     "react-markdown": "^9.0.1",
     "react-router": "catalog:",
     "react-share": "^5.1.1",
+    "tailwind-merge": "catalog:",
     "wanakana": "^5.3.1",
     "zod": "^3.24.1"
   },
@@ -40,6 +44,7 @@
     "@tailwindcss/forms": "catalog:",
     "@tailwindcss/typography": "catalog:",
     "@tailwindcss/vite": "catalog:",
+    "@total-typescript/ts-reset": "catalog:",
     "@types/file-saver": "^2.0.7",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",

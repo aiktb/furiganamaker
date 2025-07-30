@@ -70,8 +70,15 @@ pnpm run zip
 
 In order to test browser extensions, playwright needs to use the `headless=new` mode, which can cause the behavior of `playwright test` and `playwright test --ui` to be inconsistent at times, be sure to use `playwright test` to ensure that the test passes.
 
+You must run `pnpm run build` before running this command because this command is run for the build product in the production environment.
 ```bash
 pnpm run test:e2e
+```
+
+This command is recommended for development mode:
+```bash
+pnpm exec playwright install chromium # Just run once
+pnpm run test:e2e:dev
 ```
 
 ### Lint

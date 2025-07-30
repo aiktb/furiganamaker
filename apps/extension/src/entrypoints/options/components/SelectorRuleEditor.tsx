@@ -18,7 +18,7 @@ interface CreateProps {
   onChange: (rule: SelectorRule) => void;
 }
 
-export default function RuleEditor({ rule, mode, onChange }: RuleEditorProps) {
+export default function SelectorRuleEditor({ rule, mode, onChange }: RuleEditorProps) {
   const [domain, setDomain] = useState(mode === "update" ? rule.domain : "");
   const [selector, setSelector] = useState(mode === "update" ? rule.selector : "");
   const active = mode === "update" ? rule.active : true;
@@ -32,7 +32,7 @@ export default function RuleEditor({ rule, mode, onChange }: RuleEditorProps) {
 
   return (
     <div className="mx-auto w-full max-w-md rounded-2xl p-2">
-      <Disclosure>
+      <Disclosure as="div">
         {({ open }) => (
           <>
             <DisclosureButton className="flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-medium text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
@@ -58,7 +58,7 @@ export default function RuleEditor({ rule, mode, onChange }: RuleEditorProps) {
                         link: (
                           <a
                             className="cursor-pointer border-sky-500 border-b font-bold text-slate-900 hover:border-b-2 dark:text-slate-200"
-                            href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors"
+                            href="https://developer.mozilla.org/docs/Web/CSS/CSS_selectors"
                           >
                             {t("cssSelector")}
                           </a>
@@ -91,10 +91,10 @@ export default function RuleEditor({ rule, mode, onChange }: RuleEditorProps) {
         )}
       </Disclosure>
 
-      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="flex min-h-full flex-col justify-center p-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="text-center font-bold text-2xl text-gray-900 leading-9 tracking-tight dark:text-white">
-            {t("titleEditorDialog", {
+            {t("titleEditSelectorDialog", {
               verbs: mode === "update" ? t("update") : t("create"),
             })}
           </h2>
@@ -105,7 +105,7 @@ export default function RuleEditor({ rule, mode, onChange }: RuleEditorProps) {
             <div>
               <label
                 htmlFor="domain"
-                className="block font-medium text-gray-900 text-sm capitalize leading-6 dark:text-slate-200"
+                className="block font-medium text-gray-900 text-sm capitalize leading-6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-slate-200"
               >
                 {t("fieldDomain")}
               </label>
@@ -127,7 +127,7 @@ export default function RuleEditor({ rule, mode, onChange }: RuleEditorProps) {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="selector"
-                  className="block font-medium text-gray-900 text-sm capitalize leading-6 dark:text-slate-200"
+                  className="block font-medium text-gray-900 text-sm capitalize leading-6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-slate-200"
                 >
                   {t("fieldSelector")}
                 </label>
@@ -147,11 +147,11 @@ export default function RuleEditor({ rule, mode, onChange }: RuleEditorProps) {
 
             <div>
               <button
-                className="flex w-full cursor-pointer justify-center rounded-md bg-sky-600 px-3 py-1.5 font-semibold text-sm text-white leading-6 shadow-xs hover:bg-sky-500 focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 disabled:cursor-not-allowed"
+                className="flex w-full cursor-pointer justify-center rounded-md bg-sky-600 px-3 py-1.5 font-semibold text-sm text-white leading-6 shadow-xs focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 enabled:hover:bg-sky-500 disabled:cursor-not-allowed disabled:opacity-50"
                 disabled={!(domain && selector)}
                 onClick={submit}
               >
-                Submit
+                {t("submit")}
               </button>
             </div>
           </form>
