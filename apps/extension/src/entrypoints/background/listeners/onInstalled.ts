@@ -1,4 +1,4 @@
-import { ExtEvent } from "@/commons/constants";
+import { ExtMessageEvent } from "@/commons/constants";
 
 export const registerOnInstalled = () => {
   browser.runtime.onInstalled.addListener((details) => {
@@ -6,7 +6,7 @@ export const registerOnInstalled = () => {
     // Remove the contextMenu before creating it to avoid creating multiple contextMenus.
     browser.contextMenus.removeAll();
     const contextMenuItem: Browser.contextMenus.CreateProperties = {
-      id: ExtEvent.AddFurigana,
+      id: ExtMessageEvent.AddFurigana,
       title: browser.i18n.getMessage("shortcutAddFurigana"),
       contexts: ["page"],
       documentUrlPatterns: ["http://*/*", "https://*/*"],

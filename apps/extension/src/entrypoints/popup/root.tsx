@@ -1,11 +1,12 @@
 import { Transition } from "@headlessui/react";
-import { Suspense, use, useReducer } from "react";
+import { type ReactNode, Suspense, use, useReducer } from "react";
 import { useTranslation } from "react-i18next";
 
 import {
   DisplayMode,
-  ExtEvent,
+  ExtMessageEvent,
   ExtStorage,
+  ExtStorageChange,
   FuriganaType,
   type GeneralSettings,
   SelectMode,
@@ -56,46 +57,41 @@ export default function Popup() {
 
 async function addFurigana() {
   const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
-  await sendMessage(tab!.id!, ExtEvent.AddFurigana);
+  await sendMessage(tab!.id!, ExtMessageEvent.AddFurigana);
 }
 
 type ACTIONTYPE =
-  | { type: typeof ExtEvent.ToggleAutoMode; payload: boolean }
-  | { type: typeof ExtEvent.ToggleKanjiFilter; payload: boolean }
-  | { type: typeof ExtEvent.SwitchDisplayMode; payload: DisplayMode }
-  | { type: typeof ExtEvent.SwitchFuriganaType; payload: FuriganaType }
-  | { type: typeof ExtEvent.SwitchSelectMode; payload: SelectMode }
-  | { type: typeof ExtEvent.AdjustFontSize; payload: number }
-  | { type: typeof ExtEvent.AdjustFontColor; payload: string };
+  | { type: typeof ExtStorageChange.ToggleAutoMode; payload: boolean }
+  | { type: typeof ExtStorageChange.ToggleKanjiFilter; payload: boolean }
+  | { type: typeof ExtStorageChange.SwitchDisplayMode; payload: DisplayMode }
+  | { type: typeof ExtStorageChange.SwitchFuriganaType; payload: FuriganaType }
+  | { type: typeof ExtStorageChange.SwitchSelectMode; payload: SelectMode }
+  | { type: typeof ExtStorageChange.AdjustFontSize; payload: number }
+  | { type: typeof ExtStorageChange.AdjustFontColor; payload: string };
 
 function reducer(state: GeneralSettings, action: ACTIONTYPE) {
-  browser.tabs.query({ active: true, currentWindow: true }).then(async (tabs) => {
-    await setGeneralSettings(toStorageKey(action.type), action.payload);
-    const tabId = tabs[0]!.id!;
-    await sendMessage(tabId, action.type);
-  });
-
+  setGeneralSettings(toStorageKey(action.type), action.payload);
   switch (action.type) {
-    case ExtEvent.ToggleAutoMode:
+    case ExtStorageChange.ToggleAutoMode:
       return { ...state, [ExtStorage.AutoMode]: action.payload };
-    case ExtEvent.ToggleKanjiFilter:
+    case ExtStorageChange.ToggleKanjiFilter:
       return { ...state, [ExtStorage.KanjiFilter]: action.payload };
-    case ExtEvent.SwitchDisplayMode:
+    case ExtStorageChange.SwitchDisplayMode:
       return { ...state, [ExtStorage.DisplayMode]: action.payload };
-    case ExtEvent.SwitchFuriganaType:
+    case ExtStorageChange.SwitchFuriganaType:
       return { ...state, [ExtStorage.FuriganaType]: action.payload };
-    case ExtEvent.SwitchSelectMode:
+    case ExtStorageChange.SwitchSelectMode:
       return { ...state, [ExtStorage.SelectMode]: action.payload };
-    case ExtEvent.AdjustFontSize:
+    case ExtStorageChange.AdjustFontSize:
       return { ...state, [ExtStorage.FontSize]: action.payload };
-    case ExtEvent.AdjustFontColor:
+    case ExtStorageChange.AdjustFontColor:
       return { ...state, [ExtStorage.FontColor]: action.payload };
   }
 }
 
 interface MenuItemProps {
-  children: React.ReactNode;
-  icon: React.ReactNode;
+  children: ReactNode;
+  icon: ReactNode;
 }
 
 function MenuItem({ children, icon }: MenuItemProps) {
@@ -140,7 +136,7 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
           text={t("toggleAutoMode")}
           checked={state.autoMode}
           onChange={(checked) => {
-            dispatch({ type: ExtEvent.ToggleAutoMode, payload: checked });
+            dispatch({ type: ExtStorageChange.ToggleAutoMode, payload: checked });
           }}
         />
       </MenuItem>
@@ -151,7 +147,7 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
           checked={state.kanjiFilter}
           onChange={(checked) => {
             dispatch({
-              type: ExtEvent.ToggleKanjiFilter,
+              type: ExtStorageChange.ToggleKanjiFilter,
               payload: checked,
             });
           }}
@@ -163,7 +159,7 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
           options={displayModeOptions}
           onChange={(selected) => {
             dispatch({
-              type: ExtEvent.SwitchDisplayMode,
+              type: ExtStorageChange.SwitchDisplayMode,
               payload: selected as DisplayMode,
             });
           }}
@@ -175,7 +171,7 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
           options={furiganaTypeOptions}
           onChange={(selected) => {
             dispatch({
-              type: ExtEvent.SwitchFuriganaType,
+              type: ExtStorageChange.SwitchFuriganaType,
               payload: selected as FuriganaType,
             });
           }}
@@ -188,7 +184,7 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
           options={selectModeOptions}
           onChange={(selected) => {
             dispatch({
-              type: ExtEvent.SwitchSelectMode,
+              type: ExtStorageChange.SwitchSelectMode,
               payload: selected as SelectMode,
             });
           }}
@@ -202,7 +198,7 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
           step={1}
           label={t("labelAdjustFont")}
           onChange={(value) => {
-            dispatch({ type: ExtEvent.AdjustFontSize, payload: value });
+            dispatch({ type: ExtStorageChange.AdjustFontSize, payload: value });
           }}
         />
       </MenuItem>
@@ -210,7 +206,7 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
         <ColorPicker
           color={state.fontColor}
           onChange={(color) => {
-            dispatch({ type: ExtEvent.AdjustFontColor, payload: color });
+            dispatch({ type: ExtStorageChange.AdjustFontColor, payload: color });
           }}
         />
       </MenuItem>

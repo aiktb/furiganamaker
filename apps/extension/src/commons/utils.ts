@@ -7,8 +7,9 @@ import defaultSelectorRules from "@/assets/rules/selector.json";
 
 import {
   DisplayMode,
-  ExtEvent,
+  type ExtMessageEvent,
   ExtStorage,
+  ExtStorageChange,
   type FilterRule,
   FuriganaType,
   type GeneralSettings,
@@ -20,19 +21,19 @@ import {
 
 export const toStorageKey = (event: StorageChangeEvent) => {
   switch (event) {
-    case ExtEvent.ToggleKanjiFilter:
+    case ExtStorageChange.ToggleKanjiFilter:
       return ExtStorage.KanjiFilter;
-    case ExtEvent.SwitchDisplayMode:
+    case ExtStorageChange.SwitchDisplayMode:
       return ExtStorage.DisplayMode;
-    case ExtEvent.AdjustFontColor:
+    case ExtStorageChange.AdjustFontColor:
       return ExtStorage.FontColor;
-    case ExtEvent.AdjustFontSize:
+    case ExtStorageChange.AdjustFontSize:
       return ExtStorage.FontSize;
-    case ExtEvent.SwitchFuriganaType:
+    case ExtStorageChange.SwitchFuriganaType:
       return ExtStorage.FuriganaType;
-    case ExtEvent.SwitchSelectMode:
+    case ExtStorageChange.SwitchSelectMode:
       return ExtStorage.SelectMode;
-    case ExtEvent.ToggleAutoMode:
+    case ExtStorageChange.ToggleAutoMode:
       return ExtStorage.AutoMode;
   }
 };
@@ -42,7 +43,7 @@ export const toStorageKey = (event: StorageChangeEvent) => {
  * so it is not possible to register a message listener with the page,
  * such as `chrome://newtab` and `chrome.google.com`, and this error on those sites is a noise.
  */
-export const sendMessage = async (id: number, event: ExtEvent) => {
+export const sendMessage = async (id: number, event: ExtMessageEvent) => {
   try {
     await browser.tabs.sendMessage(id, event);
   } catch (error) {

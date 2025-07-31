@@ -1,4 +1,4 @@
-import { ExtEvent, type FilterRule } from "@/commons/constants";
+import { ExtMessageEvent, type FilterRule } from "@/commons/constants";
 import { DB, cn, getKanjiFilterDB } from "@/commons/utils";
 import { Dialog, DialogPanel, DialogTitle, Transition } from "@headlessui/react";
 import { Suspense, use, useState } from "react";
@@ -58,7 +58,7 @@ const KanjiFilterPage = ({ promise, className }: KanjiFilterPageProps) => {
     await db.delete(DB.onlyTable, kanji);
     const updatedRules = rules.filter((rule) => rule.kanji !== kanji);
     setRules(updatedRules);
-    browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
+    browser.runtime.sendMessage(ExtMessageEvent.ModifyKanjiFilter);
   };
 
   const [updateOrCreateDialogIsOpen, setUpdateOrCreateDialogIsOpen] = useState(false);
@@ -68,7 +68,7 @@ const KanjiFilterPage = ({ promise, className }: KanjiFilterPageProps) => {
     const db = await getKanjiFilterDB();
     await db.add(DB.onlyTable, rule);
     setRules([rule, ...rules]);
-    browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
+    browser.runtime.sendMessage(ExtMessageEvent.ModifyKanjiFilter);
   };
 
   const handleUpdateKanjiFilter = async (oldRule: FilterRule, newRule: FilterRule) => {
@@ -79,7 +79,7 @@ const KanjiFilterPage = ({ promise, className }: KanjiFilterPageProps) => {
     await tx.done;
     const updatedRules = rules.map((rule) => (rule.kanji === oldRule.kanji ? newRule : rule));
     setRules(updatedRules);
-    browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
+    browser.runtime.sendMessage(ExtMessageEvent.ModifyKanjiFilter);
   };
   return (
     <>
@@ -94,7 +94,7 @@ const KanjiFilterPage = ({ promise, className }: KanjiFilterPageProps) => {
           disableExportAndClear={rules.length === 0}
           onChange={(rules) => {
             setRules(rules);
-            browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
+            browser.runtime.sendMessage(ExtMessageEvent.ModifyKanjiFilter);
           }}
           onNewButtonClick={() => {
             setRuleToUpdateOrCreate(undefined);

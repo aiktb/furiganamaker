@@ -1,5 +1,5 @@
 import { addFurigana } from "@/commons/addFurigana";
-import { ExtEvent, ExtStorage } from "@/commons/constants";
+import { ExtMessageEvent, ExtStorage } from "@/commons/constants";
 import { sendMessage } from "@/commons/message";
 import { getGeneralSettings, getMoreSettings } from "@/commons/utils";
 
@@ -27,14 +27,14 @@ export default defineContentScript({
     const warningDisabled = await getMoreSettings(ExtStorage.DisableWarning);
     if (!warningDisabled && textLength > 30000 && elements.length > 0) {
       showWarning(textLength);
-      browser.runtime.sendMessage(ExtEvent.MarkDisabledTab);
+      browser.runtime.sendMessage(ExtMessageEvent.MarkDisabledTab);
       return;
     }
 
     // Observer will not observe the element that is loaded for the first time on the page,
     // so it needs to execute `addFurigana` once immediately.
     if (elements.length) {
-      browser.runtime.sendMessage(ExtEvent.MarkActiveTab);
+      browser.runtime.sendMessage(ExtMessageEvent.MarkActiveTab);
       addFurigana(...elements);
     }
 
@@ -47,7 +47,7 @@ export default defineContentScript({
         .flatMap((element) => Array.from(element.querySelectorAll(selector)));
 
       if (japaneseElements.length) {
-        browser.runtime.sendMessage(ExtEvent.MarkActiveTab);
+        browser.runtime.sendMessage(ExtMessageEvent.MarkActiveTab);
         addFurigana(...japaneseElements);
       }
     });

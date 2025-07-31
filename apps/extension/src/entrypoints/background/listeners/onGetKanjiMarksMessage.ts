@@ -1,4 +1,4 @@
-import { ExtEvent } from "@/commons/constants";
+import { ExtMessageEvent } from "@/commons/constants";
 import { onMessage } from "@/commons/message";
 import { type KanjiToken, type MojiToken, toKanjiToken } from "@/commons/toKanjiToken";
 import { DB, getKanjiFilterDB } from "@/commons/utils";
@@ -66,7 +66,7 @@ const getKanjiFilterMap = async () => {
 
 export const registerOnGetKanjiMarksMessage = () => {
   browser.runtime.onMessage.addListener((event) => {
-    if (event === ExtEvent.ModifyKanjiFilter) {
+    if (event === ExtMessageEvent.ModifyKanjiFilter) {
       kanjiFilterMap = null;
     }
   });

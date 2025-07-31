@@ -1,7 +1,14 @@
 export const FURIGANA_CLASS = "--furigana--";
 
-export const ExtEvent = {
+export const ExtMessageEvent = {
   AddFurigana: "addFurigana",
+  MarkActiveTab: "markActiveTab",
+  MarkDisabledTab: "markDisabledTab",
+  ModifyKanjiFilter: "modifyKanjiFilter",
+} as const;
+export type ExtMessageEvent = (typeof ExtMessageEvent)[keyof typeof ExtMessageEvent];
+
+export const ExtStorageChange = {
   ToggleAutoMode: "toggleAutoMode",
   ToggleKanjiFilter: "toggleKanjiFilter",
   SwitchDisplayMode: "switchDisplayMode",
@@ -9,11 +16,8 @@ export const ExtEvent = {
   SwitchSelectMode: "switchSelectMode",
   AdjustFontSize: "adjustFontSize",
   AdjustFontColor: "adjustFontColor",
-  MarkActiveTab: "markActiveTab",
-  MarkDisabledTab: "markDisabledTab",
-  ModifyKanjiFilter: "modifyKanjiFilter",
 } as const;
-export type ExtEvent = (typeof ExtEvent)[keyof typeof ExtEvent];
+export type ExtStorageChange = (typeof ExtStorageChange)[keyof typeof ExtStorageChange];
 
 export const ExtStorage = {
   AutoMode: "autoMode",
@@ -31,14 +35,6 @@ export const ExtStorage = {
   FilterRules: "filterRules",
 } as const;
 export type ExtStorage = (typeof ExtStorage)[keyof typeof ExtStorage];
-
-export type StyleEvent =
-  | typeof ExtEvent.ToggleAutoMode
-  | typeof ExtEvent.SwitchDisplayMode
-  | typeof ExtEvent.SwitchSelectMode
-  | typeof ExtEvent.AdjustFontSize
-  | typeof ExtEvent.AdjustFontColor
-  | typeof ExtEvent.ToggleKanjiFilter;
 
 export const DisplayMode = {
   Always: "always show",
@@ -64,7 +60,7 @@ export const SelectMode = {
 export type SelectMode = (typeof SelectMode)[keyof typeof SelectMode];
 
 /**
- * Only used in Popup pages.
+ * Can only be modified on the Popup page.
  */
 export interface GeneralSettings {
   [ExtStorage.AutoMode]: boolean;
@@ -77,11 +73,11 @@ export interface GeneralSettings {
 }
 
 /**
- * Only used in Options pages.
+ * Can only be modified on the Options page.
  */
 export interface MoreSettings {
   /**
-   * If null, the detected system language is used.
+   * If undefined, the detected system language is used.
    */
   [ExtStorage.Language]: string | undefined;
   [ExtStorage.DisableWarning]: boolean;
@@ -101,10 +97,10 @@ export type FilterRule = {
 };
 
 export type StorageChangeEvent =
-  | typeof ExtEvent.ToggleKanjiFilter
-  | typeof ExtEvent.SwitchDisplayMode
-  | typeof ExtEvent.AdjustFontColor
-  | typeof ExtEvent.AdjustFontSize
-  | typeof ExtEvent.SwitchFuriganaType
-  | typeof ExtEvent.SwitchSelectMode
-  | typeof ExtEvent.ToggleAutoMode;
+  | typeof ExtStorageChange.ToggleKanjiFilter
+  | typeof ExtStorageChange.SwitchDisplayMode
+  | typeof ExtStorageChange.AdjustFontColor
+  | typeof ExtStorageChange.AdjustFontSize
+  | typeof ExtStorageChange.SwitchFuriganaType
+  | typeof ExtStorageChange.SwitchSelectMode
+  | typeof ExtStorageChange.ToggleAutoMode;

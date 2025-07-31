@@ -1,15 +1,15 @@
-import { ExtEvent } from "@/commons/constants";
+import { ExtMessageEvent } from "@/commons/constants";
 
 export const registerOnMarkActiveMessage = () => {
   browser.runtime.onMessage.addListener(async (event, sender) => {
     let fillStyle = null;
     let i18nMessage = null;
     switch (event) {
-      case ExtEvent.MarkActiveTab:
+      case ExtMessageEvent.MarkActiveTab:
         fillStyle = "aqua";
         i18nMessage = browser.i18n.getMessage("extTitleActivated");
         break;
-      case ExtEvent.MarkDisabledTab:
+      case ExtMessageEvent.MarkDisabledTab:
         fillStyle = "red";
         i18nMessage = browser.i18n.getMessage("extTitleDisabled");
         break;

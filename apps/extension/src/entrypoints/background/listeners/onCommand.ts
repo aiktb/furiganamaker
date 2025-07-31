@@ -1,4 +1,4 @@
-import { DisplayMode, ExtEvent, ExtStorage } from "@/commons/constants";
+import { DisplayMode, ExtMessageEvent, ExtStorage } from "@/commons/constants";
 import { getGeneralSettings, sendMessage, setGeneralSettings } from "@/commons/utils";
 import type { Command } from "@@/wxt.config";
 
@@ -9,7 +9,7 @@ export const registerOnCommand = () => {
 
     switch (command as Command) {
       case "addFurigana": {
-        await sendMessage(tabId, ExtEvent.AddFurigana);
+        await sendMessage(tabId, ExtMessageEvent.AddFurigana);
         break;
       }
       case "toggleAutoMode": {
@@ -20,17 +20,17 @@ export const registerOnCommand = () => {
       case "toggleKanjiFilter": {
         const kanjiFilter = await getGeneralSettings(ExtStorage.KanjiFilter);
         await setGeneralSettings(ExtStorage.KanjiFilter, !kanjiFilter);
-        await sendMessage(tabId, ExtEvent.ToggleKanjiFilter);
+        await sendMessage(tabId, ExtMessageEvent.ToggleKanjiFilter);
         break;
       }
       case "toggleFuriganaDisplay": {
         const displayMode = await getGeneralSettings(ExtStorage.DisplayMode);
         if (displayMode === DisplayMode.Always) {
           await setGeneralSettings(ExtStorage.DisplayMode, DisplayMode.Never);
-          await sendMessage(tabId, ExtEvent.SwitchDisplayMode);
+          await sendMessage(tabId, ExtMessageEvent.SwitchDisplayMode);
         } else {
           await setGeneralSettings(ExtStorage.DisplayMode, DisplayMode.Always);
-          await sendMessage(tabId, ExtEvent.SwitchDisplayMode);
+          await sendMessage(tabId, ExtMessageEvent.SwitchDisplayMode);
         }
         break;
       }
