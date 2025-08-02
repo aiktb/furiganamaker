@@ -34,7 +34,7 @@
     "react-share": "^5.1.1",
     "tailwind-merge": "catalog:",
     "wanakana": "^5.3.1",
-    "zod": "^3.24.1"
+    "zod": "^4.0.0"
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "catalog:",
