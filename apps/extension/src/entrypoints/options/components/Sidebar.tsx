@@ -25,19 +25,13 @@ export default function Sidebar() {
       icon: "i-tabler-click",
     },
     { to: "/changelog", target: "_self", label: t("navChangelog"), icon: "i-tabler-history" },
-    {
+    import.meta.env.DEV && {
       to: browser.runtime.getURL("/popup.html"),
       target: "_blank",
       label: t("navPopup"),
       icon: "i-tabler-puzzle",
     },
-    {
-      to: "https://github.com/aiktb/furiganamaker",
-      target: "_blank",
-      label: "GitHub",
-      icon: "i-tabler-brand-github",
-    },
-  ];
+  ].filter(Boolean);
 
   const [sidebarIsOpen, setSidebarIsOpen] = useState(
     window.matchMedia("(min-width: 1024px)").matches,
