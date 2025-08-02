@@ -1,7 +1,7 @@
 import { Dialog, DialogPanel, DialogTitle, Field, Input } from "@headlessui/react";
 import { t } from "i18next";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import PopupTransition from "./PopupTransition";
 
 interface ExclusionHandlerProps {
@@ -24,7 +24,7 @@ export default function ExclusionHandler({ sites, onChange }: ExclusionHandlerPr
         </div>
         <div className="flex flex-col gap-2 sm:flex-row">
           <button
-            className="cursor-pointer rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 dark:bg-white/5 dark:text-white"
+            className="cursor-pointer rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white"
             onClick={() => {
               setDialogIsOpen(true);
             }}
@@ -46,6 +46,30 @@ export default function ExclusionHandler({ sites, onChange }: ExclusionHandlerPr
                 >
                   {t("dialogExcludeTitle")}
                 </DialogTitle>
+                <div className="mt-2">
+                  <p className="whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
+                    <Trans
+                      i18nKey="fieldDomainDesc1"
+                      components={{
+                        boldWwwDot: (
+                          <b className="font-semibold text-slate-900 dark:text-slate-200">www.</b>
+                        ),
+                      }}
+                    />
+                  </p>
+                  <p className="mt-1 whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
+                    <Trans
+                      i18nKey="fieldDomainDesc2"
+                      components={{
+                        boldHttpsPrefix: (
+                          <b className="font-semibold text-slate-900 dark:text-slate-200">
+                            https://
+                          </b>
+                        ),
+                      }}
+                    />
+                  </p>
+                </div>
                 <Field>
                   <Input
                     value={input}
@@ -57,10 +81,10 @@ export default function ExclusionHandler({ sites, onChange }: ExclusionHandlerPr
                         setDialogIsOpen(false);
                       }
                     }}
-                    placeholder="example.com"
+                    placeholder="www.example.com"
                     autoFocus={true}
                     className={
-                      "mt-6 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-sky-600 focus:ring-inset disabled:cursor-not-allowed sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white dark:ring-gray-700 dark:focus:ring-sky-600"
+                      "mt-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-sky-600 focus:ring-inset disabled:cursor-not-allowed sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white dark:ring-gray-700 dark:focus:ring-sky-600"
                     }
                   />
                 </Field>
@@ -78,7 +102,7 @@ export default function ExclusionHandler({ sites, onChange }: ExclusionHandlerPr
                     className="cursor-pointer rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white/5 dark:text-white"
                     disabled={!input}
                     onClick={() => {
-                      onChange([...sites, input]);
+                      onChange([...sites, input.replace(/^https?:\/\//, "")]);
                       setInput("");
                       setDialogIsOpen(false);
                     }}
@@ -90,7 +114,7 @@ export default function ExclusionHandler({ sites, onChange }: ExclusionHandlerPr
             </Dialog>
           </PopupTransition>
           <button
-            className="cursor-pointer text-nowrap rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 dark:bg-white/5 dark:text-white"
+            className="cursor-pointer text-nowrap rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white"
             onClick={() => onChange([])}
           >
             {t("btnClearAll")}

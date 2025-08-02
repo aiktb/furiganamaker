@@ -5,7 +5,7 @@
   "toggleAutoMode": "开/关自动模式",
   "tipRefreshPage": "切换后请刷新页面",
   "toggleKanjiFilter": "开/关汉字过滤器",
-  "tipFilterLevel": "级别为 JLPT N5 & N4",
+  "tipFilterLevel": "默认级别为N5和N4",
   "optionAlwaysShow": "总是显示",
   "optionNeverShow": "从不显示",
   "optionHoverGap": "悬停显示有间隔",
@@ -47,9 +47,9 @@
   "titleNotFound": "未找到规则",
   "msgNotFound": "请添加新规则，或导入现有的配置文件（JSON 格式），否则此扩展将不执行任何操作。",
   "disclosureSelector": "什么是选择器字段？",
-  "msgCssSelector": "<code/> 字段使用 <link/> 语法来指定页面上的标记元素。",
+  "msgCssSelector": "<boldSelectorField/> 字段使用 <mdnCssSelectorLink/> 语法来指定页面上的标记元素。",
   "msgDoNotModify": "如果您不熟悉 CSS 选择器语法，请不要修改此字段，因为这可能会使扩展失效。",
-  "msgSelectorMerge": "<codeSelector/> 字段用逗号分隔，对应同一 <codeDomain/> 的选择器将直接合并。",
+  "msgSelectorMerge": "<boldSelectorField/> 字段用逗号分隔，对应同一 <boldCodeField/> 的选择器将直接合并。",
   "cssSelector": "CSS 选择器",
   "fieldSelector": "选择器",
   "fieldDomain": "域名",
@@ -112,5 +112,7 @@
   "validationPureKanji": "必须是纯粹的日本汉字。",
   "validationPureKatakana": "必须是纯粹的katakana。",
   "validationRequired": "必需的。",
-  "fieldKanji": "汉字"
+  "fieldKanji": "汉字",
+  "fieldDomainDesc1": "请单击浏览器地址栏以确认“<boldWwwDot/>”前缀是否被隐藏。\n如果有则必须输入它，否则此功能无法正常工作。",
+  "fieldDomainDesc2": "将自动删除“<boldHttpsPrefix/>”前缀。"
 }

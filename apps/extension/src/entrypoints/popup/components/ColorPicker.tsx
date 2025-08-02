@@ -34,9 +34,9 @@ export default function ColorPicker({ color, onChange }: ColorPickerProps) {
           >
             <PopoverPanel focus className="absolute inset-0 z-50 bg-white dark:bg-slate-900">
               <ColorPickerPanel color={color} onChange={onChange}>
-                <PopoverButton className="flex cursor-pointer items-center justify-center gap-2 rounded-sm border-none px-1.5 font-sans shadow-xs outline-hidden ring-1 ring-gray-300 transition-all hover:text-sky-500 focus-visible:text-sky-500 focus-visible:ring-2 focus-visible:ring-sky-500 dark:ring-slate-700 dark:focus-visible:ring-sky-500">
-                  {t("btnClosePanel")}
+                <PopoverButton className="mt-1 flex cursor-pointer items-center justify-center gap-1 rounded-md bg-slate-950/5 px-2 py-1 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white">
                   <i className="i-tabler-x size-4" />
+                  {t("btnClosePanel")}
                 </PopoverButton>
               </ColorPickerPanel>
             </PopoverPanel>
@@ -106,7 +106,8 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
           <label>
             <span>HEX </span>
             <input
-              className="h-6 w-[4.5rem] rounded-sm border-none px-1.5 font-mono text-sm uppercase shadow-xs ring-1 ring-gray-300 ring-inset focus:border-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-950 dark:ring-slate-700 dark:focus-visible:ring-sky-500"
+              id="color-input"
+              className="ml-1 h-6 w-21 rounded-sm border-none px-1.5 font-bold font-sans text-sm uppercase shadow-xs ring-1 ring-gray-300 ring-inset focus:border-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-950 dark:ring-slate-700 dark:focus-visible:ring-sky-500"
               value={input}
               onChange={(event) => {
                 setInput(event.target.value);
@@ -124,7 +125,7 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
             />
           </label>
           <button
-            className="flex h-6 max-w-[7ch] cursor-pointer items-center justify-center gap-0.5 rounded-sm border-none px-1.5 font-sans shadow-xs outline-hidden ring-1 ring-gray-300 transition-all hover:text-sky-500 focus-visible:text-sky-500 focus-visible:ring-2 focus-visible:ring-sky-500 dark:bg-slate-950 dark:ring-slate-700 dark:focus-visible:ring-sky-500"
+            className="flex w-14 cursor-pointer items-center justify-center rounded-md bg-slate-950/5 px-1.5 py-1 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white"
             onClick={() => {
               setHue(0);
               setSaturationAndValue({ s: 1, v: 1 });
@@ -132,8 +133,7 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
               onChange("currentColor");
             }}
           >
-            <span className="">{t("btnReset")}</span>
-            <i className="i-tabler-reload min-w-0 text-lg" />
+            {t("btnReset")}
           </button>
         </div>
       </div>
@@ -270,7 +270,7 @@ function ColorSwitcher({ onChange }: { onChange: (color: string) => void }) {
     'aqua', 'lightsalmon', 'paleturquoise', 'gray', 'tomato',
   ]
   return (
-    <div className="grid grid-cols-5 grid-rows-5 gap-2.5 border-gray-300 border-t-2 pt-3 dark:border-slate-700">
+    <div className="grid grid-cols-5 grid-rows-5 gap-2.5 dark:border-slate-700">
       {colors.map((color) => {
         const baseShadow = "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset";
         const focusShadow = `${baseShadow} ,${color} 0px 0px 6px`;

@@ -72,7 +72,7 @@ In order to test browser extensions, playwright needs to use the `headless=new` 
 
 You must run `pnpm run build` before running this command because this command is run for the build product in the production environment.
 ```bash
-pnpm run test:e2e
+pnpm run test:e2e:prod
 ```
 
 This command is recommended for development mode:
