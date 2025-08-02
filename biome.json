@@ -6,9 +6,7 @@
     "useIgnoreFile": true,
     "defaultBranch": "main"
   },
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "formatter": {
     "enabled": true,
     "formatWithErrors": true,
@@ -24,6 +22,9 @@
     "linter": {
       "enabled": false
     }
+  },
+  "files": {
+    "includes": ["!tailwind.css"]
   },
   "linter": {
     "enabled": true,
@@ -51,13 +52,12 @@
         "useConsistentArrayType": "error",
         "useForOf": "error",
         "useFragmentSyntax": "error",
-        "useShorthandAssign": "error",
-        "useShorthandArrayType": "error"
+        "useShorthandAssign": "error"
       },
       "suspicious": {
-        "noConsoleLog": "error",
         "noEmptyBlockStatements": "error",
-        "useAwait": "error"
+        "useAwait": "error",
+        "noConsole": { "level": "error" }
       },
       "nursery": {
         "useSortedClasses": {

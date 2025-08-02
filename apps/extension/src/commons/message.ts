@@ -1,5 +1,5 @@
-import type { KanjiMark } from "@/entrypoints/background/listeners/onGetKanjiMarksMessage";
 import { defineExtensionMessaging } from "@webext-core/messaging";
+import type { KanjiMark } from "@/entrypoints/background/listeners/onGetKanjiMarksMessage";
 
 interface ProtocolMap {
   getKanjiMarks(data: { text: string }): { tokens: KanjiMark[] };

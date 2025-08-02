@@ -75,6 +75,17 @@ async function styleHandler(type: StyleEvent) {
           ${rtHoverSelector} {
             display: revert;
           }`;
+      } else if (value === DisplayMode.HoverMask) {
+        css = `
+          ${rtSelector} {
+            background-color: currentColor;
+            border-radius: 0.25em;
+          }
+
+          ${rtHoverSelector} {
+            background-color: transparent;
+            transition: background-color 0.15s ease-in-out;
+          }`;
       }
       break;
     case ExtEvent.SwitchSelectMode:

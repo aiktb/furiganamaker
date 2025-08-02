@@ -1,7 +1,6 @@
-import { type EntryContext, ServerRouter } from "react-router";
-
 import { isbot } from "isbot";
 import { renderToReadableStream } from "react-dom/server";
+import { type EntryContext, ServerRouter } from "react-router";
 
 export default async function handleRequest(
   request: Request,
@@ -14,7 +13,7 @@ export default async function handleRequest(
     {
       signal: request.signal,
       onError(error: unknown) {
-        // Log streaming rendering errors from inside the shell
+        // biome-ignore lint/suspicious/noConsole: Log streaming rendering errors from inside the shell
         console.error(error);
       },
     },

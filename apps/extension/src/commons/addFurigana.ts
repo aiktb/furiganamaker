@@ -1,5 +1,5 @@
-import { sendMessage } from "@/commons/message";
 import { toHiragana, toRomaji } from "wanakana";
+import { sendMessage } from "@/commons/message";
 
 import type { KanjiMark } from "@/entrypoints/background/listeners/onGetKanjiMarksMessage";
 

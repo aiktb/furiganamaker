@@ -51,7 +51,7 @@ export default function Footer() {
         <i className="i-mdi-chevron-up size-10" />
       </button>
       <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
-        <nav className="flex items-center justify-center space-x-4 sm:space-x-12 ">
+        <nav className="flex items-center justify-center space-x-4 sm:space-x-12">
           {navItems.map((item) => (
             <Link
               target="_blank"

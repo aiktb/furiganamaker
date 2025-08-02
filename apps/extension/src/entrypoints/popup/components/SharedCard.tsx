@@ -1,5 +1,3 @@
-import TelegramSquareIcon from "@/assets/icons/TelegramSquare.svg?react";
-
 import { useTranslation } from "react-i18next";
 import {
   FacebookShareButton,
@@ -8,6 +6,7 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
+import TelegramSquareIcon from "@/assets/icons/TelegramSquare.svg?react";
 
 import ToolTip from "./ToolTip";
 
