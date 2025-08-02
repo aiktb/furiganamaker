@@ -1,10 +1,12 @@
+// biome-ignore assist/source/organizeImports: react-scan must be imported before React and React DOM
 import "@/tailwind.css";
 import "@/commons/i18n";
 
+import { scan } from "react-scan";
 import { ThemeProvider } from "next-themes";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { RouterProvider, createHashRouter } from "react-router";
+import { createHashRouter, RouterProvider } from "react-router";
 
 import ErrorPage from "./components/ErrorPage";
 import Root from "./root";
@@ -12,6 +14,10 @@ import Changelog from "./routes/Changelog";
 import KanjiFilter from "./routes/KanjiFilter";
 import Selector from "./routes/Selector";
 import Settings from "./routes/Settings";
+
+scan({
+  enabled: true,
+});
 
 const router = createHashRouter([
   {

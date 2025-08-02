@@ -1,9 +1,8 @@
 import { useTranslation } from "react-i18next";
-import { Link, isRouteErrorResponse, useRouteError } from "react-router";
+import { isRouteErrorResponse, Link, useRouteError } from "react-router";
 
 export default function ErrorPage() {
   const error = useRouteError();
-  console.error(error);
   let message: string;
   if (isRouteErrorResponse(error)) {
     message = error.statusText;

@@ -1,8 +1,8 @@
+import kuromoji from "@sglkc/kuromoji";
 import { ExtEvent } from "@/commons/constants";
 import { onMessage } from "@/commons/message";
 import { type KanjiToken, type MojiToken, toKanjiToken } from "@/commons/toKanjiToken";
 import { DB, getKanjiFilterDB } from "@/commons/utils";
-import kuromoji from "@sglkc/kuromoji";
 
 interface Tokenizer {
   tokenize: (text: string) => MojiToken[];

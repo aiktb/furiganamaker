@@ -1,7 +1,7 @@
 import { ExtEvent } from "@/commons/constants";
 
 export const registerOnMarkActiveMessage = () => {
-  browser.runtime.onMessage.addListener(async (event, sender) => {
+  browser.runtime.onMessage.addListener((event, sender) => {
     let fillStyle = null;
     let i18nMessage = null;
     switch (event) {

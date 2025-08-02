@@ -212,7 +212,7 @@ function SaturationAndValuePicker({ color, hue, onChange }: SaturationAndValuePi
       >
         <div className="absolute inset-0 rounded-xs bg-gradient-to-b from-transparent to-black" />
         <div
-          className="-translate-x-1/2 -translate-y-1/2 absolute size-1 rounded-full "
+          className="-translate-x-1/2 -translate-y-1/2 absolute size-1 rounded-full"
           style={{
             boxShadow:
               "rgb(255, 255, 255) 0px 0px 0px 1.5px, rgba(0, 0, 0, 0.3) 0px 0px 1px 1px inset, rgba(0, 0, 0, 0.4) 0px 0px 1px 2px",
