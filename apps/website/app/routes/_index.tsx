@@ -20,6 +20,7 @@ export const loader = async () => {
     });
     data = ((await res.json()) as Repo).stargazers_count;
   } catch (e) {
+    // biome-ignore lint/suspicious/noConsole: nothing
     console.error(e);
   }
   const AN_HOUR = 60 * 60;

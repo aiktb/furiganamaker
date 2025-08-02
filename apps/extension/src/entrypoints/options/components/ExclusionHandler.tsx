@@ -128,7 +128,7 @@ export default function ExclusionHandler({ sites, onChange }: ExclusionHandlerPr
 
 function SiteList({ sites, onChange }: ExclusionHandlerProps) {
   return (
-    <div className="space-y-2 rounded-lg bg-slate-950/5 p-4 text-slate-800 dark:bg-white/5 dark:text-slate-200 ">
+    <div className="space-y-2 rounded-lg bg-slate-950/5 p-4 text-slate-800 dark:bg-white/5 dark:text-slate-200">
       {sites.length === 0 ? (
         <div className="flex items-center justify-center">{t("messageEmptyList")}</div>
       ) : (

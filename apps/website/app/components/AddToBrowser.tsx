@@ -1,5 +1,4 @@
-import { useRef } from "react";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { Link } from "react-router";
 import { LinksContext } from "../contexts";
 

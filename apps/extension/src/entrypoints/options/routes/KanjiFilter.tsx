@@ -1,8 +1,8 @@
-import { ExtEvent, type FilterRule } from "@/commons/constants";
-import { DB, cn, getKanjiFilterDB } from "@/commons/utils";
 import { Dialog, DialogPanel, DialogTitle, Transition } from "@headlessui/react";
 import { Suspense, use, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ExtEvent, type FilterRule } from "@/commons/constants";
+import { cn, DB, getKanjiFilterDB } from "@/commons/utils";
 
 import KanjiFilterDashboard from "../components/KanjiFilterDashboard";
 import KanjiFilterEditorDialog from "../components/KanjiFilterEditorDialog";

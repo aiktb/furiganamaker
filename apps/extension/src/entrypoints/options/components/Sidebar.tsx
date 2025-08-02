@@ -10,7 +10,7 @@ type CustomLink = LinkProps & { label: string; icon: string };
 export default function Sidebar() {
   const { t } = useTranslation();
 
-  const navItems: CustomLink[] = [
+  const navItems = [
     { to: "/", target: "_self", label: t("navSettings"), icon: "i-tabler-settings" },
     {
       to: "/kanji-filter",
@@ -25,19 +25,13 @@ export default function Sidebar() {
       icon: "i-tabler-click",
     },
     { to: "/changelog", target: "_self", label: t("navChangelog"), icon: "i-tabler-history" },
-    {
+    import.meta.env.DEV && {
       to: browser.runtime.getURL("/popup.html"),
       target: "_blank",
       label: t("navPopup"),
       icon: "i-tabler-puzzle",
     },
-    {
-      to: "https://github.com/aiktb/furiganamaker",
-      target: "_blank",
-      label: "GitHub",
-      icon: "i-tabler-brand-github",
-    },
-  ];
+  ].filter(Boolean) satisfies CustomLink[];
 
   const [sidebarIsOpen, setSidebarIsOpen] = useState(
     window.matchMedia("(min-width: 1024px)").matches,

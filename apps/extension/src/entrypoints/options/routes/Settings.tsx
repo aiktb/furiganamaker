@@ -1,6 +1,5 @@
 import { Switch, Transition } from "@headlessui/react";
-import { Suspense, use } from "react";
-import { useState } from "react";
+import { Suspense, use, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { ExtStorage, type MoreSettings } from "@/commons/constants";
@@ -118,7 +117,10 @@ function MoreSettingsMenu({ settingsPromise }: { settingsPromise: Promise<MoreSe
 function SettingSwitch({
   enabled,
   onChange,
-}: { enabled: boolean; onChange: (enabled: boolean) => void }) {
+}: {
+  enabled: boolean;
+  onChange: (enabled: boolean) => void;
+}) {
   return (
     <div>
       <Switch

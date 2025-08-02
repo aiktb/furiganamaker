@@ -1,19 +1,15 @@
 import { Dialog, DialogPanel, DialogTitle, Transition } from "@headlessui/react";
 import { saveAs } from "file-saver";
-import { use } from "react";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
-
+import defaultSelectorRules from "@/assets/rules/selector.json";
 import type { SelectorRule } from "@/commons/constants";
 import { cn, customSelectors } from "@/commons/utils";
-
 import NotFoundRule from "./NotFoundRule";
 import PopupTransition from "./PopupTransition";
 import SelectorRuleEditor from "./SelectorRuleEditor";
 import SelectorRuleItem from "./SelectorRuleItem";
-
-import defaultSelectorRules from "@/assets/rules/selector.json";
 
 export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<SelectorRule[]> }) {
   const [rules, setRules] = useState(use(rulesPromise));

@@ -1,15 +1,12 @@
-import type { FilterRule } from "@/commons/constants";
-import { DB, cn, getKanjiFilterDB } from "@/commons/utils";
-
-import defaultKanjiFilterRules from "@/assets/rules/filter.json";
-
 import { Dialog, DialogPanel, DialogTitle, Textarea } from "@headlessui/react";
 import { saveAs } from "file-saver";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { z } from "zod";
-
 import { isKanji } from "wanakana";
+import { z } from "zod";
+import defaultKanjiFilterRules from "@/assets/rules/filter.json";
+import type { FilterRule } from "@/commons/constants";
+import { cn, DB, getKanjiFilterDB } from "@/commons/utils";
 import PopupTransition from "./PopupTransition";
 
 interface KanjiFilterDashboardProps {

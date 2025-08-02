@@ -1,5 +1,3 @@
-import type { FilterRule } from "@/commons/constants";
-import { DB, getKanjiFilterDB } from "@/commons/utils";
 import {
   Dialog,
   DialogPanel,
@@ -15,6 +13,8 @@ import {
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { isKanji, isKatakana } from "wanakana";
+import type { FilterRule } from "@/commons/constants";
+import { DB, getKanjiFilterDB } from "@/commons/utils";
 
 import PopupTransition from "./PopupTransition";
 import YomikatasInput from "./YomikatasInput";
@@ -60,7 +60,7 @@ export default function KanjiFilterEditorDialog({
     return !kanjiInputHasError;
   };
 
-  const validateYomikatasInput = async (yomikatas: string[]) => {
+  const validateYomikatasInput = (yomikatas: string[]) => {
     setYomikatasInputErrorMessage("");
     let yomikatasInputHasError = true;
 

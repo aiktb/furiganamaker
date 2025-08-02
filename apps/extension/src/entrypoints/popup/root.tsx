@@ -1,17 +1,6 @@
 import { Transition } from "@headlessui/react";
 import { Suspense, use, useReducer } from "react";
 import { useTranslation } from "react-i18next";
-
-import {
-  DisplayMode,
-  ExtEvent,
-  ExtStorage,
-  FuriganaType,
-  type GeneralSettings,
-  SelectMode,
-} from "@/commons/constants";
-import { generalSettings, sendMessage, setGeneralSettings, toStorageKey } from "@/commons/utils";
-
 import ColorPickerIcon from "@/assets/icons/ColorPicker.svg?react";
 import CursorOutlineIcon from "@/assets/icons/CursorDefault.svg?react";
 import CursorTextIcon from "@/assets/icons/CursorText.svg?react";
@@ -25,6 +14,15 @@ import Logo from "@/assets/icons/Logo.svg?react";
 import PowerIcon from "@/assets/icons/Power.svg?react";
 import SettingIcon from "@/assets/icons/Setting.svg?react";
 import ShareIcon from "@/assets/icons/Share.svg?react";
+import {
+  DisplayMode,
+  ExtEvent,
+  ExtStorage,
+  FuriganaType,
+  type GeneralSettings,
+  SelectMode,
+} from "@/commons/constants";
+import { generalSettings, sendMessage, setGeneralSettings, toStorageKey } from "@/commons/utils";
 
 import Button from "./components/Button";
 import CheckBox from "./components/CheckBox";

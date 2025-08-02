@@ -1,6 +1,5 @@
 import { Fireworks, type FireworksHandlers } from "@fireworks-js/react";
-import { useEffect, useRef } from "react";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Link, type MetaFunction } from "react-router";
 import pinExtensionImage from "../assets/pin-extension.png";
 import { LinksContext } from "../contexts";
@@ -87,7 +86,7 @@ export default function Welcome() {
               width={(477 * 3) / 4}
               height={(324 * 3) / 4}
             />
-            <div className="absolute inset-0 overflow-hidden ">
+            <div className="absolute inset-0 overflow-hidden">
               <div
                 className="absolute top-1/2 left-1/2 size-[500px] origin-[0%_0%] bg-[linear-gradient(0deg,rgba(255,255,255,0)_0%,rgb(255,255,255)_100%)] opacity-0 transition-opacity duration-[400ms] ease-[cubic-bezier(0.03,0.98,0.52,0.99)]"
                 onPointerMove={handlePointerMoveAnimation}
