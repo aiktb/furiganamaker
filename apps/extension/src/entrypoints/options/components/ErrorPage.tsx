@@ -3,6 +3,8 @@ import { isRouteErrorResponse, Link, useRouteError } from "react-router";
 
 export default function ErrorPage() {
   const error = useRouteError();
+  // biome-ignore lint/suspicious/noConsole: Log errors to the console for debugging
+  console.error(error);
   let message: string;
   if (isRouteErrorResponse(error)) {
     message = error.statusText;

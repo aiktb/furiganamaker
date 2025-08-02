@@ -10,7 +10,7 @@ type CustomLink = LinkProps & { label: string; icon: string };
 export default function Sidebar() {
   const { t } = useTranslation();
 
-  const navItems: CustomLink[] = [
+  const navItems = [
     { to: "/", target: "_self", label: t("navSettings"), icon: "i-tabler-settings" },
     {
       to: "/kanji-filter",
@@ -31,7 +31,7 @@ export default function Sidebar() {
       label: t("navPopup"),
       icon: "i-tabler-puzzle",
     },
-  ].filter(Boolean);
+  ].filter(Boolean) satisfies CustomLink[];
 
   const [sidebarIsOpen, setSidebarIsOpen] = useState(
     window.matchMedia("(min-width: 1024px)").matches,

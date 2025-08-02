@@ -57,7 +57,7 @@
       "suspicious": {
         "noEmptyBlockStatements": "error",
         "useAwait": "error",
-        "noConsole": { "level": "error", "options": { "allow": ["log"] } }
+        "noConsole": { "level": "error" }
       },
       "nursery": {
         "useSortedClasses": {
