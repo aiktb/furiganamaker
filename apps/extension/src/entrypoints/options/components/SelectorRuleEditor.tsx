@@ -50,14 +50,14 @@ export default function SelectorRuleEditor({ rule, mode, onChange }: RuleEditorP
                     <Trans
                       i18nKey="msgCssSelector"
                       components={{
-                        code: (
-                          <code className="font-bold font-mono text-slate-900 text-sm before:content-['`'] after:content-['`'] dark:text-slate-200">
+                        boldSelectorField: (
+                          <b className="font-semibold text-slate-900 text-sm dark:text-slate-200">
                             {t("fieldSelector")}
-                          </code>
+                          </b>
                         ),
-                        link: (
+                        mdnCssSelectorLink: (
                           <a
-                            className="cursor-pointer border-sky-500 border-b font-bold text-slate-900 hover:border-b-2 dark:text-slate-200"
+                            className="cursor-pointer border-sky-500 border-b font-semibold text-slate-900 hover:border-b-2 dark:text-slate-200"
                             href="https://developer.mozilla.org/docs/Web/CSS/CSS_selectors"
                           >
                             {t("cssSelector")}
@@ -71,15 +71,15 @@ export default function SelectorRuleEditor({ rule, mode, onChange }: RuleEditorP
                     <Trans
                       i18nKey="msgSelectorMerge"
                       components={{
-                        codeSelector: (
-                          <code className="font-bold font-mono text-slate-900 text-sm before:content-['`'] after:content-['`'] dark:text-slate-200">
+                        boldSelectorField: (
+                          <b className="font-semibold text-slate-900 text-sm dark:text-slate-200">
                             {t("fieldSelector")}
-                          </code>
+                          </b>
                         ),
-                        codeDomain: (
-                          <code className="font-bold font-mono text-slate-900 text-sm before:content-['`'] after:content-['`'] dark:text-slate-200">
+                        boldCodeField: (
+                          <b className="font-semibold text-slate-900 text-sm dark:text-slate-200">
                             {t("fieldDomain")}
-                          </code>
+                          </b>
                         ),
                       }}
                     />

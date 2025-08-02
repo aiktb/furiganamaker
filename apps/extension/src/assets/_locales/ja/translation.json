@@ -5,7 +5,7 @@
   "toggleAutoMode": "自動モード切替",
   "tipRefreshPage": "後はページを更新",
   "toggleKanjiFilter": "漢字フィルター切替",
-  "tipFilterLevel": "レベルはJLPT N5とN4",
+  "tipFilterLevel": "初期設定はN5とN4",
   "optionAlwaysShow": "常に表示",
   "optionNeverShow": "表示しない",
   "optionHoverGap": "ホバー（間隔あり）",
@@ -47,9 +47,9 @@
   "titleNotFound": "ルールが見つかりません",
   "msgNotFound": "新しいルールを追加するか、既存の設定ファイル（JSON形式）をインポートしてください。そうしないと、この拡張機能は何も実行しません。",
   "disclosureSelector": "選択フィールドとは？",
-  "msgCssSelector": "<code/> フィールドは、ページ上の要素を指定するために <link/> 構文を使用します。",
+  "msgCssSelector": "<boldSelectorField/> フィールドは、ページ上の要素を指定するために <mdnCssSelectorLink/> 構文を使用します。",
   "msgDoNotModify": "CSSセレクタ構文に慣れていない場合、このフィールドを変更しないでください。拡張機能が無効になる可能性があります。",
-  "msgSelectorMerge": "<codeSelector/> フィールドはカンマで区切られており、同じ <codeDomain/> に対応するセレクタが直接マージされます。",
+  "msgSelectorMerge": "<boldSelectorField/> フィールドはカンマで区切られており、同じ <boldCodeField/> に対応するセレクタが直接マージされます。",
   "cssSelector": "CSSセレクタ",
   "fieldSelector": "セレクタ",
   "fieldDomain": "ドメイン名",
@@ -112,5 +112,7 @@
   "validationPureKanji": "純粋な日本の漢字でなければなりません。",
   "validationPureKatakana": "純粋なカタカナでなければなりません。",
   "validationRequired": "必須。",
-  "fieldKanji": "漢字"
+  "fieldKanji": "漢字",
+  "fieldDomainDesc1": "ブラウザアドレスバーをクリックして、「<boldWwwDot/>」プレフィックスが隠されていることを確認してください。\nもしそうなら、あなたもそれを入力する必要があります。そうしないと、この機能は正しく機能しません。",
+  "fieldDomainDesc2": "「<boldHttpsPrefix/>」プレフィックスは自動的に削除されます。"
 }

@@ -5,7 +5,7 @@
   "toggleAutoMode": "On-Off Auto Mode",
   "tipRefreshPage": "Please refresh the page",
   "toggleKanjiFilter": "On-Off Kanji Filter",
-  "tipFilterLevel": "Level is JLPT N5 & N4",
+  "tipFilterLevel": "Default level is N5 & N4",
   "optionAlwaysShow": "Always Show",
   "optionNeverShow": "Never Show",
   "optionHoverGap": "Hover Gap",
@@ -47,9 +47,9 @@
   "titleNotFound": "NOT FOUND RULE",
   "msgNotFound": "Please add a new rule, or import an existing configuration file (in JSON format), otherwise this extension will not do anything.",
   "disclosureSelector": "What is selector field?",
-  "msgCssSelector": "The <code/> field uses the <link/> syntax to specify the element to be tagged on the page.",
+  "msgCssSelector": "The <boldSelectorField/> field uses the <mdnCssSelectorLink/> syntax to specify the element to be tagged on the page.",
   "msgDoNotModify": "If you are not familiar with the CSS selector syntax, please do not modify this field, as this may invalidate the extension.",
-  "msgSelectorMerge": "The <codeSelector/> fields are separated by comma, and selectors corresponding to the same <codeDomain/> will be merged directly.",
+  "msgSelectorMerge": "The <boldSelectorField/> field are separated by comma, and selectors corresponding to the same <boldCodeField/> will be merged directly.",
   "cssSelector": "CSS Selector",
   "fieldSelector": "selector",
   "fieldDomain": "domain",
@@ -112,5 +112,7 @@
   "fieldMatchAll": "Match ALL",
   "btnAddKatakana": "Add katakana",
   "inputProhibitedTip": "Input is prohibited.",
-  "fieldKanji": "Kanji"
+  "fieldKanji": "Kanji",
+  "fieldDomainDesc1": "Please click the browser address bar to confirm that the \"<boldWwwDot/>\" prefix is hidden. If it is, you must enter it as well, otherwise this feature will not work properly.",
+  "fieldDomainDesc2": "The \"<boldHttpsPrefix/>\" prefix will be automatically removed."
 }
