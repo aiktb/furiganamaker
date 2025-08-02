@@ -6,14 +6,14 @@ catalog:
   '@iconify-json/fa6-brands': ^1.2.5
   '@headlessui/react': ^2.2.3
   '@headlessui/tailwindcss': ^0.2.2
-  '@js-temporal/polyfill': ^0.4.4
+  '@js-temporal/polyfill': ^0.5.0
   '@react-router/cloudflare': ^7.1.0
   '@react-router/dev': ^7.1.0
   '@react-router/fs-routes': ^7.1.0
   '@tailwindcss/forms': ^0.5.9
   '@tailwindcss/typography': ^0.5.16
   '@tailwindcss/vite': ^4.1.7
-  '@total-typescript/ts-reset': ^0.4.2
+  '@total-typescript/ts-reset': ^0.6.0
   '@types/react': ^19.0.1
   '@types/react-dom': ^19.0.2
   clsx: ^2.1.1
