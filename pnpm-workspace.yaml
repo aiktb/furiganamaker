@@ -7,9 +7,9 @@ catalog:
   '@headlessui/react': ^2.2.3
   '@headlessui/tailwindcss': ^0.2.2
   '@js-temporal/polyfill': ^0.4.4
-  '@react-router/cloudflare': ^7.1.0
-  '@react-router/dev': ^7.1.0
-  '@react-router/fs-routes': ^7.1.0
+  '@react-router/cloudflare': ^7.5.2
+  '@react-router/dev': ^7.5.2
+  '@react-router/fs-routes': ^7.5.2
   '@tailwindcss/forms': ^0.5.9
   '@tailwindcss/typography': ^0.5.16
   '@tailwindcss/vite': ^4.1.7
@@ -20,7 +20,7 @@ catalog:
   es-toolkit: ^1.39.8
   react: ^19.0.0
   react-dom: ^19.0.0
-  react-router: ^7.1.0
+  react-router: ^7.5.2
   react-scan: ^0.4.3
   tailwindcss: ^4.1.7
   tailwind-merge: ^3.3.1
