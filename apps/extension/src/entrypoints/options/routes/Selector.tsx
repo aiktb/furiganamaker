@@ -224,35 +224,22 @@ export default function RuleEditor() {
             <ul className="divide-y divide-gray-100 dark:divide-slate-800">
               {selectors.map((rule, index) => {
                 return (
-                  <Transition
-                    appear
-                    as="div"
-                    show={true}
-                    key={rule.domain}
-                    enter="transition-opacity duration-300"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="transition-opacity duration-300"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                  >
-                    <SelectorRuleItem
-                      index={index}
-                      rule={rule}
-                      onChange={(rule) => {
-                        const index = selectors.findIndex((r) => r.domain === rule.domain);
-                        const newRules = [...selectors];
-                        newRules[index] = rule;
-                        setSelectors(newRules);
-                      }}
-                      onDelete={(rule) => {
-                        const index = selectors.findIndex((r) => r.domain === rule.domain);
-                        const newRules = [...selectors];
-                        newRules.splice(index, 1);
-                        setSelectors(newRules);
-                      }}
-                    />
-                  </Transition>
+                  <SelectorRuleItem
+                    index={index}
+                    rule={rule}
+                    onChange={(rule) => {
+                      const index = selectors.findIndex((r) => r.domain === rule.domain);
+                      const newRules = [...selectors];
+                      newRules[index] = rule;
+                      setSelectors(newRules);
+                    }}
+                    onDelete={(rule) => {
+                      const index = selectors.findIndex((r) => r.domain === rule.domain);
+                      const newRules = [...selectors];
+                      newRules.splice(index, 1);
+                      setSelectors(newRules);
+                    }}
+                  />
                 );
               })}
             </ul>
