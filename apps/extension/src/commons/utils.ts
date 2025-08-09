@@ -82,7 +82,7 @@ export async function getGeneralSettings<K extends keyof GeneralSettings>(key: K
 export const moreSettings = storage.defineItem<MoreSettings>("local:moreSettings", {
   version: 1,
   fallback: {
-    [ExtStorage.Language]: undefined,
+    [ExtStorage.Language]: null,
     [ExtStorage.DisableWarning]: false,
     [ExtStorage.ColoringKanji]: false,
     [ExtStorage.ExcludeSites]: ["example.com"],

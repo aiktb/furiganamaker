@@ -83,7 +83,7 @@ export interface MoreSettings {
   /**
    * If null, the detected system language is used.
    */
-  [ExtStorage.Language]: string | undefined;
+  [ExtStorage.Language]: string | null;
   [ExtStorage.DisableWarning]: boolean;
   [ExtStorage.ColoringKanji]: boolean;
   [ExtStorage.ExcludeSites]: string[];
