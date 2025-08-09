@@ -89,13 +89,6 @@ export const moreSettings = storage.defineItem<MoreSettings>("local:moreSettings
   },
 });
 
-export async function setMoreSettings<K extends keyof MoreSettings>(
-  key: K,
-  value: MoreSettings[K],
-) {
-  await moreSettings.setValue({ ...(await moreSettings.getValue()), [key]: value });
-}
-
 export async function getMoreSettings<K extends keyof MoreSettings>(key: K) {
   return (await moreSettings.getValue())[key];
 }
