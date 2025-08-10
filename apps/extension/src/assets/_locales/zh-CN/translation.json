@@ -39,7 +39,7 @@
   "srGithub": "GitHub 仓库",
   "srToggleTheme": "切换主题模式",
   "titleWarning": "警告！",
-  "msgImportConfig": "这将覆盖现有的配置文件且此操作不可撤销，确定要这样做吗？",
+  "msgImportSelectorConfig": "这将覆盖现有的配置文件且此操作不可撤销，确定要这样做吗？",
   "btnConfirmConfig": "导入",
   "btnCancel": "取消",
   "warningInvalid": "无效的 JSON 格式",
@@ -114,5 +114,12 @@
   "validationRequired": "必需的。",
   "fieldKanji": "汉字",
   "fieldDomainDesc1": "请单击浏览器地址栏以确认“<boldWwwDot/>”前缀是否被隐藏。\n如果有则必须输入它，否则此功能无法正常工作。",
-  "fieldDomainDesc2": "将自动删除“<boldHttpsPrefix/>”前缀。"
+  "fieldDomainDesc2": "将自动删除“<boldHttpsPrefix/>”前缀。",
+  "importFailedCauseByDuplicatedKanjis": "重复的汉字：{{kanjis}}。",
+  "importFailedCauseByExistedKanjis": "存在的汉字：{{kanjis}}。",
+  "importFailedCauseByImpureKanjis": "不纯净的汉字：{{kanjis}}。",
+  "importFailedCauseByImpureKatakanas": "不纯净的片假名：{{katakanas}}。",
+  "kanjiFilterImportFailedTip": "由于以下文本的存在，导入失败。",
+  "msgImportKanjiFilterConfig": "此操作为“追加”模式，不会覆盖您的现有规则。\n请随意操作。\n如果您想覆盖配置，请先清除原有配置。",
+  "titleNote": "注意"
 }

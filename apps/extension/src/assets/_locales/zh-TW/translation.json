@@ -38,7 +38,7 @@
   "msgCssSelector": "<boldSelectorField/> 欄位使用 <mdnCssSelectorLink/> 語法來指定要在頁面上標記的元素。",
   "msgDeleteRule": "刪除規則不可撤銷，確定嗎？",
   "msgDoNotModify": "如果您不熟悉 CSS 選擇器語法，請不要修改此字段，因為這可能會使擴充功能無效。",
-  "msgImportConfig": "這將覆蓋現有的配置文件，並且此操作不可撤消，確定嗎？",
+  "msgImportSelectorConfig": "這將覆蓋現有的配置文件，並且此操作不可撤消，確定嗎？",
   "msgNotFound": "請新增規則，或匯入現有設定檔（JSON 格式），否則此擴充將不會執行任何操作。",
   "msgSelectorMerge": "<boldSelectorField/>欄位之間以逗號分隔，相同<boldCodeField/>對應的選擇器將直接合併。",
   "navChangelog": "變更日誌",
@@ -114,5 +114,12 @@
   "validationRequired": "必需的。",
   "fieldKanji": "漢字",
   "fieldDomainDesc1": "請單擊瀏覽器地址欄以確認“<boldWwwDot/>”前綴是否隱藏。如果有，您也必須輸入它，否則此功能無法正常工作。",
-  "fieldDomainDesc2": "將自動刪除“<boldHttpsPrefix/>”前綴。"
+  "fieldDomainDesc2": "將自動刪除“<boldHttpsPrefix/>”前綴。",
+  "importFailedCauseByDuplicatedKanjis": "重複的漢字：{{kanjis}}。",
+  "importFailedCauseByExistedKanjis": "存在的漢字：{{kanjis}}。",
+  "importFailedCauseByImpureKanjis": "不純淨的漢字：{{kanjis}}。",
+  "importFailedCauseByImpureKatakanas": "不純淨的片假名：{{katakanas}}。",
+  "kanjiFilterImportFailedTip": "由於以下文本的存在，導入失敗。",
+  "msgImportKanjiFilterConfig": "此操作是“追加”，不會覆蓋您的現有規則，請隨意操作。如果您想覆蓋，請先清除現有規則。",
+  "titleNote": "注意"
 }
