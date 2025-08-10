@@ -1,5 +1,31 @@
 # Changelog
 
+## [3.0.0](https://github.com/aiktb/furiganamaker/compare/v2.3.0...v3.0.0) (2025-08-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* translation support for Korean has been discontinued due to unreliable proofreading ([#356](https://github.com/aiktb/furiganamaker/issues/356))
+
+### Features
+
+* allow users to customize Kanji filter ([#348](https://github.com/aiktb/furiganamaker/issues/348)) ([f850166](https://github.com/aiktb/furiganamaker/commit/f850166a8495e598c88c14abf15a38da292c2c9e))
+* copywriting optimization, UI adjustment ([#359](https://github.com/aiktb/furiganamaker/issues/359)) ([16cc2d2](https://github.com/aiktb/furiganamaker/commit/16cc2d2037fe6105510401a6ab6bffb93711a67e))
+* new furigana display mode, masking the furigana with the background color ([#358](https://github.com/aiktb/furiganamaker/issues/358)) ([ad52aab](https://github.com/aiktb/furiganamaker/commit/ad52aabb2a58bc84bc9c124df52eed340085682d))
+* remove the ugly logo and header, and set the "Quick Create" button as the primary ([#365](https://github.com/aiktb/furiganamaker/issues/365)) ([278ec3d](https://github.com/aiktb/furiganamaker/commit/278ec3db208c9abe020c65fab99e8febeecafc14))
+* stop features updating notifications ([#357](https://github.com/aiktb/furiganamaker/issues/357)) ([2d5d526](https://github.com/aiktb/furiganamaker/commit/2d5d526c90beb845446efec7455d232aa7d5b63e))
+* translation support for Korean has been discontinued due to unreliable proofreading ([#356](https://github.com/aiktb/furiganamaker/issues/356)) ([ec92bdf](https://github.com/aiktb/furiganamaker/commit/ec92bdf88cbd02a92c6db54c2ac78eff24057daa))
+
+
+### Bug Fixes
+
+* display language names in their native locale in language switcher ([#354](https://github.com/aiktb/furiganamaker/issues/354)) ([f328941](https://github.com/aiktb/furiganamaker/commit/f328941bfb4c3326e7f1f6a4620a5cadd14ee87f))
+
+
+### Performance Improvements
+
+* significantly improve the loading speed of Popup and Options pages ([#364](https://github.com/aiktb/furiganamaker/issues/364)) ([3213568](https://github.com/aiktb/furiganamaker/commit/3213568d8282e036fb7a452d0f76a70fd0b57238))
+
 ## 2.3.0 (2024-12-22)
 
 
