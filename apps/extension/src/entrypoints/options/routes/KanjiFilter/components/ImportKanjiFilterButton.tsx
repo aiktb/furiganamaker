@@ -78,7 +78,7 @@ function generateValidationMessages(
       }),
     );
   }
-  return messages.length > 0 ? messages.join("\n") : null;
+  return messages.join("\n");
 }
 
 function checkJSONErrorMessage(data: string, existedRules: FilterRule[]) {
