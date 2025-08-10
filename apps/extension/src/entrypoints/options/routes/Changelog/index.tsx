@@ -3,9 +3,9 @@ import changelog from "@@/CHANGELOG.md?raw";
 import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
 
-import Page from "../components/Page";
+import { Page } from "../../components/Page";
 
-export default function Changelog() {
+export function Changelog() {
   const { t } = useTranslation();
 
   return (

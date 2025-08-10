@@ -1,7 +1,7 @@
 import { useTheme } from "next-themes";
 import { useTranslation } from "react-i18next";
 
-export default function ThemeSwitch() {
+export function ThemeSwitch() {
   const { setTheme, resolvedTheme } = useTheme();
 
   const toggleTheme = () => {

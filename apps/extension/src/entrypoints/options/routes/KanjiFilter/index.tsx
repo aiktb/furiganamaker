@@ -1,117 +1,46 @@
-import { Dialog, DialogPanel, DialogTitle, Transition } from "@headlessui/react";
-import { Suspense, use, useState } from "react";
+import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ExtEvent, type FilterRule } from "@/commons/constants";
-import { cn, DB, getKanjiFilterDB } from "@/commons/utils";
+import type { FilterRule } from "@/commons/constants";
+import { cn } from "@/commons/utils";
+import { NotFoundRule } from "../../components/NotFoundRule";
+import { Page } from "../../components/Page";
+import { PopupTransition } from "../../components/PopupTransition";
+import { KanjiFilterDashboard } from "./components/KanjiFilterDashboard";
+import { KanjiFilterEditorDialog } from "./components/KanjiFilterEditorDialog";
+import { useKanjiFiltersStore } from "./store";
 
-import KanjiFilterDashboard from "../components/KanjiFilterDashboard";
-import KanjiFilterEditorDialog from "../components/KanjiFilterEditorDialog";
-import NotFoundRule from "../components/NotFoundRule";
-import Page from "../components/Page";
-import PopupTransition from "../components/PopupTransition";
-
-export default function KanjiFilter() {
-  const { t } = useTranslation();
-  const getKanjiFilterRules = async () => {
-    const db = await getKanjiFilterDB();
-    const rules = await db.getAll(DB.onlyTable);
-    return rules;
-  };
-
-  return (
-    <Page title={t("navKanjiFilter")} icon="i-tabler-filter">
-      <Suspense>
-        <Transition
-          as="div"
-          appear
-          show={true}
-          enter="transition-opacity duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="transition-opacity duration-300"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <KanjiFilterPage
-            className="playwright-kanji-filter-page"
-            promise={getKanjiFilterRules()}
-          />
-        </Transition>
-      </Suspense>
-    </Page>
-  );
-}
-
-interface KanjiFilterPageProps {
-  promise: Promise<FilterRule[]>;
-  className?: string;
-}
-
-const KanjiFilterPage = ({ promise, className }: KanjiFilterPageProps) => {
-  const [rules, setRules] = useState(use(promise));
+export function KanjiFilter() {
+  const kanjiFilters = useKanjiFiltersStore((state) => state.kanjiFilters);
+  const removeKanjiFilter = useKanjiFiltersStore((state) => state.removeKanjiFilter);
+  const editKanjiFilter = useKanjiFiltersStore((state) => state.editKanjiFilter);
   const { t } = useTranslation();
 
   const [deleteDialogIsOpen, setDeleteDialogIsOpen] = useState(false);
   const [kanjiToDelete, setKanjiToDelete] = useState<string>();
-  const deleteKanjiFilter = async (kanji: string) => {
-    const db = await getKanjiFilterDB();
-    await db.delete(DB.onlyTable, kanji);
-    const updatedRules = rules.filter((rule) => rule.kanji !== kanji);
-    setRules(updatedRules);
-    browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
-  };
+  const [ruleToUpdate, setRuleToUpdate] = useState<FilterRule>();
+  const [updateDialogIsOpen, setUpdateDialogIsOpen] = useState(false);
 
-  const [updateOrCreateDialogIsOpen, setUpdateOrCreateDialogIsOpen] = useState(false);
-  const [ruleToUpdateOrCreate, setRuleToUpdateOrCreate] = useState<FilterRule>();
-
-  const handleCreateKanjiFilter = async (rule: FilterRule) => {
-    const db = await getKanjiFilterDB();
-    await db.add(DB.onlyTable, rule);
-    setRules([rule, ...rules]);
-    browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
-  };
-
-  const handleUpdateKanjiFilter = async (oldRule: FilterRule, newRule: FilterRule) => {
-    const db = await getKanjiFilterDB();
-    const tx = db.transaction(DB.onlyTable, "readwrite");
-    await tx.store.delete(oldRule.kanji);
-    await tx.store.add(newRule);
-    await tx.done;
-    const updatedRules = rules.map((rule) => (rule.kanji === oldRule.kanji ? newRule : rule));
-    setRules(updatedRules);
-    browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
-  };
   return (
-    <>
+    <Page title={t("navKanjiFilter")} icon="i-tabler-filter">
       <div
         className={cn(
           "flex w-full flex-col items-center justify-center lg:max-w-5xl lg:px-8",
-          className,
+          "playwright-kanji-filter-page",
         )}
       >
-        <KanjiFilterDashboard
-          className="mb-5"
-          disableExportAndClear={rules.length === 0}
-          onChange={(rules) => {
-            setRules(rules);
-            browser.runtime.sendMessage(ExtEvent.ModifyKanjiFilter);
-          }}
-          onNewButtonClick={() => {
-            setRuleToUpdateOrCreate(undefined);
-            setUpdateOrCreateDialogIsOpen(true);
-          }}
-        />
-        {rules.length > 0 ? (
+        <KanjiFilterDashboard className="mb-5" disableExportAndClear={kanjiFilters.length === 0} />
+        {kanjiFilters.length > 0 ? (
           <div className="grid grid-cols-2 flex-wrap gap-3 sm:grid-cols-3 2xl:grid-cols-4">
-            {rules.map((rule, index) => (
+            {kanjiFilters.map((rule, index) => (
               <div className="playwright-kanji-filter-item relative" key={rule.kanji}>
                 <div className="pointer-events-none absolute right-4 bottom-4 font-semibold text-lg italic opacity-30">
                   #{index + 1}
                 </div>
                 <button
                   onClick={() => {
-                    setRuleToUpdateOrCreate(rule);
-                    setUpdateOrCreateDialogIsOpen(true);
+                    setRuleToUpdate(rule);
+                    setUpdateDialogIsOpen(true);
                   }}
                   className="group grid w-40 cursor-pointer grid-cols-5 grid-rows-2 rounded-md bg-slate-950/5 px-4 py-2 sm:w-50 lg:w-55 dark:bg-white/5"
                 >
@@ -142,16 +71,15 @@ const KanjiFilterPage = ({ promise, className }: KanjiFilterPageProps) => {
           <NotFoundRule />
         )}
       </div>
-      {updateOrCreateDialogIsOpen && (
+      {updateDialogIsOpen && (
         <KanjiFilterEditorDialog
-          mode={ruleToUpdateOrCreate ? "update" : "create"}
-          open={updateOrCreateDialogIsOpen}
-          onCreate={handleCreateKanjiFilter}
-          onUpdate={handleUpdateKanjiFilter}
+          mode="update"
+          open={updateDialogIsOpen}
+          onUpdate={editKanjiFilter}
           onClose={() => {
-            setUpdateOrCreateDialogIsOpen(false);
+            setUpdateDialogIsOpen(false);
           }}
-          rule={ruleToUpdateOrCreate}
+          rule={ruleToUpdate}
         />
       )}
       <PopupTransition show={deleteDialogIsOpen}>
@@ -181,7 +109,7 @@ const KanjiFilterPage = ({ promise, className }: KanjiFilterPageProps) => {
                 className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-slate-900 text-sm transition hover:bg-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
                 onClick={() => {
                   if (kanjiToDelete) {
-                    deleteKanjiFilter(kanjiToDelete);
+                    removeKanjiFilter(kanjiToDelete);
                   }
                   setDeleteDialogIsOpen(false);
                 }}
@@ -200,6 +128,6 @@ const KanjiFilterPage = ({ promise, className }: KanjiFilterPageProps) => {
           </DialogPanel>
         </Dialog>
       </PopupTransition>
-    </>
+    </Page>
   );
-};
+}

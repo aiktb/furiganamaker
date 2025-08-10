@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
-import Header from "./Header";
+import { Header } from "./Header";
 
 interface PageProps {
   title: string;
   icon: string;
   children: ReactNode;
 }
-export default function Page({ title, children, icon }: PageProps) {
+export function Page({ title, children, icon }: PageProps) {
   return (
     <>
       <Header title={title} icon={icon} />

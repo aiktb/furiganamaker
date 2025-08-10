@@ -8,12 +8,12 @@ import { createHashRouter, RouterProvider } from "react-router";
 import "@/tailwind.css";
 import "@/commons/i18n";
 
-import ErrorPage from "./components/ErrorPage";
-import Root from "./root";
-import Changelog from "./routes/Changelog";
-import KanjiFilter from "./routes/KanjiFilter";
-import Selector from "./routes/Selector";
-import Settings from "./routes/Settings";
+import { ErrorPage } from "./components/ErrorPage";
+import { Root } from "./root";
+import { Changelog } from "./routes/Changelog";
+import { KanjiFilter } from "./routes/KanjiFilter";
+import { Selector } from "./routes/Selector";
+import { Settings } from "./routes/Settings";
 
 scan({
   enabled: true,

@@ -2,20 +2,27 @@ import { TinyColor } from "@ctrl/tinycolor";
 import { Popover, PopoverButton, PopoverPanel, Transition } from "@headlessui/react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { cn } from "@/commons/utils";
 
 interface ColorPickerProps {
   color: string;
   onChange: (color: string) => void;
+  className?: string;
 }
 
-export default function ColorPicker({ color, onChange }: ColorPickerProps) {
+export function ColorPicker({ color, onChange, className }: ColorPickerProps) {
   const { t } = useTranslation();
 
   return (
     <Popover className="flex grow">
       {({ open }) => (
         <>
-          <PopoverButton className="group flex flex-1 cursor-pointer items-center justify-between rounded-sm px-2 capitalize transition-all hover:bg-gray-200 focus-visible:bg-gray-200 dark:focus-visible:bg-slate-700 dark:hover:bg-slate-700">
+          <PopoverButton
+            className={cn(
+              "group flex flex-1 cursor-pointer items-center justify-between rounded-sm px-2 capitalize transition-all hover:bg-gray-200 focus-visible:bg-gray-200 dark:focus-visible:bg-slate-700 dark:hover:bg-slate-700",
+              className,
+            )}
+          >
             {t("btnSelectColor")}
             <div
               className="hidden size-3 rounded-full group-hover:block group-focus-visible:block"
@@ -34,7 +41,7 @@ export default function ColorPicker({ color, onChange }: ColorPickerProps) {
           >
             <PopoverPanel focus className="absolute inset-0 z-50 bg-white dark:bg-slate-900">
               <ColorPickerPanel color={color} onChange={onChange}>
-                <PopoverButton className="mt-1 flex cursor-pointer items-center justify-center gap-1 rounded-md bg-slate-950/5 px-2 py-1 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white">
+                <PopoverButton className="playwright-color-picker-close-btn mt-1 flex cursor-pointer items-center justify-center gap-1 rounded-md bg-slate-950/5 px-2 py-1 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white">
                   <i className="i-tabler-x size-4" />
                   {t("btnClosePanel")}
                 </PopoverButton>
@@ -93,7 +100,7 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
           }}
         />
         <div
-          className="size-4 rounded-xs"
+          className="playwright-selected-color-indicator size-4 rounded-xs"
           style={{
             boxShadow:
               "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.25) 0px 0px 4px inset",

@@ -5,7 +5,7 @@ interface PopupTransitionProps {
   children: React.ReactNode;
 }
 
-export default function PopupTransition({ show, children }: PopupTransitionProps) {
+export function PopupTransition({ show, children }: PopupTransitionProps) {
   return (
     <Transition appear show={show}>
       <div className="relative z-30">

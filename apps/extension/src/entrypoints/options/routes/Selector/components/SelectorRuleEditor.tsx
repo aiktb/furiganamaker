@@ -18,7 +18,7 @@ interface CreateProps {
   onChange: (rule: SelectorRule) => void;
 }
 
-export default function SelectorRuleEditor({ rule, mode, onChange }: RuleEditorProps) {
+export function SelectorRuleEditor({ rule, mode, onChange }: RuleEditorProps) {
   const [domain, setDomain] = useState(mode === "update" ? rule.domain : "");
   const [selector, setSelector] = useState(mode === "update" ? rule.selector : "");
   const active = mode === "update" ? rule.active : true;

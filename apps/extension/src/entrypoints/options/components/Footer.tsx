@@ -24,7 +24,7 @@ function FooterLink({ href, content }: FooterLinkProps) {
   );
 }
 
-export default function Footer() {
+export function Footer() {
   const { t } = useTranslation();
 
   return (

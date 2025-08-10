@@ -2,13 +2,13 @@ import { Dialog, DialogPanel, DialogTitle, Field, Input } from "@headlessui/reac
 import { t } from "i18next";
 import { useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
-import PopupTransition from "./PopupTransition";
+import { PopupTransition } from "../../../components/PopupTransition";
 
 interface ExclusionHandlerProps {
   sites: string[];
   onChange: (sites: string[]) => void;
 }
-export default function ExclusionHandler({ sites, onChange }: ExclusionHandlerProps) {
+export function ExclusionHandler({ sites, onChange }: ExclusionHandlerProps) {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const { t } = useTranslation();

@@ -1,8 +1,8 @@
 import { Outlet } from "react-router";
-import Footer from "./components/Footer";
-import Sidebar from "./components/Sidebar";
+import { Footer } from "./components/Footer";
+import { Sidebar } from "./components/Sidebar";
 
-export default function Options() {
+export function Root() {
   return (
     <div className="relative flex">
       <Sidebar />

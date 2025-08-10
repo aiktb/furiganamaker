@@ -16,19 +16,19 @@ import { isKanji, isKatakana } from "wanakana";
 import type { FilterRule } from "@/commons/constants";
 import { DB, getKanjiFilterDB } from "@/commons/utils";
 
-import PopupTransition from "./PopupTransition";
-import YomikatasInput from "./YomikatasInput";
+import { PopupTransition } from "../../../components/PopupTransition";
+import { YomikatasInput } from "./YomikatasInput";
 
 interface KanjiFilterEditorDialogProps {
   rule?: FilterRule | undefined;
   mode: "update" | "create";
   open: boolean;
-  onUpdate: (oldRule: FilterRule, newRule: FilterRule) => void;
-  onCreate: (rule: FilterRule) => void;
+  onUpdate?: (oldRule: FilterRule, newRule: FilterRule) => void;
+  onCreate?: (rule: FilterRule) => void;
   onClose: () => void;
 }
 
-export default function KanjiFilterEditorDialog({
+export function KanjiFilterEditorDialog({
   rule = { kanji: "", yomikatas: [] },
   onClose,
   onUpdate,
@@ -85,9 +85,9 @@ export default function KanjiFilterEditorDialog({
         yomikatas: matchAll ? undefined : yomikatasInput,
       } as const;
       if (mode === "update") {
-        onUpdate(rule, newRule);
+        onUpdate?.(rule, newRule);
       } else {
-        onCreate(newRule);
+        onCreate?.(newRule);
       }
       onClose();
     }

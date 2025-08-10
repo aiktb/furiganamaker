@@ -1,49 +1,51 @@
-import { Dialog, DialogPanel, DialogTitle, Transition } from "@headlessui/react";
+import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { saveAs } from "file-saver";
-import { use, useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
+
 import defaultSelectorRules from "@/assets/rules/selector.json";
 import type { SelectorRule } from "@/commons/constants";
-import { cn, customSelectors } from "@/commons/utils";
-import NotFoundRule from "./NotFoundRule";
-import PopupTransition from "./PopupTransition";
-import SelectorRuleEditor from "./SelectorRuleEditor";
-import SelectorRuleItem from "./SelectorRuleItem";
+import { cn } from "@/commons/utils";
 
-export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<SelectorRule[]> }) {
-  const [rules, setRules] = useState(use(rulesPromise));
+import { NotFoundRule } from "../../components/NotFoundRule";
+import { Page } from "../../components/Page";
+import { PopupTransition } from "../../components/PopupTransition";
+import { SelectorRuleEditor } from "./components/SelectorRuleEditor";
+import { SelectorRuleItem } from "./components/SelectorRuleItem";
+import { useSelectorsStore } from "./store";
+
+export function Selector() {
+  const selectors = useSelectorsStore((state) => state.selectors);
+  const setSelectors = useSelectorsStore((state) => state.setSelectors);
+  const clearSelectors = useSelectorsStore((state) => state.clearSelectors);
   const [createRuleDialogIsOpen, setCreateRuleDialogIsOpen] = useState(false);
   const [importDialogIsOpen, setImportDialogIsOpen] = useState(false);
   const [importFailedDialogIsOpen, setImportFailedDialogIsOpen] = useState(false);
   const [resetRuleDialogIsOpen, setResetRuleDialogIsOpen] = useState(false);
   const [importFailedMessage, setImportFailedMessage] = useState("");
 
-  useEffect(() => {
-    customSelectors.setValue(rules);
-  }, [rules]);
-
   function resetConfig() {
-    setRules(defaultSelectorRules);
+    setSelectors(defaultSelectorRules);
   }
 
   function createNewRule(rule: SelectorRule) {
-    const sameDomainRule = rules.find((r) => r.domain === rule.domain);
+    const sameDomainRule = selectors.find((r) => r.domain === rule.domain);
     if (sameDomainRule) {
       const mergedRule = {
         ...sameDomainRule,
         selector: `${rule.selector}, ${sameDomainRule.selector}`,
       };
-      const filteredRules = rules.filter((r) => r.domain !== rule.domain);
-      setRules([mergedRule, ...filteredRules]);
+      const filteredRules = selectors.filter((r) => r.domain !== rule.domain);
+      setSelectors([mergedRule, ...filteredRules]);
     } else {
-      setRules([rule, ...rules]);
+      setSelectors([rule, ...selectors]);
     }
     setCreateRuleDialogIsOpen(false);
   }
 
   function exportConfig() {
-    const blob = new Blob([JSON.stringify(rules, null, 2)], { type: "application/json" });
+    const blob = new Blob([JSON.stringify(selectors, null, 2)], { type: "application/json" });
     saveAs(blob, "furigana-maker-selectors.json");
   }
 
@@ -61,7 +63,7 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
 
     if (file) {
       const reader = new FileReader();
-      reader.onload = async () => {
+      reader.onload = () => {
         const checkResult = checkJSONErrorMessage(reader.result as string);
         if (checkResult) {
           setImportFailedMessage(checkResult);
@@ -71,8 +73,7 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
         const importedRules = JSON.parse(reader.result as string) as SelectorRule[];
         const mergedRules = mergeSameDomainRules(importedRules);
 
-        await customSelectors.setValue(mergedRules);
-        setRules(mergedRules);
+        setSelectors(mergedRules);
       };
       reader.readAsText(file);
     }
@@ -106,16 +107,14 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
   }
 
   const [clearRuleDialogIsOpen, setClearRuleDialogIsOpen] = useState(false);
-  async function clearConfig() {
-    await customSelectors.setValue([]);
-    setRules([]);
+  function clearConfig() {
+    clearSelectors();
     setClearRuleDialogIsOpen(false);
   }
 
   const { t } = useTranslation();
-
   return (
-    <>
+    <Page title={t("navSelector")} icon="i-tabler-click">
       <div className="flex grow flex-col items-center justify-start lg:px-8">
         <div className="flex flex-wrap items-center justify-center gap-1.5 font-bold text-base text-slate-700 dark:text-slate-300">
           <button
@@ -135,9 +134,9 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
             }}
             className={cn(
               "flex max-w-40 grow cursor-pointer items-center justify-center gap-1 rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition enabled:hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white",
-              rules.length === 0 && "cursor-not-allowed opacity-50",
+              selectors.length === 0 && "cursor-not-allowed opacity-50",
             )}
-            disabled={rules.length === 0}
+            disabled={selectors.length === 0}
           >
             <i className="i-tabler-clear-all size-5" />
             <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
@@ -197,10 +196,10 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
           <button
             className={cn(
               "flex max-w-40 grow items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition enabled:hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white",
-              rules.length === 0 && "cursor-not-allowed opacity-50",
+              selectors.length === 0 && "cursor-not-allowed opacity-50",
             )}
             onClick={exportConfig}
-            disabled={rules.length === 0}
+            disabled={selectors.length === 0}
           >
             <i className="i-tabler-file-export size-5" />
             <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
@@ -220,41 +219,27 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
           </button>
         </div>
         <div className="flex items-center justify-between">
-          {rules.length === 0 ? (
+          {selectors.length === 0 ? (
             <NotFoundRule />
           ) : (
             <ul className="divide-y divide-gray-100 dark:divide-slate-800">
-              {rules.map((rule, index) => {
+              {selectors.map((rule, index) => {
                 return (
-                  <Transition
-                    appear
-                    as="div"
-                    show={true}
+                  <SelectorRuleItem
+                    index={index}
+                    rule={rule}
                     key={rule.domain}
-                    enter="transition-opacity duration-300"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="transition-opacity duration-300"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                  >
-                    <SelectorRuleItem
-                      index={index}
-                      rule={rule}
-                      onChange={(rule) => {
-                        const index = rules.findIndex((r) => r.domain === rule.domain);
-                        const newRules = [...rules];
-                        newRules[index] = rule;
-                        setRules(newRules);
-                      }}
-                      onDelete={(rule) => {
-                        const index = rules.findIndex((r) => r.domain === rule.domain);
-                        const newRules = [...rules];
-                        newRules.splice(index, 1);
-                        setRules(newRules);
-                      }}
-                    />
-                  </Transition>
+                    onChange={(rule) => {
+                      const index = selectors.findIndex((r) => r.domain === rule.domain);
+                      const newRules = selectors.with(index, rule);
+                      setSelectors(newRules);
+                    }}
+                    onDelete={(rule) => {
+                      const index = selectors.findIndex((r) => r.domain === rule.domain);
+                      const newRules = selectors.toSpliced(index, 1);
+                      setSelectors(newRules);
+                    }}
+                  />
                 );
               })}
             </ul>
@@ -335,7 +320,9 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
               {t("titleWarning")}
             </DialogTitle>
             <div className="mt-2">
-              <p className="text-gray-500 text-sm dark:text-gray-400">{t("msgImportConfig")}</p>
+              <p className="text-gray-500 text-sm dark:text-gray-400">
+                {t("msgImportSelectorConfig")}
+              </p>
             </div>
             <div className="mt-4 flex gap-2.5">
               <button
@@ -393,6 +380,6 @@ export default function SelectorPage({ rulesPromise }: { rulesPromise: Promise<S
           </DialogPanel>
         </Dialog>
       </PopupTransition>
-    </>
+    </Page>
   );
 }

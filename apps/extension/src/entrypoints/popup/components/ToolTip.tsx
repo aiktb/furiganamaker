@@ -17,7 +17,7 @@ interface ToolTipProps {
   children: React.ReactNode;
 }
 
-export default function ToolTip({ tip, children }: ToolTipProps) {
+export function ToolTip({ tip, children }: ToolTipProps) {
   const arrowRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const { refs, floatingStyles, context } = useFloating({

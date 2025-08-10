@@ -6,7 +6,7 @@ interface LanguageSwitcherProps {
   onChange: (language: string) => void;
 }
 
-export default function LanguageSwitcher({ language, onChange }: LanguageSwitcherProps) {
+export function LanguageSwitcher({ language, onChange }: LanguageSwitcherProps) {
   const getDisplayName = (language: string) => {
     const langDisplayNames = new Intl.DisplayNames(language, { type: "language" });
     return langDisplayNames.of(language);

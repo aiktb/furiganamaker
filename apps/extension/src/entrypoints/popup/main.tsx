@@ -7,7 +7,7 @@ import { createRoot } from "react-dom/client";
 import "@/tailwind.css";
 import "@/commons/i18n";
 
-import Root from "./root";
+import { Root } from "./root";
 
 scan({
   enabled: true,

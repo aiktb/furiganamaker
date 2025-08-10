@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-export default function NotFoundRule() {
+export function NotFoundRule() {
   const { t } = useTranslation();
 
   return (

@@ -1,5 +1,3 @@
-import { Transition } from "@headlessui/react";
-import { Suspense, use, useReducer } from "react";
 import { useTranslation } from "react-i18next";
 import ColorPickerIcon from "@/assets/icons/ColorPicker.svg?react";
 import CursorOutlineIcon from "@/assets/icons/CursorDefault.svg?react";
@@ -10,103 +8,36 @@ import FontSizeIcon from "@/assets/icons/FontSize.svg?react";
 import GithubIcon from "@/assets/icons/Github.svg?react";
 import HeartIcon from "@/assets/icons/Heart.svg?react";
 import HiraganaIcon from "@/assets/icons/Hiragana.svg?react";
-import Logo from "@/assets/icons/Logo.svg?react";
 import PowerIcon from "@/assets/icons/Power.svg?react";
 import SettingIcon from "@/assets/icons/Setting.svg?react";
 import ShareIcon from "@/assets/icons/Share.svg?react";
-import {
-  DisplayMode,
-  ExtEvent,
-  ExtStorage,
-  FuriganaType,
-  type GeneralSettings,
-  SelectMode,
-} from "@/commons/constants";
-import { generalSettings, sendMessage, setGeneralSettings, toStorageKey } from "@/commons/utils";
+import { DisplayMode, ExtEvent, ExtStorage, FuriganaType, SelectMode } from "@/commons/constants";
+import { sendMessage } from "@/commons/utils";
 
-import Button from "./components/Button";
-import CheckBox from "./components/CheckBox";
-import ColorPicker from "./components/ColorPicker";
-import Link from "./components/Link";
-import RangeSlider from "./components/RangeSlider";
-import Select from "./components/Select";
-import SharedCard from "./components/SharedCard";
+import { Button } from "./components/Button";
+import { CheckBox } from "./components/CheckBox";
+import { ColorPicker } from "./components/ColorPicker";
+import { Link } from "./components/Link";
+import { RangeSlider } from "./components/RangeSlider";
+import { Select } from "./components/Select";
+import { SharedCard } from "./components/SharedCard";
+import { useGeneralSettingsStore } from "./store";
 
-export default function Popup() {
-  return (
-    <Suspense fallback={<Logo className="size-48" />}>
-      <Transition
-        as="div"
-        appear
-        show={true}
-        enter="transition-opacity duration-300"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity duration-300"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-      >
-        <Menu configPromise={generalSettings.getValue()} />
-      </Transition>
-    </Suspense>
-  );
-}
-
-async function addFurigana() {
-  const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
-  await sendMessage(tab!.id!, ExtEvent.AddFurigana);
-}
-
-type ACTIONTYPE =
-  | { type: typeof ExtEvent.ToggleAutoMode; payload: boolean }
-  | { type: typeof ExtEvent.ToggleKanjiFilter; payload: boolean }
-  | { type: typeof ExtEvent.SwitchDisplayMode; payload: DisplayMode }
-  | { type: typeof ExtEvent.SwitchFuriganaType; payload: FuriganaType }
-  | { type: typeof ExtEvent.SwitchSelectMode; payload: SelectMode }
-  | { type: typeof ExtEvent.AdjustFontSize; payload: number }
-  | { type: typeof ExtEvent.AdjustFontColor; payload: string };
-
-function reducer(state: GeneralSettings, action: ACTIONTYPE) {
-  browser.tabs.query({ active: true, currentWindow: true }).then(async (tabs) => {
-    await setGeneralSettings(toStorageKey(action.type), action.payload);
-    const tabId = tabs[0]!.id!;
-    await sendMessage(tabId, action.type);
-  });
-
-  switch (action.type) {
-    case ExtEvent.ToggleAutoMode:
-      return { ...state, [ExtStorage.AutoMode]: action.payload };
-    case ExtEvent.ToggleKanjiFilter:
-      return { ...state, [ExtStorage.KanjiFilter]: action.payload };
-    case ExtEvent.SwitchDisplayMode:
-      return { ...state, [ExtStorage.DisplayMode]: action.payload };
-    case ExtEvent.SwitchFuriganaType:
-      return { ...state, [ExtStorage.FuriganaType]: action.payload };
-    case ExtEvent.SwitchSelectMode:
-      return { ...state, [ExtStorage.SelectMode]: action.payload };
-    case ExtEvent.AdjustFontSize:
-      return { ...state, [ExtStorage.FontSize]: action.payload };
-    case ExtEvent.AdjustFontColor:
-      return { ...state, [ExtStorage.FontColor]: action.payload };
-  }
-}
-
-interface MenuItemProps {
-  children: React.ReactNode;
-  icon: React.ReactNode;
-}
-
-function MenuItem({ children, icon }: MenuItemProps) {
-  return (
-    <li className="flex items-center gap-x-1">
-      <div className="text-2xl">{icon}</div>
-      {children}
-    </li>
-  );
-}
-
-function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
-  const [state, dispatch] = useReducer(reducer, use(configPromise));
+export function Root() {
+  const autoModeEnabled = useGeneralSettingsStore((state) => state[ExtStorage.AutoMode]);
+  const kanjiFilterEnabled = useGeneralSettingsStore((state) => state[ExtStorage.KanjiFilter]);
+  const selectedDisplayMode = useGeneralSettingsStore((state) => state[ExtStorage.DisplayMode]);
+  const selectedFuriganaType = useGeneralSettingsStore((state) => state[ExtStorage.FuriganaType]);
+  const selectedSelectMode = useGeneralSettingsStore((state) => state[ExtStorage.SelectMode]);
+  const fontSize = useGeneralSettingsStore((state) => state[ExtStorage.FontSize]);
+  const fontColor = useGeneralSettingsStore((state) => state[ExtStorage.FontColor]);
+  const toggleAutoMode = useGeneralSettingsStore((state) => state.toggleAutoMode);
+  const toggleKanjiFilter = useGeneralSettingsStore((state) => state.toggleKanjiFilter);
+  const setDisplayMode = useGeneralSettingsStore((state) => state.setDisplayMode);
+  const setFuriganaType = useGeneralSettingsStore((state) => state.setFuriganaType);
+  const setSelectMode = useGeneralSettingsStore((state) => state.setSelectMode);
+  const setFontSize = useGeneralSettingsStore((state) => state.setFontSize);
+  const setFontColor = useGeneralSettingsStore((state) => state.setFontColor);
   const { t } = useTranslation();
 
   const displayModeOptions = [
@@ -127,40 +58,64 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
     { label: t("optionParentheses"), value: SelectMode.Parentheses },
   ];
 
+  type ACTIONTYPE =
+    | { type: typeof ExtEvent.ToggleAutoMode; payload: boolean }
+    | { type: typeof ExtEvent.ToggleKanjiFilter; payload: boolean }
+    | { type: typeof ExtEvent.SwitchDisplayMode; payload: DisplayMode }
+    | { type: typeof ExtEvent.SwitchFuriganaType; payload: FuriganaType }
+    | { type: typeof ExtEvent.SwitchSelectMode; payload: SelectMode }
+    | { type: typeof ExtEvent.AdjustFontSize; payload: number }
+    | { type: typeof ExtEvent.AdjustFontColor; payload: string };
+
+  const handleEventHappened = (action: ACTIONTYPE) => {
+    browser.tabs.query({ active: true, currentWindow: true }).then(async (tabs) => {
+      const tabId = tabs[0]!.id!;
+      await sendMessage(tabId, action.type);
+    });
+  };
+
   return (
     <menu className="space-y-2 border-sky-500 border-r-2 pr-1 font-sans">
       <MenuItem icon={<CursorOutlineIcon />}>
-        <Button tip={t("tipEscShortcut")} text={t("btnAddFurigana")} onClick={addFurigana} />
+        <Button
+          className="playwright-add-furigana-btn"
+          tip={t("tipEscShortcut")}
+          text={t("btnAddFurigana")}
+          onClick={addFurigana}
+        />
       </MenuItem>
-      <MenuItem icon={<PowerIcon className={state.autoMode ? "text-sky-500" : ""} />}>
+      <MenuItem icon={<PowerIcon className={autoModeEnabled ? "text-sky-500" : ""} />}>
         <CheckBox
+          className="playwright-toggle-auto-mode"
           tip={t("tipRefreshPage")}
           text={t("toggleAutoMode")}
-          checked={state.autoMode}
-          onChange={(checked) => {
-            dispatch({ type: ExtEvent.ToggleAutoMode, payload: checked });
+          checked={autoModeEnabled}
+          onChange={(enabled) => {
+            toggleAutoMode();
+            handleEventHappened({ type: ExtEvent.ToggleAutoMode, payload: enabled });
           }}
         />
       </MenuItem>
-      <MenuItem icon={<FilterIcon className={state.kanjiFilter ? "text-sky-500" : ""} />}>
+      <MenuItem icon={<FilterIcon className={kanjiFilterEnabled ? "text-sky-500" : ""} />}>
         <CheckBox
+          className="playwright-toggle-kanji-filter"
           tip={t("tipFilterLevel")}
           text={t("toggleKanjiFilter")}
-          checked={state.kanjiFilter}
-          onChange={(checked) => {
-            dispatch({
-              type: ExtEvent.ToggleKanjiFilter,
-              payload: checked,
-            });
+          checked={kanjiFilterEnabled}
+          onChange={(enabled) => {
+            toggleKanjiFilter();
+            handleEventHappened({ type: ExtEvent.ToggleKanjiFilter, payload: enabled });
           }}
         />
       </MenuItem>
       <MenuItem icon={<EyeIcon />}>
         <Select
-          selected={state.displayMode}
+          className="playwright-switch-display-mode"
+          selected={selectedDisplayMode}
           options={displayModeOptions}
           onChange={(selected) => {
-            dispatch({
+            setDisplayMode(selected as DisplayMode);
+            handleEventHappened({
               type: ExtEvent.SwitchDisplayMode,
               payload: selected as DisplayMode,
             });
@@ -169,10 +124,12 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
       </MenuItem>
       <MenuItem icon={<HiraganaIcon />}>
         <Select
-          selected={state.furiganaType}
+          className="playwright-switch-furigana-type"
+          selected={selectedFuriganaType}
           options={furiganaTypeOptions}
           onChange={(selected) => {
-            dispatch({
+            setFuriganaType(selected as FuriganaType);
+            handleEventHappened({
               type: ExtEvent.SwitchFuriganaType,
               payload: selected as FuriganaType,
             });
@@ -181,11 +138,13 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
       </MenuItem>
       <MenuItem icon={<CursorTextIcon />}>
         <Select
+          className="playwright-switch-select-mode"
           tip={t("tipCopyText")}
-          selected={state.selectMode}
+          selected={selectedSelectMode}
           options={selectModeOptions}
           onChange={(selected) => {
-            dispatch({
+            setSelectMode(selected as SelectMode);
+            handleEventHappened({
               type: ExtEvent.SwitchSelectMode,
               payload: selected as SelectMode,
             });
@@ -194,21 +153,25 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
       </MenuItem>
       <MenuItem icon={<FontSizeIcon />}>
         <RangeSlider
-          value={state.fontSize}
+          className="playwright-adjust-font-size-slider"
+          value={fontSize}
           min={50}
           max={100}
           step={1}
           label={t("labelAdjustFont")}
           onChange={(value) => {
-            dispatch({ type: ExtEvent.AdjustFontSize, payload: value });
+            setFontSize(value);
+            handleEventHappened({ type: ExtEvent.AdjustFontSize, payload: value });
           }}
         />
       </MenuItem>
       <MenuItem icon={<ColorPickerIcon />}>
         <ColorPicker
-          color={state.fontColor}
+          className="playwright-adjust-font-color-picker"
+          color={fontColor}
           onChange={(color) => {
-            dispatch({ type: ExtEvent.AdjustFontColor, payload: color });
+            setFontColor(color);
+            handleEventHappened({ type: ExtEvent.AdjustFontColor, payload: color });
           }}
         />
       </MenuItem>
@@ -233,5 +196,24 @@ function Menu({ configPromise }: { configPromise: Promise<GeneralSettings> }) {
         <SharedCard />
       </MenuItem>
     </menu>
+  );
+}
+
+async function addFurigana() {
+  const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+  await sendMessage(tab!.id!, ExtEvent.AddFurigana);
+}
+
+interface MenuItemProps {
+  children: React.ReactNode;
+  icon: React.ReactNode;
+}
+
+function MenuItem({ children, icon }: MenuItemProps) {
+  return (
+    <li className="flex items-center gap-x-1">
+      <div className="text-2xl">{icon}</div>
+      {children}
+    </li>
   );
 }

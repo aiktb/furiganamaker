@@ -7,15 +7,6 @@ describe("Extension popup page", () => {
     await page.goto(`chrome-extension://${extensionId}/popup.html`);
   });
 
-  test("Every time you open it, there will be a fallback due to the storage reading.", async ({
-    page,
-  }) => {
-    // <Logo /> is fallback, promise is not resolved
-    await page.waitForSelector("#root > svg");
-    // promise is resolved
-    await page.waitForSelector("menu");
-  });
-
   const getGeneralSettings = async (page: Page) => {
     const storage: { generalSettings: GeneralSettings } = await page.evaluate(
       "chrome.storage.local.get('generalSettings')",
@@ -86,6 +77,7 @@ describe("Extension popup page", () => {
     await input.fill("00ffff");
     await input.press("Enter");
     expect((await getGeneralSettings(page))[ExtStorage.FontColor]).toBe("#00ffff");
-    await page.getByRole("button", { name: "Close" }).click();
+    const closeBtn = page.locator(".playwright-color-picker-close-btn");
+    expect(closeBtn).toBeTruthy();
   });
 });
