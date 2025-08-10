@@ -77,10 +77,16 @@ export function Root() {
   return (
     <menu className="space-y-2 border-sky-500 border-r-2 pr-1 font-sans">
       <MenuItem icon={<CursorOutlineIcon />}>
-        <Button tip={t("tipEscShortcut")} text={t("btnAddFurigana")} onClick={addFurigana} />
+        <Button
+          className="playwright-add-furigana-btn"
+          tip={t("tipEscShortcut")}
+          text={t("btnAddFurigana")}
+          onClick={addFurigana}
+        />
       </MenuItem>
       <MenuItem icon={<PowerIcon className={autoModeEnabled ? "text-sky-500" : ""} />}>
         <CheckBox
+          className="playwright-toggle-auto-mode"
           tip={t("tipRefreshPage")}
           text={t("toggleAutoMode")}
           checked={autoModeEnabled}
@@ -92,6 +98,7 @@ export function Root() {
       </MenuItem>
       <MenuItem icon={<FilterIcon className={kanjiFilterEnabled ? "text-sky-500" : ""} />}>
         <CheckBox
+          className="playwright-toggle-kanji-filter"
           tip={t("tipFilterLevel")}
           text={t("toggleKanjiFilter")}
           checked={kanjiFilterEnabled}
@@ -103,6 +110,7 @@ export function Root() {
       </MenuItem>
       <MenuItem icon={<EyeIcon />}>
         <Select
+          className="playwright-switch-display-mode"
           selected={selectedDisplayMode}
           options={displayModeOptions}
           onChange={(selected) => {
@@ -116,6 +124,7 @@ export function Root() {
       </MenuItem>
       <MenuItem icon={<HiraganaIcon />}>
         <Select
+          className="playwright-switch-furigana-type"
           selected={selectedFuriganaType}
           options={furiganaTypeOptions}
           onChange={(selected) => {
@@ -129,6 +138,7 @@ export function Root() {
       </MenuItem>
       <MenuItem icon={<CursorTextIcon />}>
         <Select
+          className="playwright-switch-select-mode"
           tip={t("tipCopyText")}
           selected={selectedSelectMode}
           options={selectModeOptions}
@@ -143,6 +153,7 @@ export function Root() {
       </MenuItem>
       <MenuItem icon={<FontSizeIcon />}>
         <RangeSlider
+          className="playwright-adjust-font-size-slider"
           value={fontSize}
           min={50}
           max={100}
@@ -156,6 +167,7 @@ export function Root() {
       </MenuItem>
       <MenuItem icon={<ColorPickerIcon />}>
         <ColorPicker
+          className="playwright-adjust-font-color-picker"
           color={fontColor}
           onChange={(color) => {
             setFontColor(color);

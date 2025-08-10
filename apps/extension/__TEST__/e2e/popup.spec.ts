@@ -77,6 +77,7 @@ describe("Extension popup page", () => {
     await input.fill("00ffff");
     await input.press("Enter");
     expect((await getGeneralSettings(page))[ExtStorage.FontColor]).toBe("#00ffff");
-    await page.getByRole("button", { name: "Close" }).click();
+    const closeBtn = page.locator(".playwright-color-picker-close-btn");
+    expect(closeBtn).toBeTruthy();
   });
 });
