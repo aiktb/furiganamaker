@@ -34,7 +34,7 @@
     "react-share": "^5.1.1",
     "tailwind-merge": "catalog:",
     "wanakana": "^5.3.1",
-    "zod": "^3.24.1",
+    "zod": "^4.0.0",
     "zustand": "catalog:"
   },
   "devDependencies": {
@@ -43,7 +43,6 @@
     "@iconify-json/fa6-brands": "catalog:",
     "@iconify-json/tabler": "^1.2.13",
     "@playwright/test": "^1.49.1",
-    "@redux-devtools/extension": "catalog:",
     "@tailwindcss/forms": "catalog:",
     "@tailwindcss/typography": "catalog:",
     "@tailwindcss/vite": "catalog:",
