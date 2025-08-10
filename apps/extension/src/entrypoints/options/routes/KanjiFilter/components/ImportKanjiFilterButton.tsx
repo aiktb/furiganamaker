@@ -63,7 +63,7 @@ export const ImportKanjiFilterButton = () => {
       try {
         const RuleSchema = z.object({
           kanji: z.string(),
-          yomikatas: z.array(z.string()),
+          yomikatas: z.array(z.string()).optional(),
         });
         const RulesSchema = z.array(RuleSchema);
         const result = RulesSchema.safeParse(JSON.parse(data));
