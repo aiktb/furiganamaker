@@ -9,7 +9,7 @@ interface RangeSliderProps {
   onChange: (value: number) => void;
 }
 
-export default function RangeSlider({ value, min, max, step, label, onChange }: RangeSliderProps) {
+export function RangeSlider({ value, min, max, step, label, onChange }: RangeSliderProps) {
   function clamp(value: number, min: number, max: number): number {
     return Math.min(Math.max(value, min), max);
   }

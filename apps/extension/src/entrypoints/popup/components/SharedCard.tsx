@@ -8,9 +8,9 @@ import {
 } from "react-share";
 import TelegramSquareIcon from "@/assets/icons/TelegramSquare.svg?react";
 
-import ToolTip from "./ToolTip";
+import { ToolTip } from "./ToolTip";
 
-export default function SharedCard() {
+export function SharedCard() {
   const shareUrl =
     "https://chromewebstore.google.com/detail/furigana-maker/heodojceeinbkfjfilnfminlkgbacpfp";
   const shareItems = [

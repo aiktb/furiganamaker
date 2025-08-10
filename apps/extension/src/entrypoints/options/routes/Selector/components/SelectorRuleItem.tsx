@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next";
 
 import type { SelectorRule } from "@/commons/constants";
 
-import PopupTransition from "./PopupTransition";
-import RuleEditor from "./SelectorRuleEditor";
+import { PopupTransition } from "../../../components/PopupTransition";
+import { SelectorRuleEditor } from "./SelectorRuleEditor";
 
 interface SelectorRuleItemProps {
   rule: SelectorRule;
@@ -14,12 +14,7 @@ interface SelectorRuleItemProps {
   onDelete: (rule: SelectorRule) => void;
 }
 
-export default function SelectorRuleItem({
-  rule,
-  onChange,
-  onDelete,
-  index,
-}: SelectorRuleItemProps) {
+export function SelectorRuleItem({ rule, onChange, onDelete, index }: SelectorRuleItemProps) {
   const [editorDialogIsOpen, setEditorIsOpen] = useState(false);
   const [deleteDialogIsOpen, setDeleteDialogIsOpen] = useState(false);
 
@@ -107,7 +102,7 @@ export default function SelectorRuleItem({
           }}
         >
           <DialogPanel className="w-full min-w-[28rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
-            <RuleEditor
+            <SelectorRuleEditor
               rule={rule}
               mode="update"
               onChange={(rule) => {

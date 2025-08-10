@@ -1,6 +1,6 @@
 import { Switch } from "@headlessui/react";
 
-import ToolTip from "./ToolTip";
+import { ToolTip } from "./ToolTip";
 
 interface CheckBoxProps {
   checked: boolean;
@@ -19,7 +19,7 @@ function InlineCheckBox({ text, checked, onChange }: CheckBoxProps) {
     </Switch>
   );
 }
-export default function CheckBox(props: CheckBoxProps) {
+export function CheckBox(props: CheckBoxProps) {
   return props.tip ? (
     <ToolTip tip={props.tip}>
       <InlineCheckBox {...props} />

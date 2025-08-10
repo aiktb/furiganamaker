@@ -7,7 +7,7 @@ import Logo from "@/assets/icons/Logo.svg?react";
 
 type CustomLink = LinkProps & { label: string; icon: string };
 
-export default function Sidebar() {
+export function Sidebar() {
   const { t } = useTranslation();
 
   const navItems = [

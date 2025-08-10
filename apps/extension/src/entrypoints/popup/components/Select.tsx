@@ -6,7 +6,7 @@ import {
   Transition,
 } from "@headlessui/react";
 
-import ToolTip from "./ToolTip";
+import { ToolTip } from "./ToolTip";
 
 interface SelectProps {
   selected: string;
@@ -15,7 +15,7 @@ interface SelectProps {
   onChange: (selected: string) => void;
 }
 
-export default function Select({ selected, options, tip, onChange }: SelectProps) {
+export function Select({ selected, options, tip, onChange }: SelectProps) {
   function ListBoxButton() {
     return (
       <ListboxButton className="group peer flex w-full cursor-pointer items-center justify-between rounded-sm ui-open:bg-gray-200 px-2 capitalize transition-all hover:bg-gray-200 focus-visible:bg-gray-200 dark:ui-open:bg-slate-700 dark:focus-visible:bg-slate-700 dark:hover:bg-slate-700">

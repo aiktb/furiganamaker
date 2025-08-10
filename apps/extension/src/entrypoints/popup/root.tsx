@@ -24,15 +24,15 @@ import {
 } from "@/commons/constants";
 import { generalSettings, sendMessage, setGeneralSettings, toStorageKey } from "@/commons/utils";
 
-import Button from "./components/Button";
-import CheckBox from "./components/CheckBox";
-import ColorPicker from "./components/ColorPicker";
-import Link from "./components/Link";
-import RangeSlider from "./components/RangeSlider";
-import Select from "./components/Select";
-import SharedCard from "./components/SharedCard";
+import { Button } from "./components/Button";
+import { CheckBox } from "./components/CheckBox";
+import { ColorPicker } from "./components/ColorPicker";
+import { Link } from "./components/Link";
+import { RangeSlider } from "./components/RangeSlider";
+import { Select } from "./components/Select";
+import { SharedCard } from "./components/SharedCard";
 
-export default function Popup() {
+export function Root() {
   return (
     <Suspense fallback={<Logo className="size-48" />}>
       <Transition

@@ -1,4 +1,4 @@
-import { Dialog, DialogPanel, DialogTitle, Transition } from "@headlessui/react";
+import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { saveAs } from "file-saver";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -8,13 +8,13 @@ import defaultSelectorRules from "@/assets/rules/selector.json";
 import type { SelectorRule } from "@/commons/constants";
 import { cn } from "@/commons/utils";
 
-import NotFoundRule from "../components/NotFoundRule";
-import Page from "../components/Page";
-import PopupTransition from "../components/PopupTransition";
-import SelectorRuleEditor from "../components/SelectorRuleEditor";
-import SelectorRuleItem from "../components/SelectorRuleItem";
-import { useSelectorsStore } from "../stores/useSelectorsStore";
-export default function RuleEditor() {
+import { NotFoundRule } from "../../components/NotFoundRule";
+import { Page } from "../../components/Page";
+import { PopupTransition } from "../../components/PopupTransition";
+import { SelectorRuleEditor } from "./components/SelectorRuleEditor";
+import { SelectorRuleItem } from "./components/SelectorRuleItem";
+import { useSelectorsStore } from "./store";
+export function Selector() {
   const selectors = useSelectorsStore((state) => state.selectors);
   const setSelectors = useSelectorsStore((state) => state.setSelectors);
   const clearSelectors = useSelectorsStore((state) => state.clearSelectors);

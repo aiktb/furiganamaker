@@ -1,4 +1,4 @@
-import ToolTip from "./ToolTip";
+import { ToolTip } from "./ToolTip";
 
 interface ButtonProps {
   text: string;
@@ -6,7 +6,7 @@ interface ButtonProps {
   onClick: () => void;
 }
 
-export default function Button({ text, tip, onClick }: ButtonProps) {
+export function Button({ text, tip, onClick }: ButtonProps) {
   function InlineButton() {
     return (
       <button

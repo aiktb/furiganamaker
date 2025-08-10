@@ -8,7 +8,7 @@ interface ColorPickerProps {
   onChange: (color: string) => void;
 }
 
-export default function ColorPicker({ color, onChange }: ColorPickerProps) {
+export function ColorPicker({ color, onChange }: ColorPickerProps) {
   const { t } = useTranslation();
 
   return (

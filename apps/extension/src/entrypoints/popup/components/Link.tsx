@@ -1,4 +1,4 @@
-import ToolTip from "./ToolTip";
+import { ToolTip } from "./ToolTip";
 
 interface LinkProps {
   href: string;
@@ -6,7 +6,7 @@ interface LinkProps {
   tip?: string;
 }
 
-export default function Link({ href, text, tip }: LinkProps) {
+export function Link({ href, text, tip }: LinkProps) {
   function InlineLink() {
     return (
       <a

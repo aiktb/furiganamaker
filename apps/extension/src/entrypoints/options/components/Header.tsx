@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
-import ThemeSwitch from "./ThemeSwitch";
+import { ThemeSwitch } from "./ThemeSwitch";
 
 interface HeaderProps {
   icon: string;
   title: string;
 }
-export default function Header({ icon, title }: HeaderProps) {
+export function Header({ icon, title }: HeaderProps) {
   const { t } = useTranslation();
   return (
     <header className="sticky top-0 z-10 border-gray-200 border-b dark:border-slate-800">

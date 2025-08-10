@@ -43,6 +43,7 @@
     "@iconify-json/fa6-brands": "catalog:",
     "@iconify-json/tabler": "^1.2.13",
     "@playwright/test": "^1.49.1",
+    "@redux-devtools/extension": "catalog:",
     "@tailwindcss/forms": "catalog:",
     "@tailwindcss/typography": "catalog:",
     "@tailwindcss/vite": "catalog:",

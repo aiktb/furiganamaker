@@ -10,7 +10,7 @@ interface YomikatasInputProps {
   disabled?: boolean;
 }
 
-export default function YomikatasInput({
+export function YomikatasInput({
   yomikatas,
   className,
   onChange,

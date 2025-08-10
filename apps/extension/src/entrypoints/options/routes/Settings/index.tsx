@@ -2,13 +2,12 @@ import { Switch } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
 
 import { ExtStorage } from "@/commons/constants";
+import { Page } from "../../components/Page";
+import { ExclusionHandler } from "./components/ExclusionHandler";
+import { LanguageSwitcher } from "./components/LanguageSwitcher";
+import { useMoreSettingsStore } from "./store";
 
-import ExclusionHandler from "../components/ExclusionHandler";
-import LanguageSwitcher from "../components/LanguageSwitcher";
-import Page from "../components/Page";
-import { useMoreSettingsStore } from "../stores/useMoreSettingsStore";
-
-export default function Settings() {
+export function Settings() {
   const language = useMoreSettingsStore((state) => state[ExtStorage.Language]);
   const warningDisabled = useMoreSettingsStore((state) => state[ExtStorage.DisableWarning]);
   const coloringKanjiEnabled = useMoreSettingsStore((state) => state[ExtStorage.ColoringKanji]);
