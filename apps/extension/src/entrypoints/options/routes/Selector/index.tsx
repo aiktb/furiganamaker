@@ -227,6 +227,7 @@ export function Selector() {
                   <SelectorRuleItem
                     index={index}
                     rule={rule}
+                    key={rule.domain}
                     onChange={(rule) => {
                       const index = selectors.findIndex((r) => r.domain === rule.domain);
                       const newRules = [...selectors];
