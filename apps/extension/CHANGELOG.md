@@ -1,5 +1,28 @@
 # Changelog
 
+## 3.0.0 (2025-08-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* Translation support for Korean has been discontinued due to unreliable proofreading.
+
+### Features
+
+* Allow users to customize Kanji filter.
+* New furigana display mode, masking the furigana with the background color.
+* Remove the ugly logo and header title on the Options page.
+* Stop features updating notifications.
+* Copywriting optimization.
+
+### Bug Fixes
+
+* Display language names in their native locale in language switcher.
+
+### Performance Improvements
+
+* Significantly improve the loading speed of Popup and Options pages.
+
 ## 2.3.0 (2024-12-22)
 
 
