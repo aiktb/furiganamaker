@@ -230,14 +230,12 @@ export function Selector() {
                     key={rule.domain}
                     onChange={(rule) => {
                       const index = selectors.findIndex((r) => r.domain === rule.domain);
-                      const newRules = [...selectors];
-                      newRules[index] = rule;
+                      const newRules = selectors.with(index, rule);
                       setSelectors(newRules);
                     }}
                     onDelete={(rule) => {
                       const index = selectors.findIndex((r) => r.domain === rule.domain);
-                      const newRules = [...selectors];
-                      newRules.splice(index, 1);
+                      const newRules = selectors.toSpliced(index, 1);
                       setSelectors(newRules);
                     }}
                   />
