@@ -27,7 +27,7 @@ export const BatchCreateKanjiFilterButton = () => {
         onClick={() => {
           setQuickStartDialogIsOpen(true);
         }}
-        className="playwright-kanji-filter-quick-create-btn flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
+        className="playwright-kanji-filter-quick-create-btn flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-sky-600 px-1.5 py-2 text-white transition hover:bg-sky-500 sm:px-3"
       >
         <i className="i-tabler-star size-5" />
         <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">

@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import type { FilterRule } from "@/commons/constants";
 import { cn } from "@/commons/utils";
 import { NotFoundRule } from "../../components/NotFoundRule";
-import { Page } from "../../components/Page";
 import { PopupTransition } from "../../components/PopupTransition";
 import { KanjiFilterDashboard } from "./components/KanjiFilterDashboard";
 import { KanjiFilterEditorDialog } from "./components/KanjiFilterEditorDialog";
@@ -22,7 +21,7 @@ export function KanjiFilter() {
   const [updateDialogIsOpen, setUpdateDialogIsOpen] = useState(false);
 
   return (
-    <Page title={t("navKanjiFilter")} icon="i-tabler-filter">
+    <>
       <div
         className={cn(
           "flex w-full flex-col items-center justify-center lg:max-w-5xl lg:px-8",
@@ -128,6 +127,6 @@ export function KanjiFilter() {
           </DialogPanel>
         </Dialog>
       </PopupTransition>
-    </Page>
+    </>
   );
 }

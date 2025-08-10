@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, type LinkProps, NavLink } from "react-router";
 
-import Logo from "@/assets/icons/Logo.svg?react";
-
 type CustomLink = LinkProps & { label: string; icon: string };
 
 export function Sidebar() {
@@ -47,24 +45,29 @@ export function Sidebar() {
   return (
     <>
       <button
-        className="-mx-2 fixed top-24 left-4 z-20 flex cursor-pointer items-center justify-center rounded-sm border-2 border-gray-300 border-solid bg-white p-2 lg:hidden dark:border-slate-700 dark:bg-slate-900"
+        className="-mx-2 fixed top-3 left-8 z-20 flex cursor-pointer items-center justify-center rounded-sm border-solid bg-slate-950/5 p-2 text-slate-800 hover:text-sky-500 lg:hidden dark:bg-white/5 dark:text-white"
         onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
       >
         <span className="sr-only">{t("srToggleSidebar")}</span>
         <div
           className={`${sidebarIsOpen ? "!flex" : "hidden"} fixed inset-0 bg-transparent/40 backdrop-blur-sm backdrop-filter`}
         />
-        <i className="i-tabler-chevrons-right size-7 text-sky-500" />
+        <i className="i-tabler-chevrons-right size-7" />
       </button>
       <Transition show={sidebarIsOpen}>
         <nav
           className={`${sidebarIsOpen ? "!flex" : ""} data-[enter]:data-[closed]:-translate-x-full data-[leave]:data-[closed]:-translate-x-full fixed top-0 z-30 min-h-screen w-72 flex-col gap-6 border-gray-200 border-r border-solid bg-white px-6 py-5 font-semibold text-base transition ease-in-out data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-300 lg:flex dark:border-slate-800 dark:bg-slate-900`}
         >
-          <Link to="https://furiganamaker.app" target="_blank" className="flex items-center gap-2">
-            <Logo className="size-8" />
-            <div className="flex items-center justify-center gap-2 px-1.5 text-black dark:text-white">
-              <span className="font-bold text-lg">{t("extName")}</span>
-              <span className="absolute right-4 font-normal text-slate-700 text-sm dark:text-slate-200">{`v${browser.runtime.getManifest().version}`}</span>
+          <Link
+            to="https://furiganamaker.app"
+            target="_blank"
+            className="flex items-center gap-2 text-black transition hover:text-sky-500 dark:text-white"
+          >
+            <div className="flex items-center justify-center gap-2 px-1.5">
+              <span className="font-bold text-lg underline decoration-sky-500 decoration-wavy">
+                {t("extName")}
+              </span>
+              <span className="font-normal text-sm">{`v${browser.runtime.getManifest().version}`}</span>
             </div>
           </Link>
           <div className="flex flex-1 flex-col justify-between gap-2">

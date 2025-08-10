@@ -9,7 +9,6 @@ import type { SelectorRule } from "@/commons/constants";
 import { cn } from "@/commons/utils";
 
 import { NotFoundRule } from "../../components/NotFoundRule";
-import { Page } from "../../components/Page";
 import { PopupTransition } from "../../components/PopupTransition";
 import { SelectorRuleEditor } from "./components/SelectorRuleEditor";
 import { SelectorRuleItem } from "./components/SelectorRuleItem";
@@ -114,7 +113,7 @@ export function Selector() {
 
   const { t } = useTranslation();
   return (
-    <Page title={t("navSelector")} icon="i-tabler-click">
+    <>
       <div className="flex grow flex-col items-center justify-start lg:px-8">
         <div className="flex flex-wrap items-center justify-center gap-1.5 font-bold text-base text-slate-700 dark:text-slate-300">
           <button
@@ -380,6 +379,6 @@ export function Selector() {
           </DialogPanel>
         </Dialog>
       </PopupTransition>
-    </Page>
+    </>
   );
 }
