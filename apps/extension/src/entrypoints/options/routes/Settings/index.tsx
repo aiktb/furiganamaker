@@ -2,7 +2,6 @@ import { Switch } from "@headlessui/react";
 import { useTranslation } from "react-i18next";
 
 import { ExtStorage } from "@/commons/constants";
-import { Page } from "../../components/Page";
 import { ExclusionHandler } from "./components/ExclusionHandler";
 import { LanguageSwitcher } from "./components/LanguageSwitcher";
 import { useMoreSettingsStore } from "./store";
@@ -29,38 +28,36 @@ export function Settings() {
     setExcludeSites(unrepeatedSites);
   }
   return (
-    <Page title={t("navSettings")} icon="i-tabler-settings">
-      <menu className="flex flex-col items-center justify-between space-y-10 text-pretty lg:max-w-5xl lg:px-8">
-        <li className="flex w-full items-center justify-between gap-4">
-          <div>
-            <div className="font-bold text-lg text-slate-800 dark:text-slate-200">
-              {t("settingsLanguage")}
-            </div>
-            <div>{t("settingsLanguageDesc")}</div>
+    <menu className="flex flex-col items-center justify-between space-y-10 text-pretty lg:max-w-5xl lg:px-8">
+      <li className="flex w-full items-center justify-between gap-4">
+        <div>
+          <div className="font-bold text-lg text-slate-800 dark:text-slate-200">
+            {t("settingsLanguage")}
           </div>
-          <LanguageSwitcher language={language ?? i18n.language} onChange={handleLanguageChange} />
-        </li>
-        <li className="flex w-full items-center justify-between gap-4">
-          <div>
-            <div className="font-bold text-lg text-slate-800 dark:text-slate-200">
-              {t("settingsDisableWarning")}
-            </div>
-            <div>{t("settingsDisableWarningDesc")}</div>
+          <div>{t("settingsLanguageDesc")}</div>
+        </div>
+        <LanguageSwitcher language={language ?? i18n.language} onChange={handleLanguageChange} />
+      </li>
+      <li className="flex w-full items-center justify-between gap-4">
+        <div>
+          <div className="font-bold text-lg text-slate-800 dark:text-slate-200">
+            {t("settingsDisableWarning")}
           </div>
-          <SettingSwitch enabled={warningDisabled} onChange={toggleDisableWarning} />
-        </li>
-        <li className="flex w-full items-center justify-between gap-4">
-          <div>
-            <div className="font-bold text-lg text-slate-800 dark:text-slate-200">
-              {t("settingsColoringKanji")}
-            </div>
-            <div>{t("settingsColoringKanjiDesc")}</div>
+          <div>{t("settingsDisableWarningDesc")}</div>
+        </div>
+        <SettingSwitch enabled={warningDisabled} onChange={toggleDisableWarning} />
+      </li>
+      <li className="flex w-full items-center justify-between gap-4">
+        <div>
+          <div className="font-bold text-lg text-slate-800 dark:text-slate-200">
+            {t("settingsColoringKanji")}
           </div>
-          <SettingSwitch enabled={coloringKanjiEnabled} onChange={toggleColoringKanji} />
-        </li>
-        <ExclusionHandler sites={excludedSites} onChange={handleExclusionListChange} />
-      </menu>
-    </Page>
+          <div>{t("settingsColoringKanjiDesc")}</div>
+        </div>
+        <SettingSwitch enabled={coloringKanjiEnabled} onChange={toggleColoringKanji} />
+      </li>
+      <ExclusionHandler sites={excludedSites} onChange={handleExclusionListChange} />
+    </menu>
   );
 }
 
