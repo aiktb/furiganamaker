@@ -55,17 +55,19 @@ export const sendMessage = async (id: number, event: ExtEvent) => {
   }
 };
 
+export const generalSettingsFallback = {
+  [ExtStorage.AutoMode]: true,
+  [ExtStorage.KanjiFilter]: false,
+  [ExtStorage.DisplayMode]: DisplayMode.Always,
+  [ExtStorage.FuriganaType]: FuriganaType.Hiragana,
+  [ExtStorage.SelectMode]: SelectMode.Default,
+  [ExtStorage.FontSize]: 75,
+  [ExtStorage.FontColor]: "currentColor",
+} satisfies GeneralSettings;
+
 export const generalSettings = storage.defineItem<GeneralSettings>("local:generalSettings", {
   version: 1,
-  fallback: {
-    [ExtStorage.AutoMode]: true,
-    [ExtStorage.KanjiFilter]: false,
-    [ExtStorage.DisplayMode]: DisplayMode.Always,
-    [ExtStorage.FuriganaType]: FuriganaType.Hiragana,
-    [ExtStorage.SelectMode]: SelectMode.Default,
-    [ExtStorage.FontSize]: 75,
-    [ExtStorage.FontColor]: "currentColor",
-  },
+  fallback: generalSettingsFallback,
 });
 
 export async function setGeneralSettings<K extends keyof GeneralSettings>(
@@ -79,14 +81,16 @@ export async function getGeneralSettings<K extends keyof GeneralSettings>(key: K
   return (await generalSettings.getValue())[key];
 }
 
+export const moreSettingsFallback = {
+  [ExtStorage.Language]: null,
+  [ExtStorage.DisableWarning]: false,
+  [ExtStorage.ColoringKanji]: false,
+  [ExtStorage.ExcludeSites]: ["example.com"],
+} satisfies MoreSettings;
+
 export const moreSettings = storage.defineItem<MoreSettings>("local:moreSettings", {
   version: 1,
-  fallback: {
-    [ExtStorage.Language]: null,
-    [ExtStorage.DisableWarning]: false,
-    [ExtStorage.ColoringKanji]: false,
-    [ExtStorage.ExcludeSites]: ["example.com"],
-  },
+  fallback: moreSettingsFallback,
 });
 
 export async function getMoreSettings<K extends keyof MoreSettings>(key: K) {

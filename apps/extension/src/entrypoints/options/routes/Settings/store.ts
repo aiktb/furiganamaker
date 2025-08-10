@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { ExtStorage, type MoreSettings } from "@/commons/constants";
-import { moreSettings } from "@/commons/utils";
+import { moreSettings, moreSettingsFallback } from "@/commons/utils";
 
 interface MoreSettingsStore extends MoreSettings {
   setLanguage: (language: string) => void;
@@ -13,10 +13,7 @@ interface MoreSettingsStore extends MoreSettings {
 export const useMoreSettingsStore = create<MoreSettingsStore>()(
   persist(
     (set, get) => ({
-      [ExtStorage.Language]: null,
-      [ExtStorage.DisableWarning]: false,
-      [ExtStorage.ColoringKanji]: false,
-      [ExtStorage.ExcludeSites]: ["example.com"],
+      ...moreSettingsFallback,
       setLanguage: (language) => {
         set({ [ExtStorage.Language]: language });
       },
