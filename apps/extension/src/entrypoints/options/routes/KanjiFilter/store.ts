@@ -19,9 +19,14 @@ export const useKanjiFiltersStore = create<SelectorsStore>()(
       kanjiFilters: [],
       clearKanjiFilters: () => set({ kanjiFilters: [] }),
       addKanjiFilter: (...rules: FilterRule[]) => {
-        set(() => ({
-          kanjiFilters: [...rules, ...get().kanjiFilters],
-        }));
+        set(() => {
+          const deduplicated = get().kanjiFilters.filter(
+            (oldRule) => !rules.some((newRule) => oldRule.kanji === newRule.kanji),
+          );
+          return {
+            kanjiFilters: [...rules, ...deduplicated],
+          };
+        });
       },
       removeKanjiFilter: (kanji: string) => {
         set(() => ({

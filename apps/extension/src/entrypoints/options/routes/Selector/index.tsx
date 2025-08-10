@@ -14,6 +14,7 @@ import { PopupTransition } from "../../components/PopupTransition";
 import { SelectorRuleEditor } from "./components/SelectorRuleEditor";
 import { SelectorRuleItem } from "./components/SelectorRuleItem";
 import { useSelectorsStore } from "./store";
+
 export function Selector() {
   const selectors = useSelectorsStore((state) => state.selectors);
   const setSelectors = useSelectorsStore((state) => state.setSelectors);
