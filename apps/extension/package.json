@@ -2,7 +2,7 @@
   "name": "extension",
   "type": "module",
   "private": true,
-  "version": "3.0.0",
+  "version": "3.0.1",
   "scripts": {
     "dev": "wxt",
     "build": "wxt build",
