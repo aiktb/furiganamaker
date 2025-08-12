@@ -1,11 +1,11 @@
 # Changelog
 
-## [3.0.1](https://github.com/aiktb/furiganamaker/compare/v3.0.0...v3.0.1) (2025-08-11)
+## 3.0.1 (2025-08-11)
 
 
 ### Bug Fixes
 
-* korean still appears in CWS Languages ([#366](https://github.com/aiktb/furiganamaker/issues/366)) ([578dc37](https://github.com/aiktb/furiganamaker/commit/578dc37d01bc9fa246de450ab4151340707052be))
+* Korean still appears in Chrome Web Store language list.
 
 ## 3.0.0 (2025-08-10)
 
