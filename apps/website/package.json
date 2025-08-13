@@ -36,7 +36,7 @@
     "@types/react-dom": "catalog:",
     "tailwindcss": "catalog:",
     "vite": "catalog:",
-    "vite-plugin-devtools-json": "^0.1.0",
+    "vite-plugin-devtools-json": "^1.0.0",
     "wrangler": "^3.99.0"
   }
 }
