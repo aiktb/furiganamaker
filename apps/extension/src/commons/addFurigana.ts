@@ -39,7 +39,7 @@ const collectTexts = (element: Element): Text[] => {
   const texts: Text[] = [];
   while (walker.nextNode()) {
     const node = walker.currentNode as Text;
-    const parent = node.parentElement as Element | null;
+    const parent = node.parentElement;
     if (!parent) {
       continue;
     }
