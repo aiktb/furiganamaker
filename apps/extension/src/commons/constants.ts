@@ -86,11 +86,14 @@ export interface MoreSettings {
   [ExtStorage.Language]: string | null;
   [ExtStorage.DisableWarning]: boolean;
   [ExtStorage.ColoringKanji]: boolean;
+  /**
+   * Glob is supported.
+   */
   [ExtStorage.ExcludeSites]: string[];
 }
 
 export interface SelectorRule {
-  domain: string; // This field is unique.
+  domain: string; // This field is unique. Glob is supported.
   selector: string;
   active: boolean;
 }
