@@ -59,6 +59,18 @@ export function ExclusionHandler({ sites, onChange }: ExclusionHandlerProps) {
                   </p>
                   <p className="mt-1 whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
                     <Trans
+                      i18nKey="fieldDomainDesc3"
+                      components={{
+                        boldExampleGlobExpr: (
+                          <b className="font-semibold text-slate-900 dark:text-slate-200">
+                            *.example.com
+                          </b>
+                        ),
+                      }}
+                    />
+                  </p>
+                  <p className="mt-1 whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
+                    <Trans
                       i18nKey="fieldDomainDesc2"
                       components={{
                         boldHttpsPrefix: (

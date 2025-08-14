@@ -85,7 +85,7 @@ export const moreSettingsFallback = {
   [ExtStorage.Language]: null,
   [ExtStorage.DisableWarning]: false,
   [ExtStorage.ColoringKanji]: false,
-  [ExtStorage.ExcludeSites]: ["example.com"],
+  [ExtStorage.ExcludeSites]: [],
 } satisfies MoreSettings;
 
 export const moreSettings = storage.defineItem<MoreSettings>("local:moreSettings", {

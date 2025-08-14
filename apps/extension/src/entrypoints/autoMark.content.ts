@@ -1,3 +1,4 @@
+import picomatch from "picomatch/posix";
 import { addFurigana } from "@/commons/addFurigana";
 import { ExtEvent, ExtStorage } from "@/commons/constants";
 import { sendMessage } from "@/commons/message";
@@ -9,8 +10,9 @@ export default defineContentScript({
 
   async main() {
     const autoModeIsEnabled = await getGeneralSettings(ExtStorage.AutoMode);
-    const exclusionSet = new Set(await getMoreSettings(ExtStorage.ExcludeSites));
-    const isExcluded = exclusionSet.has(location.hostname);
+    const excludeSites = await getMoreSettings(ExtStorage.ExcludeSites);
+    const isMatch = picomatch(excludeSites, { nocase: true });
+    const isExcluded = isMatch(location.hostname);
     if (!autoModeIsEnabled || isExcluded) {
       /**
        * If the user does not enable the extension, the extension will not attempt to add furigana to the page.

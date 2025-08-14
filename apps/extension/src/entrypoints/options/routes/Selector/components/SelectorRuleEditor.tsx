@@ -115,7 +115,7 @@ export function SelectorRuleEditor({ rule, mode, onChange }: RuleEditorProps) {
                   name="domain"
                   disabled={mode === "update"}
                   required
-                  placeholder="example.com"
+                  placeholder="*.example.com"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-sky-600 focus:ring-inset disabled:cursor-not-allowed sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white dark:ring-gray-700 dark:focus:ring-sky-600"
                   value={domain}
                   onChange={(e) => setDomain(e.target.value)}

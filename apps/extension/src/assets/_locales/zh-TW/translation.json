@@ -115,6 +115,7 @@
   "fieldKanji": "漢字",
   "fieldDomainDesc1": "請單擊瀏覽器地址欄以確認“<boldWwwDot/>”前綴是否隱藏。如果有，您也必須輸入它，否則此功能無法正常工作。",
   "fieldDomainDesc2": "將自動刪除“<boldHttpsPrefix/>”前綴。",
+  "fieldDomainDesc3": "支援萬用字元模式 — 例如 <boldExampleGlobExpr/>（不匹配 example.com）。",
   "importFailedCauseByDuplicatedKanjis": "重複的漢字：{{kanjis}}。",
   "importFailedCauseByExistedKanjis": "存在的漢字：{{kanjis}}。",
   "importFailedCauseByImpureKanjis": "不純淨的漢字：{{kanjis}}。",
