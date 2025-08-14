@@ -33,15 +33,18 @@ export async function addFurigana(...elements: Element[]) {
   }
 }
 
-const exclusionParentTagSet = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "RUBY", "RT"]);
+const exclusionParentTagSet = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "RUBY", "RT", "TITLE"]);
 const collectTexts = (element: Element): Text[] => {
   const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
   const texts: Text[] = [];
   while (walker.nextNode()) {
-    const node = walker.currentNode;
-    const parent = node.parentElement! as Element;
+    const node = walker.currentNode as Text;
+    const parent = node.parentElement;
+    if (!parent) {
+      continue;
+    }
     if (!exclusionParentTagSet.has(parent.tagName)) {
-      texts.push(node as Text);
+      texts.push(node);
     }
   }
   return texts;
