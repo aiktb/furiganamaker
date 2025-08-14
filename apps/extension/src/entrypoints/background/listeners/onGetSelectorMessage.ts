@@ -10,7 +10,7 @@ export const registerOnGetSelector = () => {
       allRules
         .filter((rule) => {
           const isMatch = picomatch(rule.domain, { nocase: true });
-          return isMatch(data.domain);
+          return rule.active && isMatch(data.domain);
         })
         .map((rule) => rule.selector)
         .join(", ") || "";
