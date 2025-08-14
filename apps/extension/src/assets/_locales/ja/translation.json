@@ -115,6 +115,7 @@
   "fieldKanji": "漢字",
   "fieldDomainDesc1": "ブラウザアドレスバーをクリックして、「<boldWwwDot/>」プレフィックスが隠されていることを確認してください。\nもしそうなら、あなたもそれを入力する必要があります。そうしないと、この機能は正しく機能しません。",
   "fieldDomainDesc2": "「<boldHttpsPrefix/>」プレフィックスは自動的に削除されます。",
+  "fieldDomainDesc3": "ワイルドカードパターンに対応 — 例: <boldExampleGlobExpr/>（example.com には一致しません）。",
   "importFailedCauseByDuplicatedKanjis": "重複した漢字：{{kanjis}}。",
   "importFailedCauseByExistedKanjis": "存在した漢字：{{kanjis}}。",
   "importFailedCauseByImpureKanjis": "不純な漢字：{{kanjis}}。",

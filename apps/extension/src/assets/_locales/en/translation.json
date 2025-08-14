@@ -117,6 +117,7 @@
   "fieldKanji": "Kanji",
   "fieldDomainDesc1": "Please click the browser address bar to confirm that the \"<boldWwwDot/>\" prefix is hidden. If it is, you must enter it as well, otherwise this feature will not work properly.",
   "fieldDomainDesc2": "The \"<boldHttpsPrefix/>\" prefix will be automatically removed.",
+  "fieldDomainDesc3": "Supports wildcard patterns — e.g. <boldExampleGlobExpr/> (does not match example.com).",
   "kanjiFilterImportFailedTip": "Import failed due to the presence of the following text.",
   "importFailedCauseByExistedKanjis": "Existed kanjis: {{kanjis}}.",
   "importFailedCauseByDuplicatedKanjis": "Duplicated kanjis: {{kanjis}}.",
