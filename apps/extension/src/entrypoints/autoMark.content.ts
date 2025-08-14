@@ -77,7 +77,7 @@ function showWarning(textLength: number) {
     top: "20px",
     left: "50%",
     transform: "translateX(-50%)",
-    zIndex: "9999",
+    zIndex: String(2 ** 32 - 1),
     fontWeight: "bold",
     color: "rgb(154,52,18)",
     backgroundColor: "rgb(255, 247, 237)",
