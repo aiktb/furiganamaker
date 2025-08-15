@@ -1,3 +1,4 @@
+import { union } from "es-toolkit";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import defaultKanjiFilterRules from "@/assets/rules/filter.json";
@@ -24,7 +25,7 @@ export const useKanjiFiltersStore = create<SelectorsStore>()(
             (oldRule) => !rules.some((newRule) => oldRule.kanji === newRule.kanji),
           );
           return {
-            kanjiFilters: [...rules, ...deduplicated],
+            kanjiFilters: union(rules, deduplicated),
           };
         });
       },

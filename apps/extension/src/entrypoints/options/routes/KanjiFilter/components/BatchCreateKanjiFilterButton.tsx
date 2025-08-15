@@ -1,4 +1,5 @@
 import { Dialog, DialogPanel, DialogTitle, Textarea } from "@headlessui/react";
+import { uniq } from "es-toolkit";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { isKanji } from "wanakana";
@@ -12,11 +13,10 @@ export const BatchCreateKanjiFilterButton = () => {
   const [quickStartInput, setQuickStartInput] = useState("");
   const [quickStartDialogIsOpen, setQuickStartDialogIsOpen] = useState(false);
   const batchCreateKanjiFilters = () => {
-    const kanjiList = Array.from(
-      new Set(
-        quickStartInput.split(/[\s\n]+/).filter((kanji) => kanji.length > 0 && isKanji(kanji)),
-      ),
-    );
+    const wordList = quickStartInput
+      .split(/[\s\n]+/)
+      .filter((kanji) => kanji.length > 0 && isKanji(kanji));
+    const kanjiList = uniq(wordList);
     addKanjiFilters(...kanjiList.map((kanji) => ({ kanji })));
     setQuickStartInput("");
     setQuickStartDialogIsOpen(false);
