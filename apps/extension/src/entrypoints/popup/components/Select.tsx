@@ -58,7 +58,10 @@ export function Select({ selected, options, tip, onChange, className }: SelectPr
               <ListboxOption key={item.value} value={item.value}>
                 {({ focus, selected }) => (
                   <li
-                    className={`${focus || selected ? "text-sky-500" : "text-current"} box-content flex cursor-pointer items-center justify-between ui-active:bg-gray-200 px-[6px] capitalize transition-all hover:bg-gray-200 focus:z-10 focus:bg-gray-200 dark:ui-active:bg-slate-700 dark:focus:bg-slate-700 dark:hover:bg-slate-700`}
+                    className={cn(
+                      "box-content flex cursor-pointer items-center justify-between ui-active:bg-gray-200 px-[6px] capitalize transition-all hover:bg-gray-200 focus:z-10 focus:bg-gray-200 dark:ui-active:bg-slate-700 dark:focus:bg-slate-700 dark:hover:bg-slate-700",
+                      focus || selected ? "text-sky-500" : "text-current",
+                    )}
                   >
                     {item.label}
                     {selected && <i className="i-tabler-check" />}

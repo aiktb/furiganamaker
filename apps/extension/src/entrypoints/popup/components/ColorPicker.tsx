@@ -1,9 +1,9 @@
 import { TinyColor } from "@ctrl/tinycolor";
 import { Popover, PopoverButton, PopoverPanel, Transition } from "@headlessui/react";
+import { clamp } from "es-toolkit";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/commons/utils";
-import { clamp } from "es-toolkit";
 
 interface ColorPickerProps {
   color: string;

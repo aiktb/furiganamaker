@@ -12,7 +12,7 @@ import PowerIcon from "@/assets/icons/Power.svg?react";
 import SettingIcon from "@/assets/icons/Setting.svg?react";
 import ShareIcon from "@/assets/icons/Share.svg?react";
 import { DisplayMode, ExtEvent, ExtStorage, FuriganaType, SelectMode } from "@/commons/constants";
-import { sendMessage } from "@/commons/utils";
+import { cn, sendMessage } from "@/commons/utils";
 
 import { Button } from "./components/Button";
 import { CheckBox } from "./components/CheckBox";
@@ -84,7 +84,7 @@ export function Root() {
           onClick={addFurigana}
         />
       </MenuItem>
-      <MenuItem icon={<PowerIcon className={autoModeEnabled ? "text-sky-500" : ""} />}>
+      <MenuItem icon={<PowerIcon className={cn(autoModeEnabled && "text-sky-500")} />}>
         <CheckBox
           className="playwright-toggle-auto-mode"
           tip={t("tipRefreshPage")}
@@ -96,7 +96,7 @@ export function Root() {
           }}
         />
       </MenuItem>
-      <MenuItem icon={<FilterIcon className={kanjiFilterEnabled ? "text-sky-500" : ""} />}>
+      <MenuItem icon={<FilterIcon className={cn(kanjiFilterEnabled && "text-sky-500")} />}>
         <CheckBox
           className="playwright-toggle-kanji-filter"
           tip={t("tipFilterLevel")}

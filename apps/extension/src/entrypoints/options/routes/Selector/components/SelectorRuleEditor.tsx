@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 
 import type { SelectorRule } from "@/commons/constants";
+import { cn } from "@/commons/utils";
 
 type RuleEditorProps = UpdateProps | CreateProps;
 
@@ -38,9 +39,10 @@ export function SelectorRuleEditor({ rule, mode, onChange }: RuleEditorProps) {
             <DisclosureButton className="flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-medium text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
               <h1>{t("disclosureSelector")}</h1>
               <i
-                className={`${
-                  open ? "rotate-180 transform" : ""
-                } -rotate-90 i-tabler-chevron-left size-4 text-sky-500`}
+                className={cn(
+                  "-rotate-90 i-tabler-chevron-left size-4 text-sky-500",
+                  open && "rotate-180 transform",
+                )}
               />
             </DisclosureButton>
             <DisclosurePanel className="px-4 pt-4 pb-2 text-sm">

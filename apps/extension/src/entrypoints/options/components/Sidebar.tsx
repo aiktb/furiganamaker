@@ -2,6 +2,7 @@ import { Transition } from "@headlessui/react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, type LinkProps, NavLink } from "react-router";
+import { cn } from "@/commons/utils";
 
 type CustomLink = LinkProps & { label: string; icon: string };
 
@@ -50,13 +51,19 @@ export function Sidebar() {
       >
         <span className="sr-only">{t("srToggleSidebar")}</span>
         <div
-          className={`${sidebarIsOpen ? "!flex" : "hidden"} fixed inset-0 bg-transparent/40 backdrop-blur-sm backdrop-filter`}
+          className={cn(
+            "fixed inset-0 bg-transparent/40 backdrop-blur-sm backdrop-filter",
+            sidebarIsOpen ? "!flex" : "hidden",
+          )}
         />
         <i className="i-tabler-chevrons-right size-7" />
       </button>
       <Transition show={sidebarIsOpen}>
         <nav
-          className={`${sidebarIsOpen ? "!flex" : ""} data-[enter]:data-[closed]:-translate-x-full data-[leave]:data-[closed]:-translate-x-full fixed top-0 z-30 min-h-screen w-72 flex-col gap-6 border-gray-200 border-r border-solid bg-white px-6 py-5 font-semibold text-base transition ease-in-out data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-300 lg:flex dark:border-slate-800 dark:bg-slate-900`}
+          className={cn(
+            "data-[enter]:data-[closed]:-translate-x-full data-[leave]:data-[closed]:-translate-x-full fixed top-0 z-30 min-h-screen w-72 flex-col gap-6 border-gray-200 border-r border-solid bg-white px-6 py-5 font-semibold text-base transition ease-in-out data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-300 lg:flex dark:border-slate-800 dark:bg-slate-900",
+            sidebarIsOpen && "!flex",
+          )}
         >
           <Link
             to="https://furiganamaker.app"
@@ -79,14 +86,23 @@ export function Sidebar() {
                     key={item.label}
                     target={item.target}
                     className={({ isActive }) =>
-                      `group flex w-64 items-center justify-between rounded-md p-2 hover:bg-slate-100 hover:text-black dark:hover:bg-gray-800 dark:hover:text-white ${isActive ? "bg-slate-100 text-black dark:bg-gray-800 dark:text-white" : ""}`
+                      cn(
+                        "group flex w-64 items-center justify-between rounded-md p-2 hover:bg-slate-100 hover:text-black dark:hover:bg-gray-800 dark:hover:text-white",
+                        isActive && "bg-slate-100 text-black dark:bg-gray-800 dark:text-white",
+                      )
                     }
                   >
                     {({ isActive }) => (
                       <>
                         <div className="flex items-center gap-4">
                           <i
-                            className={`${item.icon} size-6 group-hover:text-black group-hover:dark:text-white ${isActive ? "text-black dark:text-white" : "text-slate-600 dark:text-slate-300"}`}
+                            className={cn(
+                              "size-6 group-hover:text-black group-hover:dark:text-white",
+                              item.icon,
+                              isActive
+                                ? "text-black dark:text-white"
+                                : "text-slate-600 dark:text-slate-300",
+                            )}
                           />
                           {item.label}
                         </div>
