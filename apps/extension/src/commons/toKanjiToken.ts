@@ -128,7 +128,7 @@ const smashToken = (token: SimplifiedToken): KanjiToken[] => {
 // Cases where phonetic notation does not correspond to text create an invalid regular expression.
 const buildRegex = (kanas: MarkTokenArray): RegExp => {
   // Match empty string, actual sub-capturing group is 0.
-  if (kanas.length < 2) {
+  if (!kanas.length) {
     return /^$/v;
   }
   // "作り方" => "^(.+)リ(.+)$", "り方" => "^リ(.+)$", "作り" => "^(.+)リ$".
