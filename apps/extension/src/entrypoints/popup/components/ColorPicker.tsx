@@ -3,6 +3,7 @@ import { Popover, PopoverButton, PopoverPanel, Transition } from "@headlessui/re
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/commons/utils";
+import { clamp } from "es-toolkit";
 
 interface ColorPickerProps {
   color: string;
@@ -173,10 +174,6 @@ function addPointerEventListener(
     },
     { once: true },
   );
-}
-
-function clamp(value: number, min: number, max: number): number {
-  return Math.min(Math.max(value, min), max);
 }
 
 interface HS {
