@@ -5,16 +5,34 @@ import { customSelectors } from "@/commons/utils";
 
 interface SelectorsStore {
   selectors: SelectorRule[];
+  editSelector: (newRule: SelectorRule, oldRule: SelectorRule) => void;
+  addSelector: (selector: SelectorRule) => void;
   setSelectors: (selectors: SelectorRule[]) => void;
   clearSelectors: () => void;
+  removeSelector: (domain: string) => void;
 }
 
 export const useSelectorsStore = create<SelectorsStore>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       selectors: [],
+      addSelector: (selector) => {
+        set({ selectors: [selector, ...get().selectors] });
+      },
+      editSelector: (newRule, oldRule) => {
+        set({
+          selectors: get().selectors.map((rule) =>
+            rule.domain === oldRule.domain ? newRule : rule,
+          ),
+        });
+      },
       setSelectors: (selectors) => set({ selectors }),
       clearSelectors: () => set({ selectors: [] }),
+      removeSelector: (domain) => {
+        set({
+          selectors: get().selectors.filter((rule) => rule.domain !== domain),
+        });
+      },
     }),
     {
       name: "selectors-storage",

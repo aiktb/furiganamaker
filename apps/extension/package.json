@@ -59,6 +59,6 @@
     "tailwindcss": "catalog:",
     "vite-plugin-svgr": "^4.3.0",
     "vitest": "^3.0.0",
-    "wxt": "^0.20.6"
+    "wxt": "^0.20.8"
   }
 }
