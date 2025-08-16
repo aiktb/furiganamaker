@@ -19,27 +19,33 @@ import { DB, getKanjiFilterDB } from "@/commons/utils";
 import { PopupTransition } from "../../../components/PopupTransition";
 import { YomikatasInput } from "./YomikatasInput";
 
-interface KanjiFilterEditorDialogProps {
-  rule?: FilterRule | undefined;
-  mode: "update" | "create";
+interface UpdateProps {
+  mode: "update";
   open: boolean;
-  onUpdate?: (oldRule: FilterRule, newRule: FilterRule) => void;
-  onCreate?: (rule: FilterRule) => void;
   onClose: () => void;
+  onUpdate: (newRule: FilterRule, oldRule: FilterRule) => void;
+  originalRule: FilterRule;
 }
 
-export function KanjiFilterEditorDialog({
-  rule = { kanji: "", yomikatas: [] },
-  onClose,
-  onUpdate,
-  onCreate,
-  open,
-  mode,
-}: KanjiFilterEditorDialogProps) {
+interface CreateProps {
+  mode: "create";
+  open: boolean;
+  onClose: () => void;
+  onCreate: (rule: FilterRule) => void;
+}
+
+type KanjiFilterEditorDialogProps = UpdateProps | CreateProps;
+
+export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
+  const { onClose, open, mode } = props;
   const { t } = useTranslation();
-  const [kanjiInput, setKanjiInput] = useState(rule.kanji);
-  const [yomikatasInput, setYomikatasInput] = useState(rule.yomikatas ?? []);
-  const [matchAll, setMatchAll] = useState(rule.yomikatas === undefined);
+  const [kanjiInput, setKanjiInput] = useState(mode === "create" ? "" : props.originalRule.kanji);
+  const [yomikatasInput, setYomikatasInput] = useState(
+    mode === "create" ? [] : (props.originalRule.yomikatas ?? []),
+  );
+  const [matchAll, setMatchAll] = useState(
+    mode === "create" ? false : props.originalRule.yomikatas === undefined,
+  );
 
   const [kanjiInputErrorMessage, setKanjiInputErrorMessage] = useState("");
   const [yomikatasInputErrorMessage, setYomikatasInputErrorMessage] = useState("");
@@ -52,7 +58,11 @@ export function KanjiFilterEditorDialog({
       setKanjiInputErrorMessage(t("validationRequired"));
     } else if (!isKanji(kanji)) {
       setKanjiInputErrorMessage(t("validationPureKanji"));
-    } else if (rule.kanji !== kanji && (await db.get(DB.onlyTable, kanji))) {
+    } else if (
+      mode === "update" &&
+      props.originalRule.kanji !== kanji &&
+      (await db.get(DB.onlyTable, kanji))
+    ) {
       setKanjiInputErrorMessage(t("validationNonRepetitiveKanji"));
     } else {
       kanjiInputHasError = false;
@@ -85,9 +95,9 @@ export function KanjiFilterEditorDialog({
         yomikatas: matchAll ? undefined : yomikatasInput,
       } as const;
       if (mode === "update") {
-        onUpdate?.(rule, newRule);
+        props.onUpdate(newRule, props.originalRule);
       } else {
-        onCreate?.(newRule);
+        props.onCreate(newRule);
       }
       onClose();
     }
