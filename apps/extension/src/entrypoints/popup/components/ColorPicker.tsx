@@ -1,5 +1,6 @@
 import { TinyColor } from "@ctrl/tinycolor";
 import { Popover, PopoverButton, PopoverPanel, Transition } from "@headlessui/react";
+import { clamp } from "es-toolkit";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/commons/utils";
@@ -173,10 +174,6 @@ function addPointerEventListener(
     },
     { once: true },
   );
-}
-
-function clamp(value: number, min: number, max: number): number {
-  return Math.min(Math.max(value, min), max);
 }
 
 interface HS {

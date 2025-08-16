@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import type { SelectorRule } from "@/commons/constants";
-
+import { cn } from "@/commons/utils";
 import { PopupTransition } from "../../../components/PopupTransition";
 import { SelectorRuleEditor } from "./SelectorRuleEditor";
 
@@ -58,14 +58,16 @@ export function SelectorRuleItem({ rule, onChange, onDelete, index }: SelectorRu
               </div>
               <span className="relative flex size-2">
                 <span
-                  className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${
-                    rule.active ? "bg-sky-400" : "bg-gray-400"
-                  }`}
+                  className={cn(
+                    "absolute inline-flex h-full w-full animate-ping rounded-full opacity-75",
+                    rule.active ? "bg-sky-400" : "bg-gray-400",
+                  )}
                 />
                 <span
-                  className={`relative inline-flex size-2 rounded-full ${
-                    rule.active ? "bg-sky-500" : "bg-gray-500"
-                  }`}
+                  className={cn(
+                    "relative inline-flex size-2 rounded-full",
+                    rule.active ? "bg-sky-500" : "bg-gray-500",
+                  )}
                 />
               </span>
             </button>

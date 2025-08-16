@@ -1,3 +1,4 @@
+import { head, last } from "es-toolkit";
 import { isKanji, toKatakana } from "wanakana";
 
 export interface MojiToken {
@@ -5,6 +6,10 @@ export interface MojiToken {
   surface_form: string;
   reading?: string | undefined; // Katakana only
 }
+
+type MojiWithDefinedReadingToken = Omit<MojiToken, "reading"> & {
+  reading: NonNullable<MojiToken["reading"]>;
+};
 
 // It's not just kanji, such as "市ヶ谷" (イチガヤ), "我々" (ワレワレ).
 export interface KanjiToken {
@@ -26,12 +31,14 @@ export interface KanjiToken {
  * ```
  */
 export const toKanjiToken = (tokens: MojiToken[]): KanjiToken[] => {
-  return tokens.filter(isPhonetic).map(toSimplifiedToken).flatMap(toRubyText);
+  const filteredTokens = tokens.filter(isPhonetic).map(toSimplifiedToken).flatMap(toRubyText);
+  return filteredTokens;
 };
 
-const isPhonetic = (token: MojiToken): boolean => {
+const isPhonetic = (token: MojiToken): token is MojiWithDefinedReadingToken => {
   const hasKanji = /\p{sc=Han}/v.test(token.surface_form);
-  return Boolean(token.reading && token.reading !== "*" && hasKanji);
+  const hasReading = Boolean(token.reading && token.reading !== "*");
+  return hasReading && hasKanji;
 };
 
 interface SimplifiedToken {
@@ -41,10 +48,10 @@ interface SimplifiedToken {
   end: number;
 }
 
-const toSimplifiedToken = (kuromojiToken: MojiToken): SimplifiedToken => {
+const toSimplifiedToken = (kuromojiToken: MojiWithDefinedReadingToken): SimplifiedToken => {
   return {
     original: kuromojiToken.surface_form,
-    reading: kuromojiToken.reading!,
+    reading: kuromojiToken.reading,
     start: kuromojiToken.word_position - 1,
     end: kuromojiToken.word_position - 1 + kuromojiToken.surface_form.length,
   };
@@ -60,7 +67,8 @@ const toRubyText = (token: SimplifiedToken): KanjiToken | KanjiToken[] => {
       end: token.end,
     };
   }
-  return smashToken(token);
+  const smashed = smashToken(token);
+  return smashed;
 };
 
 interface MarkToken {
@@ -73,43 +81,45 @@ type MarkTokenArray = MarkToken[] & { hybridLength: number };
 
 // Must be a mixture of Kanji and Kana to use this function.
 const smashToken = (token: SimplifiedToken): KanjiToken[] => {
-  const { original, reading, start, end } = token;
+  const { original, reading, start } = token;
   // Both \p{sc=Hira} and \p{sc=Kana} don’t contain 'ー々', which is bad.
   const kanaRegex = /(\p{sc=Hira}|\p{sc=Kana}|ー)+/dgv;
-  const kanas: MarkTokenArray = [...original.matchAll(kanaRegex)].map((match) => {
+  const kanaMatches = [...original.matchAll(kanaRegex)];
+  const kanaTokens = kanaMatches.map((match) => {
     const [unknownOriginal] = match;
-    const [start, end] = match.indices![0]!;
+    const [start, end] = head(match.indices!)!;
     return {
       original: toKatakana(unknownOriginal),
       start,
       end,
     };
-  }) as MarkTokenArray;
-  kanas.hybridLength = original.length;
+  });
+  const kanas: MarkTokenArray = Object.assign([], kanaTokens, {
+    hybridLength: original.length,
+  }) satisfies MarkTokenArray;
 
   const hybridRegex = buildRegex(kanas);
-
+  // The first matching group is the entire string.
+  // All that's needed is the sub-capturing group.
+  const hybridMatch = reading.match(hybridRegex)?.slice(1);
   const kanjisRegex = /\p{sc=Han}+/dgv;
-  const kanjis: KanjiToken[] = [...original.matchAll(kanjisRegex)].map((match) => {
+  const originalKanjiMatches = Array.from(original.matchAll(kanjisRegex));
+
+  // If the number of matching groups is not equal to the number of Kanji,
+  // it means that the phonetic notation does not correspond to the text.
+  if (!hybridMatch || hybridMatch.length !== originalKanjiMatches.length) {
+    return [token];
+  }
+
+  const kanjis = originalKanjiMatches.map((match, index) => {
     const [original] = match;
-    const [startOffset, endOffset] = match.indices![0]!;
+    const [startOffset, endOffset] = head(match.indices!)!;
     return {
       original,
       start: start + startOffset,
       end: start + endOffset,
-    };
-  }) as KanjiToken[];
-  // The first matching group is the entire string.
-  // All that's needed is the sub-capturing group.
-  const hybridMatch = reading.match(hybridRegex)?.slice(1);
-  // If the number of matching groups is not equal to the number of Kanji,
-  // it means that the phonetic notation does not correspond to the text.
-  if (!hybridMatch || hybridMatch.length !== kanjis.length) {
-    return [{ original, reading, start, end }];
-  }
-
-  kanjis.forEach((kanji, index) => {
-    kanji.reading = hybridMatch[index]!;
+      reading: hybridMatch[index]!,
+    } satisfies KanjiToken;
   });
 
   return kanjis;
@@ -122,22 +132,23 @@ const buildRegex = (kanas: MarkTokenArray): RegExp => {
     return /^$/v;
   }
   // "作り方" => "^(.+)リ(.+)$", "り方" => "^リ(.+)$", "作り" => "^(.+)リ$".
-  const firstKana = kanas.at(0)!;
-  const lastKana = kanas.at(-1)!;
-  let regex = "^";
+  const firstKana = head(kanas)!;
+  const lastKana = last(kanas)!;
+  let regexStr = "^";
   const placeholder = "(.+)";
   if (firstKana.start) {
-    regex += placeholder;
+    regexStr += placeholder;
   }
   for (const kana of kanas) {
-    regex += kana.original;
+    regexStr += kana.original;
     if (kana !== lastKana) {
-      regex += placeholder;
+      regexStr += placeholder;
     }
   }
   if (lastKana.end !== kanas.hybridLength) {
-    regex += placeholder;
+    regexStr += placeholder;
   }
-  regex += "$";
-  return new RegExp(regex, "v");
+  regexStr += "$";
+  const regex = new RegExp(regexStr, "v");
+  return regex;
 };

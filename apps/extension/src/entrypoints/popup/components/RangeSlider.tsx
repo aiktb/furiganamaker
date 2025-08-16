@@ -1,3 +1,4 @@
+import { clamp } from "es-toolkit";
 import { useRef } from "react";
 import { cn } from "@/commons/utils";
 
@@ -20,10 +21,6 @@ export function RangeSlider({
   onChange,
   className,
 }: RangeSliderProps) {
-  function clamp(value: number, min: number, max: number): number {
-    return Math.min(Math.max(value, min), max);
-  }
-
   const trackRef = useRef<HTMLInputElement>(null);
   const thumbRef = useRef<HTMLDivElement>(null);
   function handlePointerDown(event: React.PointerEvent) {
