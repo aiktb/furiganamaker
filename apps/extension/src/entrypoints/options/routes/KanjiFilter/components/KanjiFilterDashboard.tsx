@@ -42,6 +42,7 @@ export function KanjiFilterDashboard({
   return (
     <div className={cn("flex grow flex-col items-center justify-start lg:px-8", className)}>
       <div className="flex flex-wrap items-center justify-center gap-1.5 font-bold text-base text-slate-700 dark:text-slate-300">
+        <BatchCreateKanjiFilterButton />
         <CreateKanjiFilterButton />
         <button
           onClick={() => {
@@ -165,7 +166,6 @@ export function KanjiFilterDashboard({
         </button>
 
         <ImportKanjiFilterButton />
-        <BatchCreateKanjiFilterButton />
       </div>
     </div>
   );
