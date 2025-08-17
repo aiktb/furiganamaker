@@ -2,16 +2,16 @@ import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { t } from "i18next";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { isKanji, isKatakana } from "wanakana";
 import { z } from "zod";
-import type { FilterRule } from "@/commons/constants";
+import type { SelectorRule } from "@/commons/constants";
 import { PopupTransition } from "@/entrypoints/options/components/PopupTransition";
-import { useKanjiFiltersStore } from "../store";
+import { useSelectorsStore } from "../store";
 
 function validateJSONStructure(data: string) {
   const RuleSchema = z.object({
-    kanji: z.string(),
-    yomikatas: z.array(z.string()).optional(),
+    domain: z.string(),
+    selector: z.string(),
+    active: z.boolean(),
   });
   const RulesSchema = z.array(RuleSchema);
   const result = RulesSchema.safeParse(JSON.parse(data));
@@ -21,102 +21,68 @@ function validateJSONStructure(data: string) {
   return { success: true, data: result.data } as const;
 }
 
-function validateRulesData(rules: FilterRule[], existedRules: FilterRule[]) {
-  const kanjiSet = new Set<string>();
-  const duplicatedKanjis = new Set<string>();
-  const impureKanjis = new Set<string>();
-  const impureKatakanas = new Set<string>();
-  const existedKanjis = new Set<string>();
-
-  const dbKanjis = new Set(existedRules.map((rule) => rule.kanji));
+function validateRulesData(rules: SelectorRule[], existedRules: SelectorRule[]) {
+  const domainSet = new Set<string>();
+  const duplicatedDomains = new Set<string>();
+  const existedDomains = new Set<string>();
+  const dbDomains = new Set(existedRules.map((rule) => rule.domain));
   for (const rule of rules) {
-    if (dbKanjis.has(rule.kanji)) {
-      existedKanjis.add(rule.kanji);
+    if (dbDomains.has(rule.domain)) {
+      existedDomains.add(rule.domain);
+      continue;
     }
-    if (kanjiSet.has(rule.kanji)) {
-      duplicatedKanjis.add(rule.kanji);
+    if (domainSet.has(rule.domain)) {
+      duplicatedDomains.add(rule.domain);
     }
-    kanjiSet.add(rule.kanji);
-    if (!isKanji(rule.kanji)) {
-      impureKanjis.add(rule.kanji);
-    }
-    for (const yomikata of rule.yomikatas ?? []) {
-      if (!isKatakana(yomikata)) {
-        impureKatakanas.add(yomikata);
-      }
-    }
+    domainSet.add(rule.domain);
   }
-  return { existedKanjis, duplicatedKanjis, impureKanjis, impureKatakanas };
+
+  return { duplicatedDomains, existedDomains };
 }
 
-function generateValidationMessages(
-  existedKanjis: Set<string>,
-  duplicatedKanjis: Set<string>,
-  impureKanjis: Set<string>,
-  impureKatakanas: Set<string>,
-) {
+function generateValidationMessages(duplicatedDomains: Set<string>, existedDomains: Set<string>) {
   const messages = [t("importFailedTip")];
-  if (existedKanjis.size > 0) {
+  if (duplicatedDomains.size > 0) {
     messages.push(
-      t("importFailedCauseByExistedKanjis", { kanjis: Array.from(existedKanjis).join(", ") }),
-    );
-  }
-  if (duplicatedKanjis.size > 0) {
-    messages.push(
-      t("importFailedCauseByDuplicatedKanjis", { kanjis: Array.from(duplicatedKanjis).join(", ") }),
-    );
-  }
-  if (impureKanjis.size > 0) {
-    messages.push(
-      t("importFailedCauseByImpureKanjis", { kanjis: Array.from(impureKanjis).join(", ") }),
-    );
-  }
-  if (impureKatakanas.size > 0) {
-    messages.push(
-      t("importFailedCauseByImpureKatakanas", {
-        katakanas: Array.from(impureKatakanas).join(", "),
+      t("importFailedCauseByDuplicatedDomains", {
+        domains: Array.from(duplicatedDomains).join(", "),
       }),
+    );
+  }
+  if (existedDomains.size > 0) {
+    messages.push(
+      t("importFailedCauseByExistedDomain", { domains: Array.from(existedDomains).join(", ") }),
     );
   }
   return messages.join("\n");
 }
-
-function checkJSONErrorMessage(data: string, existedRules: FilterRule[]) {
+function checkJSONErrorMessage(data: string, existedRules: SelectorRule[]) {
   try {
     const structureResult = validateJSONStructure(data);
     if (!structureResult.success) {
       return structureResult.error;
     }
 
-    const { existedKanjis, duplicatedKanjis, impureKanjis, impureKatakanas } = validateRulesData(
+    const { existedDomains, duplicatedDomains } = validateRulesData(
       structureResult.data,
       existedRules,
     );
-    if (
-      existedKanjis.size === 0 &&
-      duplicatedKanjis.size === 0 &&
-      impureKanjis.size === 0 &&
-      impureKatakanas.size === 0
-    ) {
+    if (existedDomains.size === 0 && duplicatedDomains.size === 0) {
       return null;
     }
-    return generateValidationMessages(
-      existedKanjis,
-      duplicatedKanjis,
-      impureKanjis,
-      impureKatakanas,
-    );
+    return generateValidationMessages(existedDomains, duplicatedDomains);
   } catch (error) {
     return (error as Error).message;
   }
 }
-export const ImportKanjiFilterButton = () => {
+export const ImportSelectorRuleButton = () => {
   const [importDialogIsOpen, setImportDialogIsOpen] = useState(false);
   const [importFailedDialogIsOpen, setImportFailedDialogIsOpen] = useState(false);
   const [importFailedMessage, setImportFailedMessage] = useState("");
+  const addSelectors = useSelectorsStore((state) => state.addSelectors);
+  const selectors = useSelectorsStore((state) => state.selectors);
+  const { t } = useTranslation();
 
-  const addKanjiFilters = useKanjiFiltersStore((state) => state.addKanjiFilter);
-  const kanjiFilters = useKanjiFiltersStore((state) => state.kanjiFilters);
   async function importConfig() {
     const input = document.createElement("input");
     input.type = "file";
@@ -132,33 +98,32 @@ export const ImportKanjiFilterButton = () => {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        const checkResult = checkJSONErrorMessage(reader.result as string, kanjiFilters);
+        const checkResult = checkJSONErrorMessage(reader.result as string, selectors);
         if (checkResult) {
           setImportFailedMessage(checkResult);
           setImportFailedDialogIsOpen(true);
           return;
         }
-        const importedRules = JSON.parse(reader.result as string) as FilterRule[];
-        addKanjiFilters(...importedRules);
+        const importedRules = JSON.parse(reader.result as string) as SelectorRule[];
+        addSelectors(...importedRules);
       };
       reader.readAsText(file);
     }
   }
-  const { t } = useTranslation();
+
   return (
     <>
       <button
+        className="flex w-40 cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
         onClick={() => {
           setImportDialogIsOpen(true);
         }}
-        className="playwright-kanji-filter-import-config-btn flex w-40 cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
       >
         <i className="i-tabler-file-import size-5" />
         <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
           {t("btnImportConfig")}
         </span>
       </button>
-
       <PopupTransition show={importDialogIsOpen}>
         <Dialog
           as="div"
@@ -199,7 +164,6 @@ export const ImportKanjiFilterButton = () => {
           </DialogPanel>
         </Dialog>
       </PopupTransition>
-
       <PopupTransition show={importFailedDialogIsOpen}>
         <Dialog
           as="div"
@@ -215,7 +179,7 @@ export const ImportKanjiFilterButton = () => {
             >
               {t("warningInvalid")}
             </DialogTitle>
-            <div className="mt-2 max-h-[80vh] overflow-y-scroll">
+            <div className="mt-2">
               <p className="whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
                 {importFailedMessage}
               </p>

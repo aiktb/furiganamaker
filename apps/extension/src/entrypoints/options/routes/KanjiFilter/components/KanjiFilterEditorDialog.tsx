@@ -14,90 +14,103 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { isKanji, isKatakana } from "wanakana";
 import type { FilterRule } from "@/commons/constants";
-import { DB, getKanjiFilterDB } from "@/commons/utils";
 
 import { PopupTransition } from "../../../components/PopupTransition";
+import { useKanjiFiltersStore } from "../store";
 import { YomikatasInput } from "./YomikatasInput";
 
-interface KanjiFilterEditorDialogProps {
-  rule?: FilterRule | undefined;
-  mode: "update" | "create";
+interface UpdateProps {
+  mode: "update";
   open: boolean;
-  onUpdate?: (oldRule: FilterRule, newRule: FilterRule) => void;
-  onCreate?: (rule: FilterRule) => void;
   onClose: () => void;
+  onUpdate: (newRule: FilterRule, oldRule: FilterRule) => void;
+  originalRule: FilterRule;
 }
 
-export function KanjiFilterEditorDialog({
-  rule = { kanji: "", yomikatas: [] },
-  onClose,
-  onUpdate,
-  onCreate,
-  open,
-  mode,
-}: KanjiFilterEditorDialogProps) {
+interface CreateProps {
+  mode: "create";
+  open: boolean;
+  onClose: () => void;
+  onCreate: (rule: FilterRule) => void;
+}
+
+type KanjiFilterEditorDialogProps = UpdateProps | CreateProps;
+
+export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
+  const { onClose, open, mode } = props;
   const { t } = useTranslation();
-  const [kanjiInput, setKanjiInput] = useState(rule.kanji);
-  const [yomikatasInput, setYomikatasInput] = useState(rule.yomikatas ?? []);
-  const [matchAll, setMatchAll] = useState(rule.yomikatas === undefined);
+  const [kanjiInput, setKanjiInput] = useState(mode === "create" ? "" : props.originalRule.kanji);
+  const kanjiFilters = useKanjiFiltersStore((state) => state.kanjiFilters);
+  const [yomikatasInput, setYomikatasInput] = useState(
+    mode === "create" ? [] : (props.originalRule.yomikatas ?? []),
+  );
+  const [matchAll, setMatchAll] = useState(
+    mode === "create" ? false : props.originalRule.yomikatas === undefined,
+  );
 
   const [kanjiInputErrorMessage, setKanjiInputErrorMessage] = useState("");
   const [yomikatasInputErrorMessage, setYomikatasInputErrorMessage] = useState("");
-  const validateKanjiInput = async (kanji: string) => {
+  const validateKanjiInput = (kanji: string) => {
     setKanjiInputErrorMessage("");
-    let kanjiInputHasError = true;
-
-    const db = await getKanjiFilterDB();
     if (kanji.length === 0) {
       setKanjiInputErrorMessage(t("validationRequired"));
-    } else if (!isKanji(kanji)) {
-      setKanjiInputErrorMessage(t("validationPureKanji"));
-    } else if (rule.kanji !== kanji && (await db.get(DB.onlyTable, kanji))) {
-      setKanjiInputErrorMessage(t("validationNonRepetitiveKanji"));
-    } else {
-      kanjiInputHasError = false;
+      return false;
     }
-    return !kanjiInputHasError;
+
+    if (!isKanji(kanji)) {
+      setKanjiInputErrorMessage(t("validationPureKanji"));
+      return false;
+    }
+
+    const kanjiIsDuplicated = kanjiFilters.some((filter) => filter.kanji === kanji);
+    if (
+      (mode === "create" && kanjiIsDuplicated) ||
+      (mode === "update" && kanji !== props.originalRule.kanji && kanjiIsDuplicated)
+    ) {
+      setKanjiInputErrorMessage(t("validationNonRepetitiveKanji"));
+      return false;
+    }
+
+    return true;
   };
 
   const validateYomikatasInput = (yomikatas: string[]) => {
     setYomikatasInputErrorMessage("");
-    let yomikatasInputHasError = true;
 
     if (yomikatas.length === 0 && !matchAll) {
       setYomikatasInputErrorMessage(t("validationRequired"));
-    } else if (yomikatas.some((input) => !isKatakana(input))) {
-      setYomikatasInputErrorMessage(t("validationPureKatakana"));
-    } else {
-      yomikatasInputHasError = false;
+      return false;
     }
-    return !yomikatasInputHasError;
+    if (yomikatas.some((input) => !isKatakana(input))) {
+      setYomikatasInputErrorMessage(t("validationPureKatakana"));
+      return false;
+    }
+
+    return true;
   };
 
-  const handleSubmit = async () => {
-    const valid = await Promise.all([
-      validateKanjiInput(kanjiInput),
-      validateYomikatasInput(yomikatasInput),
-    ]).then((results) => results.every(Boolean));
-    if (valid) {
-      const newRule = {
-        kanji: kanjiInput,
-        yomikatas: matchAll ? undefined : yomikatasInput,
-      } as const;
-      if (mode === "update") {
-        onUpdate?.(rule, newRule);
-      } else {
-        onCreate?.(newRule);
-      }
-      onClose();
+  const handleSubmit = () => {
+    const valid = validateKanjiInput(kanjiInput) && validateYomikatasInput(yomikatasInput);
+    if (!valid) {
+      return;
     }
+    const newRule = {
+      kanji: kanjiInput,
+      yomikatas: matchAll ? undefined : yomikatasInput,
+    };
+    if (mode === "create") {
+      props.onCreate(newRule);
+    } else {
+      props.onUpdate(newRule, props.originalRule);
+    }
+    onClose();
   };
 
   return (
     <PopupTransition show={open}>
       <Dialog
         as="div"
-        className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40"
+        className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 max-h-[60vh] overflow-y-scroll"
         onClose={onClose}
       >
         <DialogPanel className="w-full min-w-[28rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-8 text-left align-middle shadow-xl transition-all sm:mx-auto sm:w-full sm:max-w-sm dark:bg-slate-900">
@@ -113,14 +126,10 @@ export function KanjiFilterEditorDialog({
                   />
                 </DisclosureButton>
                 <DisclosurePanel className="text-pretty px-4 pt-4 pb-2 text-sm">
-                  <section>
-                    <ul className="list-disc marker:text-black dark:marker:text-white">
-                      <li className="my-2">{t("createKanjiFilterDialogDesc1")}</li>
-                    </ul>
-                    <ul className="list-disc marker:text-black dark:marker:text-white">
-                      <li className="my-2">{t("createKanjiFilterDialogDesc2")}</li>
-                    </ul>
-                  </section>
+                  <ul className="list-disc marker:text-black dark:marker:text-white">
+                    <li className="my-2">{t("createKanjiFilterDialogDesc1")}</li>
+                    <li className="my-2">{t("createKanjiFilterDialogDesc2")}</li>
+                  </ul>
                 </DisclosurePanel>
               </>
             )}
@@ -186,9 +195,8 @@ export function KanjiFilterEditorDialog({
                   {yomikatasInputErrorMessage}
                 </p>
               </Field>
-              <div className="mt-4 flex gap-2.5">
+              <div className="mt-4">
                 <button
-                  type="button"
                   className="flex w-full cursor-pointer justify-center rounded-md bg-sky-600 px-3 py-1.5 font-semibold text-sm text-white leading-6 shadow-xs focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 enabled:hover:bg-sky-500 disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={handleSubmit}
                   disabled={!!kanjiInputErrorMessage || !!yomikatasInputErrorMessage}

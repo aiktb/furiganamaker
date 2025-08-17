@@ -5,21 +5,25 @@ import { useTranslation } from "react-i18next";
 import type { SelectorRule } from "@/commons/constants";
 import { cn } from "@/commons/utils";
 import { PopupTransition } from "../../../components/PopupTransition";
-import { SelectorRuleEditor } from "./SelectorRuleEditor";
+import { useSelectorsStore } from "../store";
+import { SelectorRuleEditorDialog } from "./SelectorRuleEditorDialog";
 
 interface SelectorRuleItemProps {
   rule: SelectorRule;
   index: number;
-  onChange: (rule: SelectorRule) => void;
-  onDelete: (rule: SelectorRule) => void;
 }
 
-export function SelectorRuleItem({ rule, onChange, onDelete, index }: SelectorRuleItemProps) {
+export function SelectorRuleItem({ rule, index }: SelectorRuleItemProps) {
   const [editorDialogIsOpen, setEditorIsOpen] = useState(false);
   const [deleteDialogIsOpen, setDeleteDialogIsOpen] = useState(false);
 
   const { t } = useTranslation();
 
+  const editSelector = useSelectorsStore((state) => state.editSelector);
+  const removeSelector = useSelectorsStore((state) => state.removeSelector);
+
+  const domainRegex =
+    /^((?!-))(xn--)?[a-z0-9][a-z0-9-_]{0,61}[a-z0-9]{0,1}\.(xn--)?([a-z0-9-]{1,61}|[a-z0-9-]{1,30}\.[a-z]{2,})$/;
   return (
     <>
       <div className="flex flex-col justify-between gap-x-6 py-5 sm:flex-row">
@@ -31,15 +35,21 @@ export function SelectorRuleItem({ rule, onChange, onDelete, index }: SelectorRu
             </div>
           </div>
           <div className="flex-auto">
-            <a
-              className="w-auto flex-inline items-center truncate font-semibold text-black text-sm leading-6 underline decoration-solid transition dark:text-white"
-              href={encodeURI(`https://${rule.domain}`)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {rule.domain}
-              <i className="i-tabler-arrow-up-right" />
-            </a>
+            {domainRegex.test(rule.domain) ? (
+              <a
+                className="w-auto flex-inline items-center truncate font-semibold text-black text-sm leading-6 underline decoration-solid transition dark:text-white"
+                href={encodeURI(`https://${rule.domain}`)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {rule.domain}
+                <i className="i-tabler-arrow-up-right" />
+              </a>
+            ) : (
+              <p className="w-auto flex-inline items-center truncate font-semibold text-black text-sm leading-6 dark:text-white">
+                {rule.domain}
+              </p>
+            )}
             <p className="w-64 truncate text-xs leading-5 sm:w-96 xl:w-[32rem] 2xl:w-[40rem]">
               {rule.selector}
             </p>
@@ -50,7 +60,7 @@ export function SelectorRuleItem({ rule, onChange, onDelete, index }: SelectorRu
             <button
               className="flex cursor-pointer items-center gap-1 rounded-md px-1.5 py-0.5"
               onClick={() => {
-                onChange({ ...rule, active: !rule.active });
+                editSelector({ ...rule, active: !rule.active }, rule);
               }}
             >
               <div className="text-sm leading-5 transition hover:text-slate-950 dark:hover:text-white">
@@ -95,27 +105,18 @@ export function SelectorRuleItem({ rule, onChange, onDelete, index }: SelectorRu
         </div>
       </div>
 
-      <PopupTransition show={editorDialogIsOpen}>
-        <Dialog
-          as="div"
-          className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40"
-          onClose={() => {
+      {editorDialogIsOpen && (
+        <SelectorRuleEditorDialog
+          originalRule={rule}
+          mode="update"
+          open={editorDialogIsOpen}
+          onUpdate={(newRule, oldRule) => {
+            editSelector(newRule, oldRule);
             setEditorIsOpen(false);
           }}
-        >
-          <DialogPanel className="w-full min-w-[28rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
-            <SelectorRuleEditor
-              rule={rule}
-              mode="update"
-              onChange={(rule) => {
-                onChange(rule);
-                setEditorIsOpen(false);
-              }}
-            />
-          </DialogPanel>
-        </Dialog>
-      </PopupTransition>
-
+          onClose={() => setEditorIsOpen(false)}
+        />
+      )}
       <PopupTransition show={deleteDialogIsOpen}>
         <Dialog
           as="div"
@@ -138,7 +139,7 @@ export function SelectorRuleItem({ rule, onChange, onDelete, index }: SelectorRu
               <button
                 className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-slate-900 text-sm transition hover:bg-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
                 onClick={() => {
-                  onDelete(rule);
+                  removeSelector(rule.domain);
                   setDeleteDialogIsOpen(false);
                 }}
               >

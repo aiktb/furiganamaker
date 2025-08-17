@@ -1,7 +1,8 @@
 import { Dialog, DialogPanel, DialogTitle, Field, Input } from "@headlessui/react";
 import { t } from "i18next";
 import { useState } from "react";
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
+import { DomainFieldDesc } from "@/entrypoints/options/components/DomainFieldDesc";
 import { PopupTransition } from "../../../components/PopupTransition";
 
 interface ExclusionHandlerProps {
@@ -46,41 +47,8 @@ export function ExclusionHandler({ sites, onChange }: ExclusionHandlerProps) {
                 >
                   {t("dialogExcludeTitle")}
                 </DialogTitle>
-                <div className="mt-2">
-                  <p className="whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
-                    <Trans
-                      i18nKey="fieldDomainDesc1"
-                      components={{
-                        boldWwwDot: (
-                          <b className="font-semibold text-slate-900 dark:text-slate-200">www.</b>
-                        ),
-                      }}
-                    />
-                  </p>
-                  <p className="mt-1 whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
-                    <Trans
-                      i18nKey="fieldDomainDesc3"
-                      components={{
-                        boldExampleGlobExpr: (
-                          <b className="font-semibold text-slate-900 dark:text-slate-200">
-                            *.example.com
-                          </b>
-                        ),
-                      }}
-                    />
-                  </p>
-                  <p className="mt-1 whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
-                    <Trans
-                      i18nKey="fieldDomainDesc2"
-                      components={{
-                        boldHttpsPrefix: (
-                          <b className="font-semibold text-slate-900 dark:text-slate-200">
-                            https://
-                          </b>
-                        ),
-                      }}
-                    />
-                  </p>
+                <div className="mt-2 pl-4">
+                  <DomainFieldDesc />
                 </div>
                 <Field>
                   <Input
@@ -102,7 +70,7 @@ export function ExclusionHandler({ sites, onChange }: ExclusionHandlerProps) {
                 </Field>
                 <div className="mt-3 flex w-full justify-end gap-2">
                   <button
-                    className="cursor-pointer rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 dark:bg-white/5 dark:text-white"
+                    className="cursor-pointer rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white"
                     onClick={() => {
                       setInput("");
                       setDialogIsOpen(false);
@@ -111,7 +79,7 @@ export function ExclusionHandler({ sites, onChange }: ExclusionHandlerProps) {
                     {t("btnCancel")}
                   </button>
                   <button
-                    className="cursor-pointer rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white/5 dark:text-white"
+                    className="cursor-pointer rounded-md bg-sky-600 px-4 py-2 text-white transition enabled:hover:bg-sky-500 disabled:cursor-not-allowed disabled:opacity-50"
                     disabled={!input}
                     onClick={() => {
                       onChange([...sites, input.replace(/^https?:\/\//, "")]);
