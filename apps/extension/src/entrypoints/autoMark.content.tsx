@@ -34,8 +34,9 @@ export default defineContentScript({
       const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
       let textLength = 0;
       while (walker.nextNode()) {
-        if (!["SCRIPT", "STYLE"].includes(walker.currentNode.parentElement!.tagName)) {
-          textLength += walker.currentNode.textContent!.length;
+        const parent = walker.currentNode.parentElement;
+        if (parent && !["SCRIPT", "STYLE"].includes(parent.tagName)) {
+          textLength += walker.currentNode.textContent?.length ?? 0;
         }
       }
 
@@ -45,7 +46,8 @@ export default defineContentScript({
     const formatter = new Intl.NumberFormat(browser.i18n.getUILanguage());
     const formattedTextLength = formatter.format(textLength);
     const warningDisabled = await getMoreSettings(ExtStorage.DisableWarning);
-    if (!warningDisabled && textLength > 30000 && elements.length > 0) {
+    const MY_THINKING_BIG_PAGE_SIZE = 30000;
+    if (!warningDisabled && textLength > MY_THINKING_BIG_PAGE_SIZE && elements.length > 0) {
       // Reflow on a huge page causes severe page freezes and even the browser becomes unresponsive. (issue#16)
       const ui = await createShadowRootUi(ctx, {
         name: "auto-mode-is-disabled-warning",
@@ -71,6 +73,8 @@ export default defineContentScript({
         },
       });
       ui.mount();
+
+      const WARNING_AUTO_HIDE_DELAY = 3000;
       setTimeout(() => {
         if (ui.uiContainer.matches(":hover")) {
           ui.uiContainer.addEventListener("mouseleave", () => {
@@ -79,7 +83,7 @@ export default defineContentScript({
         } else {
           ui.remove();
         }
-      }, 3000);
+      }, WARNING_AUTO_HIDE_DELAY);
       browser.runtime.sendMessage(ExtEvent.MarkDisabledTab);
       return;
     }
