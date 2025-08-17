@@ -121,5 +121,6 @@
   "importFailedCauseByImpureKatakanas": "不纯净的片假名：{{katakanas}}。",
   "kanjiFilterImportFailedTip": "由于以下文本的存在，导入失败。",
   "msgImportKanjiFilterConfig": "此操作为“追加”模式，不会覆盖您的现有规则。\n请随意操作。\n如果您想覆盖配置，请先清除原有配置。",
-  "titleNote": "注意"
+  "titleNote": "注意",
+  "validationNonRepetitiveDomain": "这个域名已经在使用。"
 }

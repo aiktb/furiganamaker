@@ -121,5 +121,6 @@
   "importFailedCauseByImpureKatakanas": "不純な片仮名：{{katakanas}}。",
   "kanjiFilterImportFailedTip": "次のテキストが存在するため、インポートは失敗しました。",
   "msgImportKanjiFilterConfig": "この操作は「追加」であり、既存のルールを上書きしません。お気軽に操作してください。上書きしたい場合は、最初にクリアしてください。",
-  "titleNote": "注記"
+  "titleNote": "注記",
+  "validationNonRepetitiveDomain": "このドメインはすでに使用されています。"
 }
