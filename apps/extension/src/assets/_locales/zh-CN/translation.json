@@ -49,7 +49,6 @@
   "disclosureSelector": "什么是选择器字段？",
   "msgCssSelector": "<boldSelectorField/> 字段使用 <mdnCssSelectorLink/> 语法来指定页面上的标记元素。",
   "msgDoNotModify": "如果您不熟悉 CSS 选择器语法，请不要修改此字段，因为这可能会使扩展失效。",
-  "msgSelectorMerge": "<boldSelectorField/> 字段用逗号分隔，对应同一 <boldCodeField/> 的选择器将直接合并。",
   "cssSelector": "CSS 选择器",
   "fieldSelector": "选择器",
   "fieldDomain": "域名",

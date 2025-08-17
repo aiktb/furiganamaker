@@ -91,23 +91,6 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
                           />
                         </li>
                         <li className="my-2">{t("msgDoNotModify")}</li>
-                        <li className="my-2">
-                          <Trans
-                            i18nKey="msgSelectorMerge"
-                            components={{
-                              boldSelectorField: (
-                                <b className="font-semibold text-slate-900 text-sm dark:text-slate-200">
-                                  {t("fieldSelector")}
-                                </b>
-                              ),
-                              boldCodeField: (
-                                <b className="font-semibold text-slate-900 text-sm dark:text-slate-200">
-                                  {t("fieldDomain")}
-                                </b>
-                              ),
-                            }}
-                          />
-                        </li>
                       </ul>
                     </section>
                   </DisclosurePanel>

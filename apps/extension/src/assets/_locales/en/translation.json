@@ -51,7 +51,6 @@
   "disclosureSelector": "What is selector field?",
   "msgCssSelector": "The <boldSelectorField/> field uses the <mdnCssSelectorLink/> syntax to specify the element to be tagged on the page.",
   "msgDoNotModify": "If you are not familiar with the CSS selector syntax, please do not modify this field, as this may invalidate the extension.",
-  "msgSelectorMerge": "The <boldSelectorField/> field are separated by comma, and selectors corresponding to the same <boldCodeField/> will be merged directly.",
   "cssSelector": "CSS Selector",
   "fieldSelector": "selector",
   "fieldDomain": "domain",

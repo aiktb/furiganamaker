@@ -49,7 +49,6 @@
   "disclosureSelector": "選択フィールドとは？",
   "msgCssSelector": "<boldSelectorField/> フィールドは、ページ上の要素を指定するために <mdnCssSelectorLink/> 構文を使用します。",
   "msgDoNotModify": "CSSセレクタ構文に慣れていない場合、このフィールドを変更しないでください。拡張機能が無効になる可能性があります。",
-  "msgSelectorMerge": "<boldSelectorField/> フィールドはカンマで区切られており、同じ <boldCodeField/> に対応するセレクタが直接マージされます。",
   "cssSelector": "CSSセレクタ",
   "fieldSelector": "セレクタ",
   "fieldDomain": "ドメイン名",
