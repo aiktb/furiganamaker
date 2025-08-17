@@ -141,7 +141,6 @@ export const SelectorDashboard = () => {
             </DialogPanel>
           </Dialog>
         </PopupTransition>
-        <ImportSelectorRuleButton />
         <button
           className={cn(
             "flex w-40 cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition enabled:hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white",
@@ -155,6 +154,7 @@ export const SelectorDashboard = () => {
             {t("btnExportConfig")}
           </span>
         </button>
+        <ImportSelectorRuleButton />
       </div>
       <CreateNewSelectorRuleButton />
     </div>
