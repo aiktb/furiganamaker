@@ -16,7 +16,7 @@
   "create": "創造",
   "cssSelector": "CSS選擇器",
   "dialogExcludeTitle": "排除域",
-  "disclosureSelector": "什麼是選擇器欄位？",
+  "disclosureSelector": "選擇器欄位如何使用？",
   "errorPageGoBack": "回首頁",
   "errorPageTip": "抱歉，發生了意外錯誤。",
   "errorPageTitle": "哎呀！",
@@ -38,9 +38,7 @@
   "msgCssSelector": "<boldSelectorField/> 欄位使用 <mdnCssSelectorLink/> 語法來指定要在頁面上標記的元素。",
   "msgDeleteRule": "刪除規則不可撤銷，確定嗎？",
   "msgDoNotModify": "如果您不熟悉 CSS 選擇器語法，請不要修改此字段，因為這可能會使擴充功能無效。",
-  "msgImportSelectorConfig": "這將覆蓋現有的配置文件，並且此操作不可撤消，確定嗎？",
   "msgNotFound": "請新增規則，或匯入現有設定檔（JSON 格式），否則此擴充將不會執行任何操作。",
-  "msgSelectorMerge": "<boldSelectorField/>欄位之間以逗號分隔，相同<boldCodeField/>對應的選擇器將直接合併。",
   "navChangelog": "變更日誌",
   "navSelector": "選擇器",
   "navManageShortcuts": "管理快捷方式",
@@ -120,7 +118,11 @@
   "importFailedCauseByExistedKanjis": "存在的漢字：{{kanjis}}。",
   "importFailedCauseByImpureKanjis": "不純淨的漢字：{{kanjis}}。",
   "importFailedCauseByImpureKatakanas": "不純淨的片假名：{{katakanas}}。",
-  "kanjiFilterImportFailedTip": "由於以下文本的存在，導入失敗。",
-  "msgImportKanjiFilterConfig": "此操作是“追加”，不會覆蓋您的現有規則，請隨意操作。如果您想覆蓋，請先清除現有規則。",
-  "titleNote": "注意"
+  "importFailedTip": "由於以下文本的存在，導入失敗。",
+  "msgImportConfig": "此操作是“追加”，不會覆蓋您的現有規則，請隨意操作。如果您想覆蓋，請先清除現有規則。",
+  "titleNote": "注意",
+  "validationNonRepetitiveDomain": "這個域名已經在使用。",
+  "disclosureDomain": "域名欄位如何使用？",
+  "importFailedCauseByExistedDomain": "存在的域名：{{domains}}。",
+  "importFailedCauseByDuplicatedDomains": "重複的域名：{{domains}}。"
 }
