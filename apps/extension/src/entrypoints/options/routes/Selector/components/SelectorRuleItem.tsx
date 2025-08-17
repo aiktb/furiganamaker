@@ -21,6 +21,9 @@ export function SelectorRuleItem({ rule, index }: SelectorRuleItemProps) {
 
   const editSelector = useSelectorsStore((state) => state.editSelector);
   const removeSelector = useSelectorsStore((state) => state.removeSelector);
+
+  const domainRegex =
+    /^((?!-))(xn--)?[a-z0-9][a-z0-9-_]{0,61}[a-z0-9]{0,1}\.(xn--)?([a-z0-9-]{1,61}|[a-z0-9-]{1,30}\.[a-z]{2,})$/;
   return (
     <>
       <div className="flex flex-col justify-between gap-x-6 py-5 sm:flex-row">
@@ -32,15 +35,21 @@ export function SelectorRuleItem({ rule, index }: SelectorRuleItemProps) {
             </div>
           </div>
           <div className="flex-auto">
-            <a
-              className="w-auto flex-inline items-center truncate font-semibold text-black text-sm leading-6 underline decoration-solid transition dark:text-white"
-              href={encodeURI(`https://${rule.domain}`)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {rule.domain}
-              <i className="i-tabler-arrow-up-right" />
-            </a>
+            {domainRegex.test(rule.domain) ? (
+              <a
+                className="w-auto flex-inline items-center truncate font-semibold text-black text-sm leading-6 underline decoration-solid transition dark:text-white"
+                href={encodeURI(`https://${rule.domain}`)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {rule.domain}
+                <i className="i-tabler-arrow-up-right" />
+              </a>
+            ) : (
+              <p className="w-auto flex-inline items-center truncate font-semibold text-black text-sm leading-6 dark:text-white">
+                {rule.domain}
+              </p>
+            )}
             <p className="w-64 truncate text-xs leading-5 sm:w-96 xl:w-[32rem] 2xl:w-[40rem]">
               {rule.selector}
             </p>
