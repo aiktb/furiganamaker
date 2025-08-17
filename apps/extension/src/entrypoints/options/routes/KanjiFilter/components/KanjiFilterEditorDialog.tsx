@@ -60,7 +60,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
       setKanjiInputErrorMessage(t("validationPureKanji"));
     } else if (
       (mode === "create" && kanjiIsDuplicated) ||
-      (mode === "update" && (kanji === props.originalRule.kanji || kanjiIsDuplicated))
+      (mode === "update" && kanji !== props.originalRule.kanji && kanjiIsDuplicated)
     ) {
       setKanjiInputErrorMessage(t("validationNonRepetitiveKanji"));
     } else {
