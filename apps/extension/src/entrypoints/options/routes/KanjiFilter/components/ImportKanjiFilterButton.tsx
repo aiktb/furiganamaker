@@ -55,7 +55,7 @@ function generateValidationMessages(
   impureKanjis: Set<string>,
   impureKatakanas: Set<string>,
 ) {
-  const messages = [t("kanjiFilterImportFailedTip")];
+  const messages = [t("importFailedTip")];
   if (existedKanjis.size > 0) {
     messages.push(
       t("importFailedCauseByExistedKanjis", { kanjis: Array.from(existedKanjis).join(", ") }),

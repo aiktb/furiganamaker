@@ -39,7 +39,6 @@
   "srGithub": "GitHub repository",
   "srToggleTheme": "Toggle Theme Mode",
   "titleWarning": "Warning!",
-  "msgImportSelectorConfig": "This will overwrite the existing configuration file and this action is not undoable, sure about this?",
   "titleNote": "Note",
   "msgImportKanjiFilterConfig": "This operation is \"append\" and will not overwrite your existing rules. Please feel free to operate. If you want to overwrite, please clear it first.",
   "btnConfirmConfig": "Import",
@@ -117,11 +116,13 @@
   "fieldDomainDesc1": "Please click the browser address bar to confirm that the \"<boldWwwDot/>\" prefix is hidden. If it is, you must enter it as well, otherwise this feature will not work properly.",
   "fieldDomainDesc2": "The \"<boldHttpsPrefix/>\" prefix will be automatically removed.",
   "fieldDomainDesc3": "Supports wildcard patterns — e.g. <boldExampleGlobExpr/> (does not match example.com).",
-  "kanjiFilterImportFailedTip": "Import failed due to the presence of the following text.",
+  "importFailedTip": "Import failed due to the presence of the following text.",
   "importFailedCauseByExistedKanjis": "Existed kanjis: {{kanjis}}.",
   "importFailedCauseByDuplicatedKanjis": "Duplicated kanjis: {{kanjis}}.",
   "importFailedCauseByImpureKanjis": "Impure kanjis: {{kanjis}}.",
   "importFailedCauseByImpureKatakanas": "Impure katakanas: {{katakanas}}.",
   "validationNonRepetitiveDomain": "This domain is already in use.",
-  "disclosureDomain": "What is domain field?"
+  "disclosureDomain": "What is domain field?",
+  "importFailedCauseByExistedDomain": "Existed domains: {{domains}}.",
+  "importFailedCauseByDuplicatedDomains": "Duplicated domains: {{domains}}."
 }

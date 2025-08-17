@@ -1,4 +1,5 @@
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import { t } from "i18next";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
@@ -6,11 +7,80 @@ import type { SelectorRule } from "@/commons/constants";
 import { PopupTransition } from "@/entrypoints/options/components/PopupTransition";
 import { useSelectorsStore } from "../store";
 
+function validateJSONStructure(data: string) {
+  const RuleSchema = z.object({
+    domain: z.string(),
+    selector: z.string(),
+    active: z.boolean(),
+  });
+  const RulesSchema = z.array(RuleSchema);
+  const result = RulesSchema.safeParse(JSON.parse(data));
+  if (!result.success) {
+    return { success: false, error: result.error.message } as const;
+  }
+  return { success: true, data: result.data } as const;
+}
+
+function validateRulesData(rules: SelectorRule[], existedRules: SelectorRule[]) {
+  const domainSet = new Set<string>();
+  const duplicatedDomains = new Set<string>();
+  const existedDomains = new Set<string>();
+  const dbDomains = new Set(existedRules.map((rule) => rule.domain));
+  for (const rule of rules) {
+    if (dbDomains.has(rule.domain)) {
+      existedDomains.add(rule.domain);
+      continue;
+    }
+    if (domainSet.has(rule.domain)) {
+      duplicatedDomains.add(rule.domain);
+    }
+    domainSet.add(rule.domain);
+  }
+
+  return { duplicatedDomains, existedDomains };
+}
+
+function generateValidationMessages(duplicatedDomains: Set<string>, existedDomains: Set<string>) {
+  const messages = [t("importFailedTip")];
+  if (duplicatedDomains.size > 0) {
+    messages.push(
+      t("importFailedCauseByDuplicatedDomains", {
+        domains: Array.from(duplicatedDomains).join(", "),
+      }),
+    );
+  }
+  if (existedDomains.size > 0) {
+    messages.push(
+      t("importFailedCauseByExistedDomain", { domains: Array.from(existedDomains).join(", ") }),
+    );
+  }
+  return messages.join("\n");
+}
+function checkJSONErrorMessage(data: string, existedRules: SelectorRule[]) {
+  try {
+    const structureResult = validateJSONStructure(data);
+    if (!structureResult.success) {
+      return structureResult.error;
+    }
+
+    const { existedDomains, duplicatedDomains } = validateRulesData(
+      structureResult.data,
+      existedRules,
+    );
+    if (existedDomains.size === 0 && duplicatedDomains.size === 0) {
+      return null;
+    }
+    return generateValidationMessages(existedDomains, duplicatedDomains);
+  } catch (error) {
+    return (error as Error).message;
+  }
+}
 export const ImportSelectorRuleButton = () => {
   const [importDialogIsOpen, setImportDialogIsOpen] = useState(false);
   const [importFailedDialogIsOpen, setImportFailedDialogIsOpen] = useState(false);
   const [importFailedMessage, setImportFailedMessage] = useState("");
-  const setSelectors = useSelectorsStore((state) => state.setSelectors);
+  const addSelectors = useSelectorsStore((state) => state.addSelectors);
+  const selectors = useSelectorsStore((state) => state.selectors);
   const { t } = useTranslation();
 
   async function importConfig() {
@@ -28,45 +98,16 @@ export const ImportSelectorRuleButton = () => {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        const checkResult = checkJSONErrorMessage(reader.result as string);
+        const checkResult = checkJSONErrorMessage(reader.result as string, selectors);
         if (checkResult) {
           setImportFailedMessage(checkResult);
           setImportFailedDialogIsOpen(true);
           return;
         }
         const importedRules = JSON.parse(reader.result as string) as SelectorRule[];
-        const mergedRules = mergeSameDomainRules(importedRules);
-
-        setSelectors(mergedRules);
+        addSelectors(...importedRules);
       };
       reader.readAsText(file);
-    }
-
-    function mergeSameDomainRules(rules: SelectorRule[]) {
-      return rules.reduce((acc, cur) => {
-        const index = acc.findIndex((item) => item.domain === cur.domain);
-        if (index !== -1) {
-          acc[index]!.selector = `${acc[index]!.selector}, ${cur.selector}`;
-        } else {
-          acc.push(cur);
-        }
-        return acc;
-      }, [] as SelectorRule[]);
-    }
-
-    function checkJSONErrorMessage(data: string) {
-      try {
-        const RuleSchema = z.object({
-          domain: z.string(),
-          selector: z.string(),
-          active: z.boolean(),
-        });
-        const RulesSchema = z.array(RuleSchema);
-        const result = RulesSchema.safeParse(JSON.parse(data));
-        return result.success ? null : result.error.message;
-      } catch (error) {
-        return (error as Error).message;
-      }
     }
   }
 
@@ -96,22 +137,22 @@ export const ImportSelectorRuleButton = () => {
               as="h3"
               className="font-medium text-gray-900 text-lg leading-6 dark:text-white"
             >
-              {t("titleWarning")}
+              {t("titleNote")}
             </DialogTitle>
             <div className="mt-2">
               <p className="text-gray-500 text-sm dark:text-gray-400">
-                {t("msgImportSelectorConfig")}
+                {t("msgImportKanjiFilterConfig")}
               </p>
             </div>
             <div className="mt-4 flex gap-2.5">
               <button
-                className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-slate-900 text-sm transition hover:bg-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
+                className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-sky-600 px-4 py-2 font-medium text-sm text-white shadow-xs transition hover:bg-sky-500 focus:outline-hidden focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 focus-visible:ring-2 focus-visible:ring-offset-2"
                 onClick={() => {
                   importConfig();
                   setImportDialogIsOpen(false);
                 }}
               >
-                {t("btnConfirmConfig")}
+                {t("btnConfirm")}
               </button>
               <button
                 className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"

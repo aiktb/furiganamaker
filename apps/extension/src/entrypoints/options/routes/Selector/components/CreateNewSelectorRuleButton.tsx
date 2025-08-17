@@ -6,7 +6,7 @@ import { SelectorRuleEditorDialog } from "./SelectorRuleEditorDialog";
 export const CreateNewSelectorRuleButton = () => {
   const { t } = useTranslation();
   const [createRuleDialogIsOpen, setCreateRuleDialogIsOpen] = useState(false);
-  const addSelector = useSelectorsStore((state) => state.addSelector);
+  const addSelector = useSelectorsStore((state) => state.addSelectors);
   return (
     <>
       <button

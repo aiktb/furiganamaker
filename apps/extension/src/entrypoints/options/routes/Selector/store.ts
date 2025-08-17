@@ -1,3 +1,4 @@
+import { union } from "es-toolkit";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { SelectorRule } from "@/commons/constants";
@@ -6,7 +7,7 @@ import { customSelectors } from "@/commons/utils";
 interface SelectorsStore {
   selectors: SelectorRule[];
   editSelector: (newRule: SelectorRule, oldRule: SelectorRule) => void;
-  addSelector: (selector: SelectorRule) => void;
+  addSelectors: (...selectors: SelectorRule[]) => void;
   setSelectors: (selectors: SelectorRule[]) => void;
   clearSelectors: () => void;
   removeSelector: (domain: string) => void;
@@ -16,8 +17,8 @@ export const useSelectorsStore = create<SelectorsStore>()(
   persist(
     (set, get) => ({
       selectors: [],
-      addSelector: (selector) => {
-        set({ selectors: [selector, ...get().selectors] });
+      addSelectors: (...selectors) => {
+        set({ selectors: union(selectors, get().selectors) });
       },
       editSelector: (newRule, oldRule) => {
         set({
