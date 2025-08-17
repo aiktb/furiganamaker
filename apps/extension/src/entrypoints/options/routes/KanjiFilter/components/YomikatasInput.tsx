@@ -49,9 +49,20 @@ export function YomikatasInput({
             className="flex items-center justify-center gap-1 rounded-md bg-slate-950/5 px-1.5 dark:bg-white/5"
             key={katakana}
           >
-            <span className="text-slate-950 dark:text-white">{katakana}</span>
             <button
-              onClick={() => {
+              className="cursor-pointer text-slate-950 dark:text-white"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                navigator.clipboard.writeText(katakana);
+              }}
+            >
+              {katakana}
+            </button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 onChange(yomikatas.filter((k) => k !== katakana));
               }}
               className="flex items-center justify-center transition enabled:cursor-pointer enabled:hover:text-slate-950 disabled:cursor-not-allowed enabled:dark:hover:text-white"
