@@ -29,7 +29,6 @@
     "picomatch": "^4.0.3",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-hook-form": "^7.62.0",
     "react-i18next": "15.5.3",
     "react-markdown": "^10.0.0",
     "react-router": "catalog:",
