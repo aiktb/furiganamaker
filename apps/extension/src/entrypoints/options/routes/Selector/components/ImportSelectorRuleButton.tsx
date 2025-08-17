@@ -140,9 +140,7 @@ export const ImportSelectorRuleButton = () => {
               {t("titleNote")}
             </DialogTitle>
             <div className="mt-2">
-              <p className="text-gray-500 text-sm dark:text-gray-400">
-                {t("msgImportKanjiFilterConfig")}
-              </p>
+              <p className="text-gray-500 text-sm dark:text-gray-400">{t("msgImportConfig")}</p>
             </div>
             <div className="mt-4 flex gap-2.5">
               <button

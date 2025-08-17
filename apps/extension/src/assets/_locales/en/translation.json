@@ -40,7 +40,7 @@
   "srToggleTheme": "Toggle Theme Mode",
   "titleWarning": "Warning!",
   "titleNote": "Note",
-  "msgImportKanjiFilterConfig": "This operation is \"append\" and will not overwrite your existing rules. Please feel free to operate. If you want to overwrite, please clear it first.",
+  "msgImportConfig": "This operation is \"append\" and will not overwrite your existing rules. Please feel free to operate. If you want to overwrite, please clear it first.",
   "btnConfirmConfig": "Import",
   "btnCancel": "Cancel",
   "warningInvalid": "Invalid JSON format",
