@@ -122,5 +122,6 @@
   "importFailedCauseByDuplicatedKanjis": "Duplicated kanjis: {{kanjis}}.",
   "importFailedCauseByImpureKanjis": "Impure kanjis: {{kanjis}}.",
   "importFailedCauseByImpureKatakanas": "Impure katakanas: {{katakanas}}.",
-  "validationNonRepetitiveDomain": "This domain is already in use."
+  "validationNonRepetitiveDomain": "This domain is already in use.",
+  "disclosureDomain": "What is domain field?"
 }

@@ -110,7 +110,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
     <PopupTransition show={open}>
       <Dialog
         as="div"
-        className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40"
+        className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 max-h-[60vh] overflow-y-scroll"
         onClose={onClose}
       >
         <DialogPanel className="w-full min-w-[28rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-8 text-left align-middle shadow-xl transition-all sm:mx-auto sm:w-full sm:max-w-sm dark:bg-slate-900">
@@ -126,14 +126,10 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
                   />
                 </DisclosureButton>
                 <DisclosurePanel className="text-pretty px-4 pt-4 pb-2 text-sm">
-                  <section>
-                    <ul className="list-disc marker:text-black dark:marker:text-white">
-                      <li className="my-2">{t("createKanjiFilterDialogDesc1")}</li>
-                    </ul>
-                    <ul className="list-disc marker:text-black dark:marker:text-white">
-                      <li className="my-2">{t("createKanjiFilterDialogDesc2")}</li>
-                    </ul>
-                  </section>
+                  <ul className="list-disc marker:text-black dark:marker:text-white">
+                    <li className="my-2">{t("createKanjiFilterDialogDesc1")}</li>
+                    <li className="my-2">{t("createKanjiFilterDialogDesc2")}</li>
+                  </ul>
                 </DisclosurePanel>
               </>
             )}

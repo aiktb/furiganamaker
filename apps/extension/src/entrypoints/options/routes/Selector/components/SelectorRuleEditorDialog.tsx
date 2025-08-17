@@ -14,6 +14,7 @@ import { useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import type { SelectorRule } from "@/commons/constants";
 import { cn } from "@/commons/utils";
+import { DomainFieldDesc } from "@/entrypoints/options/components/DomainFieldDesc";
 import { PopupTransition } from "@/entrypoints/options/components/PopupTransition";
 import { useSelectorsStore } from "../store";
 
@@ -94,7 +95,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
     <PopupTransition show={open}>
       <Dialog
         as="div"
-        className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40"
+        className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 max-h-[80vh] overflow-y-scroll"
         onClose={onClose}
       >
         <DialogPanel className="w-full min-w-[28rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
@@ -141,7 +142,26 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
                 </>
               )}
             </Disclosure>
-
+            <Disclosure as="div">
+              {({ open }) => (
+                <>
+                  <DisclosureButton className="mt-3 flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-medium text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
+                    <h1>{t("disclosureDomain")}</h1>
+                    <i
+                      className={cn(
+                        "-rotate-90 i-tabler-chevron-left size-4 text-sky-500",
+                        open && "rotate-180 transform",
+                      )}
+                    />
+                  </DisclosureButton>
+                  <DisclosurePanel className="px-4 pt-4 pb-2 text-sm">
+                    <ul className="list-disc marker:text-black dark:marker:text-white">
+                      <DomainFieldDesc />
+                    </ul>
+                  </DisclosurePanel>
+                </>
+              )}
+            </Disclosure>
             <div className="flex min-h-full flex-col justify-center p-6 lg:px-8">
               <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <DialogTitle
