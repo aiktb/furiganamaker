@@ -52,51 +52,58 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
   const [yomikatasInputErrorMessage, setYomikatasInputErrorMessage] = useState("");
   const validateKanjiInput = (kanji: string) => {
     setKanjiInputErrorMessage("");
-    let kanjiInputHasError = true;
-    const kanjiIsDuplicated = kanjiFilters.some((filter) => filter.kanji === kanji);
     if (kanji.length === 0) {
       setKanjiInputErrorMessage(t("validationRequired"));
-    } else if (!isKanji(kanji)) {
+      return false;
+    }
+
+    if (!isKanji(kanji)) {
       setKanjiInputErrorMessage(t("validationPureKanji"));
-    } else if (
+      return false;
+    }
+
+    const kanjiIsDuplicated = kanjiFilters.some((filter) => filter.kanji === kanji);
+    if (
       (mode === "create" && kanjiIsDuplicated) ||
       (mode === "update" && kanji !== props.originalRule.kanji && kanjiIsDuplicated)
     ) {
       setKanjiInputErrorMessage(t("validationNonRepetitiveKanji"));
-    } else {
-      kanjiInputHasError = false;
+      return false;
     }
-    return !kanjiInputHasError;
+
+    return true;
   };
 
   const validateYomikatasInput = (yomikatas: string[]) => {
     setYomikatasInputErrorMessage("");
-    let yomikatasInputHasError = true;
 
     if (yomikatas.length === 0 && !matchAll) {
       setYomikatasInputErrorMessage(t("validationRequired"));
-    } else if (yomikatas.some((input) => !isKatakana(input))) {
-      setYomikatasInputErrorMessage(t("validationPureKatakana"));
-    } else {
-      yomikatasInputHasError = false;
+      return false;
     }
-    return !yomikatasInputHasError;
+    if (yomikatas.some((input) => !isKatakana(input))) {
+      setYomikatasInputErrorMessage(t("validationPureKatakana"));
+      return false;
+    }
+
+    return true;
   };
 
   const handleSubmit = () => {
     const valid = validateKanjiInput(kanjiInput) && validateYomikatasInput(yomikatasInput);
-    if (valid) {
-      const newRule = {
-        kanji: kanjiInput,
-        yomikatas: matchAll ? undefined : yomikatasInput,
-      } as const;
-      if (mode === "update") {
-        props.onUpdate(newRule, props.originalRule);
-      } else {
-        props.onCreate(newRule);
-      }
-      onClose();
+    if (!valid) {
+      return;
     }
+    const newRule = {
+      kanji: kanjiInput,
+      yomikatas: matchAll ? undefined : yomikatasInput,
+    };
+    if (mode === "create") {
+      props.onCreate(newRule);
+    } else {
+      props.onUpdate(newRule, props.originalRule);
+    }
+    onClose();
   };
 
   return (
@@ -194,7 +201,6 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
               </Field>
               <div className="mt-4 flex gap-2.5">
                 <button
-                  type="button"
                   className="flex w-full cursor-pointer justify-center rounded-md bg-sky-600 px-3 py-1.5 font-semibold text-sm text-white leading-6 shadow-xs focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 enabled:hover:bg-sky-500 disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={handleSubmit}
                   disabled={!!kanjiInputErrorMessage || !!yomikatasInputErrorMessage}
