@@ -199,7 +199,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
                   {yomikatasInputErrorMessage}
                 </p>
               </Field>
-              <div className="mt-4 flex gap-2.5">
+              <div className="mt-4">
                 <button
                   className="flex w-full cursor-pointer justify-center rounded-md bg-sky-600 px-3 py-1.5 font-semibold text-sm text-white leading-6 shadow-xs focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 enabled:hover:bg-sky-500 disabled:cursor-not-allowed disabled:opacity-50"
                   onClick={handleSubmit}
