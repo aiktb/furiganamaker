@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.1.0](https://github.com/aiktb/furiganamaker/compare/v3.0.1...v3.1.0) (2025-08-17)
+
+
+### Features
+
+* domain name matching supports glob ([#372](https://github.com/aiktb/furiganamaker/issues/372)) ([bd979e8](https://github.com/aiktb/furiganamaker/commit/bd979e8f88865c0c54aea2d59a34b7aed58ae2b5))
+* enhanced validation and error handling for domain and selector inputs ([#376](https://github.com/aiktb/furiganamaker/issues/376)) ([ef6e8ef](https://github.com/aiktb/furiganamaker/commit/ef6e8efa25f3dec8d24dc5f8a57ecf969bd9a432))
+
+
+### Bug Fixes
+
+* sometimes "Page is too large" warnings are obscured by the page ([#373](https://github.com/aiktb/furiganamaker/issues/373)) ([437f544](https://github.com/aiktb/furiganamaker/commit/437f544a47d9b190ed465486057e4fba81117b8d))
+* the extension modifies the page title ([#370](https://github.com/aiktb/furiganamaker/issues/370)) ([aca855e](https://github.com/aiktb/furiganamaker/commit/aca855e0c098bb2ae082735f03d80c5c48254838))
+* unable to copy yomikata in kanji filter editor ([#377](https://github.com/aiktb/furiganamaker/issues/377)) ([e3f02d8](https://github.com/aiktb/furiganamaker/commit/e3f02d859adca3179db357c06ae9ed51137a6c9a))
+
 ## 3.0.1 (2025-08-11)
 
 
