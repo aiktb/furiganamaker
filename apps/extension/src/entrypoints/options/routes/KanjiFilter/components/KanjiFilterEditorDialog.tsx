@@ -14,9 +14,9 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { isKanji, isKatakana } from "wanakana";
 import type { FilterRule } from "@/commons/constants";
-import { DB, getKanjiFilterDB } from "@/commons/utils";
 
 import { PopupTransition } from "../../../components/PopupTransition";
+import { useKanjiFiltersStore } from "../store";
 import { YomikatasInput } from "./YomikatasInput";
 
 interface UpdateProps {
@@ -40,6 +40,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
   const { onClose, open, mode } = props;
   const { t } = useTranslation();
   const [kanjiInput, setKanjiInput] = useState(mode === "create" ? "" : props.originalRule.kanji);
+  const kanjiFilters = useKanjiFiltersStore((state) => state.kanjiFilters);
   const [yomikatasInput, setYomikatasInput] = useState(
     mode === "create" ? [] : (props.originalRule.yomikatas ?? []),
   );
@@ -49,19 +50,17 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
 
   const [kanjiInputErrorMessage, setKanjiInputErrorMessage] = useState("");
   const [yomikatasInputErrorMessage, setYomikatasInputErrorMessage] = useState("");
-  const validateKanjiInput = async (kanji: string) => {
+  const validateKanjiInput = (kanji: string) => {
     setKanjiInputErrorMessage("");
     let kanjiInputHasError = true;
-
-    const db = await getKanjiFilterDB();
+    const kanjiIsDuplicated = kanjiFilters.some((filter) => filter.kanji === kanji);
     if (kanji.length === 0) {
       setKanjiInputErrorMessage(t("validationRequired"));
     } else if (!isKanji(kanji)) {
       setKanjiInputErrorMessage(t("validationPureKanji"));
     } else if (
-      mode === "update" &&
-      props.originalRule.kanji !== kanji &&
-      (await db.get(DB.onlyTable, kanji))
+      (mode === "create" && kanjiIsDuplicated) ||
+      (mode === "update" && (kanji === props.originalRule.kanji || kanjiIsDuplicated))
     ) {
       setKanjiInputErrorMessage(t("validationNonRepetitiveKanji"));
     } else {
@@ -84,11 +83,8 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
     return !yomikatasInputHasError;
   };
 
-  const handleSubmit = async () => {
-    const valid = await Promise.all([
-      validateKanjiInput(kanjiInput),
-      validateYomikatasInput(yomikatasInput),
-    ]).then((results) => results.every(Boolean));
+  const handleSubmit = () => {
+    const valid = validateKanjiInput(kanjiInput) && validateYomikatasInput(yomikatasInput);
     if (valid) {
       const newRule = {
         kanji: kanjiInput,
