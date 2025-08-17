@@ -13,7 +13,7 @@ export const CreateKanjiFilterButton = () => {
         onClick={() => {
           setCreateDialogIsOpen(true);
         }}
-        className="playwright-kanji-filter-add-new-rule-btn flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
+        className="playwright-kanji-filter-add-new-rule-btn flex w-40 cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
       >
         <i className="i-tabler-code-plus size-5" />
         <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">

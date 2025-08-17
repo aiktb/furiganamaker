@@ -10,7 +10,7 @@ export const CreateNewSelectorRuleButton = () => {
   return (
     <>
       <button
-        className="flex max-w-40 grow cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-sky-600 px-1.5 py-2 text-white transition hover:bg-sky-500 sm:px-3"
+        className="flex w-40 cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-sky-600 px-1.5 py-2 text-white transition hover:bg-sky-500 sm:px-3"
         onClick={() => {
           setCreateRuleDialogIsOpen(true);
         }}
