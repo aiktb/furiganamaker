@@ -21,7 +21,6 @@ jobs:
         run: pnpm --filter extension run zip
 
       - name: Submit to stores
-
         run: |
           pwd
           ls -al
