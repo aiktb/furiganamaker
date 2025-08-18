@@ -18,14 +18,16 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - name: Build the extension
-        run: pnpm --filter extension run zip
+        run: |
+          pnpm --filter extension run zip
+          tree -a apps/extension
 
       - name: Submit to stores
 
         run: |
           pwd
           ls -al
-          tree || echo "not found tree"
+          tree -a apps/extension
           pnpm --filter extension exec wxt submit --dry-run \
             --chrome-zip ./apps/extension/.output/*-chrome.zip \
         env:
