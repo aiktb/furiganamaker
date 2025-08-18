@@ -1,19 +1,19 @@
 # Changelog
 
-## [3.1.0](https://github.com/aiktb/furiganamaker/compare/v3.0.1...v3.1.0) (2025-08-17)
+## 3.1.0
 
 
 ### Features
 
-* domain name matching supports glob ([#372](https://github.com/aiktb/furiganamaker/issues/372)) ([bd979e8](https://github.com/aiktb/furiganamaker/commit/bd979e8f88865c0c54aea2d59a34b7aed58ae2b5))
-* enhanced validation and error handling for domain and selector inputs ([#376](https://github.com/aiktb/furiganamaker/issues/376)) ([ef6e8ef](https://github.com/aiktb/furiganamaker/commit/ef6e8efa25f3dec8d24dc5f8a57ecf969bd9a432))
+* Domain name matching supports glob.
+* Enhanced validation and error handling for domain and selector inputs.
 
 
 ### Bug Fixes
 
-* sometimes "Page is too large" warnings are obscured by the page ([#373](https://github.com/aiktb/furiganamaker/issues/373)) ([437f544](https://github.com/aiktb/furiganamaker/commit/437f544a47d9b190ed465486057e4fba81117b8d))
-* the extension modifies the page title ([#370](https://github.com/aiktb/furiganamaker/issues/370)) ([aca855e](https://github.com/aiktb/furiganamaker/commit/aca855e0c098bb2ae082735f03d80c5c48254838))
-* unable to copy yomikata in kanji filter editor ([#377](https://github.com/aiktb/furiganamaker/issues/377)) ([e3f02d8](https://github.com/aiktb/furiganamaker/commit/e3f02d859adca3179db357c06ae9ed51137a6c9a))
+* Sometimes "Page is too large" warnings are obscured by the page.
+* The extension modifies the page title.
+* Unable to copy yomikata in kanji filter editor.
 
 ## 3.0.1 (2025-08-11)
 
@@ -197,29 +197,29 @@
 
 ### Features
 
-* Supports N4 levels of kanji filters. (Closed [#20](https://github.com/aiktb/furiganamaker/issues/20))
-* Enable active flag for the icon of the page containing custom rules. (Closed [#48](https://github.com/aiktb/furiganamaker/issues/48))
+* Supports N4 levels of kanji filters.
+* Enable active flag for the icon of the page containing custom rules.
 
 ## 1.3.3 (2024-04-07)
 
 
 ### Features
 
-* Reduce FOUC(Flash of unstyled content) caused by network-loaded icons. (Closed [#42](https://github.com/aiktb/furiganamaker/issues/42))
+* Reduce FOUC(Flash of unstyled content) caused by network-loaded icons.
 
 ## 1.3.2 (2024-04-05)
 
 
 ### Bug Fixes
 
-* The `ColorPicker` component does not represent the HSV/HSL color space correctly. (Closed [#19](https://github.com/aiktb/furiganamaker/issues/19))
+* The `ColorPicker` component does not represent the HSV/HSL color space correctly.
 
 ## 1.3.1 (2024-03-16)
 
 
 ### Bug Fixes
 
-* Unable to submit to Edge: "error: The uploaded package consists of a compressed file." (Closed [#21](https://github.com/aiktb/furiganamaker/issues/21))
+* Unable to submit to Edge: "error: The uploaded package consists of a compressed file."
 
 ## 1.3.0 (2024-03-14)
 
@@ -233,7 +233,7 @@
 
 ### Bug Fixes
 
-* Causes the browser to become unresponsive on pages containing a large number of kanji. (Closed [#16](https://github.com/aiktb/furiganamaker/issues/16))
+* Causes the browser to become unresponsive on pages containing a large number of kanji.
 
 ## 1.2.0 (2024-01-07)
 
@@ -259,8 +259,8 @@
 
 ### Bug Fixes
 
-* Invalid JSON format anyway. (Closed [#10](https://github.com/aiktb/furiganamaker/issues/10))
-* Browser shortcuts don't work. (Closed [#11](https://github.com/aiktb/furiganamaker/issues/11))
+* Invalid JSON format anyway.
+* Browser shortcuts don't work.
 
 ## 1.0.0 (2023-11-02)
 
