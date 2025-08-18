@@ -12,6 +12,7 @@ name: release-please
 
 jobs:
   release-please:
+    if: github.event_name != 'workflow_dispatch'
     runs-on: ubuntu-latest
     outputs:
       tag_name: ${{ steps.release.outputs['apps/extension--tag_name'] }}
