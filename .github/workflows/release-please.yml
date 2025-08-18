@@ -23,6 +23,7 @@ jobs:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           config-file: ".github/release-please-config.json"
           manifest-file: ".github/.release-please-manifest.json"
+          skip-github-release: true
 
   submit:
     runs-on: ubuntu-latest
@@ -42,6 +43,7 @@ jobs:
         run: pnpm --filter extension run zip
 
       - name: Upload Release Artifact
+        working-directory: ./apps/extension
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_NOTES: |
@@ -49,12 +51,14 @@ jobs:
             ## Download
             - [Chrome](https://chromewebstore.google.com/detail/furigana-maker/heodojceeinbkfjfilnfminlkgbacpfp)
         run: |
-         gh release upload ${{ needs.release-please.outputs.tag_name }} ./apps/extension/.output/*.zip
-         gh release edit ${{ needs.release-please.outputs.tag_name }} --notes "$RELEASE_NOTES"
+         gh release create ${{ needs.release-please.outputs.tag_name }} ./.output/*-chrome.zip \
+           --title "${{ needs.release-please.outputs.tag_name }}" \
+           --notes "$RELEASE_NOTES"
       - name: Submit to stores
+        working-directory: ./apps/extension
         run: |
           pnpm --filter extension exec wxt submit \
-            --chrome-zip ./apps/extension/.output/*-chrome.zip \
+            --chrome-zip ./.output/*-chrome.zip \
         env:
           CHROME_EXTENSION_ID: ${{ secrets.CHROME_EXTENSION_ID }}
           CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
