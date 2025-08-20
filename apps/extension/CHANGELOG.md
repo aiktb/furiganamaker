@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.1](https://github.com/aiktb/furiganamaker/compare/v3.1.0...v3.1.1) (2025-08-20)
+
+
+### Bug Fixes
+
+* right click on popup icon and then click options button does not open it ([#389](https://github.com/aiktb/furiganamaker/issues/389)) ([70fe472](https://github.com/aiktb/furiganamaker/commit/70fe47201097b05423af7e4ab0c87ee72842bf9f))
+
 ## 3.1.0 (2025-08-18)
 
 
