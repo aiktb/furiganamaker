@@ -26,12 +26,21 @@
   "contentScriptWarningTitle": {
     "message": "Warning(Furigana Maker)"
   },
-  "contentScriptWarningDesc": {
+  "contentScriptWarningDesc1": {
     "message": "Content to be processed is too large($textLength$ characters), it may stuck the page, so auto mode is disabled.",
     "placeholders": {
       "textLength": {
         "content": "$1"
       }
     }
+  },
+  "contentScriptWarningDesc2": {
+    "message": "Don't want to see this warning again? Go to Options page."
+  },
+  "btnRunOnce": {
+    "message": "Run Once"
+  },
+  "btnAlwaysRun": {
+    "message": "Always Run"
   }
 }

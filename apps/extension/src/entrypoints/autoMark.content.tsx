@@ -123,7 +123,7 @@ const PageTooLargeWarningDialog = ({
   return (
     <div
       ref={containerRef}
-      className="-translate-x-1/2 fixed top-5 left-1/2 z-[2147483647] flex max-w-xl transform flex-col gap-2.5 rounded-2xl bg-white p-4 text-base text-slate-800 shadow"
+      className="-translate-x-1/2 fixed top-5 left-1/2 z-[2147483647] flex max-w-xl transform flex-col rounded-2xl bg-white p-4 text-base text-slate-800 shadow"
     >
       <div className="flex items-center justify-between">
         <h1 className="flex items-center gap-1 font-bold text-lg">
@@ -137,19 +137,30 @@ const PageTooLargeWarningDialog = ({
           <i className="i-tabler-x size-4" />
         </button>
       </div>
-      <p>{browser.i18n.getMessage("contentScriptWarningDesc", formattedTextLength)}</p>
-      <div className="mt-1 flex gap-2">
+      <p className="mt-2.5">
+        {browser.i18n.getMessage("contentScriptWarningDesc1", formattedTextLength)}
+      </p>
+      <div>
         <button
-          className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+          className="cursor-pointer text-sky-500 underline decoration-current transition hover:text-sky-600 dark:text-slate-200"
+          // The browser automatically blocks navigation to URLs with the `chrome-extension://` prefix, so the `<a>` tag cannot be used.
+          onClick={() => browser.runtime.sendMessage(ExtEvent.OpenOptionsPage)}
+        >
+          {browser.i18n.getMessage("contentScriptWarningDesc2")}
+        </button>
+      </div>
+      <div className="mt-2.5 flex gap-2">
+        <button
+          className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-bold text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
           onClick={onRunOnce}
         >
-          Run Once
+          {browser.i18n.getMessage("btnRunOnce")}
         </button>
         <button
-          className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-slate-900 text-sm transition hover:bg-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
+          className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-bold text-slate-900 text-sm transition hover:bg-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
           onClick={onAlwaysRun}
         >
-          Always Run
+          {browser.i18n.getMessage("btnAlwaysRun")}
         </button>
       </div>
     </div>
