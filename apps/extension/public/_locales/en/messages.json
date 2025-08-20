@@ -23,8 +23,11 @@
   "extTitleDisabled": {
     "message": "Auto mode is disabled"
   },
-  "contentScriptWarning": {
-    "message": "Warning(Furigana Maker): This page is too large($textLength$ characters), auto mode is disabled.",
+  "contentScriptWarningTitle": {
+    "message": "Warning(Furigana Maker)"
+  },
+  "contentScriptWarningDesc": {
+    "message": "Content to be processed is too large($textLength$ characters), it may stuck the page, so auto mode is disabled.",
     "placeholders": {
       "textLength": {
         "content": "$1"
