@@ -1,6 +1,6 @@
 import picomatch from "picomatch/posix";
-import ReactDOM from "react-dom/client";
-
+import { StrictMode, useRef } from "react";
+import { createRoot } from "react-dom/client";
 import { addFurigana } from "@/commons/addFurigana";
 import { ExtEvent, ExtStorage } from "@/commons/constants";
 import { sendMessage } from "@/commons/message";
@@ -28,7 +28,7 @@ export default defineContentScript({
 
     const customRule = await sendMessage("getSelector", { domain: location.hostname });
     const selector = customRule.selector || "[lang='ja'], [lang='ja-JP']";
-    const elements = Array.from(document.querySelectorAll(selector));
+    const initialElements = Array.from(document.querySelectorAll(selector));
 
     function getTextLength() {
       const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -47,7 +47,7 @@ export default defineContentScript({
     const formattedTextLength = formatter.format(textLength);
     const warningDisabled = await getMoreSettings(ExtStorage.DisableWarning);
     const MY_THINKING_BIG_PAGE_SIZE = 30000;
-    if (!warningDisabled && textLength > MY_THINKING_BIG_PAGE_SIZE && elements.length > 0) {
+    if (!warningDisabled && textLength > MY_THINKING_BIG_PAGE_SIZE && initialElements.length > 0) {
       // Reflow on a huge page causes severe page freezes and even the browser becomes unresponsive. (issue#16)
       const ui = await createShadowRootUi(ctx, {
         name: "auto-mode-is-disabled-warning",
@@ -56,13 +56,26 @@ export default defineContentScript({
         onMount(container) {
           const wrapper = document.createElement("div");
           container.appendChild(wrapper);
-          const root = ReactDOM.createRoot(wrapper);
+          const root = createRoot(wrapper);
 
           root.render(
-            <div className="-translate-x-1/2 fixed top-5 left-1/2 z-[2147483647] flex transform gap-2.5 rounded-md border-2 border-[rgb(255,237,213)] bg-[rgb(255,247,237)] p-4 font-bold text-[rgb(154,52,18)]">
-              <i className="i-tabler-alert-triangle-filled size-8" />
-              <span>{browser.i18n.getMessage("contentScriptWarning", formattedTextLength)}</span>
-            </div>,
+            <StrictMode>
+              <PageTooLargeWarningDialog
+                onClose={() => {
+                  ui.remove();
+                  browser.runtime.sendMessage(ExtEvent.MarkDisabledTab);
+                }}
+                onRunOnce={() => {
+                  ui.remove();
+                  handleAndObserveJapaneseElements(initialElements, selector);
+                }}
+                onAlwaysRun={() => {
+                  ui.remove();
+                  handleAndObserveJapaneseElements(initialElements, selector);
+                }}
+                formattedTextLength={formattedTextLength}
+              />
+            </StrictMode>,
           );
 
           return { root, wrapper };
@@ -73,42 +86,95 @@ export default defineContentScript({
         },
       });
       ui.mount();
-
-      const WARNING_AUTO_HIDE_DELAY = 3000;
-      setTimeout(() => {
-        if (ui.uiContainer.matches(":hover")) {
-          ui.uiContainer.addEventListener("mouseleave", () => {
-            ui.remove();
-          });
-        } else {
-          ui.remove();
-        }
-      }, WARNING_AUTO_HIDE_DELAY);
-      browser.runtime.sendMessage(ExtEvent.MarkDisabledTab);
       return;
     }
 
-    // Observer will not observe the element that is loaded for the first time on the page,
-    // so it needs to execute `addFurigana` once immediately.
-    if (elements.length) {
-      browser.runtime.sendMessage(ExtEvent.MarkActiveTab);
-      addFurigana(...elements);
-    }
-
-    const isElement = (node: Node): node is Element => node.nodeType === Node.ELEMENT_NODE;
-
-    const observer = new MutationObserver((records) => {
-      const japaneseElements = records
-        .flatMap((record) => Array.from(record.addedNodes))
-        .filter(isElement)
-        .flatMap((element) => Array.from(element.querySelectorAll(selector)));
-
-      if (japaneseElements.length) {
-        browser.runtime.sendMessage(ExtEvent.MarkActiveTab);
-        addFurigana(...japaneseElements);
-      }
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
+    handleAndObserveJapaneseElements(initialElements, selector);
   },
 });
+
+interface PageTooLargeWarningDialogProps {
+  onClose: () => void;
+  onRunOnce: () => void;
+  onAlwaysRun: () => void;
+  formattedTextLength: string;
+}
+const PageTooLargeWarningDialog = ({
+  onClose,
+  onRunOnce,
+  onAlwaysRun,
+  formattedTextLength,
+}: PageTooLargeWarningDialogProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const WARNING_AUTO_HIDE_DELAY = 3000;
+  setTimeout(() => {
+    if (containerRef.current?.matches(":hover")) {
+      containerRef.current.addEventListener(
+        "mouseleave",
+        () => {
+          onClose();
+        },
+        { once: true },
+      );
+    } else {
+      onClose();
+    }
+  }, WARNING_AUTO_HIDE_DELAY);
+  return (
+    <div
+      ref={containerRef}
+      className="-translate-x-1/2 fixed top-5 left-1/2 z-[2147483647] flex max-w-xl transform flex-col gap-2.5 rounded-2xl bg-white p-4 text-base text-slate-800 shadow"
+    >
+      <div className="flex items-center justify-between">
+        <h1 className="flex items-center gap-1 font-bold text-lg">
+          <i className="i-tabler-alert-circle-filled size-6 text-sky-500" />
+          <span>{browser.i18n.getMessage("contentScriptWarningTitle")}</span>
+        </h1>
+        <button
+          className="flex size-6 cursor-pointer items-center justify-center rounded-md transition hover:text-sky-500"
+          onClick={onClose}
+        >
+          <i className="i-tabler-x size-4" />
+        </button>
+      </div>
+      <p>{browser.i18n.getMessage("contentScriptWarningDesc", formattedTextLength)}</p>
+      <div className="mt-1 flex gap-2">
+        <button
+          className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+          onClick={onRunOnce}
+        >
+          Run Once
+        </button>
+        <button
+          className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-slate-900 text-sm transition hover:bg-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
+          onClick={onAlwaysRun}
+        >
+          Always Run
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const isElement = (node: Node): node is Element => node.nodeType === Node.ELEMENT_NODE;
+function handleAndObserveJapaneseElements(initialElements: Element[], selector: string) {
+  // Observer will not observe the element that is loaded for the first time on the page,
+  // so it needs to execute `addFurigana` once immediately.
+  if (initialElements.length > 0) {
+    browser.runtime.sendMessage(ExtEvent.MarkActiveTab);
+    addFurigana(...initialElements);
+  }
+  const observer = new MutationObserver((records) => {
+    const japaneseElements = records
+      .flatMap((record) => Array.from(record.addedNodes))
+      .filter(isElement)
+      .flatMap((element) => Array.from(element.querySelectorAll(selector)));
+
+    if (japaneseElements.length) {
+      browser.runtime.sendMessage(ExtEvent.MarkActiveTab);
+      addFurigana(...japaneseElements);
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+}
