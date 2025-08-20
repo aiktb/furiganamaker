@@ -103,7 +103,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
             <Disclosure as="div">
               {({ open }) => (
                 <>
-                  <DisclosureButton className="flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-medium text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
+                  <DisclosureButton className="flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-semibold text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
                     <h1>{t("disclosureSelector")}</h1>
                     <i
                       className={cn(
@@ -145,7 +145,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
             <Disclosure as="div">
               {({ open }) => (
                 <>
-                  <DisclosureButton className="mt-3 flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-medium text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
+                  <DisclosureButton className="mt-3 flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-semibold text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
                     <h1>{t("disclosureDomain")}</h1>
                     <i
                       className={cn(
@@ -179,7 +179,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
                   <Field className="relative">
                     <Label
                       htmlFor="domain"
-                      className="block font-medium text-gray-900 text-sm capitalize leading-6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-slate-200"
+                      className="block font-semibold text-gray-900 text-sm capitalize leading-6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-slate-200"
                     >
                       {t("fieldDomain")}
                     </Label>
@@ -206,7 +206,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
                   <Field className="relative">
                     <Label
                       htmlFor="selector"
-                      className="block font-medium text-gray-900 text-sm capitalize leading-6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-slate-200"
+                      className="block font-semibold text-gray-900 text-sm capitalize leading-6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-slate-200"
                     >
                       {t("fieldSelector")}
                     </Label>

@@ -117,7 +117,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
           <Disclosure as="div">
             {({ open }) => (
               <>
-                <DisclosureButton className="flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-medium text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
+                <DisclosureButton className="flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-semibold text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
                   <h1>{t("createKanjiFilterDialogTitle")}</h1>
                   <i
                     className={`${
@@ -146,7 +146,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
             </DialogTitle>
             <div className="mt-10 space-y-6 sm:mx-auto sm:w-full sm:max-w-sm">
               <Field className="relative">
-                <Label className="font-medium text-slate-950 text-sm/6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-white">
+                <Label className="font-semibold text-slate-950 text-sm/6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-white">
                   {t("fieldKanji")}
                 </Label>
                 <Input
@@ -164,7 +164,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
                 <p className="-bottom-5 absolute left-0 text-red-500">{kanjiInputErrorMessage}</p>
               </Field>
               <Field className="relative">
-                <Label className="flex items-center font-medium text-slate-950 text-sm/6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-white">
+                <Label className="flex items-center font-semibold text-slate-950 text-sm/6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-white">
                   {t("fieldYomikata")}
                   <Field className="flex flex-1 items-center justify-end gap-1">
                     <Label>{t("fieldMatchAll")}</Label>

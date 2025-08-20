@@ -43,7 +43,7 @@ export function ExclusionHandler({ sites, onChange }: ExclusionHandlerProps) {
               <DialogPanel className="w-full min-w-[28rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle text-base shadow-xl transition-all dark:bg-slate-900">
                 <DialogTitle
                   as="h3"
-                  className="font-medium text-gray-900 text-lg leading-6 dark:text-white"
+                  className="font-semibold text-gray-900 text-lg leading-6 dark:text-white"
                 >
                   {t("dialogExcludeTitle")}
                 </DialogTitle>
