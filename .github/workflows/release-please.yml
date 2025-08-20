@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       tag_name: ${{ steps.release.outputs['apps/extension--tag_name'] }}
-      release_created: ${{ steps.release.outputs['apps/extension--release_created'] }}
 
     steps:
       - uses: googleapis/release-please-action@v4
@@ -27,7 +26,7 @@ jobs:
 
   submit:
     runs-on: ubuntu-latest
-    if: needs.release-please.outputs.release_created
+    if: needs.release-please.outputs.tag_name
     needs: release-please
     steps:
       - uses: actions/checkout@v5
