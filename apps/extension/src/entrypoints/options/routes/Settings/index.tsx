@@ -1,8 +1,8 @@
 import { Switch } from "@headlessui/react";
+import { uniq } from "es-toolkit";
 import { useTranslation } from "react-i18next";
-
 import { ExtStorage } from "@/commons/constants";
-import { ExclusionHandler } from "./components/ExclusionHandler";
+import { DomainListHandler } from "./components/DomainListHandler";
 import { LanguageSwitcher } from "./components/LanguageSwitcher";
 import { useMoreSettingsStore } from "./store";
 
@@ -11,8 +11,10 @@ export function Settings() {
   const warningDisabled = useMoreSettingsStore((state) => state[ExtStorage.DisableWarning]);
   const coloringKanjiEnabled = useMoreSettingsStore((state) => state[ExtStorage.ColoringKanji]);
   const excludedSites = useMoreSettingsStore((state) => state[ExtStorage.ExcludeSites]);
+  const alwaysRunSites = useMoreSettingsStore((state) => state[ExtStorage.AlwaysRunSites]);
   const setLanguage = useMoreSettingsStore((state) => state.setLanguage);
   const setExcludeSites = useMoreSettingsStore((state) => state.setExcludeSites);
+  const setAlwaysRunSites = useMoreSettingsStore((state) => state.setAlwaysRunSites);
   const toggleColoringKanji = useMoreSettingsStore((state) => state.toggleColoringKanji);
   const toggleDisableWarning = useMoreSettingsStore((state) => state.toggleDisableWarning);
   const { i18n, t } = useTranslation();
@@ -24,8 +26,13 @@ export function Settings() {
   }
 
   function handleExclusionListChange(sites: string[]) {
-    const unrepeatedSites = Array.from(new Set(sites));
+    const unrepeatedSites = uniq(sites);
     setExcludeSites(unrepeatedSites);
+  }
+
+  function handleAlwaysRunSitesChange(sites: string[]) {
+    const unrepeatedSites = uniq(sites);
+    setAlwaysRunSites(unrepeatedSites);
   }
   return (
     <menu className="flex flex-col items-center justify-between space-y-10 text-pretty lg:max-w-5xl lg:px-8">
@@ -41,22 +48,31 @@ export function Settings() {
       <li className="flex w-full items-center justify-between gap-4">
         <div>
           <div className="font-bold text-lg text-slate-800 dark:text-slate-200">
-            {t("settingsDisableWarning")}
-          </div>
-          <div>{t("settingsDisableWarningDesc")}</div>
-        </div>
-        <SettingSwitch enabled={warningDisabled} onChange={toggleDisableWarning} />
-      </li>
-      <li className="flex w-full items-center justify-between gap-4">
-        <div>
-          <div className="font-bold text-lg text-slate-800 dark:text-slate-200">
             {t("settingsColoringKanji")}
           </div>
           <div>{t("settingsColoringKanjiDesc")}</div>
         </div>
         <SettingSwitch enabled={coloringKanjiEnabled} onChange={toggleColoringKanji} />
       </li>
-      <ExclusionHandler sites={excludedSites} onChange={handleExclusionListChange} />
+      <DomainListHandler
+        sites={excludedSites}
+        onChange={handleExclusionListChange}
+        mode="excludedSites"
+      />
+      <li className="flex w-full items-center justify-between gap-4">
+        <div>
+          <div className="font-bold text-lg text-slate-800 dark:text-slate-200">
+            {t("settingsDisableWarning")}
+          </div>
+          <div>{t("settingsDisableWarningDesc")}</div>
+        </div>
+        <SettingSwitch enabled={warningDisabled} onChange={toggleDisableWarning} />
+      </li>
+      <DomainListHandler
+        sites={alwaysRunSites}
+        onChange={handleAlwaysRunSitesChange}
+        mode="alwaysRunSites"
+      />
     </menu>
   );
 }

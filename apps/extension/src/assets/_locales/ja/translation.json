@@ -78,7 +78,7 @@
   "btnAdd": "追加",
   "btnClearAll": "すべてクリア",
   "btnOK": "わかりました",
-  "dialogExcludeTitle": "ドメインを除外する",
+  "dialogAddDomainDialogTitle": "ドメインを追加する",
   "messageEmptyList": "リストは空です。最初に追加してください。",
   "settingsColoringKanji": "漢字のぬりえ",
   "settingsColoringKanjiDesc": "ページ上の漢字にはふりがなとともに色がつきます。",

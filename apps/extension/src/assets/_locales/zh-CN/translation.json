@@ -79,7 +79,7 @@
   "btnAdd": "添加",
   "btnClearAll": "全部清除",
   "btnOK": "好的",
-  "dialogExcludeTitle": "排除域",
+  "dialogAddDomainDialogTitle": "添加域",
   "settingsColoringKanji": "着色汉字",
   "settingsColoringKanjiDesc": "页面上的汉字将与注音假名一起着色。",
   "settingsDisableWarning": "禁用警告",
