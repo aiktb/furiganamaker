@@ -4,7 +4,7 @@ import { createRoot } from "react-dom/client";
 import { addFurigana } from "@/commons/addFurigana";
 import { ExtEvent, ExtStorage } from "@/commons/constants";
 import { sendMessage } from "@/commons/message";
-import { getGeneralSettings, getMoreSettings } from "@/commons/utils";
+import { getGeneralSettings, getMoreSettings, setMoreSettings } from "@/commons/utils";
 
 import "@/tailwind.css";
 
@@ -46,8 +46,13 @@ export default defineContentScript({
     const formatter = new Intl.NumberFormat(browser.i18n.getUILanguage());
     const formattedTextLength = formatter.format(textLength);
     const warningDisabled = await getMoreSettings(ExtStorage.DisableWarning);
+    const alwaysRunSites = await getMoreSettings(ExtStorage.AlwaysRunSites);
+    const isNotWarningDisabled = !warningDisabled;
+    const isNotAlwaysRunSite = !alwaysRunSites.includes(location.hostname);
     const MY_THINKING_BIG_PAGE_SIZE = 30000;
-    if (!warningDisabled && textLength > MY_THINKING_BIG_PAGE_SIZE && initialElements.length > 0) {
+    const isPageTooLarge = textLength > MY_THINKING_BIG_PAGE_SIZE;
+    const hasInitialElements = initialElements.length > 0;
+    if (isNotWarningDisabled && isNotAlwaysRunSite && isPageTooLarge && hasInitialElements) {
       // Reflow on a huge page causes severe page freezes and even the browser becomes unresponsive. (issue#16)
       const ui = await createShadowRootUi(ctx, {
         name: "auto-mode-is-disabled-warning",
@@ -69,9 +74,13 @@ export default defineContentScript({
                   ui.remove();
                   handleAndObserveJapaneseElements(initialElements, selector);
                 }}
-                onAlwaysRun={() => {
+                onAlwaysRun={async () => {
                   ui.remove();
                   handleAndObserveJapaneseElements(initialElements, selector);
+                  await setMoreSettings(ExtStorage.AlwaysRunSites, [
+                    ...(await getMoreSettings(ExtStorage.AlwaysRunSites)),
+                    location.hostname,
+                  ]);
                 }}
                 formattedTextLength={formattedTextLength}
               />
@@ -144,6 +153,7 @@ const PageTooLargeWarningDialog = ({
         <button
           className="cursor-pointer text-sky-500 underline decoration-current transition hover:text-sky-600 dark:text-slate-200"
           // The browser automatically blocks navigation to URLs with the `chrome-extension://` prefix, so the `<a>` tag cannot be used.
+          // Content scripts do not have permission to run `browser.runtime.openOptionsPage`, so the request needs to be forwarded to the background.
           onClick={() => browser.runtime.sendMessage(ExtEvent.OpenOptionsPage)}
         >
           {browser.i18n.getMessage("contentScriptWarningDesc2")}
