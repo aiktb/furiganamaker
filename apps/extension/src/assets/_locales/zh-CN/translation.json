@@ -124,5 +124,8 @@
   "validationNonRepetitiveDomain": "这个域名已经在使用。",
   "disclosureDomain": "域名字段如何使用？",
   "importFailedCauseByExistedDomain": "存在的域名：{{domains}}。",
-  "importFailedCauseByDuplicatedDomains": "重复的域名：{{domains}}。"
+  "importFailedCauseByDuplicatedDomains": "重复的域名：{{domains}}。",
+  "clearDomainDialogTitle": "确定要清除所有域名吗？",
+  "settingsAlwaysRunList": "以下网站将始终在自动模式下运行",
+  "settingsAlwaysRunListDesc": "这些网站不会显示“页面过大”的警告。此设置的优先级低于“从不添加”列表。"
 }
