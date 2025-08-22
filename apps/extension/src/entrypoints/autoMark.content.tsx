@@ -1,3 +1,7 @@
+/**
+ * The dark mode and i18n settings in this content script cannot stay
+ * in sync with the extension’s internal settings.
+ */
 import picomatch from "picomatch/posix";
 import { StrictMode, useRef } from "react";
 import { createRoot } from "react-dom/client";
@@ -130,7 +134,7 @@ const PageTooLargeWarningDialog = ({
           <span>{browser.i18n.getMessage("contentScriptWarningTitle")}</span>
         </h1>
         <button
-          className="flex size-6 cursor-pointer items-center justify-center rounded-md transition hover:bg-slate-100 hover:text-sky-500"
+          className="flex size-6 cursor-pointer items-center justify-center rounded-md transition hover:bg-slate-100 hover:text-sky-500 dark:hover:bg-slate-800"
           onClick={onClose}
         >
           <i className="i-tabler-x size-4" />

@@ -23,12 +23,24 @@
   "extTitleDisabled": {
     "message": "自動モードは無効です"
   },
-  "contentScriptWarning": {
-    "message": "警告（Furigana Maker）：このページは大きすぎます（$textLength$文字）、自動モードは無効です。",
+  "contentScriptWarningTitle": {
+    "message": "警告(Furigana Maker)"
+  },
+  "contentScriptWarningDesc1": {
+    "message": "コンテンツが大きすぎます($textLength$ 文字)。ページが応答しなくなる可能性があります。自動モードは無効になりました。",
     "placeholders": {
       "textLength": {
         "content": "$1"
       }
     }
+  },
+  "contentScriptWarningDesc2": {
+    "message": "この警告を再び表示しないようにしますか？ オプションページへ移動してください。"
+  },
+  "btnRunOnce": {
+    "message": "一度だけ実行"
+  },
+  "btnAlwaysRun": {
+    "message": "このサイトで常に実行"
   }
 }
