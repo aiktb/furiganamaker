@@ -79,7 +79,7 @@
   "btnAdd": "添加",
   "btnClearAll": "全部清除",
   "btnOK": "好的",
-  "dialogExcludeTitle": "排除域",
+  "dialogAddDomainDialogTitle": "添加域",
   "settingsColoringKanji": "着色汉字",
   "settingsColoringKanjiDesc": "页面上的汉字将与注音假名一起着色。",
   "settingsDisableWarning": "禁用警告",
@@ -124,5 +124,8 @@
   "validationNonRepetitiveDomain": "这个域名已经在使用。",
   "disclosureDomain": "域名字段如何使用？",
   "importFailedCauseByExistedDomain": "存在的域名：{{domains}}。",
-  "importFailedCauseByDuplicatedDomains": "重复的域名：{{domains}}。"
+  "importFailedCauseByDuplicatedDomains": "重复的域名：{{domains}}。",
+  "clearDomainDialogTitle": "确定要清除所有域名吗？",
+  "settingsAlwaysRunList": "以下网站将始终在自动模式下运行",
+  "settingsAlwaysRunListDesc": "这些网站不会显示“页面过大”的警告。此设置的优先级低于“从不添加”列表。"
 }

@@ -103,7 +103,7 @@ export function YomikatasInput({
           placeholder={inputting ? "カタカナ" : ""}
           type="text"
           className={cn(
-            "min-w-8 flex-1 border-0 px-2 py-0 text-gray-900 ring-0 sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white",
+            "min-w-8 flex-1 border-0 px-2 py-0 text-slate-900 ring-0 sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white",
             yomikatas.length > 0 && "p-0",
           )}
         />

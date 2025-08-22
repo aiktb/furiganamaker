@@ -128,16 +128,16 @@ export function SelectorRuleItem({ rule, index }: SelectorRuleItemProps) {
           <DialogPanel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
             <DialogTitle
               as="h3"
-              className="font-medium text-gray-900 text-lg leading-6 dark:text-white"
+              className="font-semibold text-lg text-slate-900 leading-6 dark:text-white"
             >
               {t("titleWarning")}
             </DialogTitle>
             <div className="mt-2">
-              <p className="text-gray-500 text-sm dark:text-gray-400">{t("msgDeleteRule")}</p>
+              <p className="text-slate-500 text-sm dark:text-slate-400">{t("msgDeleteRule")}</p>
             </div>
             <div className="mt-4 flex gap-2.5">
               <button
-                className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-medium text-slate-900 text-sm transition hover:bg-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
+                className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-semibold text-slate-900 text-sm transition hover:bg-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
                 onClick={() => {
                   removeSelector(rule.domain);
                   setDeleteDialogIsOpen(false);
@@ -146,7 +146,7 @@ export function SelectorRuleItem({ rule, index }: SelectorRuleItemProps) {
                 {t("btnDelete")}
               </button>
               <button
-                className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-semibold text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
                 onClick={() => {
                   setDeleteDialogIsOpen(false);
                 }}

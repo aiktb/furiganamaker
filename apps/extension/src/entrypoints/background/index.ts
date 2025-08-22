@@ -4,6 +4,7 @@ import { registerOnGetKanjiMarksMessage } from "./listeners/onGetKanjiMarksMessa
 import { registerOnGetSelector } from "./listeners/onGetSelectorMessage";
 import { registerOnInstalled } from "./listeners/onInstalled";
 import { registerOnMarkActiveMessage } from "./listeners/onMarkActiveMessage";
+import { registerOnOpenOptionsMessage } from "./listeners/onOpenOptions";
 
 export default defineBackground({
   type: "module",
@@ -17,5 +18,6 @@ export default defineBackground({
     registerOnGetKanjiMarksMessage();
     registerOnGetSelector();
     registerOnMarkActiveMessage();
+    registerOnOpenOptionsMessage();
   },
 });

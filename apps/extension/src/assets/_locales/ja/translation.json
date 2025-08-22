@@ -78,7 +78,7 @@
   "btnAdd": "追加",
   "btnClearAll": "すべてクリア",
   "btnOK": "わかりました",
-  "dialogExcludeTitle": "ドメインを除外する",
+  "dialogAddDomainDialogTitle": "ドメインを追加する",
   "messageEmptyList": "リストは空です。最初に追加してください。",
   "settingsColoringKanji": "漢字のぬりえ",
   "settingsColoringKanjiDesc": "ページ上の漢字にはふりがなとともに色がつきます。",
@@ -124,5 +124,8 @@
   "validationNonRepetitiveDomain": "このドメインはすでに使用されています。",
   "disclosureDomain": "ドメインフィールドとは？",
   "importFailedCauseByExistedDomain": "存在したドメイン：{{domains}}。",
-  "importFailedCauseByDuplicatedDomains": "重複したドメイン：{{domains}}。"
+  "importFailedCauseByDuplicatedDomains": "重複したドメイン：{{domains}}。",
+  "clearDomainDialogTitle": "すべてのドメインを削除してもよろしいですか？",
+  "settingsAlwaysRunList": "以下のサイトは常に自動モードで実行されます",
+  "settingsAlwaysRunListDesc": "これらのサイトでは「ページが大きすぎます」という警告は表示されません。この設定は「追加しない」リストよりも優先度が低くなります。"
 }

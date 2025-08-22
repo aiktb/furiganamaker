@@ -24,7 +24,7 @@ export default function Header() {
           {navItems.map((item) => (
             <Link
               key={item.text}
-              className={`block rounded-full px-3.5 py-1 font-medium text-gray-300 transition ease-in-out hover:bg-white/10 hover:text-gray-100 sm:px-6 sm:py-1.5 ${
+              className={`block rounded-full px-3.5 py-1 font-semibold text-slate-300 transition ease-in-out hover:bg-white/10 hover:text-slate-100 sm:px-6 sm:py-1.5 ${
                 isActive(item.to) ? "bg-white/10" : ""
               }`}
               prefetch="render"

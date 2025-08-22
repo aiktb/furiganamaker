@@ -3,7 +3,7 @@ import { Trans } from "react-i18next";
 export const DomainFieldDesc = () => {
   return (
     <ul className="list-disc marker:text-black dark:marker:text-white">
-      <li className="my-2 whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
+      <li className="my-2 whitespace-pre-wrap text-slate-500 text-sm dark:text-slate-400">
         <Trans
           i18nKey="fieldDomainDesc1"
           components={{
@@ -11,7 +11,7 @@ export const DomainFieldDesc = () => {
           }}
         />
       </li>
-      <li className="my-2 whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
+      <li className="my-2 whitespace-pre-wrap text-slate-500 text-sm dark:text-slate-400">
         <Trans
           i18nKey="fieldDomainDesc3"
           components={{
@@ -21,7 +21,7 @@ export const DomainFieldDesc = () => {
           }}
         />
       </li>
-      <li className="my-2 whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
+      <li className="my-2 whitespace-pre-wrap text-slate-500 text-sm dark:text-slate-400">
         <Trans
           i18nKey="fieldDomainDesc2"
           components={{

@@ -23,12 +23,24 @@
   "extTitleDisabled": {
     "message": "自動模式已禁用"
   },
-  "contentScriptWarning": {
-    "message": "警告(Furigana Maker)：此頁面過大($textLength$字符)，自動模式已禁用。",
+  "contentScriptWarningTitle": {
+    "message": "警告(Furigana Maker)"
+  },
+  "contentScriptWarningDesc1": {
+    "message": "內容過大($textLength$ 個字元)，可能導致頁面無回應。已停用自動模式。",
     "placeholders": {
       "textLength": {
         "content": "$1"
       }
     }
+  },
+  "contentScriptWarningDesc2": {
+    "message": "不想再看到此警告？請前往選項頁面。"
+  },
+  "btnRunOnce": {
+    "message": "僅執行一次"
+  },
+  "btnAlwaysRun": {
+    "message": "永遠在此網站執行"
   }
 }

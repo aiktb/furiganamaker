@@ -157,7 +157,7 @@ export default function Index() {
           </div>
           <div className="flex items-center">
             <div className="size-4 border-sky-400 border-y-8 border-y-transparent border-r-8 border-l-0 border-solid" />
-            <div className="flex h-10 items-center gap-2 rounded-md border-2 border-sky-400 bg-slate-900 px-4 font-display font-medium transition duration-300 group-hover:shadow-[0_0_15px_0_hsla(201,80%,66%,.5),0_0_30px_0_hsla(161,55%,49%,.5)]">
+            <div className="flex h-10 items-center gap-2 rounded-md border-2 border-sky-400 bg-slate-900 px-4 font-display font-semibold transition duration-300 group-hover:shadow-[0_0_15px_0_hsla(201,80%,66%,.5),0_0_30px_0_hsla(161,55%,49%,.5)]">
               <span>{data}</span> Stars on GitHub ⭐
             </div>
           </div>
