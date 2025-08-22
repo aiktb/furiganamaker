@@ -4,7 +4,7 @@ import { createRoot } from "react-dom/client";
 import { addFurigana } from "@/commons/addFurigana";
 import { ExtEvent, ExtStorage } from "@/commons/constants";
 import { sendMessage } from "@/commons/message";
-import { getGeneralSettings, getMoreSettings, setMoreSettings } from "@/commons/utils";
+import { cn, getGeneralSettings, getMoreSettings, setMoreSettings } from "@/commons/utils";
 
 import "@/tailwind.css";
 
@@ -119,7 +119,10 @@ const PageTooLargeWarningDialog = ({
   return (
     <div
       ref={containerRef}
-      className="-translate-x-1/2 fixed top-5 left-1/2 z-[2147483647] flex max-w-xl transform flex-col rounded-2xl bg-white p-4 text-base text-slate-800 shadow"
+      className={cn(
+        "-translate-x-1/2 fixed top-5 left-1/2 z-[2147483647] flex max-w-xl transform flex-col rounded-2xl bg-white p-4 text-base text-slate-800 shadow dark:bg-slate-900 dark:text-white",
+        window.matchMedia("(prefers-color-scheme: dark)").matches && "dark",
+      )}
     >
       <div className="flex items-center justify-between">
         <h1 className="flex items-center gap-1 font-bold text-lg">
@@ -138,7 +141,7 @@ const PageTooLargeWarningDialog = ({
       </p>
       <div>
         <button
-          className="cursor-pointer text-sky-500 underline decoration-current transition hover:text-sky-600 dark:text-slate-200"
+          className="cursor-pointer text-sky-500 underline decoration-current transition hover:text-sky-600 dark:text-sky-400 dark:hover:text-sky-500"
           // The browser automatically blocks navigation to URLs with the `chrome-extension://` prefix, so the `<a>` tag cannot be used.
           // Content scripts do not have permission to run `browser.runtime.openOptionsPage`, so the request needs to be forwarded to the background.
           onClick={() => browser.runtime.sendMessage(ExtEvent.OpenOptionsPage)}
