@@ -115,20 +115,7 @@ const PageTooLargeWarningDialog = ({
   formattedTextLength,
 }: PageTooLargeWarningDialogProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const WARNING_AUTO_HIDE_DELAY = 3000;
-  setTimeout(() => {
-    if (containerRef.current?.matches(":hover")) {
-      containerRef.current.addEventListener(
-        "mouseleave",
-        () => {
-          onClose();
-        },
-        { once: true },
-      );
-    } else {
-      onClose();
-    }
-  }, WARNING_AUTO_HIDE_DELAY);
+
   return (
     <div
       ref={containerRef}
@@ -140,7 +127,7 @@ const PageTooLargeWarningDialog = ({
           <span>{browser.i18n.getMessage("contentScriptWarningTitle")}</span>
         </h1>
         <button
-          className="flex size-6 cursor-pointer items-center justify-center rounded-md transition hover:text-sky-500"
+          className="flex size-6 cursor-pointer items-center justify-center rounded-md transition hover:bg-slate-100 hover:text-sky-500"
           onClick={onClose}
         >
           <i className="i-tabler-x size-4" />
@@ -159,7 +146,7 @@ const PageTooLargeWarningDialog = ({
           {browser.i18n.getMessage("contentScriptWarningDesc2")}
         </button>
       </div>
-      <div className="mt-2.5 flex gap-2">
+      <div className="mt-3 flex justify-end gap-2">
         <button
           className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-bold text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
           onClick={onRunOnce}
