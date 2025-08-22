@@ -31,7 +31,7 @@ export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerPro
         </div>
         <div className="flex flex-col gap-2 sm:flex-row">
           <button
-            className="cursor-pointer rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white"
+            className="cursor-pointer text-nowrap rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white"
             onClick={() => {
               setAddDomainDialogIsOpen(true);
             }}
