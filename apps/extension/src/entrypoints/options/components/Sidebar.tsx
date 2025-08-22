@@ -107,7 +107,7 @@ export function Sidebar() {
                           {item.label}
                         </div>
                         {item.target === "_blank" && (
-                          <i className="i-tabler-external-link text-slate-800 dark:text-gray-300" />
+                          <i className="i-tabler-external-link text-slate-800 dark:text-slate-300" />
                         )}
                       </>
                     )}
@@ -119,11 +119,11 @@ export function Sidebar() {
                 <div className="mt-2 flex items-center justify-between">
                   <div className="flex gap-4">
                     <div className="flex size-6 items-center justify-center rounded-lg border-2 border-slate-300 border-solid dark:border-slate-700 dark:bg-gray-800">
-                      <i className="i-tabler-command size-4 text-gray-400" />
+                      <i className="i-tabler-command size-4 text-slate-400" />
                     </div>
                     {t("manageShortcuts")}
                   </div>
-                  <i className="-rotate-45 i-tabler-arrow-back size-4 text-slate-800 dark:text-gray-300" />
+                  <i className="-rotate-45 i-tabler-arrow-back size-4 text-slate-800 dark:text-slate-300" />
                 </div>
                 <p className="mt-2 select-all text-sm">chrome://extensions/shortcuts</p>
               </div>

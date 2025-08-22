@@ -49,7 +49,7 @@ export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerPro
               <DialogPanel className="w-full min-w-[28rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle text-base shadow-xl transition-all dark:bg-slate-900">
                 <DialogTitle
                   as="h3"
-                  className="font-semibold text-gray-900 text-lg leading-6 dark:text-white"
+                  className="font-semibold text-lg text-slate-900 leading-6 dark:text-white"
                 >
                   {t("dialogAddDomainDialogTitle")}
                 </DialogTitle>
@@ -70,7 +70,7 @@ export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerPro
                     placeholder="www.example.com"
                     autoFocus={true}
                     className={
-                      "mt-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-sky-600 focus:ring-inset disabled:cursor-not-allowed sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white dark:ring-gray-700 dark:focus:ring-sky-600"
+                      "mt-3 block w-full rounded-md border-0 py-1.5 text-slate-900 shadow-xs ring-1 ring-gray-300 ring-inset placeholder:text-slate-400 focus:ring-2 focus:ring-sky-600 focus:ring-inset disabled:cursor-not-allowed sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white dark:ring-gray-700 dark:focus:ring-sky-600"
                     }
                   />
                 </Field>
@@ -118,12 +118,12 @@ export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerPro
               <DialogPanel className="w-full min-w-[20rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
                 <DialogTitle
                   as="h3"
-                  className="font-semibold text-gray-900 text-lg leading-6 dark:text-white"
+                  className="font-semibold text-lg text-slate-900 leading-6 dark:text-white"
                 >
                   {t("clearDomainDialogTitle")}
                 </DialogTitle>
                 <div className="mt-2">
-                  <p className="whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
+                  <p className="whitespace-pre-wrap text-slate-500 text-sm dark:text-slate-400">
                     {t("undoneDesc")}
                   </p>
                 </div>

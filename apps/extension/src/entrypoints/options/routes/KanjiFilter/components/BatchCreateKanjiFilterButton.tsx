@@ -46,14 +46,14 @@ export const BatchCreateKanjiFilterButton = () => {
           <DialogPanel className="w-full min-w-[20rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
             <DialogTitle
               as="h3"
-              className="font-semibold text-gray-900 text-lg leading-6 dark:text-white"
+              className="font-semibold text-lg text-slate-900 leading-6 dark:text-white"
             >
               {t("quickCreateModalTitle")}
             </DialogTitle>
-            <p className="mt-2 text-gray-500 text-sm dark:text-gray-400">
+            <p className="mt-2 text-slate-500 text-sm dark:text-slate-400">
               {t("quickCreateModalDesc1")}
             </p>
-            <p className="mt-2 text-gray-500 text-sm dark:text-gray-400">
+            <p className="mt-2 text-slate-500 text-sm dark:text-slate-400">
               {t("quickCreateModalDesc2")}
             </p>
             <Textarea

@@ -135,12 +135,12 @@ export const ImportSelectorRuleButton = () => {
           <DialogPanel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
             <DialogTitle
               as="h3"
-              className="font-semibold text-gray-900 text-lg leading-6 dark:text-white"
+              className="font-semibold text-lg text-slate-900 leading-6 dark:text-white"
             >
               {t("titleNote")}
             </DialogTitle>
             <div className="mt-2">
-              <p className="text-gray-500 text-sm dark:text-gray-400">{t("msgImportConfig")}</p>
+              <p className="text-slate-500 text-sm dark:text-slate-400">{t("msgImportConfig")}</p>
             </div>
             <div className="mt-4 flex gap-2.5">
               <button
@@ -175,12 +175,12 @@ export const ImportSelectorRuleButton = () => {
           <DialogPanel className="w-full min-w-[20rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
             <DialogTitle
               as="h3"
-              className="font-semibold text-gray-900 text-lg leading-6 dark:text-white"
+              className="font-semibold text-lg text-slate-900 leading-6 dark:text-white"
             >
               {t("warningInvalid")}
             </DialogTitle>
             <div className="mt-2">
-              <p className="whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
+              <p className="whitespace-pre-wrap text-slate-500 text-sm dark:text-slate-400">
                 {importFailedMessage}
               </p>
             </div>

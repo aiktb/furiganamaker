@@ -166,7 +166,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
               <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <DialogTitle
                   as="h3"
-                  className="text-center font-bold text-2xl text-gray-900 leading-9 tracking-tight dark:text-white"
+                  className="text-center font-bold text-2xl text-slate-900 leading-9 tracking-tight dark:text-white"
                 >
                   {t("titleEditSelectorDialog", {
                     verbs: mode === "update" ? t("update") : t("create"),
@@ -179,7 +179,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
                   <Field className="relative">
                     <Label
                       htmlFor="domain"
-                      className="block font-semibold text-gray-900 text-sm capitalize leading-6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-slate-200"
+                      className="block font-semibold text-slate-900 text-sm capitalize leading-6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-slate-200"
                     >
                       {t("fieldDomain")}
                     </Label>
@@ -189,7 +189,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
                         name="domain"
                         required
                         placeholder="*.example.com"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-sky-600 focus:ring-inset disabled:cursor-not-allowed sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white dark:ring-gray-700 dark:focus:ring-sky-600"
+                        className="block w-full rounded-md border-0 py-1.5 text-slate-900 shadow-xs ring-1 ring-gray-300 ring-inset placeholder:text-slate-400 focus:ring-2 focus:ring-sky-600 focus:ring-inset disabled:cursor-not-allowed sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white dark:ring-gray-700 dark:focus:ring-sky-600"
                         value={domainInput}
                         onChange={(e) => {
                           const value = e.target.value.trim().replace(/^https?:\/\//, "");
@@ -206,7 +206,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
                   <Field className="relative">
                     <Label
                       htmlFor="selector"
-                      className="block font-semibold text-gray-900 text-sm capitalize leading-6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-slate-200"
+                      className="block font-semibold text-slate-900 text-sm capitalize leading-6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-slate-200"
                     >
                       {t("fieldSelector")}
                     </Label>
@@ -216,7 +216,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
                         name="selector"
                         required
                         placeholder="body"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-sky-600 focus:ring-inset sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white dark:ring-gray-700 dark:focus:ring-sky-600"
+                        className="block w-full rounded-md border-0 py-1.5 text-slate-900 shadow-xs ring-1 ring-gray-300 ring-inset placeholder:text-slate-400 focus:ring-2 focus:ring-sky-600 focus:ring-inset sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white dark:ring-gray-700 dark:focus:ring-sky-600"
                         value={selectorInput}
                         onChange={(e) => {
                           const value = trimStart(e.target.value);

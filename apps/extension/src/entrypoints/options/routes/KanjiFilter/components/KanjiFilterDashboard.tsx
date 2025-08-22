@@ -71,12 +71,12 @@ export function KanjiFilterDashboard({
               <DialogPanel className="w-full min-w-[20rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
                 <DialogTitle
                   as="h3"
-                  className="font-semibold text-gray-900 text-lg leading-6 dark:text-white"
+                  className="font-semibold text-lg text-slate-900 leading-6 dark:text-white"
                 >
                   {t("clearConfigDialogTitle")}
                 </DialogTitle>
                 <div className="mt-2">
-                  <p className="whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
+                  <p className="whitespace-pre-wrap text-slate-500 text-sm dark:text-slate-400">
                     {t("undoneDesc")}
                   </p>
                 </div>
@@ -121,12 +121,12 @@ export function KanjiFilterDashboard({
               <DialogPanel className="w-full min-w-[20rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
                 <DialogTitle
                   as="h3"
-                  className="font-semibold text-gray-900 text-lg leading-6 dark:text-white"
+                  className="font-semibold text-lg text-slate-900 leading-6 dark:text-white"
                 >
                   {t("resetWarning")}
                 </DialogTitle>
                 <div className="mt-2">
-                  <p className="whitespace-pre-wrap text-gray-500 text-sm dark:text-gray-400">
+                  <p className="whitespace-pre-wrap text-slate-500 text-sm dark:text-slate-400">
                     {t("undoneDesc")}
                   </p>
                 </div>
