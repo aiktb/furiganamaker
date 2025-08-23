@@ -6,7 +6,6 @@ catalog:
   '@iconify-json/fa6-brands': ^1.2.5
   '@headlessui/react': ^2.2.3
   '@headlessui/tailwindcss': ^0.2.2
-  '@js-temporal/polyfill': ^0.4.4
   '@react-router/cloudflare': ^7.5.2
   '@react-router/dev': ^7.5.2
   '@react-router/fs-routes': ^7.5.2
