@@ -120,13 +120,15 @@ const PageTooLargeWarningDialog = ({
   onAlwaysRun,
   formattedTextLength,
 }: PageTooLargeWarningDialogProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDialogElement>(null);
 
   return (
-    <div
+    <dialog
       ref={containerRef}
+      onClose={onClose}
+      open={true}
       className={cn(
-        "-translate-x-1/2 fixed top-5 left-1/2 z-[2147483647] flex max-w-xl transform flex-col rounded-2xl bg-white p-4 text-base text-slate-800 shadow dark:bg-slate-900 dark:text-white",
+        "-translate-x-1/2 top-5 left-1/2 flex max-w-xl transform flex-col rounded-2xl bg-white p-4 text-base text-slate-800 shadow dark:bg-slate-900 dark:text-white",
         window.matchMedia("(prefers-color-scheme: dark)").matches && "dark",
       )}
     >
@@ -136,8 +138,8 @@ const PageTooLargeWarningDialog = ({
           <span>{browser.i18n.getMessage("contentScriptWarningTitle")}</span>
         </h1>
         <button
-          className="flex size-6 cursor-pointer items-center justify-center rounded-md transition hover:bg-slate-100 hover:text-sky-500 dark:hover:bg-slate-800"
-          onClick={onClose}
+          className="flex size-6 cursor-pointer items-center justify-center rounded-md transition hover:bg-slate-100 hover:text-sky-500 focus-visible:bg-slate-100 focus-visible:text-sky-500 dark:focus-visible:bg-slate-800 dark:hover:bg-slate-800"
+          onClick={() => containerRef.current?.close()}
         >
           <i className="i-tabler-x size-4" />
         </button>
@@ -169,7 +171,7 @@ const PageTooLargeWarningDialog = ({
           {browser.i18n.getMessage("btnAlwaysRun")}
         </button>
       </div>
-    </div>
+    </dialog>
   );
 };
 
