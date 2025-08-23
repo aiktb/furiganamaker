@@ -83,20 +83,20 @@ export default defineContentScript({
           <StrictMode>
             <PageTooLargeWarningDialog
               onClose={() => {
-                browser.runtime.sendMessage(ExtEvent.MarkDisabledTab);
                 ui.remove();
+                browser.runtime.sendMessage(ExtEvent.MarkDisabledTab);
               }}
               onRunOnce={() => {
-                handleAndObserveJapaneseElements(initialElements, selector);
                 ui.remove();
+                handleAndObserveJapaneseElements(initialElements, selector);
               }}
               onAlwaysRun={async () => {
+                ui.remove();
                 handleAndObserveJapaneseElements(initialElements, selector);
                 await setMoreSettings(ExtStorage.AlwaysRunSites, [
                   ...(await getMoreSettings(ExtStorage.AlwaysRunSites)),
                   location.hostname,
                 ]);
-                ui.remove();
               }}
               formattedTextLength={formattedTextLength}
             />
