@@ -3,7 +3,7 @@
  * in sync with the extension’s internal settings.
  */
 import picomatch from "picomatch/posix";
-import { StrictMode, useRef } from "react";
+import { StrictMode, useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import { addFurigana } from "@/commons/addFurigana";
 import { ExtEvent, ExtStorage } from "@/commons/constants";
@@ -49,62 +49,67 @@ export default defineContentScript({
     const textLength = getTextLength();
     const formatter = new Intl.NumberFormat(browser.i18n.getUILanguage());
     const formattedTextLength = formatter.format(textLength);
-    const warningDisabled = await getMoreSettings(ExtStorage.DisableWarning);
-    const alwaysRunSites = await getMoreSettings(ExtStorage.AlwaysRunSites);
-    const isNotWarningDisabled = !warningDisabled;
-    const isNotAlwaysRunSite = !alwaysRunSites.includes(location.hostname);
+
     const MY_THINKING_BIG_PAGE_SIZE = 30000;
     const isPageTooLarge = textLength > MY_THINKING_BIG_PAGE_SIZE;
-    const hasInitialElements = initialElements.length > 0;
-    if (warningDisabled && isPageTooLarge) {
-      browser.runtime.sendMessage(ExtEvent.MarkDisabledTab);
-      return;
-    }
-    if (isNotWarningDisabled && isNotAlwaysRunSite && isPageTooLarge && hasInitialElements) {
-      // Reflow on a huge page causes severe page freezes and even the browser becomes unresponsive. (issue#16)
-      const ui = await createShadowRootUi(ctx, {
-        name: "auto-mode-is-disabled-warning",
-        position: "inline",
-        anchor: "body",
-        onMount(container) {
-          const wrapper = document.createElement("div");
-          container.appendChild(wrapper);
-          const root = createRoot(wrapper);
-          root.render(
-            <StrictMode>
-              <PageTooLargeWarningDialog
-                onClose={() => {
-                  ui.remove();
-                  browser.runtime.sendMessage(ExtEvent.MarkDisabledTab);
-                }}
-                onRunOnce={() => {
-                  ui.remove();
-                  handleAndObserveJapaneseElements(initialElements, selector);
-                }}
-                onAlwaysRun={async () => {
-                  ui.remove();
-                  handleAndObserveJapaneseElements(initialElements, selector);
-                  await setMoreSettings(ExtStorage.AlwaysRunSites, [
-                    ...(await getMoreSettings(ExtStorage.AlwaysRunSites)),
-                    location.hostname,
-                  ]);
-                }}
-                formattedTextLength={formattedTextLength}
-              />
-            </StrictMode>,
-          );
-          return { root, wrapper };
-        },
-        onRemove: (elements) => {
-          elements?.root.unmount();
-          elements?.wrapper.remove();
-        },
-      });
-      ui.mount();
+    const alwaysRunSites = await getMoreSettings(ExtStorage.AlwaysRunSites);
+    const isAlwaysRunSite = alwaysRunSites.includes(location.hostname);
+    if (!isPageTooLarge || isAlwaysRunSite) {
+      handleAndObserveJapaneseElements(initialElements, selector);
       return;
     }
 
-    handleAndObserveJapaneseElements(initialElements, selector);
+    const warningDisabled = await getMoreSettings(ExtStorage.DisableWarning);
+    if (warningDisabled && isPageTooLarge && !isAlwaysRunSite) {
+      browser.runtime.sendMessage(ExtEvent.MarkDisabledTab);
+      return;
+    }
+
+    const hasInitialElements = initialElements.length > 0;
+    if (!hasInitialElements) {
+      return;
+    }
+
+    // Reflow on a huge page causes severe page freezes and even the browser becomes unresponsive. (issue#16)
+    const ui = await createShadowRootUi(ctx, {
+      name: "auto-mode-is-disabled-warning",
+      position: "inline",
+      anchor: "body",
+      onMount(container) {
+        const wrapper = document.createElement("div");
+        container.appendChild(wrapper);
+        const root = createRoot(wrapper);
+        root.render(
+          <StrictMode>
+            <PageTooLargeWarningDialog
+              onClose={() => {
+                ui.remove();
+                browser.runtime.sendMessage(ExtEvent.MarkDisabledTab);
+              }}
+              onRunOnce={() => {
+                ui.remove();
+                handleAndObserveJapaneseElements(initialElements, selector);
+              }}
+              onAlwaysRun={async () => {
+                ui.remove();
+                handleAndObserveJapaneseElements(initialElements, selector);
+                await setMoreSettings(ExtStorage.AlwaysRunSites, [
+                  ...(await getMoreSettings(ExtStorage.AlwaysRunSites)),
+                  location.hostname,
+                ]);
+              }}
+              formattedTextLength={formattedTextLength}
+            />
+          </StrictMode>,
+        );
+        return { root, wrapper };
+      },
+      onRemove: (elements) => {
+        elements?.root.unmount();
+        elements?.wrapper.remove();
+      },
+    });
+    ui.mount();
   },
 });
 
@@ -120,13 +125,30 @@ const PageTooLargeWarningDialog = ({
   onAlwaysRun,
   formattedTextLength,
 }: PageTooLargeWarningDialogProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDialogElement>(null);
+  useEffect(() => {
+    containerRef.current?.showModal();
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        containerRef.current &&
+        event.target instanceof Node &&
+        !containerRef.current.contains(event.target)
+      ) {
+        containerRef.current.close();
+      }
+    };
 
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
-    <div
+    <dialog
       ref={containerRef}
+      onClose={onClose}
       className={cn(
-        "-translate-x-1/2 fixed top-5 left-1/2 z-[2147483647] flex max-w-xl transform flex-col rounded-2xl bg-white p-4 text-base text-slate-800 shadow dark:bg-slate-900 dark:text-white",
+        "-translate-x-1/2 top-5 left-1/2 flex max-w-xl transform flex-col rounded-2xl bg-white p-4 text-base text-slate-800 shadow dark:bg-slate-900 dark:text-white",
         window.matchMedia("(prefers-color-scheme: dark)").matches && "dark",
       )}
     >
@@ -136,8 +158,8 @@ const PageTooLargeWarningDialog = ({
           <span>{browser.i18n.getMessage("contentScriptWarningTitle")}</span>
         </h1>
         <button
-          className="flex size-6 cursor-pointer items-center justify-center rounded-md transition hover:bg-slate-100 hover:text-sky-500 dark:hover:bg-slate-800"
-          onClick={onClose}
+          className="flex size-6 cursor-pointer items-center justify-center rounded-md transition hover:bg-slate-100 hover:text-sky-500 focus-visible:bg-slate-100 focus-visible:text-sky-500 dark:focus-visible:bg-slate-800 dark:hover:bg-slate-800"
+          onClick={() => containerRef.current?.close()}
         >
           <i className="i-tabler-x size-4" />
         </button>
@@ -169,7 +191,7 @@ const PageTooLargeWarningDialog = ({
           {browser.i18n.getMessage("btnAlwaysRun")}
         </button>
       </div>
-    </div>
+    </dialog>
   );
 };
 
