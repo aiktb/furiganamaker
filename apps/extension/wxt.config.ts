@@ -1,4 +1,4 @@
-import fs from "node:fs";
+import fs from "node:fs/promises";
 import path from "node:path";
 
 import tailwindcss from "@tailwindcss/vite";
@@ -53,9 +53,9 @@ export default defineConfig({
   hooks: {
     "build:publicAssets": async ({ config }, publicFiles) => {
       const srcDir = path.resolve(import.meta.dirname, "./node_modules/@sglkc/kuromoji/dict");
-      const filenames = await fs.promises.readdir(srcDir);
+      const filenames = await fs.readdir(srcDir);
       const destDir = path.resolve(config.outDir, "dict");
-      await fs.promises.mkdir(destDir, { recursive: true });
+      await fs.mkdir(destDir, { recursive: true });
       const files = filenames.map((filename) => {
         const absoluteSrc = path.resolve(srcDir, filename);
         const relativeDest = path.resolve(destDir, filename);
