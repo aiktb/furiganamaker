@@ -51,11 +51,11 @@ export default defineConfig({
     },
   }),
   hooks: {
-    "build:publicAssets": ({ config }, publicFiles) => {
+    "build:publicAssets": async ({ config }, publicFiles) => {
       const srcDir = path.resolve(import.meta.dirname, "./node_modules/@sglkc/kuromoji/dict");
-      const filenames = fs.readdirSync(srcDir);
+      const filenames = await fs.promises.readdir(srcDir);
       const destDir = path.resolve(config.outDir, "dict");
-      fs.mkdirSync(destDir);
+      await fs.promises.mkdir(destDir, { recursive: true });
       const files = filenames.map((filename) => {
         const absoluteSrc = path.resolve(srcDir, filename);
         const relativeDest = path.resolve(destDir, filename);
