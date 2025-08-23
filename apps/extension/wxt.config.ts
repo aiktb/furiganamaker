@@ -56,11 +56,12 @@ export default defineConfig({
       const filenames = fs.readdirSync(srcDir);
       const destDir = path.resolve(config.outDir, "dict");
       fs.mkdirSync(destDir);
-      for (const filename of filenames) {
+      const files = filenames.map((filename) => {
         const absoluteSrc = path.resolve(srcDir, filename);
         const relativeDest = path.resolve(destDir, filename);
-        publicFiles.push({ absoluteSrc, relativeDest });
-      }
+        return { absoluteSrc, relativeDest };
+      });
+      publicFiles.push(...files);
     },
   },
 });
