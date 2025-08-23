@@ -18,9 +18,6 @@ catalogs:
     '@iconify-json/fa6-brands':
       specifier: ^1.2.5
       version: 1.2.5
-    '@js-temporal/polyfill':
-      specifier: ^0.4.4
-      version: 0.4.4
     '@react-router/cloudflare':
       specifier: ^7.5.2
       version: 7.7.1
@@ -116,9 +113,6 @@ importers:
       '@headlessui/react':
         specifier: 'catalog:'
         version: 2.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@js-temporal/polyfill':
-        specifier: 'catalog:'
-        version: 0.4.4
       '@sglkc/kuromoji':
         specifier: ^1.1.0
         version: 1.1.0
@@ -249,9 +243,6 @@ importers:
       '@headlessui/react':
         specifier: 'catalog:'
         version: 2.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@js-temporal/polyfill':
-        specifier: 'catalog:'
-        version: 0.4.4
       '@react-router/cloudflare':
         specifier: 'catalog:'
         version: 7.7.1(@cloudflare/workers-types@4.20241218.0)(react-router@7.7.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.2)
@@ -1113,10 +1104,6 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
-
-  '@js-temporal/polyfill@0.4.4':
-    resolution: {integrity: sha512-2X6bvghJ/JAoZO52lbgyAPFj8uCflhTo2g7nkFzEQdXd/D8rEeD4HtmTEpmtGCva260fcd66YNXBOYdnmHqSOg==}
-    engines: {node: '>=12'}
 
   '@lukeed/csprng@1.1.0':
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
@@ -2973,9 +2960,6 @@ packages:
   js-yaml@4.1.0:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
-
-  jsbi@4.3.0:
-    resolution: {integrity: sha512-SnZNcinB4RIcnEyZqFPdGPVgrg2AcnykiBy0sHVJQKHYeaLUvi3Exj+iaPpLnFVkDPZIV4U0yvgC9/R4uEAZ9g==}
 
   jsesc@3.0.2:
     resolution: {integrity: sha512-xKqzzWXDttJuOcawBt4KnKHHIf5oQ/Cxax+0PWFG+DFDgHNAdi+TXECADI+RYiFUMmx8792xsMbbgXj4CwnP4g==}
@@ -5422,11 +5406,6 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.4
 
-  '@js-temporal/polyfill@0.4.4':
-    dependencies:
-      jsbi: 4.3.0
-      tslib: 2.8.1
-
   '@lukeed/csprng@1.1.0': {}
 
   '@mjackson/node-fetch-server@0.2.0': {}
@@ -7143,8 +7122,6 @@ snapshots:
   js-yaml@4.1.0:
     dependencies:
       argparse: 2.0.1
-
-  jsbi@4.3.0: {}
 
   jsesc@3.0.2: {}
 
