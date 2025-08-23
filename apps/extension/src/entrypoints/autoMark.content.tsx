@@ -56,6 +56,10 @@ export default defineContentScript({
     const MY_THINKING_BIG_PAGE_SIZE = 30000;
     const isPageTooLarge = textLength > MY_THINKING_BIG_PAGE_SIZE;
     const hasInitialElements = initialElements.length > 0;
+    if (warningDisabled && isPageTooLarge) {
+      browser.runtime.sendMessage(ExtEvent.MarkDisabledTab);
+      return;
+    }
     if (isNotWarningDisabled && isNotAlwaysRunSite && isPageTooLarge && hasInitialElements) {
       // Reflow on a huge page causes severe page freezes and even the browser becomes unresponsive. (issue#16)
       const ui = await createShadowRootUi(ctx, {
@@ -66,7 +70,6 @@ export default defineContentScript({
           const wrapper = document.createElement("div");
           container.appendChild(wrapper);
           const root = createRoot(wrapper);
-
           root.render(
             <StrictMode>
               <PageTooLargeWarningDialog
@@ -90,7 +93,6 @@ export default defineContentScript({
               />
             </StrictMode>,
           );
-
           return { root, wrapper };
         },
         onRemove: (elements) => {
