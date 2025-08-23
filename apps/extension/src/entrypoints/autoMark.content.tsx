@@ -83,20 +83,20 @@ export default defineContentScript({
           <StrictMode>
             <PageTooLargeWarningDialog
               onClose={() => {
-                ui.remove();
                 browser.runtime.sendMessage(ExtEvent.MarkDisabledTab);
+                ui.remove();
               }}
               onRunOnce={() => {
-                ui.remove();
                 handleAndObserveJapaneseElements(initialElements, selector);
+                ui.remove();
               }}
               onAlwaysRun={async () => {
-                ui.remove();
                 handleAndObserveJapaneseElements(initialElements, selector);
                 await setMoreSettings(ExtStorage.AlwaysRunSites, [
                   ...(await getMoreSettings(ExtStorage.AlwaysRunSites)),
                   location.hostname,
                 ]);
+                ui.remove();
               }}
               formattedTextLength={formattedTextLength}
             />
@@ -125,27 +125,13 @@ const PageTooLargeWarningDialog = ({
   onAlwaysRun,
   formattedTextLength,
 }: PageTooLargeWarningDialogProps) => {
-  const containerRef = useRef<HTMLDialogElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   useEffect(() => {
-    containerRef.current?.showModal();
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        containerRef.current &&
-        event.target instanceof Node &&
-        !containerRef.current.contains(event.target)
-      ) {
-        containerRef.current.close();
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    dialogRef.current?.showModal();
   }, []);
   return (
     <dialog
-      ref={containerRef}
+      ref={dialogRef}
       onClose={onClose}
       className={cn(
         "-translate-x-1/2 top-5 left-1/2 flex max-w-xl transform flex-col rounded-2xl bg-white p-4 text-base text-slate-800 shadow dark:bg-slate-900 dark:text-white",
@@ -159,7 +145,7 @@ const PageTooLargeWarningDialog = ({
         </h1>
         <button
           className="flex size-6 cursor-pointer items-center justify-center rounded-md transition hover:bg-slate-100 hover:text-sky-500 focus-visible:bg-slate-100 focus-visible:text-sky-500 dark:focus-visible:bg-slate-800 dark:hover:bg-slate-800"
-          onClick={() => containerRef.current?.close()}
+          onClick={() => dialogRef.current?.close()}
         >
           <i className="i-tabler-x size-4" />
         </button>
