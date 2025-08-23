@@ -1,5 +1,8 @@
-// biome-ignore assist/source/organizeImports: react-scan must be imported before React and React DOM
-import { scan } from "react-scan";
+if (import.meta.env.DEV) {
+  const { scan } = await import("react-scan");
+  scan({ enabled: true });
+}
+
 import { ThemeProvider } from "next-themes";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
@@ -14,10 +17,6 @@ import { Changelog } from "./routes/Changelog";
 import { KanjiFilter } from "./routes/KanjiFilter";
 import { Selector } from "./routes/Selector";
 import { Settings } from "./routes/Settings";
-
-scan({
-  enabled: true,
-});
 
 const router = createHashRouter([
   {
