@@ -1,4 +1,3 @@
-import { Temporal } from "@js-temporal/polyfill";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router";
 
@@ -6,7 +5,7 @@ import cloudflare from "../assets/cloudflare.svg";
 import { LinksContext } from "../contexts";
 
 const getCopiedYear = () => {
-  const currentYear = Temporal.Now.plainDateISO().year;
+  const currentYear = new Date().getFullYear();
   return currentYear === 2023 ? "2023" : `2023-${currentYear}`;
 };
 

@@ -17,7 +17,6 @@
     "@ctrl/tinycolor": "^4.1.0",
     "@floating-ui/react": "^0.27.2",
     "@headlessui/react": "catalog:",
-    "@js-temporal/polyfill": "catalog:",
     "@sglkc/kuromoji": "^1.1.0",
     "@webext-core/messaging": "^2.1.0",
     "clsx": "catalog:",

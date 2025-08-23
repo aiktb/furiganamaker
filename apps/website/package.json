@@ -12,7 +12,6 @@
   "dependencies": {
     "@fireworks-js/react": "^2.10.8",
     "@headlessui/react": "catalog:",
-    "@js-temporal/polyfill": "catalog:",
     "@react-router/cloudflare": "catalog:",
     "@react-router/dev": "catalog:",
     "@react-router/fs-routes": "catalog:",
