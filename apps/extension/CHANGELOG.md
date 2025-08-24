@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.2.0](https://github.com/aiktb/furiganamaker/compare/v3.1.0...v3.2.0) (2025-08-24)
+
+
+### Features
+
+* add suggested follow-up actions for warning banner when Auto Mode detects a large site ([#379](https://github.com/aiktb/furiganamaker/issues/379)) ([c1d2835](https://github.com/aiktb/furiganamaker/commit/c1d2835be44bdc3385954884310999d9b70ab462))
+* once the settings in the Popup are modified, they will take effect simultaneously on all tabs ([#399](https://github.com/aiktb/furiganamaker/issues/399)) ([4a1bae8](https://github.com/aiktb/furiganamaker/commit/4a1bae8ac65a9e6cef7b6b1f5fc77a5adf8d09da))
+* reduce 500KB extension file size ([#395](https://github.com/aiktb/furiganamaker/issues/395)) ([e2f97e3](https://github.com/aiktb/furiganamaker/commit/e2f97e3648be131d87c142cd0ec223edc4a5c5ed))
+
+
+### Bug Fixes
+
+* click the "always run" button has no effect ([#397](https://github.com/aiktb/furiganamaker/issues/397)) ([6a6c5b4](https://github.com/aiktb/furiganamaker/commit/6a6c5b4e6fd0549fe0559da50436c03d55db02aa))
+* disable warnings causes the extension to always run ([#392](https://github.com/aiktb/furiganamaker/issues/392)) ([ec87592](https://github.com/aiktb/furiganamaker/commit/ec8759222bca499087769a9dcc23db3bcdb88b66))
+* right click on popup icon and then click options button does not open it ([#389](https://github.com/aiktb/furiganamaker/issues/389)) ([70fe472](https://github.com/aiktb/furiganamaker/commit/70fe47201097b05423af7e4ab0c87ee72842bf9f))
+* should be a priority to ensure that the dialog is closed ([#398](https://github.com/aiktb/furiganamaker/issues/398)) ([99dcdca](https://github.com/aiktb/furiganamaker/commit/99dcdca77002b901418abf7a211d2e020d86b04b))
+
 ## 3.1.0 (2025-08-18)
 
 
