@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.2.0 (2025-08-24)
+
+
+### Features
+
+* Add suggested follow-up actions for warning banner when Auto Mode detects a large site.
+* Once the settings in the Popup are modified, they will take effect simultaneously on all tabs.
+* Reduce 500KB extension file size.
+
+### Bug Fixes
+
+* Right click on popup icon and then click options button does not open it.
+
 ## 3.1.0 (2025-08-18)
 
 
