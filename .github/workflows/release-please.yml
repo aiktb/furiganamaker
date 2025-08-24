@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       tag_name: ${{ steps.release.outputs['apps/extension--tag_name'] }}
+      release_created: ${{ steps.release.outputs['apps/extension--release_created'] }}
 
     steps:
       - uses: googleapis/release-please-action@v4
@@ -22,11 +23,10 @@ jobs:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           config-file: ".github/release-please-config.json"
           manifest-file: ".github/.release-please-manifest.json"
-          skip-github-release: true
 
   submit:
     runs-on: ubuntu-latest
-    if: needs.release-please.outputs.tag_name
+    if: needs.release-please.outputs.release_created
     needs: release-please
     steps:
       - uses: actions/checkout@v5
@@ -50,9 +50,9 @@ jobs:
             ## Download
             - [Chrome](https://chromewebstore.google.com/detail/furigana-maker/heodojceeinbkfjfilnfminlkgbacpfp)
         run: |
-         gh release create ${{ needs.release-please.outputs.tag_name }} ./.output/*-chrome.zip \
-           --title "${{ needs.release-please.outputs.tag_name }}" \
-           --notes "$RELEASE_NOTES"
+         gh release upload ${{ needs.release-please.outputs.tag_name }} ./apps/extension/.output/*.zip
+         gh release edit ${{ needs.release-please.outputs.tag_name }} --notes "$RELEASE_NOTES"
+
       - name: Submit to stores
         working-directory: ./apps/extension
         run: |
