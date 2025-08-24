@@ -84,7 +84,7 @@
   "btnOK": "OK",
   "btnAdd": "Add",
   "btnClearAll": "Clear All",
-  "dialogExcludeTitle": "Exclude a domain",
+  "dialogAddDomainDialogTitle": "Add a domain",
   "settingsExclusionList": "The following sites never add furigana",
   "settingsExclusionListDesc": "This setting takes precedence over custom rules (edited via the Rule editor).",
   "messageEmptyList": " The list is empty, please add it first.",
@@ -120,9 +120,11 @@
   "importFailedCauseByExistedKanjis": "Existed kanjis: {{kanjis}}.",
   "importFailedCauseByDuplicatedKanjis": "Duplicated kanjis: {{kanjis}}.",
   "importFailedCauseByImpureKanjis": "Impure kanjis: {{kanjis}}.",
-  "importFailedCauseByImpureKatakanas": "Impure katakanas: {{katakanas}}.",
   "validationNonRepetitiveDomain": "This domain is already in use.",
   "disclosureDomain": "What is domain field?",
   "importFailedCauseByExistedDomain": "Existed domains: {{domains}}.",
-  "importFailedCauseByDuplicatedDomains": "Duplicated domains: {{domains}}."
+  "importFailedCauseByDuplicatedDomains": "Duplicated domains: {{domains}}.",
+  "clearDomainDialogTitle": "Are you sure you want to clear all domains?",
+  "settingsAlwaysRunList": "The following sites always run in Auto Mode",
+  "settingsAlwaysRunListDesc": "These sites will not display the \"Page is too large\" warning. This setting has lower priority than the \"never add\" list."
 }

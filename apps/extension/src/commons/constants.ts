@@ -12,6 +12,7 @@ export const ExtEvent = {
   MarkActiveTab: "markActiveTab",
   MarkDisabledTab: "markDisabledTab",
   ModifyKanjiFilter: "modifyKanjiFilter",
+  OpenOptionsPage: "openOptionsPage",
 } as const;
 export type ExtEvent = (typeof ExtEvent)[keyof typeof ExtEvent];
 
@@ -29,6 +30,7 @@ export const ExtStorage = {
   ExcludeSites: "excludeSites",
   SelectorRules: "selectorRules",
   FilterRules: "filterRules",
+  AlwaysRunSites: "alwaysRunSites",
 } as const;
 export type ExtStorage = (typeof ExtStorage)[keyof typeof ExtStorage];
 
@@ -64,7 +66,7 @@ export const SelectMode = {
 export type SelectMode = (typeof SelectMode)[keyof typeof SelectMode];
 
 /**
- * Only used in Popup pages.
+ * Can only be modified on the Popup page.
  */
 export interface GeneralSettings {
   [ExtStorage.AutoMode]: boolean;
@@ -77,7 +79,7 @@ export interface GeneralSettings {
 }
 
 /**
- * Only used in Options pages.
+ * Can only be modified on the Options page and Content Scripts.
  */
 export interface MoreSettings {
   /**
@@ -90,6 +92,11 @@ export interface MoreSettings {
    * Glob is supported.
    */
   [ExtStorage.ExcludeSites]: string[];
+  /**
+   * Glob is supported.
+   * Content Scripts also modify this field.
+   */
+  [ExtStorage.AlwaysRunSites]: string[];
 }
 
 export interface SelectorRule {

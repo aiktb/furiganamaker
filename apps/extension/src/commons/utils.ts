@@ -86,15 +86,29 @@ export const moreSettingsFallback = {
   [ExtStorage.DisableWarning]: false,
   [ExtStorage.ColoringKanji]: false,
   [ExtStorage.ExcludeSites]: [],
+  [ExtStorage.AlwaysRunSites]: [],
 } satisfies MoreSettings;
 
 export const moreSettings = storage.defineItem<MoreSettings>("local:moreSettings", {
-  version: 1,
+  version: 2,
   fallback: moreSettingsFallback,
+  migrations: {
+    2: (oldValue: Omit<MoreSettings, "alwaysRunSites">) => ({
+      ...oldValue,
+      [ExtStorage.AlwaysRunSites]: [],
+    }),
+  },
 });
 
 export async function getMoreSettings<K extends keyof MoreSettings>(key: K) {
   return (await moreSettings.getValue())[key];
+}
+
+export async function setMoreSettings<K extends keyof MoreSettings>(
+  key: K,
+  value: MoreSettings[K],
+) {
+  await moreSettings.setValue({ ...(await moreSettings.getValue()), [key]: value });
 }
 
 /**

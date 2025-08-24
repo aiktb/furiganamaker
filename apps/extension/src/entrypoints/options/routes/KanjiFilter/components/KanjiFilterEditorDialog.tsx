@@ -117,7 +117,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
           <Disclosure as="div">
             {({ open }) => (
               <>
-                <DisclosureButton className="flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-medium text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
+                <DisclosureButton className="flex w-full cursor-pointer items-center justify-between rounded-lg bg-sky-100 px-4 py-2 text-left font-semibold text-sky-900 text-sm hover:bg-sky-200 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-sky-500/75 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-700">
                   <h1>{t("createKanjiFilterDialogTitle")}</h1>
                   <i
                     className={`${
@@ -138,7 +138,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
           <div className="flex min-h-full flex-col justify-center p-6 lg:px-8">
             <DialogTitle
               as="h3"
-              className="text-center font-bold text-2xl text-gray-900 leading-9 tracking-tight dark:text-white"
+              className="text-center font-bold text-2xl text-slate-900 leading-9 tracking-tight dark:text-white"
             >
               {t("titleKanjiFilterEditor", {
                 verbs: mode === "update" ? t("update") : t("create"),
@@ -146,7 +146,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
             </DialogTitle>
             <div className="mt-10 space-y-6 sm:mx-auto sm:w-full sm:max-w-sm">
               <Field className="relative">
-                <Label className="font-medium text-slate-950 text-sm/6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-white">
+                <Label className="font-semibold text-slate-950 text-sm/6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-white">
                   {t("fieldKanji")}
                 </Label>
                 <Input
@@ -158,13 +158,13 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
                   placeholder="漢字"
                   autoFocus={true}
                   className={
-                    "mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-sky-600 focus:ring-inset disabled:cursor-not-allowed sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white dark:ring-gray-700 dark:focus:ring-sky-600"
+                    "mt-2 block w-full rounded-md border-0 py-1.5 text-slate-900 shadow-xs ring-1 ring-gray-300 ring-inset placeholder:text-slate-400 focus:ring-2 focus:ring-sky-600 focus:ring-inset disabled:cursor-not-allowed sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white dark:ring-gray-700 dark:focus:ring-sky-600"
                   }
                 />
                 <p className="-bottom-5 absolute left-0 text-red-500">{kanjiInputErrorMessage}</p>
               </Field>
               <Field className="relative">
-                <Label className="flex items-center font-medium text-slate-950 text-sm/6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-white">
+                <Label className="flex items-center font-semibold text-slate-950 text-sm/6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-white">
                   {t("fieldYomikata")}
                   <Field className="flex flex-1 items-center justify-end gap-1">
                     <Label>{t("fieldMatchAll")}</Label>

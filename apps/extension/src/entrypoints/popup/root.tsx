@@ -1,3 +1,4 @@
+import { isNotNil } from "es-toolkit";
 import { useTranslation } from "react-i18next";
 import ColorPickerIcon from "@/assets/icons/ColorPicker.svg?react";
 import CursorOutlineIcon from "@/assets/icons/CursorDefault.svg?react";
@@ -13,7 +14,6 @@ import SettingIcon from "@/assets/icons/Setting.svg?react";
 import ShareIcon from "@/assets/icons/Share.svg?react";
 import { DisplayMode, ExtEvent, ExtStorage, FuriganaType, SelectMode } from "@/commons/constants";
 import { cn, sendMessage } from "@/commons/utils";
-
 import { Button } from "./components/Button";
 import { CheckBox } from "./components/CheckBox";
 import { ColorPicker } from "./components/ColorPicker";
@@ -67,11 +67,11 @@ export function Root() {
     | { type: typeof ExtEvent.AdjustFontSize; payload: number }
     | { type: typeof ExtEvent.AdjustFontColor; payload: string };
 
-  const handleEventHappened = (action: ACTIONTYPE) => {
-    browser.tabs.query({ active: true, currentWindow: true }).then(async (tabs) => {
-      const tabId = tabs[0]!.id!;
-      await sendMessage(tabId, action.type);
-    });
+  const handleEventHappened = async (action: ACTIONTYPE) => {
+    // Query all tabs
+    const tabs = await browser.tabs.query({});
+    const ids = tabs.map((tab) => tab.id).filter(isNotNil);
+    await Promise.all(ids.map((id) => sendMessage(id, action.type)));
   };
 
   return (

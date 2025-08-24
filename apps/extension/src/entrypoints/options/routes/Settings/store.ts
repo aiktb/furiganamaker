@@ -8,6 +8,7 @@ interface MoreSettingsStore extends MoreSettings {
   toggleDisableWarning: () => void;
   toggleColoringKanji: () => void;
   setExcludeSites: (sites: string[]) => void;
+  setAlwaysRunSites: (sites: string[]) => void;
 }
 
 export const useMoreSettingsStore = create<MoreSettingsStore>()(
@@ -29,6 +30,9 @@ export const useMoreSettingsStore = create<MoreSettingsStore>()(
       },
       setExcludeSites: (sites) => {
         set({ [ExtStorage.ExcludeSites]: sites });
+      },
+      setAlwaysRunSites: (sites) => {
+        set({ [ExtStorage.AlwaysRunSites]: sites });
       },
     }),
     {

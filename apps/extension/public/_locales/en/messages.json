@@ -23,12 +23,24 @@
   "extTitleDisabled": {
     "message": "Auto mode is disabled"
   },
-  "contentScriptWarning": {
-    "message": "Warning(Furigana Maker): This page is too large($textLength$ characters), auto mode is disabled.",
+  "contentScriptWarningTitle": {
+    "message": "Warning(Furigana Maker)"
+  },
+  "contentScriptWarningDesc1": {
+    "message": "The content is too large ($textLength$ characters) and may cause the page to become unresponsive. Auto mode has been disabled.",
     "placeholders": {
       "textLength": {
         "content": "$1"
       }
     }
+  },
+  "contentScriptWarningDesc2": {
+    "message": "Don't want to see this warning again? Go to Options page."
+  },
+  "btnRunOnce": {
+    "message": "Run Once"
+  },
+  "btnAlwaysRun": {
+    "message": "Always Run on This Site"
   }
 }

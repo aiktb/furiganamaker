@@ -46,14 +46,14 @@ export const BatchCreateKanjiFilterButton = () => {
           <DialogPanel className="w-full min-w-[20rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
             <DialogTitle
               as="h3"
-              className="font-medium text-gray-900 text-lg leading-6 dark:text-white"
+              className="font-semibold text-lg text-slate-900 leading-6 dark:text-white"
             >
               {t("quickCreateModalTitle")}
             </DialogTitle>
-            <p className="mt-2 text-gray-500 text-sm dark:text-gray-400">
+            <p className="mt-2 text-slate-500 text-sm dark:text-slate-400">
               {t("quickCreateModalDesc1")}
             </p>
-            <p className="mt-2 text-gray-500 text-sm dark:text-gray-400">
+            <p className="mt-2 text-slate-500 text-sm dark:text-slate-400">
               {t("quickCreateModalDesc2")}
             </p>
             <Textarea
@@ -67,7 +67,7 @@ export const BatchCreateKanjiFilterButton = () => {
             />
             <div className="mt-4 flex gap-2.5">
               <button
-                className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-sky-600 px-4 py-2 font-medium text-sm text-white shadow-xs transition hover:bg-sky-500 focus:outline-hidden focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 focus-visible:ring-2 focus-visible:ring-offset-2"
+                className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-sky-600 px-4 py-2 font-semibold text-sm text-white shadow-xs transition hover:bg-sky-500 focus:outline-hidden focus-visible:outline-2 focus-visible:outline-sky-600 focus-visible:outline-offset-2 focus-visible:ring-2 focus-visible:ring-offset-2"
                 onClick={() => {
                   batchCreateKanjiFilters();
                 }}
@@ -75,7 +75,7 @@ export const BatchCreateKanjiFilterButton = () => {
                 {t("btnConfirm")}
               </button>
               <button
-                className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-medium text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 font-semibold text-blue-900 text-sm transition hover:bg-blue-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
                 onClick={() => {
                   setQuickStartDialogIsOpen(false);
                   setQuickStartInput("");
