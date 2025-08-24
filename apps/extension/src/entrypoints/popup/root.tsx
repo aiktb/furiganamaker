@@ -68,6 +68,7 @@ export function Root() {
     | { type: typeof ExtEvent.AdjustFontColor; payload: string };
 
   const handleEventHappened = async (action: ACTIONTYPE) => {
+    // Query all tabs
     const tabs = await browser.tabs.query({});
     const ids = tabs.map((tab) => tab.id).filter(isNotNil);
     for (const id of ids) {
