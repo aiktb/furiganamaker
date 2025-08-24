@@ -19,13 +19,13 @@ export default defineContentScript({
   async main() {
     // styleHandler uses storage and is called immediately,
     // so it needs to be initialized immediately.
-    const styleEvents: StyleEvent[] = [
+    const styleEvents = [
       ExtEvent.SwitchDisplayMode,
       ExtEvent.SwitchSelectMode,
       ExtEvent.AdjustFontSize,
       ExtEvent.AdjustFontColor,
       ExtEvent.ToggleKanjiFilter,
-    ];
+    ] as const satisfies StyleEvent[];
     await Promise.all(styleEvents.map((item) => styleHandler(item)));
     const isStyleEvent = (event: ExtEvent): event is StyleEvent => styleEvents.includes(event);
     browser.runtime.onMessage.addListener((event: ExtEvent) => {
