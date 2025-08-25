@@ -12,6 +12,12 @@ export function Sidebar() {
   const navItems = [
     { to: "/", target: "_self", label: t("navSettings"), icon: "i-tabler-settings" },
     {
+      to: "/playground",
+      target: "_self",
+      label: t("navPlayground"),
+      icon: "i-tabler-rocket",
+    },
+    {
       to: "/kanji-filter",
       target: "_self",
       label: t("navKanjiFilter"),
