@@ -26,7 +26,7 @@ export const JapaneseTextarea = ({ onChange }: JapaneseTextareaProps) => {
   return (
     <div
       onClick={() => textareaRef.current?.focus()}
-      className="mt-3 flex w-full flex-col gap-2 rounded-lg border border-gray-200 px-4 py-3 text-slate-950 shadow-xs dark:border-slate-800 dark:text-white"
+      className="flex w-full flex-col gap-2 rounded-lg border border-gray-200 px-4 py-3 text-slate-950 shadow-xs dark:border-slate-800 dark:text-white"
     >
       <Textarea
         ref={textareaRef}
