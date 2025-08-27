@@ -39,7 +39,6 @@ export function ToolTip({ tip, children }: ToolTipProps) {
   const { getReferenceProps, getFloatingProps } = useInteractions([hover, role]);
   return (
     <>
-      {/** biome-ignore lint/a11y/noStaticElementInteractions: Cannot embed a button within a button */}
       <div
         ref={refs.setReference}
         onFocus={(event) => {
