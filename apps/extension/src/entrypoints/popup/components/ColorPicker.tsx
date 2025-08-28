@@ -64,6 +64,7 @@ interface ColorPickerPanelProps {
 function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) {
   const hsv = new TinyColor(color).toHsv();
   const [hue, setHue] = useState(hsv.h);
+  const [opacity, setOpacity] = useState(hsv.a * 100);
   const [saturationAndValue, setSaturationAndValue] = useState(
     color === "currentColor" ? { s: 1, v: 1 } : { s: hsv.s, v: hsv.v },
   );
@@ -86,7 +87,7 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
           onChange(newColor);
         }}
       />
-      <div className="flex gap-1">
+      <div>
         <HuePicker
           hue={hue}
           onChange={(h) => {
@@ -100,12 +101,15 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
             onChange(newColor);
           }}
         />
-        <div
-          className="playwright-selected-color-indicator size-4 rounded-xs"
-          style={{
-            boxShadow:
-              "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.25) 0px 0px 4px inset",
-            backgroundColor: color,
+      </div>
+      <div>
+        <OpacityPicker
+          opacity={opacity}
+          onChange={setOpacity}
+          hsv={{
+            h: hue,
+            s: saturationAndValue.s,
+            v: saturationAndValue.v,
           }}
         />
       </div>
@@ -264,17 +268,57 @@ function HuePicker({ hue, onChange }: HuePickerProps) {
   );
 }
 
+interface OpacityPickerProps {
+  opacity: number;
+  onChange: (opacity: number) => void;
+  hsv: { h: number; s: number; v: number };
+}
+
+function OpacityPicker({ opacity, hsv, onChange }: OpacityPickerProps) {
+  function handlePointerDown(event: React.PointerEvent<HTMLDivElement>) {
+    const bar = event.currentTarget;
+    const { width, left } = bar.getBoundingClientRect();
+    updateOpacity(event);
+    addPointerEventListener(bar, event.pointerId, updateOpacity);
+    function updateOpacity(event: React.PointerEvent | PointerEvent) {
+      const x = clamp(event.clientX - left, 0, width);
+      onChange(clamp(x / width, 0, 1));
+    }
+  }
+  return (
+    <div
+      onPointerDown={handlePointerDown}
+      style={{
+        backgroundImage: `linear-gradient(to right, transparent, ${new TinyColor(hsv).toHexString()})`,
+      }}
+      className={cn(
+        "relative h-4 flex-1 cursor-crosshair rounded-xs",
+        "after:-z-10 after:absolute after:top-0 after:left-0 after:h-full after:w-full after:rounded-[inherit] after:content-['']",
+        "bg-repeat after:bg-[url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAACRJREFUKFNjPHTo0H8GJGBnZ8eIzGekgwJk+0BsdCtRHEQbBQBbbh0dIGKknQAAAABJRU5ErkJggg==)]",
+      )}
+    >
+      <div
+        className={cn(
+          "-translate-x-1/2 -translate-y-1/2 absolute top-1/2 h-3.5 w-1 rounded-[1px] bg-white",
+        )}
+        style={{
+          boxShadow: "rgba(0, 0, 0, 0.6) 0px 0px 2px",
+          left: `${opacity * 100}%`,
+        }}
+      />
+    </div>
+  );
+}
+
 function ColorSwitcher({ onChange }: { onChange: (color: string) => void }) {
   // biome-ignore format: next-line
   const colors = [
     'black', 'white', 'violet', 'orange', 'gold',
     'sienna', 'lime', 'springgreen', 'forestgreen', 'fuchsia',
     'blueviolet', 'orangered', 'aquamarine', 'teal', 'royalblue',
-    'darkturquoise', 'silver', 'crimson', 'pink', 'lightskyblue',
-    'aqua', 'lightsalmon', 'paleturquoise', 'gray', 'tomato',
   ]
   return (
-    <div className="grid grid-cols-5 grid-rows-5 gap-2.5 dark:border-slate-700">
+    <div className="grid grid-cols-5 grid-rows-3 gap-2.5 dark:border-slate-700">
       {colors.map((color) => {
         const baseShadow = "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset";
         const focusShadow = `${baseShadow} ,${color} 0px 0px 6px`;
