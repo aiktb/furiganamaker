@@ -1,4 +1,4 @@
-import { isNotNil } from "es-toolkit";
+import { debounce, isNotNil } from "es-toolkit";
 import { useTranslation } from "react-i18next";
 import ColorPickerIcon from "@/assets/icons/ColorPicker.svg?react";
 import CursorOutlineIcon from "@/assets/icons/CursorDefault.svg?react";
@@ -74,6 +74,9 @@ export function Root() {
     await Promise.all(ids.map((id) => sendMessage(id, action.type)));
   };
 
+  // Debounce to prevent exceeding the maximum number of modifications to chrome.storage in a short period of time.
+  const handleEventHappenedWithDebounced = debounce(handleEventHappened, 100);
+
   return (
     <menu className="space-y-2 border-sky-500 border-r-2 pr-1 font-sans">
       <MenuItem icon={<CursorOutlineIcon />}>
@@ -92,7 +95,7 @@ export function Root() {
           checked={autoModeEnabled}
           onChange={(enabled) => {
             toggleAutoMode();
-            handleEventHappened({ type: ExtEvent.ToggleAutoMode, payload: enabled });
+            handleEventHappenedWithDebounced({ type: ExtEvent.ToggleAutoMode, payload: enabled });
           }}
         />
       </MenuItem>
@@ -104,7 +107,10 @@ export function Root() {
           checked={kanjiFilterEnabled}
           onChange={(enabled) => {
             toggleKanjiFilter();
-            handleEventHappened({ type: ExtEvent.ToggleKanjiFilter, payload: enabled });
+            handleEventHappenedWithDebounced({
+              type: ExtEvent.ToggleKanjiFilter,
+              payload: enabled,
+            });
           }}
         />
       </MenuItem>
@@ -115,7 +121,7 @@ export function Root() {
           options={displayModeOptions}
           onChange={(selected) => {
             setDisplayMode(selected as DisplayMode);
-            handleEventHappened({
+            handleEventHappenedWithDebounced({
               type: ExtEvent.SwitchDisplayMode,
               payload: selected as DisplayMode,
             });
@@ -129,7 +135,7 @@ export function Root() {
           options={furiganaTypeOptions}
           onChange={(selected) => {
             setFuriganaType(selected as FuriganaType);
-            handleEventHappened({
+            handleEventHappenedWithDebounced({
               type: ExtEvent.SwitchFuriganaType,
               payload: selected as FuriganaType,
             });
@@ -144,7 +150,7 @@ export function Root() {
           options={selectModeOptions}
           onChange={(selected) => {
             setSelectMode(selected as SelectMode);
-            handleEventHappened({
+            handleEventHappenedWithDebounced({
               type: ExtEvent.SwitchSelectMode,
               payload: selected as SelectMode,
             });
@@ -161,7 +167,7 @@ export function Root() {
           label={t("labelAdjustFont")}
           onChange={(value) => {
             setFontSize(value);
-            handleEventHappened({ type: ExtEvent.AdjustFontSize, payload: value });
+            handleEventHappenedWithDebounced({ type: ExtEvent.AdjustFontSize, payload: value });
           }}
         />
       </MenuItem>
@@ -171,7 +177,7 @@ export function Root() {
           color={fontColor}
           onChange={(color) => {
             setFontColor(color);
-            handleEventHappened({ type: ExtEvent.AdjustFontColor, payload: color });
+            handleEventHappenedWithDebounced({ type: ExtEvent.AdjustFontColor, payload: color });
           }}
         />
       </MenuItem>
