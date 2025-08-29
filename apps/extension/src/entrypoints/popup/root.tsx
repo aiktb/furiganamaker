@@ -1,4 +1,4 @@
-import { debounce, isNotNil } from "es-toolkit";
+import { isNotNil } from "es-toolkit";
 import { useTranslation } from "react-i18next";
 import ColorPickerIcon from "@/assets/icons/ColorPicker.svg?react";
 import CursorOutlineIcon from "@/assets/icons/CursorDefault.svg?react";
@@ -159,22 +159,20 @@ export function Root() {
           max={100}
           step={1}
           label={t("labelAdjustFont")}
-          onChange={debounce((value: number) => {
+          onChange={(value) => {
             setFontSize(value);
             handleEventHappened({ type: ExtEvent.AdjustFontSize, payload: value });
-            // Debounce to prevent exceeding the maximum number of modifications to chrome.storage in a short period of time.
-          }, 100)}
+          }}
         />
       </MenuItem>
       <MenuItem icon={<ColorPickerIcon />}>
         <ColorPicker
           className="playwright-adjust-font-color-picker"
           color={fontColor}
-          onChange={debounce((color: string) => {
+          onChange={(color) => {
             setFontColor(color);
             handleEventHappened({ type: ExtEvent.AdjustFontColor, payload: color });
-            // Debounce to prevent exceeding the maximum number of modifications to chrome.storage in a short period of time.
-          }, 100)}
+          }}
         />
       </MenuItem>
       <MenuItem icon={<SettingIcon />}>
