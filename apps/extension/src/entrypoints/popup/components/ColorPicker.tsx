@@ -141,7 +141,7 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
                   const hsv = new TinyColor(input).toHsv();
                   setHue(hsv.h);
                   setSaturationAndValue({ s: hsv.s, v: hsv.v });
-                  const colorStr = new TinyColor(input).toHexString();
+                  const colorStr = new TinyColor(input).toHex8String();
                   setInput(colorStr);
                   onChange(colorStr);
                 }
@@ -153,7 +153,7 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
             onClick={() => {
               setHue(0);
               setSaturationAndValue({ s: 1, v: 1 });
-              setInput("#000000");
+              setInput("#000000ff");
               onChange("currentColor");
             }}
           >
@@ -168,7 +168,7 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
           setSaturationAndValue(tinycolor.toHsv());
           setOpacity(tinycolor.getAlpha());
           setInput(tinycolor.toHex8String());
-          onChange(color);
+          onChange(tinycolor.toHex8String());
         }}
       />
       {children}

@@ -69,14 +69,14 @@ describe("Extension popup page", () => {
 
   test("Open color picker, and setting font color", async ({ page }) => {
     await page.getByRole("button", { name: "Select Color" }).click();
-    await page.getByRole("button", { name: "aqua", exact: true }).click();
-    expect((await getGeneralSettings(page))[ExtStorage.FontColor]).toBe("aqua");
+    await page.getByRole("button", { name: "#000000", exact: true }).click();
+    expect((await getGeneralSettings(page))[ExtStorage.FontColor]).toBe("#000000ff");
     await page.getByRole("button", { name: "Reset" }).click();
     expect((await getGeneralSettings(page))[ExtStorage.FontColor]).toBe("currentColor");
     const input = page.getByLabel("HEX");
     await input.fill("00ffff");
     await input.press("Enter");
-    expect((await getGeneralSettings(page))[ExtStorage.FontColor]).toBe("#00ffff");
+    expect((await getGeneralSettings(page))[ExtStorage.FontColor]).toBe("#00ffffff");
     const closeBtn = page.locator(".playwright-color-picker-close-btn");
     expect(closeBtn).toBeTruthy();
   });
