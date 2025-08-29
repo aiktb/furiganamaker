@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { toast } from "sonner";
 import type { FuriganaSegment } from "./JapaneseTextarea";
 
 interface TextWithFuriganaProps {
@@ -40,6 +41,7 @@ export const TextWithFurigana = ({ furiganaSegments }: TextWithFuriganaProps) =>
               )
               .join("");
             navigator.clipboard.writeText(text);
+            toast.info("Copied to Clipboard.");
           }}
           className="flex items-center justify-center rounded-full p-2.5 transition enabled:cursor-pointer enabled:hover:bg-slate-500/10 disabled:cursor-not-allowed disabled:opacity-50 enabled:hover:dark:bg-white/10"
         >

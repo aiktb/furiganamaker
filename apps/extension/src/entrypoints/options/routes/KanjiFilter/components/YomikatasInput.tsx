@@ -1,6 +1,7 @@
 import { Input } from "@headlessui/react";
 import { t } from "i18next";
 import { useRef, useState } from "react";
+import { toast } from "sonner";
 import { cn } from "@/commons/utils";
 
 interface YomikatasInputProps {
@@ -53,6 +54,7 @@ export function YomikatasInput({
                 e.preventDefault();
                 e.stopPropagation();
                 navigator.clipboard.writeText(katakana);
+                toast.info("Copied to Clipboard.");
               }}
             >
               {katakana}

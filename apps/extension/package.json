@@ -32,6 +32,7 @@
     "react-markdown": "^10.0.0",
     "react-router": "catalog:",
     "react-share": "^5.1.1",
+    "sonner": "^2.0.7",
     "tailwind-merge": "catalog:",
     "wanakana": "^5.3.1",
     "zod": "^4.0.0",
