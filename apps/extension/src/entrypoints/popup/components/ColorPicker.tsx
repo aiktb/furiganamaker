@@ -64,10 +64,11 @@ interface ColorPickerPanelProps {
 function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) {
   const hsv = new TinyColor(color).toHsv();
   const [hue, setHue] = useState(hsv.h);
+  const [opacity, setOpacity] = useState(hsv.a);
   const [saturationAndValue, setSaturationAndValue] = useState(
     color === "currentColor" ? { s: 1, v: 1 } : { s: hsv.s, v: hsv.v },
   );
-  const [input, setInput] = useState(new TinyColor(color).toHexString());
+  const [input, setInput] = useState(new TinyColor(color).toHex8String());
 
   const { t } = useTranslation();
 
@@ -81,12 +82,13 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
           const newColor = new TinyColor({
             h: hue,
             ...sv,
-          }).toHexString();
+            a: opacity,
+          }).toHex8String();
           setInput(newColor);
           onChange(newColor);
         }}
       />
-      <div className="flex gap-1">
+      <div>
         <HuePicker
           hue={hue}
           onChange={(h) => {
@@ -95,17 +97,31 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
               s: saturationAndValue.s,
               v: saturationAndValue.v,
               h,
-            }).toHexString();
+              a: opacity,
+            }).toHex8String();
             setInput(newColor);
             onChange(newColor);
           }}
         />
-        <div
-          className="playwright-selected-color-indicator size-4 rounded-xs"
-          style={{
-            boxShadow:
-              "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.25) 0px 0px 4px inset",
-            backgroundColor: color,
+      </div>
+      <div>
+        <OpacityPicker
+          opacity={opacity}
+          onChange={(opacity) => {
+            setOpacity(opacity);
+            const newColor = new TinyColor({
+              h: hue,
+              s: saturationAndValue.s,
+              v: saturationAndValue.v,
+              a: opacity,
+            }).toHex8String();
+            setInput(newColor);
+            onChange(newColor);
+          }}
+          hsv={{
+            h: hue,
+            s: saturationAndValue.s,
+            v: saturationAndValue.v,
           }}
         />
       </div>
@@ -125,7 +141,7 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
                   const hsv = new TinyColor(input).toHsv();
                   setHue(hsv.h);
                   setSaturationAndValue({ s: hsv.s, v: hsv.v });
-                  const colorStr = new TinyColor(input).toHexString();
+                  const colorStr = new TinyColor(input).toHex8String();
                   setInput(colorStr);
                   onChange(colorStr);
                 }
@@ -137,7 +153,7 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
             onClick={() => {
               setHue(0);
               setSaturationAndValue({ s: 1, v: 1 });
-              setInput("#000000");
+              setInput("#000000ff");
               onChange("currentColor");
             }}
           >
@@ -150,8 +166,9 @@ function ColorPickerPanel({ color, children, onChange }: ColorPickerPanelProps) 
           const tinycolor = new TinyColor(color);
           setHue(tinycolor.toHsv().h);
           setSaturationAndValue(tinycolor.toHsv());
-          setInput(tinycolor.toHexString());
-          onChange(color);
+          setOpacity(tinycolor.getAlpha());
+          setInput(tinycolor.toHex8String());
+          onChange(tinycolor.toHex8String());
         }}
       />
       {children}
@@ -247,7 +264,7 @@ function HuePicker({ hue, onChange }: HuePickerProps) {
   return (
     <div
       onPointerDown={handlePointerDown}
-      className="relative h-4 flex-1 cursor-crosshair rounded-xs"
+      className="relative h-4 flex-1 cursor-pointer rounded-xs"
       style={{
         background:
           "linear-gradient(to right, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%)",
@@ -264,17 +281,59 @@ function HuePicker({ hue, onChange }: HuePickerProps) {
   );
 }
 
+interface OpacityPickerProps {
+  opacity: number; // 0 to 1
+  onChange: (opacity: number) => void;
+  hsv: { h: number; s: number; v: number };
+}
+
+function OpacityPicker({ opacity, hsv, onChange }: OpacityPickerProps) {
+  function handlePointerDown(event: React.PointerEvent<HTMLDivElement>) {
+    const bar = event.currentTarget;
+    const { width, left } = bar.getBoundingClientRect();
+    updateOpacity(event);
+    addPointerEventListener(bar, event.pointerId, updateOpacity);
+    function updateOpacity(event: React.PointerEvent | PointerEvent) {
+      const x = clamp(event.clientX - left, 0, width);
+      onChange(clamp(x / width, 0, 1));
+    }
+  }
+  return (
+    <div
+      onPointerDown={handlePointerDown}
+      style={{
+        backgroundImage: `linear-gradient(to right, transparent, ${new TinyColor(hsv).toHexString()})`,
+      }}
+      className={cn(
+        "relative h-4 flex-1 cursor-pointer rounded-xs bg-transparent",
+        "after:-z-10 after:absolute after:top-0 after:left-0 after:h-full after:w-full after:rounded-[inherit] after:content-['']",
+        "bg-repeat after:bg-[url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAACRJREFUKFNjPHTo0H8GJGBnZ8eIzGekgwJk+0BsdCtRHEQbBQBbbh0dIGKknQAAAABJRU5ErkJggg==)]",
+      )}
+    >
+      <div
+        className={cn(
+          "-translate-x-1/2 -translate-y-1/2 absolute top-1/2 h-3.5 w-1 rounded-[1px] bg-white",
+        )}
+        style={{
+          boxShadow: "rgba(0, 0, 0, 0.6) 0px 0px 2px",
+          left: `${opacity * 100}%`,
+        }}
+      />
+    </div>
+  );
+}
+
 function ColorSwitcher({ onChange }: { onChange: (color: string) => void }) {
   // biome-ignore format: next-line
   const colors = [
-    'black', 'white', 'violet', 'orange', 'gold',
-    'sienna', 'lime', 'springgreen', 'forestgreen', 'fuchsia',
-    'blueviolet', 'orangered', 'aquamarine', 'teal', 'royalblue',
-    'darkturquoise', 'silver', 'crimson', 'pink', 'lightskyblue',
-    'aqua', 'lightsalmon', 'paleturquoise', 'gray', 'tomato',
+    '#4CAF50', '#FFEB3B', '#FF9800', '#00BCD4', "#212121",
+    '#2E7D32', '#F9A825', '#EF6C00', '#00838F', '#000000',
+    '#43A047', '#FDD835', '#FB8C00', '#0097A7', '#9E9E9E',
+    '#81C784', '#FFF176', '#FFB74D', '#4DD0E1', '#757575',
+    '#C8E6C9', '#FFF9C4', '#FFE0B2', '#B2EBF2', '#FAFAFA',
   ]
   return (
-    <div className="grid grid-cols-5 grid-rows-5 gap-2.5 dark:border-slate-700">
+    <div className="grid grid-cols-5 grid-rows-5 gap-x-1.5 gap-y-1 dark:border-slate-700">
       {colors.map((color) => {
         const baseShadow = "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset";
         const focusShadow = `${baseShadow} ,${color} 0px 0px 6px`;
