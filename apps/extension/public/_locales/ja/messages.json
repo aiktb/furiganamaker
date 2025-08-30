@@ -14,8 +14,11 @@
   "shortcutToggleKanjiFilter": {
     "message": "すべてのページで漢字フィルターを切り替え"
   },
-  "shortcutToggleFuriganaDisplay": {
-    "message": "すべてのページで振り仮名表示モードを切り替え"
+  "shortcutOpenPlayground": {
+    "message": "お試し場ページを開く"
+  },
+  "shortcutOpenOptions": {
+    "message": "オプションページを開く"
   },
   "extTitleActivated": {
     "message": "自動モードは有効です"

@@ -4,26 +4,47 @@ import { useTranslation } from "react-i18next";
 import { Link, type LinkProps, NavLink } from "react-router";
 import { cn } from "@/commons/utils";
 
-type CustomLink = LinkProps & { label: string; icon: string };
+type CustomLink = LinkProps & { label: string; icon: string; fillIcon?: string };
 
 export function Sidebar() {
   const { t } = useTranslation();
 
   const navItems = [
-    { to: "/", target: "_self", label: t("navSettings"), icon: "i-tabler-settings" },
+    {
+      to: "/",
+      target: "_self",
+      label: t("navSettings"),
+      icon: "i-tabler-settings",
+      fillIcon: "i-tabler-settings-filled",
+    },
+    {
+      to: "/playground",
+      target: "_self",
+      label: t("navPlayground"),
+      icon: "i-tabler-ballpen",
+      fillIcon: "i-tabler-ballpen-filled",
+    },
     {
       to: "/kanji-filter",
       target: "_self",
       label: t("navKanjiFilter"),
       icon: "i-tabler-filter",
+      fillIcon: "i-tabler-filter-filled",
     },
     {
       to: "/selector",
       target: "_self",
       label: t("navSelector"),
-      icon: "i-tabler-click",
+      icon: "i-tabler-pointer",
+      fillIcon: "i-tabler-pointer-filled",
     },
-    { to: "/changelog", target: "_self", label: t("navChangelog"), icon: "i-tabler-history" },
+    {
+      to: "/changelog",
+      target: "_self",
+      label: t("navChangelog"),
+      icon: "i-tabler-clock-hour-4",
+      fillIcon: "i-tabler-clock-hour-4-filled",
+    },
     import.meta.env.DEV && {
       to: browser.runtime.getURL("/popup.html"),
       target: "_blank",
@@ -98,7 +119,7 @@ export function Sidebar() {
                           <i
                             className={cn(
                               "size-6 group-hover:text-black group-hover:dark:text-white",
-                              item.icon,
+                              isActive ? item.fillIcon : item.icon,
                               isActive
                                 ? "text-black dark:text-white"
                                 : "text-slate-600 dark:text-slate-300",

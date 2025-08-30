@@ -64,7 +64,6 @@
   "settingsExclusionListDesc": "此設定優先於自訂規則（透過規則編輯器編輯）。",
   "srToggleTheme": "切換主題模式",
   "submit": "提交",
-  "tipBuyMeACoffee": "請我喝杯咖啡☕",
   "tipCopyText": "嘗試複製日文文字",
   "tipEscShortcut": "按 ESC 取消",
   "settingsLanguage": "介面語言",
@@ -74,7 +73,6 @@
   "srToggleSidebar": "切換側邊欄顯示/隱藏",
   "tipFilterLevel": "預設等級為N4和N5",
   "tipOpenIssue": "在 GitHub 上開啟問題",
-  "tipOpenOptions": "開啟選項頁面",
   "tipRefreshPage": "請重新整理網頁",
   "tipShareOn": "在 {{media}} 上分享",
   "titleEditor": "使用者規則編輯器",
@@ -127,5 +125,12 @@
   "importFailedCauseByDuplicatedDomains": "重複的域名：{{domains}}。",
   "clearDomainDialogTitle": "確定要清除所有網域嗎？",
   "settingsAlwaysRunList": "以下網站將永遠在自動模式下執行",
-  "settingsAlwaysRunListDesc": "這些網站不會顯示「頁面過大」的警告。此設定的優先級低於「永不加入」清單。"
+  "settingsAlwaysRunListDesc": "這些網站不會顯示「頁面過大」的警告。此設定的優先級低於「永不加入」清單。",
+  "navPlayground": "試驗場",
+  "tipCopy": "複製到剪貼簿",
+  "msgCopied": "已複製到剪貼簿。",
+  "tipClearText": "清除文本",
+  "tipPleaseEnter": "請先輸入。",
+  "placeholderTypeFurigana": "輸入文字生成假名",
+  "msgCopyFailed": "複製失敗。"
 }

@@ -7,7 +7,6 @@ import EyeIcon from "@/assets/icons/Eye.svg?react";
 import FilterIcon from "@/assets/icons/Filter.svg?react";
 import FontSizeIcon from "@/assets/icons/FontSize.svg?react";
 import GithubIcon from "@/assets/icons/Github.svg?react";
-import HeartIcon from "@/assets/icons/Heart.svg?react";
 import HiraganaIcon from "@/assets/icons/Hiragana.svg?react";
 import PowerIcon from "@/assets/icons/Power.svg?react";
 import SettingIcon from "@/assets/icons/Setting.svg?react";
@@ -181,21 +180,20 @@ export function Root() {
           }}
         />
       </MenuItem>
+      <MenuItem icon={<i className="i-tabler-ballpen" />}>
+        <Link
+          href={browser.runtime.getURL("/options.html#/playground")}
+          text={t("navPlayground")}
+        />
+      </MenuItem>
       <MenuItem icon={<SettingIcon />}>
-        <Link tip={t("tipOpenOptions")} href="options.html" text={t("linkSettings")} />
+        <Link href={browser.runtime.getURL("/options.html")} text={t("linkSettings")} />
       </MenuItem>
       <MenuItem icon={<GithubIcon />}>
         <Link
           tip={t("tipOpenIssue")}
           href="https://github.com/aiktb/furiganamaker/issues"
           text={t("linkFeedback")}
-        />
-      </MenuItem>
-      <MenuItem icon={<HeartIcon />}>
-        <Link
-          tip={t("tipBuyMeACoffee")}
-          href="https://www.buymeacoffee.com/aiktb"
-          text={t("linkSponsor")}
         />
       </MenuItem>
       <MenuItem icon={<ShareIcon />}>
@@ -218,7 +216,7 @@ interface MenuItemProps {
 function MenuItem({ children, icon }: MenuItemProps) {
   return (
     <li className="flex items-center gap-x-1">
-      <div className="text-2xl">{icon}</div>
+      <div className="flex items-center justify-center text-2xl">{icon}</div>
       {children}
     </li>
   );

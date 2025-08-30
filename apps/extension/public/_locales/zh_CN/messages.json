@@ -14,8 +14,11 @@
   "shortcutToggleKanjiFilter": {
     "message": "切换所有页面的汉字过滤器开关"
   },
-  "shortcutToggleFuriganaDisplay": {
-    "message": "切换所有页面的注音假名显示模式"
+  "shortcutOpenPlayground": {
+    "message": "打开试验场页面"
+  },
+  "shortcutOpenOptions": {
+    "message": "打开选项页面"
   },
   "extTitleActivated": {
     "message": "自动模式已启用"

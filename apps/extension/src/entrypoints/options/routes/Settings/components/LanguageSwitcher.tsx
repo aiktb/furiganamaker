@@ -23,7 +23,7 @@ export function LanguageSwitcher({ language, onChange }: LanguageSwitcherProps) 
       <ListboxOptions
         anchor="bottom"
         transition
-        className="bg-white transition duration-100 ease-in [--anchor-gap:4px] focus:outline-hidden data-[leave]:data-[closed]:opacity-0 dark:bg-slate-900"
+        className="rounded-xl bg-white transition duration-100 ease-in [--anchor-gap:4px] focus:outline-hidden data-[leave]:data-[closed]:opacity-0 dark:bg-slate-900"
       >
         <div className="w-[var(--button-width)] rounded-xl border border-black/5 bg-black/5 p-1 dark:border-white/5 dark:bg-white/5">
           {Object.keys(i18n.options.resources!).map((language) => (

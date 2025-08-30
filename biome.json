@@ -32,7 +32,9 @@
       "recommended": true,
 
       "a11y": {
-        "useButtonType": "off"
+        "useButtonType": "off",
+        "noStaticElementInteractions": "off",
+        "useKeyWithClickEvents": "off"
       },
       "complexity": {
         "noExcessiveCognitiveComplexity": "error",

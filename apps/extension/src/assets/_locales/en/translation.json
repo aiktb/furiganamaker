@@ -25,9 +25,7 @@
   "linkSettings": "More settings",
   "linkFeedback": "Feedback",
   "linkSponsor": "Sponsor",
-  "tipOpenOptions": "Open the options page",
   "tipOpenIssue": "Open an issue on GitHub",
-  "tipBuyMeACoffee": "Buy me a coffee☕",
   "tipShareOn": "Share on {{media}}",
   "titleEditor": "User Rules Editor",
   "btnAddRule": "Add New Rule",
@@ -126,5 +124,12 @@
   "importFailedCauseByDuplicatedDomains": "Duplicated domains: {{domains}}.",
   "clearDomainDialogTitle": "Are you sure you want to clear all domains?",
   "settingsAlwaysRunList": "The following sites always run in Auto Mode",
-  "settingsAlwaysRunListDesc": "These sites will not display the \"Page is too large\" warning. This setting has lower priority than the \"never add\" list."
+  "settingsAlwaysRunListDesc": "These sites will not display the \"Page is too large\" warning. This setting has lower priority than the \"never add\" list.",
+  "navPlayground": "Playground",
+  "tipCopy": "Copy to clipboard",
+  "msgCopied": "Copied to clipboard.",
+  "tipClearText": "Clear text",
+  "tipPleaseEnter": "Please enter first.",
+  "placeholderTypeFurigana": "Type to furiganaify.",
+  "msgCopyFailed": "Copy failed."
 }

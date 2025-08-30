@@ -1,6 +1,7 @@
 import { Input } from "@headlessui/react";
 import { t } from "i18next";
 import { useRef, useState } from "react";
+import { toast } from "sonner";
 import { cn } from "@/commons/utils";
 
 interface YomikatasInputProps {
@@ -28,8 +29,6 @@ export function YomikatasInput({
 
   const inputRef = useRef<HTMLInputElement>(null);
   return (
-    // biome-ignore lint/a11y/useKeyWithClickEvents: Even without keyboard events support, full accessibility is provided.
-    // biome-ignore lint/a11y/noStaticElementInteractions: Same reason as above.
     <div
       className={cn(
         "flex w-full cursor-text flex-wrap gap-1.5 rounded-md border-0 px-1 py-1.5 shadow-xs ring-1 ring-gray-300 ring-inset focus:ring-2 focus:ring-sky-600 focus:ring-inset disabled:cursor-not-allowed sm:text-sm sm:leading-6 dark:bg-slate-900 dark:ring-gray-700 dark:focus:ring-sky-600",
@@ -54,7 +53,14 @@ export function YomikatasInput({
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                navigator.clipboard.writeText(katakana);
+                navigator.clipboard
+                  .writeText(katakana)
+                  .then(() => {
+                    toast.info(t("msgCopied"));
+                  })
+                  .catch(() => {
+                    toast.error(t("msgCopyFailed"));
+                  });
               }}
             >
               {katakana}

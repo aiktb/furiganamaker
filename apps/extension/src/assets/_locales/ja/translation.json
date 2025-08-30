@@ -25,9 +25,7 @@
   "linkSettings": "その他の設定",
   "linkFeedback": "フィードバック",
   "linkSponsor": "開発者を支援",
-  "tipOpenOptions": "拡張機能オプションを開く",
   "tipOpenIssue": "GitHubで問題を報告",
-  "tipBuyMeACoffee": "コーヒーをおごってください☕",
   "tipShareOn": "{{media}} でシェア",
   "titleEditor": "ユーザールールエディター",
   "btnAddRule": "新しいルールを追加",
@@ -127,5 +125,12 @@
   "importFailedCauseByDuplicatedDomains": "重複したドメイン：{{domains}}。",
   "clearDomainDialogTitle": "すべてのドメインを削除してもよろしいですか？",
   "settingsAlwaysRunList": "以下のサイトは常に自動モードで実行されます",
-  "settingsAlwaysRunListDesc": "これらのサイトでは「ページが大きすぎます」という警告は表示されません。この設定は「追加しない」リストよりも優先度が低くなります。"
+  "settingsAlwaysRunListDesc": "これらのサイトでは「ページが大きすぎます」という警告は表示されません。この設定は「追加しない」リストよりも優先度が低くなります。",
+  "navPlayground": "お試し場",
+  "tipCopy": "クリップボードにコピー",
+  "msgCopied": "クリップボードにコピーしました。",
+  "tipClearText": "テキストをクリア",
+  "tipPleaseEnter": "最初に入力してください。",
+  "placeholderTypeFurigana": "文字を入力してふりがな化",
+  "msgCopyFailed": "コピーに失敗しました。"
 }

@@ -25,9 +25,7 @@
   "linkSettings": "更多设置",
   "linkFeedback": "用户反馈",
   "linkSponsor": "赞助开发者",
-  "tipOpenOptions": "打开插件选项页面",
   "tipOpenIssue": "在 GitHub 上提交问题",
-  "tipBuyMeACoffee": "请我喝杯咖啡☕",
   "tipShareOn": "分享到 {{media}}",
   "titleEditor": "用户规则编辑器",
   "btnAddRule": "添加新规则",
@@ -127,5 +125,12 @@
   "importFailedCauseByDuplicatedDomains": "重复的域名：{{domains}}。",
   "clearDomainDialogTitle": "确定要清除所有域名吗？",
   "settingsAlwaysRunList": "以下网站将始终在自动模式下运行",
-  "settingsAlwaysRunListDesc": "这些网站不会显示“页面过大”的警告。此设置的优先级低于“从不添加”列表。"
+  "settingsAlwaysRunListDesc": "这些网站不会显示“页面过大”的警告。此设置的优先级低于“从不添加”列表。",
+  "navPlayground": "试验场",
+  "tipCopy": "复制到剪贴板",
+  "msgCopied": "已复制到剪贴板。",
+  "tipClearText": "清除文本",
+  "tipPleaseEnter": "请先输入。",
+  "placeholderTypeFurigana": "输入文字生成假名",
+  "msgCopyFailed": "复制失败。"
 }
