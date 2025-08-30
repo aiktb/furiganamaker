@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.3.0 (2025-08-30)
+
+
+### Features
+
+* Allows to modify the opacity of furigana font color.
+* Allows users to enter text and furiganaify it.
+
 ## 3.2.0 (2025-08-24)
 
 
