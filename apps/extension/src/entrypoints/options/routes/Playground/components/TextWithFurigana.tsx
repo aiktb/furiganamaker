@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import type { FuriganaSegment } from "./JapaneseTextarea";
 
@@ -7,6 +8,8 @@ interface TextWithFuriganaProps {
 }
 
 export const TextWithFurigana = ({ furiganaSegments }: TextWithFuriganaProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex w-full flex-col gap-2 rounded-lg border-none bg-slate-950/5 px-6 py-4 text-slate-950 ring-0 dark:bg-white/5 dark:text-white">
       <div className="flex-1">
@@ -41,12 +44,12 @@ export const TextWithFurigana = ({ furiganaSegments }: TextWithFuriganaProps) =>
               )
               .join("");
             navigator.clipboard.writeText(text);
-            toast.info("Copied to Clipboard.");
+            toast.info(t("msgCopied"));
           }}
           className="flex items-center justify-center rounded-full p-2 transition enabled:cursor-pointer enabled:hover:bg-slate-500/10 disabled:cursor-not-allowed disabled:opacity-50 enabled:hover:dark:bg-white/10"
         >
           <i className="i-tabler-copy-plus-filled size-5" />
-          <span className="sr-only">Copy to clipboard</span>
+          <span className="sr-only">{t("tipCopy")}</span>
         </button>
       </div>
     </div>

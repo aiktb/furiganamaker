@@ -126,5 +126,8 @@
   "clearDomainDialogTitle": "すべてのドメインを削除してもよろしいですか？",
   "settingsAlwaysRunList": "以下のサイトは常に自動モードで実行されます",
   "settingsAlwaysRunListDesc": "これらのサイトでは「ページが大きすぎます」という警告は表示されません。この設定は「追加しない」リストよりも優先度が低くなります。",
-  "navPlayground": "お試し場"
+  "navPlayground": "お試し場",
+  "tipCopy": "クリップボードにコピー",
+  "msgCopied": "クリップボードにコピーしました。",
+  "tipClearText": "テキストをクリア"
 }

@@ -28,6 +28,7 @@ export const JapaneseTextarea = ({ onSegmentsChange, furiganaType }: JapaneseTex
   const MAX_LENGTH = 5000;
   const { i18n } = useTranslation();
   const numberFormatter = new Intl.NumberFormat(i18n.language);
+  const { t } = useTranslation();
 
   return (
     <div
@@ -54,7 +55,7 @@ export const JapaneseTextarea = ({ onSegmentsChange, furiganaType }: JapaneseTex
           className="flex items-center justify-center rounded-full p-2 transition enabled:cursor-pointer enabled:hover:bg-slate-500/10 disabled:cursor-not-allowed disabled:opacity-50 enabled:hover:dark:bg-white/10"
         >
           <i className="i-tabler-square-rounded-x-filled size-5" />
-          <span className="sr-only">Clear text</span>
+          <span className="sr-only">{t("tipClearText")}</span>
         </button>
       </div>
     </div>

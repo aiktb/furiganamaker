@@ -126,5 +126,8 @@
   "clearDomainDialogTitle": "確定要清除所有網域嗎？",
   "settingsAlwaysRunList": "以下網站將永遠在自動模式下執行",
   "settingsAlwaysRunListDesc": "這些網站不會顯示「頁面過大」的警告。此設定的優先級低於「永不加入」清單。",
-  "navPlayground": "試驗場"
+  "navPlayground": "試驗場",
+  "tipCopy": "複製到剪貼簿",
+  "msgCopied": "已複製到剪貼簿。",
+  "tipClearText": "清除文本"
 }
