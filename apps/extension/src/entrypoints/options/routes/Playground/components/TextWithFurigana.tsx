@@ -29,7 +29,7 @@ export const TextWithFurigana = ({ furiganaSegments }: TextWithFuriganaProps) =>
             ))}
           </div>
         ) : (
-          <span className="text-slate-700 dark:text-slate-300">Please enter first.</span>
+          <span className="text-slate-700 dark:text-slate-300">{t("tipPleaseEnter")}</span>
         )}
       </div>
       <div className="flex justify-end">

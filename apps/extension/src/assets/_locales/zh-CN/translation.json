@@ -129,5 +129,7 @@
   "navPlayground": "试验场",
   "tipCopy": "复制到剪贴板",
   "msgCopied": "已复制到剪贴板。",
-  "tipClearText": "清除文本"
+  "tipClearText": "清除文本",
+  "tipPleaseEnter": "请先输入。",
+  "placeholderTypeFurigana": "输入文字生成假名"
 }

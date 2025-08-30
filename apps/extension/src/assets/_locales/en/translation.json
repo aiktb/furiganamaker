@@ -128,5 +128,7 @@
   "navPlayground": "Playground",
   "tipCopy": "Copy to clipboard",
   "msgCopied": "Copied to clipboard.",
-  "tipClearText": "Clear text"
+  "tipClearText": "Clear text",
+  "tipPleaseEnter": "Please enter first.",
+  "placeholderTypeFurigana": "Type to furiganaify."
 }

@@ -129,5 +129,7 @@
   "navPlayground": "お試し場",
   "tipCopy": "クリップボードにコピー",
   "msgCopied": "クリップボードにコピーしました。",
-  "tipClearText": "テキストをクリア"
+  "tipClearText": "テキストをクリア",
+  "tipPleaseEnter": "最初に入力してください。",
+  "placeholderTypeFurigana": "文字を入力してふりがな化"
 }
