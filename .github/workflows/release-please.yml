@@ -50,7 +50,7 @@ jobs:
             ## Download
             - [Chrome](https://chromewebstore.google.com/detail/furigana-maker/heodojceeinbkfjfilnfminlkgbacpfp)
         run: |
-         gh release upload ${{ needs.release-please.outputs.tag_name }} ./apps/extension/.output/*.zip
+         gh release upload ${{ needs.release-please.outputs.tag_name }} ./.output/*-chrome.zip
          gh release edit ${{ needs.release-please.outputs.tag_name }} --notes "$RELEASE_NOTES"
 
       - name: Submit to stores
