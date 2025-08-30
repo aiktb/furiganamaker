@@ -32,11 +32,12 @@ Special thanks to **_[WXT](https://wxt.dev/)_** for taking the frustration out o
 
 ## Features
 
-- Automatically adds furigana to Japanese text on a page, manually if necessary.
-- N5 & N4 kanji filter prepared for JLPT learners, these kanji will not be added furigana.
-- The font size and color of furigana can be freely modified, and toggle the display of furigana.
-- Optional support for hover mode, only showing furigana when mouseover kanji.
-
+- **Automatic Furigana on Popular Sites:** Works on sites like Twitter, Asahi, Wikipedia, and more.
+- **Customizable Rules:** Use CSS selectors and domain settings to control where furigana appears.
+- **Manual Selection:** Highlight any text on a page to add furigana instantly.
+- **JLPT Kanji Filtering:** Pre-set N5/N4 kanji filters, fully customizable for learners.
+- **Appearance Control:** Adjust furigana font size, color, and visibility; optional hover mode.
+- **Interactive Playground:** Type or paste Japanese text to see furigana generated in real time. Experiment with settings and preview results instantly.
 ## Preview
 
 ![Preview](./.github/social-preview.png)
