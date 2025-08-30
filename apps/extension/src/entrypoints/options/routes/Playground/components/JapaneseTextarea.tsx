@@ -45,7 +45,7 @@ export const JapaneseTextarea = ({ onSegmentsChange, furiganaType }: JapaneseTex
         placeholder={t("placeholderTypeFurigana")}
       />
       <div className="flex items-center justify-end gap-2">
-        <div className="text-slate-800 text-xs dark:text-slate-200">{`${numberFormatter.format(textareaRef.current?.value.length ?? 0)} / ${numberFormatter.format(MAX_LENGTH)}`}</div>
+        <div className="text-slate-800 text-xs dark:text-slate-200">{`${numberFormatter.format(userInput.length)} / ${numberFormatter.format(MAX_LENGTH)}`}</div>
         <button
           disabled={userInput.length === 0}
           onClick={() => {
