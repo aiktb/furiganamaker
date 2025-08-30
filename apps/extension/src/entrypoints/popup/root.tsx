@@ -180,7 +180,7 @@ export function Root() {
           }}
         />
       </MenuItem>
-      <MenuItem icon={<i className="i-tabler-rocket" />}>
+      <MenuItem icon={<i className="i-tabler-ballpen" />}>
         <Link
           href={browser.runtime.getURL("/options.html#/playground")}
           text={t("navPlayground")}
