@@ -1,5 +1,5 @@
 import type { Command } from "@@/wxt.config";
-import { DisplayMode, ExtEvent, ExtStorage } from "@/commons/constants";
+import { ExtEvent, ExtStorage } from "@/commons/constants";
 import { getGeneralSettings, sendMessage, setGeneralSettings } from "@/commons/utils";
 
 export const registerOnCommand = () => {
@@ -23,15 +23,12 @@ export const registerOnCommand = () => {
         await sendMessage(tabId, ExtEvent.ToggleKanjiFilter);
         break;
       }
-      case "toggleFuriganaDisplay": {
-        const displayMode = await getGeneralSettings(ExtStorage.DisplayMode);
-        if (displayMode === DisplayMode.Always) {
-          await setGeneralSettings(ExtStorage.DisplayMode, DisplayMode.Never);
-          await sendMessage(tabId, ExtEvent.SwitchDisplayMode);
-        } else {
-          await setGeneralSettings(ExtStorage.DisplayMode, DisplayMode.Always);
-          await sendMessage(tabId, ExtEvent.SwitchDisplayMode);
-        }
+      case "openPlaygroundPage": {
+        browser.tabs.create({ url: browser.runtime.getURL("/options.html#/playground") });
+        break;
+      }
+      case "openOptionsPage": {
+        browser.runtime.openOptionsPage();
         break;
       }
     }

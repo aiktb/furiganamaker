@@ -14,8 +14,11 @@
   "shortcutToggleKanjiFilter": {
     "message": "Toggle kanji filter on all pages"
   },
-  "shortcutToggleFuriganaDisplay": {
-    "message": "Toggle furigana display mode on all pages"
+  "shortcutOpenPlayground": {
+    "message": "Open the playground page"
+  },
+  "shortcutOpenOptions": {
+    "message": "Open the options page"
   },
   "extTitleActivated": {
     "message": "Auto mode is activated"

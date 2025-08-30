@@ -184,11 +184,7 @@ export function Root() {
         <Link href={browser.runtime.getURL("/options.html#/playground")} text={"Playground"} />
       </MenuItem>
       <MenuItem icon={<SettingIcon />}>
-        <Link
-          tip={t("tipOpenOptions")}
-          href={browser.runtime.getURL("/options.html")}
-          text={t("linkSettings")}
-        />
+        <Link href={browser.runtime.getURL("/options.html")} text={t("linkSettings")} />
       </MenuItem>
       <MenuItem icon={<GithubIcon />}>
         <Link
