@@ -84,7 +84,7 @@ pnpm run test:e2e:dev
 ### Lint
 
 ```bash
-pnpm run lint:fix
+pnpm -w run lint:fix
 ```
 
 You may see a message saying "These CSS classes should be sorted", please ignore it.

@@ -8,8 +8,5 @@
   },
   "i18n-ally.localesPaths": ["apps/extension/src/assets/_locales"],
   "i18n-ally.keystyle": "flat",
-  "i18n-ally.enabledFrameworks": ["react-i18next"],
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  }
+  "i18n-ally.enabledFrameworks": ["react-i18next"]
 }
