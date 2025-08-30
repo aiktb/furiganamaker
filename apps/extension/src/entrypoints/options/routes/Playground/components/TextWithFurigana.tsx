@@ -47,7 +47,6 @@ export const TextWithFurigana = ({ furiganaSegments }: TextWithFuriganaProps) =>
               .writeText(text)
               .then(() => toast.info(t("msgCopied")))
               .catch(() => toast.error(t("msgCopyFailed")));
-            toast.info(t("msgCopied"));
           }}
           className="flex items-center justify-center rounded-full p-2 transition enabled:cursor-pointer enabled:hover:bg-slate-500/10 disabled:cursor-not-allowed disabled:opacity-50 enabled:hover:dark:bg-white/10"
         >
