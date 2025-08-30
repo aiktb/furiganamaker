@@ -1,4 +1,5 @@
 import { Textarea } from "@headlessui/react";
+import { debounce } from "es-toolkit";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toHiragana, toRomaji } from "wanakana";
@@ -14,16 +15,18 @@ type JapaneseTextareaProps = {
 export const JapaneseTextarea = ({ onSegmentsChange, furiganaType }: JapaneseTextareaProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [userInput, setUserInput] = useState("");
-  const handleTextareaChange = async (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const getKanjiMarksAndResponse = debounce(async (text: string) => {
+    const { tokens } = await sendMessage("getKanjiMarks", { text });
+    const segments = getFuriganaSegments(tokens, text, furiganaType);
+    onSegmentsChange(segments);
+  }, 100);
+  const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const el = e.target;
     setUserInput(el.value);
     // If auto is not set, the container will not be able to shrink
     el.style.height = "auto";
     el.style.height = `${el.scrollHeight}px`;
-    const text = e.target.value;
-    const { tokens } = await sendMessage("getKanjiMarks", { text });
-    const segments = getFuriganaSegments(tokens, text, furiganaType);
-    onSegmentsChange(segments);
+    getKanjiMarksAndResponse(el.value);
   };
   const MAX_LENGTH = 5000;
   const { i18n } = useTranslation();
