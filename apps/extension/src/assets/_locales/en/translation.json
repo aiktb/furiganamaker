@@ -130,5 +130,6 @@
   "msgCopied": "Copied to clipboard.",
   "tipClearText": "Clear text",
   "tipPleaseEnter": "Please enter first.",
-  "placeholderTypeFurigana": "Type to furiganaify."
+  "placeholderTypeFurigana": "Type to furiganaify.",
+  "msgCopyFailed": "Copy failed."
 }

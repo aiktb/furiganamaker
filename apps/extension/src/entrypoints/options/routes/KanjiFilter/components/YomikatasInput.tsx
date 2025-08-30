@@ -53,8 +53,14 @@ export function YomikatasInput({
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                navigator.clipboard.writeText(katakana);
-                toast.info(t('msgCopied'));
+                navigator.clipboard
+                  .writeText(katakana)
+                  .then(() => {
+                    toast.info(t("msgCopied"));
+                  })
+                  .catch(() => {
+                    toast.error(t("msgCopyFailed"));
+                  });
               }}
             >
               {katakana}
