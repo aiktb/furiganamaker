@@ -54,7 +54,7 @@ export function YomikatasInput({
                 e.preventDefault();
                 e.stopPropagation();
                 navigator.clipboard.writeText(katakana);
-                toast.info("Copied to Clipboard.");
+                toast.info(t('msgCopied'));
               }}
             >
               {katakana}
