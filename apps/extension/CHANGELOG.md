@@ -1,12 +1,12 @@
 # Changelog
 
-## [3.3.0](https://github.com/aiktb/furiganamaker/compare/v3.2.0...v3.3.0) (2025-08-30)
+## 3.3.0 (2025-08-30)
 
 
 ### Features
 
-* allows to modify the opacity of furigana font color ([#405](https://github.com/aiktb/furiganamaker/issues/405)) ([da59997](https://github.com/aiktb/furiganamaker/commit/da59997fc271ba44b567ab299b2333e768746722))
-* allows users to enter text and furiganaify it ([#401](https://github.com/aiktb/furiganamaker/issues/401)) ([4a19866](https://github.com/aiktb/furiganamaker/commit/4a198666cfb3ed711ecb8db0361907e7efb17067))
+* Allows to modify the opacity of furigana font color.
+* Allows users to enter text and furiganaify it.
 
 ## 3.2.0 (2025-08-24)
 
