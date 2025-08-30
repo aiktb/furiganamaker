@@ -181,7 +181,10 @@ export function Root() {
         />
       </MenuItem>
       <MenuItem icon={<i className="i-tabler-rocket" />}>
-        <Link href={browser.runtime.getURL("/options.html#/playground")} text={"Playground"} />
+        <Link
+          href={browser.runtime.getURL("/options.html#/playground")}
+          text={t("navPlayground")}
+        />
       </MenuItem>
       <MenuItem icon={<SettingIcon />}>
         <Link href={browser.runtime.getURL("/options.html")} text={t("linkSettings")} />
