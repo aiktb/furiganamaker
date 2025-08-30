@@ -27,7 +27,8 @@ describe("Extension background script", () => {
       "addFurigana",
       "toggleAutoMode",
       "toggleKanjiFilter",
-      "toggleFuriganaDisplay",
+      "openOptionsPage",
+      "openPlaygroundPage",
     ];
     for (const shortcut of expectedShortcuts) {
       expect(shortcutNames).toContain(shortcut);
