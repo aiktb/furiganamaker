@@ -43,9 +43,9 @@ export const TextWithFurigana = ({ furiganaSegments }: TextWithFuriganaProps) =>
             navigator.clipboard.writeText(text);
             toast.info("Copied to Clipboard.");
           }}
-          className="flex items-center justify-center rounded-full p-2.5 transition enabled:cursor-pointer enabled:hover:bg-slate-500/10 disabled:cursor-not-allowed disabled:opacity-50 enabled:hover:dark:bg-white/10"
+          className="flex items-center justify-center rounded-full p-2 transition enabled:cursor-pointer enabled:hover:bg-slate-500/10 disabled:cursor-not-allowed disabled:opacity-50 enabled:hover:dark:bg-white/10"
         >
-          <i className="i-tabler-copy size-6" />
+          <i className="i-tabler-copy-plus-filled size-5" />
           <span className="sr-only">Copy to clipboard</span>
         </button>
       </div>

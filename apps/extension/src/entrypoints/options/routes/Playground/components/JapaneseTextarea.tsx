@@ -1,5 +1,5 @@
 import { Textarea } from "@headlessui/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toHiragana, toRomaji } from "wanakana";
 import type { FuriganaType } from "@/commons/constants";
@@ -13,8 +13,10 @@ type JapaneseTextareaProps = {
 
 export const JapaneseTextarea = ({ onSegmentsChange, furiganaType }: JapaneseTextareaProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const [userInput, setUserInput] = useState("");
   const handleTextareaChange = async (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const el = e.target;
+    setUserInput(el.value);
     // If auto is not set, the container will not be able to shrink
     el.style.height = "auto";
     el.style.height = `${el.scrollHeight}px`;
@@ -34,14 +36,27 @@ export const JapaneseTextarea = ({ onSegmentsChange, furiganaType }: JapaneseTex
     >
       <Textarea
         ref={textareaRef}
-        defaultValue="ずっと真夜中でいいのに。"
-        className="block min-h-40 w-full resize-none border-none bg-transparent p-0 text-xl outline-none ring-0 placeholder:text-2xl"
+        className="block min-h-40 w-full flex-1 resize-none border-none bg-transparent p-0 text-xl outline-none ring-0 placeholder:text-2xl"
         maxLength={MAX_LENGTH}
         autoFocus
+        value={userInput}
         onInput={handleTextareaChange}
         placeholder="Type to furiganaify."
       />
-      <div className="self-end text-slate-800 text-xs dark:text-slate-200">{`${numberFormatter.format(textareaRef.current?.value.length ?? 0)} / ${numberFormatter.format(MAX_LENGTH)}`}</div>
+      <div className="flex items-center justify-end gap-2">
+        <div className="text-slate-800 text-xs dark:text-slate-200">{`${numberFormatter.format(textareaRef.current?.value.length ?? 0)} / ${numberFormatter.format(MAX_LENGTH)}`}</div>
+        <button
+          disabled={userInput.length === 0}
+          onClick={() => {
+            setUserInput("");
+            onSegmentsChange([]);
+          }}
+          className="flex items-center justify-center rounded-full p-2 transition enabled:cursor-pointer enabled:hover:bg-slate-500/10 disabled:cursor-not-allowed disabled:opacity-50 enabled:hover:dark:bg-white/10"
+        >
+          <i className="i-tabler-square-rounded-x-filled size-5" />
+          <span className="sr-only">Clear text</span>
+        </button>
+      </div>
     </div>
   );
 };
