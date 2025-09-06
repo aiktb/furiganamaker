@@ -55,16 +55,15 @@ export default defineConfig({
   }),
   hooks: {
     "build:publicAssets": async ({ config }, publicFiles) => {
-      const srcDir = path.resolve(import.meta.dirname, "./node_modules/@sglkc/kuromoji/dict");
-      const filenames = await fs.readdir(srcDir);
-      const destDir = path.resolve(config.outDir, "dict");
-      await fs.mkdir(destDir, { recursive: true });
-      const files = filenames.map((filename) => {
-        const absoluteSrc = path.resolve(srcDir, filename);
-        const relativeDest = path.resolve(destDir, filename);
-        return { absoluteSrc, relativeDest };
+      const srcPath = path.resolve(
+        import.meta.dirname,
+        "./node_modules/lindera-wasm-ipadic/lindera_wasm_bg.wasm",
+      );
+      await fs.mkdir(config.outDir, { recursive: true });
+      publicFiles.push({
+        absoluteSrc: srcPath,
+        relativeDest: path.join(config.outDir, "lindera_wasm_bg.wasm"),
       });
-      publicFiles.push(...files);
     },
   },
 });
