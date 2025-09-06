@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.1](https://github.com/aiktb/furiganamaker/compare/v3.3.0...v3.3.1) (2025-09-06)
+
+
+### Bug Fixes
+
+* remove unnecessary scroll bars ([#411](https://github.com/aiktb/furiganamaker/issues/411)) ([cdc9afe](https://github.com/aiktb/furiganamaker/commit/cdc9afed429a9836aec29f7dee1831b5a458eddd))
+
 ## 3.3.0 (2025-08-30)
 
 
