@@ -95,7 +95,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
     <PopupTransition show={open}>
       <Dialog
         as="div"
-        className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 max-h-[80vh] overflow-y-scroll"
+        className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 max-h-[80vh] overflow-y-auto"
         onClose={onClose}
       >
         <DialogPanel className="w-full min-w-[28rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
