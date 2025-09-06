@@ -215,7 +215,7 @@ export const ImportKanjiFilterButton = () => {
             >
               {t("warningInvalid")}
             </DialogTitle>
-            <div className="mt-2 max-h-[80vh] overflow-y-scroll">
+            <div className="mt-2 max-h-[80vh] overflow-y-auto">
               <p className="whitespace-pre-wrap text-slate-500 text-sm dark:text-slate-400">
                 {importFailedMessage}
               </p>
