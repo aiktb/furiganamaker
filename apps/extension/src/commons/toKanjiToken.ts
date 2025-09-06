@@ -1,16 +1,6 @@
 import { head, last } from "es-toolkit";
 import { isKanji, toKatakana } from "wanakana";
 
-export interface MojiToken {
-  word_position: number; // Indexes start from 1
-  surface_form: string;
-  reading?: string | undefined; // Katakana only
-}
-
-type MojiWithDefinedReadingToken = Omit<MojiToken, "reading"> & {
-  reading: NonNullable<MojiToken["reading"]>;
-};
-
 // It's not just kanji, such as "市ヶ谷" (イチガヤ), "我々" (ワレワレ).
 export interface KanjiToken {
   original: string;
@@ -19,10 +9,10 @@ export interface KanjiToken {
   end: number;
 }
 /**
- * Extract useful kanji phonetic information from KuromojiToken[].
+ * Extract useful kanji phonetic information from lindera tokens.
  * @example
  * ```
- * Input: tokenizer('「我々」と「関ケ原」')
+ * Input: tokenize('「我々」と「関ケ原」')
  * Output:
  * [
  *  { original: '我々', reading: 'ワレワレ', start: 1, end: 3 },
@@ -30,14 +20,17 @@ export interface KanjiToken {
  * ]
  * ```
  */
-export const toKanjiToken = (tokens: MojiToken[]): KanjiToken[] => {
-  const filteredTokens = tokens.filter(isPhonetic).map(toSimplifiedToken).flatMap(toRubyText);
+export const toKanjiToken = (linderaTokens: any[], text: string): KanjiToken[] => {
+  const filteredTokens = linderaTokens
+    .map((token) => toSimplifiedToken(token, text))
+    .filter(isPhonetic)
+    .flatMap(toRubyText);
   return filteredTokens;
 };
 
-const isPhonetic = (token: MojiToken): token is MojiWithDefinedReadingToken => {
-  const hasKanji = /\p{sc=Han}/v.test(token.surface_form);
-  const hasReading = Boolean(token.reading && token.reading !== "*");
+const isPhonetic = (linderaToken: any) => {
+  const hasKanji = /\p{sc=Han}/v.test(linderaToken.original);
+  const hasReading = Boolean(linderaToken.reading && linderaToken.reading !== "*");
   return hasReading && hasKanji;
 };
 
@@ -48,14 +41,29 @@ interface SimplifiedToken {
   end: number;
 }
 
-const toSimplifiedToken = (kuromojiToken: MojiWithDefinedReadingToken): SimplifiedToken => {
+const toSimplifiedToken = (linderaToken: any, text: string): SimplifiedToken => {
   return {
-    original: kuromojiToken.surface_form,
-    reading: kuromojiToken.reading,
-    start: kuromojiToken.word_position - 1,
-    end: kuromojiToken.word_position - 1 + kuromojiToken.surface_form.length,
+    start: byteIndexToCharIndex(linderaToken.get("byte_start"), text),
+    end: byteIndexToCharIndex(linderaToken.get("byte_end"), text),
+    original: linderaToken.get("text"),
+    reading: linderaToken.get("details")[7],
   };
 };
+
+function byteIndexToCharIndex(byteIndex: number, text: string): number {
+  let bytes = 0;
+  for (let i = 0; i < text.length; i++) {
+    const codePoint = text.codePointAt(i)!;
+    if (codePoint > 0xffff) {
+      i++;
+    }
+    bytes += new TextEncoder().encode(String.fromCodePoint(codePoint)).length;
+    if (bytes > byteIndex) {
+      return i;
+    }
+  }
+  return text.length;
+}
 
 const toRubyText = (token: SimplifiedToken): KanjiToken | KanjiToken[] => {
   // The pure Kanji words do not need to be disassembled.
