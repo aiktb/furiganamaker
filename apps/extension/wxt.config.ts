@@ -29,7 +29,7 @@ export type Command = keyof typeof commands;
 // See https://wxt.dev/api/config.html
 export default defineConfig({
   manifest: {
-    name: "__MSG_extName__",
+    name: "Furigana Maker",
     description: "__MSG_extDescription__",
     permissions: ["contextMenus", "storage"],
     default_locale: "en",

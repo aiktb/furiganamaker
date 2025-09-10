@@ -93,7 +93,7 @@ export function Sidebar() {
           >
             <div className="flex items-center justify-center gap-2 px-1.5">
               <span className="font-bold text-lg underline decoration-sky-500 decoration-wavy">
-                {t("extName")}
+                Furigana Maker
               </span>
               <span className="font-normal text-sm">{`v${browser.runtime.getManifest().version}`}</span>
             </div>

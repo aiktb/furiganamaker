@@ -1,7 +1,4 @@
 {
-  "extName": {
-    "message": "注音假名生成器"
-  },
   "extDescription": {
     "message": "给任何网页上的日语文本添加注音假名，以便学习汉字发音。"
   },
