@@ -1,7 +1,7 @@
-import { initAsync, type Tokenizer, TokenizerBuilder } from "@lindera/ipadic";
 import { ExtEvent } from "@/commons/constants";
 import { onMessage } from "@/commons/message";
 import { type KanjiToken, toKanjiToken } from "@/commons/toKanjiToken";
+import { initAsync, type Tokenizer, TokenizerBuilder } from "@/commons/tokenize";
 import { DB, getKanjiFilterDB } from "@/commons/utils";
 
 class Deferred {

@@ -1,7 +1,7 @@
 import { describe, expect, test } from "./fixtures";
 
-describe("Content script should not modify <head><title>", () => {
-  test("ruby is added only in body, not in head title", async ({ page }) => {
+describe("Content scripts", () => {
+  test("Automatically add furigana when lang is ja", async ({ page }) => {
     const url = "https://example.org/test-ja";
     const html = `<!doctype html>
       <html lang="ja">
@@ -13,6 +13,31 @@ describe("Content script should not modify <head><title>", () => {
           <main>
             <p>漢字テスト</p>
           </main>
+        </body>
+      </html>`;
+    await page.route(url, async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "text/html; charset=utf-8",
+        body: html,
+      });
+    });
+    await page.goto(url);
+
+    const mainRubyCount = await page.$$("main ruby");
+    expect(mainRubyCount).toHaveLength(1);
+  });
+
+  test("ruby is added only in body, not in head title", async ({ page }) => {
+    const url = "https://example.org/test-ja";
+    const html = `<!doctype html>
+      <html lang="ja">
+        <head>
+          <meta charset="utf-8" />
+          <title>日本語タイトル</title>
+        </head>
+        <body>
+           <p>漢字テスト</p>
         </body>
       </html>`;
 

@@ -1,6 +1,7 @@
-import type { FormattedToken } from "@lindera/ipadic";
 import { head, last } from "es-toolkit";
 import { isKanji, toKatakana } from "wanakana";
+
+import type { FormattedToken } from "./tokenize";
 
 // It's not just kanji, such as "市ヶ谷" (イチガヤ), "我々" (ワレワレ).
 export interface KanjiToken {
@@ -60,17 +61,16 @@ const toSimplifiedToken = (
 
 function byteIndexToCharIndex(byteIndex: number, text: string): number {
   let bytes = 0;
-  for (let i = 0; i < text.length; i++) {
-    const codePoint = text.codePointAt(i)!;
-    if (codePoint > 0xffff) {
-      i++;
-    }
-    bytes += new TextEncoder().encode(String.fromCodePoint(codePoint)).length;
+  let charIndex = 0;
+  const encoder = new TextEncoder();
+  for (const char of text) {
+    bytes += encoder.encode(char).length;
     if (bytes > byteIndex) {
-      return i;
+      return charIndex;
     }
+    charIndex++;
   }
-  return text.length;
+  return charIndex;
 }
 
 const toRubyText = (token: SimplifiedToken): KanjiToken | KanjiToken[] => {

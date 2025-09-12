@@ -32,7 +32,7 @@ export type FormattedToken = {
     id: number;
     isSystem: boolean;
   };
-  details?: IpadicDetailsObject;
+  details?: IpadicDetailsObject | undefined;
 };
 
 const typeSafeObjectFromEntries = <const T extends ReadonlyArray<readonly [PropertyKey, unknown]>>(
@@ -42,7 +42,7 @@ const typeSafeObjectFromEntries = <const T extends ReadonlyArray<readonly [Prope
 };
 
 function detailsArrayToObject(details: string[]): IpadicDetailsObject {
-  return typeSafeObjectFromEntries(IPADIC_DETAILS_KEYS.map((key, i) => [key, details[i]]));
+  return typeSafeObjectFromEntries(IPADIC_DETAILS_KEYS.map((key, i) => [key, details[i]!]));
 }
 
 export class Tokenizer {
@@ -77,9 +77,17 @@ export class TokenizerBuilder {
     this.#superTokenizerBuilder = new _TokenizerBuilder();
   }
   build(): Tokenizer {
-    const superTokenizer = this.#superTokenizerBuilder.build();
     this.#superTokenizerBuilder.setDictionary("embedded://ipadic");
     this.#superTokenizerBuilder.setMode("normal");
+    this.#superTokenizerBuilder.appendCharacterFilter("unicode_normalize", { kind: "nfkc" });
+    this.#superTokenizerBuilder.appendTokenFilter("lowercase", {});
+    this.#superTokenizerBuilder.appendTokenFilter("japanese_compound_word", {
+      kind: "ipadic",
+      tags: ["名詞,数"],
+      new_tag: "名詞,数",
+    });
+    this.#superTokenizerBuilder.appendTokenFilter("japanese_number", { tags: ["名詞,数"] });
+    const superTokenizer = this.#superTokenizerBuilder.build();
     return new Tokenizer(superTokenizer);
   }
 }

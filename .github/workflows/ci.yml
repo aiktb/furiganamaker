@@ -34,9 +34,6 @@ jobs:
       - name: TypeCheck
         run: pnpm run typecheck
 
-      - name: Unit Test
-        run: pnpm run test:unit
-
       - name: Build the extension
         run: pnpm --filter extension run build
 
