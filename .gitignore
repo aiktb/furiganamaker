@@ -11,6 +11,7 @@ stats-*.json
 web-ext.config.ts
 *.tsbuildinfo
 .wrangler
+dist
 
 # testing
 /coverage

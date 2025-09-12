@@ -57,7 +57,7 @@ export default defineConfig({
     "build:publicAssets": async ({ config }, publicFiles) => {
       const srcPath = path.resolve(
         import.meta.dirname,
-        "./node_modules/lindera-wasm-ipadic/lindera_wasm_bg.wasm",
+        "./node_modules/@lindera/ipadic/node_modules/lindera-wasm-ipadic/lindera_wasm_bg.wasm",
       );
       await fs.mkdir(config.outDir, { recursive: true });
       publicFiles.push({

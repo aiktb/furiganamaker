@@ -1,4 +1,4 @@
-import wasmInit, { type Tokenizer, TokenizerBuilder } from "lindera-wasm-ipadic";
+import { initAsync, type Tokenizer, TokenizerBuilder } from "@lindera/ipadic";
 import { ExtEvent } from "@/commons/constants";
 import { onMessage } from "@/commons/message";
 import { type KanjiToken, toKanjiToken } from "@/commons/toKanjiToken";
@@ -24,18 +24,10 @@ const getTokenizer = async () => {
     return await deferredTokenizer.promise;
   }
   try {
-    await wasmInit({
-      module_or_path: "/lindera_wasm_bg.wasm",
+    await initAsync({
+      moduleOrPath: "lindera_wasm_bg.wasm",
     });
     const builder = new TokenizerBuilder();
-    builder.setDictionary("embedded://ipadic");
-    builder.setMode("normal");
-    builder.appendTokenFilter("japanese_compound_word", {
-      kind: "ipadic",
-      tags: ["名詞,数"],
-      new_tag: "名詞,数",
-    });
-    builder.appendTokenFilter("japanese_number", { tags: ["名詞,数"] });
     const tokenizer = builder.build();
     deferredTokenizer.resolve(tokenizer);
   } catch (error) {

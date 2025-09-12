@@ -42,5 +42,8 @@
     "overrides": {
       "vite": "catalog:"
     }
+  },
+  "dependencies": {
+    "@lindera/ipadic": "link:../lindera.js/packages/ipadic"
   }
 }

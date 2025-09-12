@@ -1,3 +1,4 @@
+import type { FormattedToken } from "@lindera/ipadic";
 import { head, last } from "es-toolkit";
 import { isKanji, toKatakana } from "wanakana";
 
@@ -5,7 +6,7 @@ import { isKanji, toKatakana } from "wanakana";
 export interface KanjiToken {
   original: string;
   reading: string;
-  start: number; // Indexes start from 0
+  start: number;
   end: number;
 }
 /**
@@ -20,17 +21,21 @@ export interface KanjiToken {
  * ]
  * ```
  */
-export const toKanjiToken = (linderaTokens: any[], text: string): KanjiToken[] => {
+export const toKanjiToken = (linderaTokens: FormattedToken[], text: string): KanjiToken[] => {
   const filteredTokens = linderaTokens
-    .map((token) => toSimplifiedToken(token, text))
     .filter(isPhonetic)
+    .map((token) => toSimplifiedToken(token, text))
     .flatMap(toRubyText);
   return filteredTokens;
 };
 
-const isPhonetic = (linderaToken: any) => {
-  const hasKanji = /\p{sc=Han}/v.test(linderaToken.original);
-  const hasReading = Boolean(linderaToken.reading && linderaToken.reading !== "*");
+type LinderaTokenWithDetails = Omit<FormattedToken, "details"> & {
+  details: NonNullable<FormattedToken["details"]>;
+};
+
+const isPhonetic = (linderaToken: FormattedToken): linderaToken is LinderaTokenWithDetails => {
+  const hasKanji = /\p{sc=Han}/v.test(linderaToken.text);
+  const hasReading = Boolean(linderaToken.details?.reading && linderaToken.details.reading !== "*");
   return hasReading && hasKanji;
 };
 
@@ -41,12 +46,15 @@ interface SimplifiedToken {
   end: number;
 }
 
-const toSimplifiedToken = (linderaToken: any, text: string): SimplifiedToken => {
+const toSimplifiedToken = (
+  linderaToken: LinderaTokenWithDetails,
+  text: string,
+): SimplifiedToken => {
   return {
-    start: byteIndexToCharIndex(linderaToken.get("byte_start"), text),
-    end: byteIndexToCharIndex(linderaToken.get("byte_end"), text),
-    original: linderaToken.get("text"),
-    reading: linderaToken.get("details")[7],
+    start: byteIndexToCharIndex(linderaToken.byteStart, text),
+    end: byteIndexToCharIndex(linderaToken.byteEnd, text),
+    original: linderaToken.text,
+    reading: linderaToken.details.reading,
   };
 };
 
