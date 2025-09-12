@@ -23,9 +23,9 @@ describe("Content scripts", () => {
       });
     });
     await page.goto(url);
-
-    const mainRubyCount = await page.$$("main ruby");
-    expect(mainRubyCount).toHaveLength(1);
+    await page.waitForSelector("body ruby");
+    const mainRubyCount = await page.$$eval("main ruby", (els) => els.length);
+    expect(mainRubyCount).toBe(1);
   });
 
   test("ruby is added only in body, not in head title", async ({ page }) => {
