@@ -6,8 +6,8 @@ interface FuriganaTypeOption {
   displayValue: string;
 }
 const furiganaTypeOptions = [
-  { name: "katakana", displayValue: "カタカナ" },
   { name: "hiragana", displayValue: "ひらがな" },
+  { name: "katakana", displayValue: "カタカナ" },
   { name: "romaji", displayValue: "Romaji" },
 ] as const satisfies FuriganaTypeOption[];
 
@@ -18,7 +18,7 @@ interface FuriganaTypeRadioGroupProps {
 
 export const FuriganaTypeRadioGroup = ({ selected, onChange }: FuriganaTypeRadioGroupProps) => {
   return (
-    <div className="w-full">
+    <div className="w-full" data-testid="playground-furigana-type-radio-group">
       <div className="w-full">
         <RadioGroup
           value={selected}

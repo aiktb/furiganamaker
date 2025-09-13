@@ -12,7 +12,7 @@ export const TextWithFurigana = ({ furiganaSegments }: TextWithFuriganaProps) =>
 
   return (
     <div className="flex w-full flex-col gap-2 rounded-lg border-none bg-slate-950/5 px-6 py-4 text-slate-950 ring-0 dark:bg-white/5 dark:text-white">
-      <div className="flex-1">
+      <div className="flex-1" data-testid="playground-furigana-preview-area">
         {furiganaSegments.length > 0 ? (
           <div className="wrap-anywhere w-full whitespace-break-spaces">
             {furiganaSegments.map((item) => (
@@ -29,7 +29,12 @@ export const TextWithFurigana = ({ furiganaSegments }: TextWithFuriganaProps) =>
             ))}
           </div>
         ) : (
-          <span className="text-slate-700 dark:text-slate-300">{t("tipPleaseEnter")}</span>
+          <span
+            data-testid="playground-furigana-preview-empty"
+            className="text-slate-700 dark:text-slate-300"
+          >
+            {t("tipPleaseEnter")}
+          </span>
         )}
       </div>
       <div className="flex justify-end">

@@ -1,4 +1,4 @@
-import { describe, expect, test } from "./fixtures";
+import { describe, expect, test } from "../fixtures";
 
 describe("Extension background script", () => {
   test.beforeEach(async ({ page, extensionId }) => {

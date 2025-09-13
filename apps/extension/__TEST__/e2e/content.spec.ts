@@ -1,4 +1,5 @@
-import { describe, expect, test } from "./fixtures";
+import { describe, expect, test } from "../fixtures";
+import { cleanRubyHtml } from "../utils";
 
 describe("Content scripts", () => {
   test("Automatically add furigana when lang is ja", async ({ page }) => {
@@ -29,13 +30,7 @@ describe("Content scripts", () => {
     });
     await page.goto(url);
     await page.waitForSelector("body ruby");
-    function cleanRubyHtml(html: string): string {
-      // Remove all class attributes
-      let result = html.replace(/\s*class\s*=\s*(['"])[^'"]*\1/g, "");
-      // Remove all <rp>...</rp> tags
-      result = result.replace(/<rp>.*?<\/rp>/g, "");
-      return result;
-    }
+
     const pHtmlTest1 = await page.$eval("#test1", (el) => el.innerHTML);
     expect(cleanRubyHtml(pHtmlTest1)).toBe("<ruby>漢字<rt>かんじ</rt></ruby>テスト");
     const pHtmlTest2 = await page.$eval("#test2", (el) => el.innerHTML);

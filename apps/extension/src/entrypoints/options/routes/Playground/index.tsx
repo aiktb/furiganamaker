@@ -7,7 +7,7 @@ import { TextWithFurigana } from "./components/TextWithFurigana";
 
 export const Playground = () => {
   const [furiganaSegments, setFuriganaSegments] = useState<FuriganaSegment[]>([]);
-  const [selectedFuriganaType, setSelectedFuriganaType] = useState<FuriganaType>("katakana");
+  const [selectedFuriganaType, setSelectedFuriganaType] = useState<FuriganaType>("hiragana");
 
   return (
     <div className="w-full">
