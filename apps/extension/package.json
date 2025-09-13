@@ -16,7 +16,6 @@
     "@ctrl/tinycolor": "^4.1.0",
     "@floating-ui/react": "^0.27.2",
     "@headlessui/react": "catalog:",
-    "@lindera/ipadic": "workspace:^",
     "@webext-core/messaging": "^2.1.0",
     "clsx": "catalog:",
     "es-toolkit": "catalog:",

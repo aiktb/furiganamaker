@@ -33,16 +33,13 @@
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@commitlint/types": "^19.5.0",
-    "@types/node": "^22.10.2",
+    "@types/node": "^24.3.3",
     "husky": "^9.1.7",
-    "typescript": "^5.7.2"
+    "typescript": "^5.9.2"
   },
   "pnpm": {
     "overrides": {
       "vite": "catalog:"
     }
-  },
-  "dependencies": {
-    "@lindera/ipadic": "link:../lindera.js/packages/ipadic"
   }
 }
