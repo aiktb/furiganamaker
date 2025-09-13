@@ -65,8 +65,8 @@ export default defineConfig({
         relativeDest: path.join(config.outDir, "lindera_wasm_bg.wasm"),
       });
     },
-    "build:manifestGenerated": (_, manifest) => {
-      if (import.meta.env.DEV) {
+    "build:manifestGenerated": ({ config }, manifest) => {
+      if (config.mode === "development") {
         // WXT will handle CSP issues in the development environment
         return;
       }
