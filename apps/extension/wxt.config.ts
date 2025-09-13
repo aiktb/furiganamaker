@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
+import { sentryVitePlugin } from "@sentry/vite-plugin";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react-swc";
 import svgr from "vite-plugin-svgr";
@@ -48,9 +49,19 @@ export default defineConfig({
     name: "furigana-maker",
   },
   vite: () => ({
-    plugins: [react({ devTarget: "esnext" }), svgr(), tailwindcss()],
+    plugins: [
+      react({ devTarget: "esnext" }),
+      svgr(),
+      tailwindcss(),
+      sentryVitePlugin({
+        authToken: process.env.SENTRY_AUTH_TOKEN!,
+        org: "aiktb",
+        project: "furigana-maker",
+      }),
+    ],
     build: {
       target: "esnext",
+      sourcemap: true,
     },
   }),
   hooks: {
