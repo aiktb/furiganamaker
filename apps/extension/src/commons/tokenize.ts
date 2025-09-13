@@ -86,7 +86,6 @@ export class TokenizerBuilder {
       tags: ["名詞,数"],
       new_tag: "名詞,数",
     });
-    this.#superTokenizerBuilder.appendTokenFilter("japanese_number", { tags: ["名詞,数"] });
     const superTokenizer = this.#superTokenizerBuilder.build();
     return new Tokenizer(superTokenizer);
   }
