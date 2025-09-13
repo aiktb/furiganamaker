@@ -1,12 +1,8 @@
-import kuromoji from "@sglkc/kuromoji";
 import { ExtEvent } from "@/commons/constants";
 import { onMessage } from "@/commons/message";
-import { type KanjiToken, type MojiToken, toKanjiToken } from "@/commons/toKanjiToken";
+import { type KanjiToken, toKanjiToken } from "@/commons/toKanjiToken";
+import { initAsync, type Tokenizer, TokenizerBuilder } from "@/commons/tokenize";
 import { DB, getKanjiFilterDB } from "@/commons/utils";
-
-interface Tokenizer {
-  tokenize: (text: string) => MojiToken[];
-}
 
 class Deferred {
   promise: Promise<Tokenizer>;
@@ -28,16 +24,12 @@ const getTokenizer = async () => {
     return await deferredTokenizer.promise;
   }
   try {
-    const builder = kuromoji.builder({
-      dicPath: "/dict",
+    await initAsync({
+      moduleOrPath: "lindera_wasm_bg.wasm",
     });
-    builder.build((err: undefined | Error, tokenizer: Tokenizer) => {
-      if (err) {
-        deferredTokenizer.reject(err);
-      } else {
-        deferredTokenizer.resolve(tokenizer);
-      }
-    });
+    const builder = new TokenizerBuilder();
+    const tokenizer = builder.build();
+    deferredTokenizer.resolve(tokenizer);
   } catch (error) {
     deferredTokenizer.reject(error as Error);
   } finally {
@@ -74,7 +66,7 @@ export const registerOnGetKanjiMarksMessage = () => {
     const tokenizer = await getTokenizer();
     const mojiTokens = tokenizer.tokenize(data.text);
     const filterMap = await getKanjiFilterMap();
-    const tokens = toKanjiToken(mojiTokens).map((token) => {
+    const tokens = toKanjiToken(mojiTokens, data.text).map((token) => {
       const yomikatas = filterMap.get(token.original);
       const isFiltered =
         yomikatas !== undefined && (yomikatas === "*" || yomikatas.includes(token.reading));

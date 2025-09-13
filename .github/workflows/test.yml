@@ -1,4 +1,4 @@
-name: Lint & TypeCheck & Test
+name: E2E Test
 permissions:
   contents: read
 on:
@@ -27,15 +27,6 @@ jobs:
           cache: 'pnpm'
           cache-dependency-path: 'pnpm-lock.yaml'
       - run: pnpm install --frozen-lockfile
-
-      - name: Lint
-        run: pnpm run lint
-
-      - name: TypeCheck
-        run: pnpm run typecheck
-
-      - name: Unit Test
-        run: pnpm run test:unit
 
       - name: Build the extension
         run: pnpm --filter extension run build

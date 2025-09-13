@@ -1,5 +1,6 @@
 import fs from "node:fs";
-import { describe, expect, test } from "./fixtures";
+import { describe, expect, test } from "../fixtures";
+import { cleanRubyHtml } from "../utils";
 
 describe("Extension options page", () => {
   test.beforeEach(async ({ page, extensionId }) => {
@@ -138,5 +139,45 @@ describe("Kanji filter page", () => {
       kanji: "一人",
       yomikatas: ["ヒトリ"],
     });
+  });
+});
+
+describe("Playground works fine", () => {
+  test.beforeEach(async ({ page, extensionId }) => {
+    await page.goto(`chrome-extension://${extensionId}/options.html#/playground`);
+  });
+
+  test("Radio buttons to toggle furigana type works", async ({ page }) => {
+    const textarea = page.getByTestId("playground-japanese-textarea");
+    expect(textarea).toBeVisible();
+
+    const furiganaTypeHiragana = page.getByRole("radio", { name: "ひらがな" });
+    const furiganaTypeKatakana = page.getByRole("radio", { name: "カタカナ" });
+    const furiganaTypeRomaji = page.getByRole("radio", { name: "Romaji" });
+
+    // Default is hiragana
+    expect(furiganaTypeHiragana).toBeChecked();
+    expect(furiganaTypeKatakana).not.toBeChecked();
+    expect(furiganaTypeRomaji).not.toBeChecked();
+
+    const previewArea = page.getByTestId("playground-furigana-preview-area");
+    expect(previewArea).toBeVisible();
+    await textarea.fill("漢字テスト");
+    await textarea.blur();
+    await page.waitForSelector("ruby");
+    const expectedHTML = `<div><ruby>漢字<rt>かんじ</rt></ruby>テスト</div>`;
+    expect(cleanRubyHtml(await previewArea.innerHTML())).toBe(expectedHTML);
+
+    await furiganaTypeKatakana.click();
+    expect(furiganaTypeHiragana).not.toBeChecked();
+    expect(furiganaTypeKatakana).toBeChecked();
+    const expectedHTMLKatakana = `<div><ruby>漢字<rt>カンジ</rt></ruby>テスト</div>`;
+    expect(cleanRubyHtml(await previewArea.innerHTML())).toBe(expectedHTMLKatakana);
+
+    await furiganaTypeRomaji.click();
+    expect(furiganaTypeHiragana).not.toBeChecked();
+    expect(furiganaTypeRomaji).toBeChecked();
+    const expectedHTMLRomaji = `<div><ruby>漢字<rt>kanji</rt></ruby>テスト</div>`;
+    expect(cleanRubyHtml(await previewArea.innerHTML())).toBe(expectedHTMLRomaji);
   });
 });

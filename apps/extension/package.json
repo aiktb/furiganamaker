@@ -9,7 +9,6 @@
     "zip": "wxt zip",
     "postinstall": "wxt prepare",
     "typecheck": "tsc --noEmit",
-    "test:unit": "vitest -r __TEST__/unit",
     "test:e2e:prod": "playwright test",
     "test:e2e:dev": "NODE_ENV=development pnpm exec playwright test --ui"
   },
@@ -17,13 +16,13 @@
     "@ctrl/tinycolor": "^4.1.0",
     "@floating-ui/react": "^0.27.2",
     "@headlessui/react": "catalog:",
-    "@sglkc/kuromoji": "^1.1.0",
     "@webext-core/messaging": "^2.1.0",
     "clsx": "catalog:",
     "es-toolkit": "catalog:",
     "file-saver": "^2.0.5",
     "i18next": "^25.0.0",
     "idb": "^8.0.3",
+    "lindera-wasm-ipadic": "^1.0.0",
     "next-themes": "^0.4.4",
     "picomatch": "^4.0.3",
     "react": "catalog:",
@@ -54,11 +53,9 @@
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react-swc": "^4.0.0",
     "@wxt-dev/auto-icons": "^1.0.2",
-    "kuromojin": "^3.0.0",
     "react-scan": "catalog:",
     "tailwindcss": "catalog:",
     "vite-plugin-svgr": "^4.3.0",
-    "vitest": "^3.0.0",
     "wxt": "^0.20.8"
   }
 }

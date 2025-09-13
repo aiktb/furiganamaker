@@ -1,6 +1,6 @@
 import type { Page } from "@playwright/test";
 import { ExtStorage, type GeneralSettings } from "@/commons/constants";
-import { describe, expect, test } from "./fixtures";
+import { describe, expect, test } from "../fixtures";
 
 describe("Extension popup page", () => {
   test.beforeEach(async ({ page, extensionId }) => {

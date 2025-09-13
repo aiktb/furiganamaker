@@ -1,0 +1,27 @@
+name: Lint & TypeCheck
+permissions:
+  contents: read
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: '.node-version'
+          cache: 'pnpm'
+          cache-dependency-path: 'pnpm-lock.yaml'
+      - run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: TypeCheck
+        run: pnpm run typecheck

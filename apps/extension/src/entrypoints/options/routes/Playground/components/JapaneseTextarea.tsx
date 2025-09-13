@@ -39,6 +39,7 @@ export const JapaneseTextarea = ({ onSegmentsChange, furiganaType }: JapaneseTex
       className="flex w-full flex-col gap-2 rounded-lg border border-gray-200 px-6 py-4 text-slate-950 shadow-xs dark:border-slate-800 dark:text-white"
     >
       <Textarea
+        data-testid="playground-japanese-textarea"
         ref={textareaRef}
         className="block min-h-40 w-full flex-1 resize-none border-none bg-transparent p-0 text-xl outline-none ring-0 placeholder:text-2xl"
         maxLength={MAX_LENGTH}
