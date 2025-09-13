@@ -3,25 +3,25 @@ packages:
 
 catalog:
   '@egoist/tailwindcss-icons': ^1.9.0
-  '@iconify-json/fa6-brands': ^1.2.5
-  '@headlessui/react': ^2.2.3
+  '@headlessui/react': ^2.2.8
   '@headlessui/tailwindcss': ^0.2.2
-  '@react-router/cloudflare': ^7.5.2
-  '@react-router/dev': ^7.5.2
-  '@react-router/fs-routes': ^7.5.2
-  '@tailwindcss/forms': ^0.5.9
+  '@iconify-json/fa6-brands': ^1.2.6
+  '@react-router/cloudflare': ^7.9.1
+  '@react-router/dev': ^7.9.1
+  '@react-router/fs-routes': ^7.9.1
+  '@tailwindcss/forms': ^0.5.10
   '@tailwindcss/typography': ^0.5.16
-  '@tailwindcss/vite': ^4.1.7
-  '@total-typescript/ts-reset': ^0.4.2
-  '@types/react': ^19.0.1
-  '@types/react-dom': ^19.0.2
+  '@tailwindcss/vite': ^4.1.13
+  '@total-typescript/ts-reset': ^0.6.1
+  '@types/react': ^19.1.13
+  '@types/react-dom': ^19.1.9
   clsx: ^2.1.1
-  es-toolkit: ^1.39.8
-  react: ^19.0.0
-  react-dom: ^19.0.0
-  react-router: ^7.5.2
+  es-toolkit: ^1.39.10
+  react: ^19.1.1
+  react-dom: ^19.1.1
+  react-router: ^7.9.1
   react-scan: ^0.4.3
-  tailwindcss: ^4.1.7
   tailwind-merge: ^3.3.1
-  vite: ^7.0.0
-  zustand: ^5.0.7
+  tailwindcss: ^4.1.13
+  vite: ^7.1.5
+  zustand: ^5.0.8
