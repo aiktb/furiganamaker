@@ -81,6 +81,7 @@ export type FuriganaSegment =
 
 const getFuriganaSegments = (tokens: KanjiMark[], text: string, furiganaType: FuriganaType) => {
   const result: FuriganaSegment[] = [];
+
   let lastIndex = 0;
   const getFurigana = (token: KanjiMark) => {
     const data = {

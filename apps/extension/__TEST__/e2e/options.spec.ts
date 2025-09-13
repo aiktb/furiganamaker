@@ -146,7 +146,17 @@ describe("Playground works fine", () => {
   test.beforeEach(async ({ page, extensionId }) => {
     await page.goto(`chrome-extension://${extensionId}/options.html#/playground`);
   });
-
+  test("Emoji in the textarea works fine", async ({ page }) => {
+    const textarea = page.getByTestId("playground-japanese-textarea");
+    expect(textarea).toBeVisible();
+    const previewArea = page.getByTestId("playground-furigana-preview-area");
+    expect(previewArea).toBeVisible();
+    await textarea.fill("😊漢字テスト");
+    await textarea.blur();
+    await page.waitForSelector("ruby");
+    const expectedHTML = `<div>😊<ruby>漢字<rt>かんじ</rt></ruby>テスト</div>`;
+    expect(cleanRubyHtml(await previewArea.innerHTML())).toBe(expectedHTML);
+  });
   test("Radio buttons to toggle furigana type works", async ({ page }) => {
     const textarea = page.getByTestId("playground-japanese-textarea");
     expect(textarea).toBeVisible();
