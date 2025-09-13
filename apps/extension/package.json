@@ -27,7 +27,7 @@
     "picomatch": "^4.0.3",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-i18next": "15.5.3",
+    "react-i18next": "15.7.3",
     "react-markdown": "^10.0.0",
     "react-router": "catalog:",
     "react-share": "^5.1.1",
