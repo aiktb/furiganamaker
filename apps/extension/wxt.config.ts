@@ -65,5 +65,15 @@ export default defineConfig({
         relativeDest: path.join(config.outDir, "lindera_wasm_bg.wasm"),
       });
     },
+    "build:manifestGenerated": (_, manifest) => {
+      if (import.meta.env.DEV) {
+        // WXT will handle CSP issues in the development environment
+        return;
+      }
+      // lindera-wasm requires 'wasm-unsafe-eval'
+      manifest.content_security_policy = {
+        extension_pages: "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'",
+      } satisfies Browser.runtime.Manifest["content_security_policy"];
+    },
   },
 });
