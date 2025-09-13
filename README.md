@@ -4,9 +4,6 @@
     </a>
     <h1>Furigana Maker</h1>
     <p>
-      <a href="https://www.youtube.com/watch?v=_j954tDLXjw" target="_blank">
-        <img alt="YouTube Video Views" src="https://img.shields.io/youtube/views/_j954tDLXjw?style=social&label=Demo%20Video">
-      </a>
       <a href="https://chromewebstore.google.com/detail/furigana-maker/heodojceeinbkfjfilnfminlkgbacpfp" target="_blank">
         <img alt="Chrome Web Store Stars" src="https://img.shields.io/chrome-web-store/rating/heodojceeinbkfjfilnfminlkgbacpfp?style=social&logo=googlechrome&logoColor=FCC420">
       </a>
