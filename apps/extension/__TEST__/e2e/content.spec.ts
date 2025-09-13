@@ -11,7 +11,7 @@ describe("Content scripts", () => {
       </head>
       <body>
         <main>
-          <p id="test1">漢字テスト</p>
+          <p id="test1">😊漢字テスト</p>
           <p id="test2">This is English.</p>
           <p id="test3">「僕は耳と目を閉じ、口を噤んだ人間になろうと考えた」</p>
           <p id="test4">我々はその月の一日にその不動産の所有者が変わることで合意した</p>
@@ -32,7 +32,7 @@ describe("Content scripts", () => {
     await page.waitForSelector("body ruby");
 
     const pHtmlTest1 = await page.$eval("#test1", (el) => el.innerHTML);
-    expect(cleanRubyHtml(pHtmlTest1)).toBe("<ruby>漢字<rt>かんじ</rt></ruby>テスト");
+    expect(cleanRubyHtml(pHtmlTest1)).toBe("😊<ruby>漢字<rt>かんじ</rt></ruby>テスト");
     const pHtmlTest2 = await page.$eval("#test2", (el) => el.innerHTML);
     expect(cleanRubyHtml(pHtmlTest2)).toBe("This is English.");
     const pHtmlTest3 = await page.$eval("#test3", (el) => el.innerHTML);

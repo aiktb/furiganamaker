@@ -52,25 +52,26 @@ const toSimplifiedToken = (
   text: string,
 ): SimplifiedToken => {
   return {
-    start: byteIndexToCharIndex(linderaToken.byteStart, text),
-    end: byteIndexToCharIndex(linderaToken.byteEnd, text),
+    start: byteIndexToUtf16Index(linderaToken.byteStart, text),
+    end: byteIndexToUtf16Index(linderaToken.byteEnd, text),
     original: linderaToken.text,
     reading: linderaToken.details.reading,
   };
 };
 
-function byteIndexToCharIndex(byteIndex: number, text: string): number {
-  let bytes = 0;
-  let charIndex = 0;
+function byteIndexToUtf16Index(byteIndex: number, text: string): number {
   const encoder = new TextEncoder();
-  for (const char of text) {
-    bytes += encoder.encode(char).length;
+  let bytes = 0;
+  let utf16Index = 0;
+  for (const ch of text) {
+    const len = encoder.encode(ch).length; // UTF-8 byte length
+    bytes += len;
     if (bytes > byteIndex) {
-      return charIndex;
+      return utf16Index;
     }
-    charIndex++;
+    utf16Index += ch.length; // Note: emoji length is 2 in UTF-16
   }
-  return charIndex;
+  return utf16Index;
 }
 
 const toRubyText = (token: SimplifiedToken): KanjiToken | KanjiToken[] => {

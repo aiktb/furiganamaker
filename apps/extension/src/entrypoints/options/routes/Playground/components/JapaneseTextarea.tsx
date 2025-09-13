@@ -81,16 +81,12 @@ export type FuriganaSegment =
 
 const getFuriganaSegments = (tokens: KanjiMark[], text: string, furiganaType: FuriganaType) => {
   const result: FuriganaSegment[] = [];
-  const emojiSlice = (str: string, start?: number, end?: number) => {
-    // Slice by code point to avoid breaking emojis
-    return [...str].slice(start, end).join("");
-  };
 
   let lastIndex = 0;
   const getFurigana = (token: KanjiMark) => {
     const data = {
       type: "furigana",
-      original: emojiSlice(text, token.start, token.end),
+      original: text.slice(token.start, token.end),
       id: crypto.randomUUID(),
       reading: token.reading,
     } as const;
@@ -113,7 +109,7 @@ const getFuriganaSegments = (tokens: KanjiMark[], text: string, furiganaType: Fu
     if (token.start > lastIndex) {
       result.push({
         type: "text",
-        original: emojiSlice(text, lastIndex, token.start),
+        original: text.slice(lastIndex, token.start),
         id: crypto.randomUUID(),
       });
     }
@@ -125,7 +121,7 @@ const getFuriganaSegments = (tokens: KanjiMark[], text: string, furiganaType: Fu
   if (lastIndex < text.length) {
     result.push({
       type: "text",
-      original: emojiSlice(text, lastIndex),
+      original: text.slice(lastIndex),
       id: crypto.randomUUID(),
     });
   }
