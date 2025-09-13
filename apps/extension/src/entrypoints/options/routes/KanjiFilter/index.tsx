@@ -1,7 +1,7 @@
 import { cn } from "@/commons/utils";
 import { NotFoundRule } from "../../components/NotFoundRule";
 import { KanjiFilterDashboard } from "./components/KanjiFilterDashboard";
-import { KanjiFilterItem } from "./components/KanjiFilterItem";
+import { KanjiFilterTable } from "./components/KanjiFilterTable";
 import { useKanjiFiltersStore } from "./store";
 
 export function KanjiFilter() {
@@ -15,15 +15,7 @@ export function KanjiFilter() {
       )}
     >
       <KanjiFilterDashboard className="mb-5" disableExportAndClear={kanjiFilters.length === 0} />
-      {kanjiFilters.length > 0 ? (
-        <div className="grid grid-cols-2 flex-wrap gap-3 sm:grid-cols-3 2xl:grid-cols-4">
-          {kanjiFilters.map((rule, index) => (
-            <KanjiFilterItem key={rule.kanji} rule={rule} index={index} />
-          ))}
-        </div>
-      ) : (
-        <NotFoundRule />
-      )}
+      {kanjiFilters.length > 0 ? <KanjiFilterTable /> : <NotFoundRule />}
     </div>
   );
 }

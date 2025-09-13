@@ -16,6 +16,8 @@
     "@ctrl/tinycolor": "^4.1.0",
     "@floating-ui/react": "^0.27.2",
     "@headlessui/react": "catalog:",
+    "@tanstack/react-table": "^8.21.3",
+    "@tanstack/react-virtual": "^3.13.12",
     "@webext-core/messaging": "^2.1.0",
     "clsx": "catalog:",
     "es-toolkit": "catalog:",
