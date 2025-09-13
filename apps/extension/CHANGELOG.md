@@ -1,5 +1,20 @@
 # Changelog
 
+## 3.4.0 (2025-09-13)
+
+
+### Features
+
+* Support Edge browser again.
+* No international brand name in the extension.
+
+
+### Bug Fixes
+
+* Enter emoji in playground or normal pages will cause garbled characters.
+* Remove unnecessary scroll bars in dialog.
+* Sometimes duplicate kanji are inserted into the page.
+
 ## 3.3.0 (2025-08-30)
 
 
