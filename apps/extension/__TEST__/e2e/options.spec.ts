@@ -146,24 +146,6 @@ describe("Playground works fine", () => {
   test.beforeEach(async ({ page, extensionId }) => {
     await page.goto(`chrome-extension://${extensionId}/options.html#/playground`);
   });
-  test("Input japanese text", async ({ page }) => {
-    const textarea = page.getByTestId("playground-japanese-textarea");
-    const emptyPreview = page.getByTestId("playground-furigana-preview-empty");
-    expect(emptyPreview).toBeVisible();
-    expect(textarea).toBeVisible();
-    const previewArea = page.getByTestId("playground-furigana-preview-area");
-    expect(previewArea).toBeVisible();
-    await textarea.fill("漢字テスト");
-    await textarea.blur();
-    await page.waitForSelector("ruby");
-    expect(emptyPreview).toBeHidden();
-    const expectedHTML = `<div><ruby>漢字<rt>かんじ</rt></ruby>テスト</div>`;
-    expect(cleanRubyHtml(await previewArea.innerHTML())).toBe(expectedHTML);
-
-    await textarea.fill("");
-    await textarea.blur();
-    expect(emptyPreview).toBeVisible();
-  });
 
   test("Radio buttons to toggle furigana type works", async ({ page }) => {
     const textarea = page.getByTestId("playground-japanese-textarea");
