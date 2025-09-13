@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.4.0](https://github.com/aiktb/furiganamaker/compare/v3.3.0...v3.4.0) (2025-09-13)
+
+
+### Features
+
+* migrate from kuromoji.js to lindera-wasm ([#410](https://github.com/aiktb/furiganamaker/issues/410)) ([d538eef](https://github.com/aiktb/furiganamaker/commit/d538eef6e6d72c16ecba6a194e1f777c1da25af2))
+* no international brand name ([#414](https://github.com/aiktb/furiganamaker/issues/414)) ([53b1198](https://github.com/aiktb/furiganamaker/commit/53b11984ab5d35c8e871b8790ac60e3e9aa36dd1))
+
+
+### Bug Fixes
+
+* enter emoji in playground or normal pages will cause garbled characters ([#415](https://github.com/aiktb/furiganamaker/issues/415)) ([a0cdea4](https://github.com/aiktb/furiganamaker/commit/a0cdea4a4a44a1ef5d0cc762f392afc2941efd7b))
+* remove unnecessary scroll bars ([#411](https://github.com/aiktb/furiganamaker/issues/411)) ([cdc9afe](https://github.com/aiktb/furiganamaker/commit/cdc9afed429a9836aec29f7dee1831b5a458eddd))
+
 ## 3.3.0 (2025-08-30)
 
 
