@@ -4,6 +4,7 @@
     "antfu.iconify",
     "bradlc.vscode-tailwindcss",
     "naumovs.color-highlight",
-    "lokalise.i18n-ally"
+    "lokalise.i18n-ally",
+    "EditorConfig.EditorConfig"
   ]
 }

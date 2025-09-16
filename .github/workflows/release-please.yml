@@ -51,8 +51,8 @@ jobs:
             - [Chrome](https://chromewebstore.google.com/detail/furigana-maker/heodojceeinbkfjfilnfminlkgbacpfp)
             - [Edge](https://microsoftedge.microsoft.com/addons/detail/furigana-maker/kohpoklaaeicnkdapjkmljdachedmbbi)
         run: |
-         gh release upload ${{ needs.release-please.outputs.tag_name }} ./.output/*-chrome.zip
-         gh release edit ${{ needs.release-please.outputs.tag_name }} --notes "$RELEASE_NOTES"
+          gh release upload ${{ needs.release-please.outputs.tag_name }} ./.output/*-chrome.zip
+          gh release edit ${{ needs.release-please.outputs.tag_name }} --notes "$RELEASE_NOTES"
 
       - name: Submit to stores
         working-directory: ./apps/extension
