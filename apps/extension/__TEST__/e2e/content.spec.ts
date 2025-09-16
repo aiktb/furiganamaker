@@ -62,7 +62,7 @@ describe("Content scripts", () => {
         <title>日本語タイトル</title>
       </head>
       <body>
-         <p>漢字テスト</p>
+        <p>漢字テスト</p>
       </body>
       </html>`;
 
