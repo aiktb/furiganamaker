@@ -23,9 +23,7 @@ Special thanks to **_[WXT](https://wxt.dev/)_** for taking the frustration out o
 ## Download
 
 - [Chrome Web Store](https://chromewebstore.google.com/detail/furigana-maker/heodojceeinbkfjfilnfminlkgbacpfp)
-
-> [!IMPORTANT]
-> The Edge version of this extension will no longer be maintained due to [Microsoft Partner issue](https://github.com/aiktb/furiganamaker/issues/21), please use the latest version from the Chrome Web Store.
+- [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/furigana-maker/kohpoklaaeicnkdapjkmljdachedmbbi)
 
 ## Features
 
