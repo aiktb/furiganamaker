@@ -38,5 +38,6 @@ yarn-error.log*
 test-results
 playwright-report
 build
+.husky
 
 .react-router/

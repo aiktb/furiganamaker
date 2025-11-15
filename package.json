@@ -26,7 +26,7 @@
     "lint:fix": "biome check --write --unsafe .",
     "typecheck": "pnpm --recursive --sequential run typecheck",
     "test:e2e": "pnpm --recursive --sequential run test:e2e:prod",
-    "prepare": "husky"
+    "prepare": "lefthook install"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
@@ -34,7 +34,7 @@
     "@commitlint/config-conventional": "^20.0.0",
     "@commitlint/types": "^20.0.0",
     "@types/node": "^24.3.3",
-    "husky": "^9.1.7",
+    "lefthook": "^2.0.4",
     "typescript": "^5.9.2"
   },
   "pnpm": {

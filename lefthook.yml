@@ -1,0 +1,13 @@
+pre-commit:
+  commands:
+    lint:
+      glob: "*.{ts,tsx}"
+      run: "pnpm run lint:fix"
+      stage_fixed: true
+    typecheck:
+      glob: "*.{ts,tsx}"
+      run: pnpm exec tsc --noEmit
+commit-msg:
+  commands:
+    commitlint:
+      run: "pnpm exec commitlint --edit {1}"
