@@ -6,7 +6,7 @@ pre-commit:
       stage_fixed: true
     typecheck:
       glob: "*.{ts,tsx}"
-      run: pnpm exec tsc --noEmit
+      run: pnpm run typecheck
 commit-msg:
   commands:
     commitlint:
