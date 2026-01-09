@@ -28,7 +28,7 @@
     "test:e2e": "pnpm --recursive --sequential run test:e2e:prod",
     "prepare": "lefthook install",
     "dev": "pnpm --filter extension run dev",
-    "build": "pnpm --recursive --sequential run build",
+    "build": "pnpm --filter extension run build",
     "zip": "pnpm --filter extension run zip"
   },
   "devDependencies": {
