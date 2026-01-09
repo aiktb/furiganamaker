@@ -13,16 +13,16 @@
     "test:e2e:dev": "NODE_ENV=development pnpm exec playwright test --ui"
   },
   "dependencies": {
-    "@ctrl/tinycolor": "^4.1.0",
+    "@ctrl/tinycolor": "^4.2.0",
     "@floating-ui/react": "^0.27.16",
     "@headlessui/react": "catalog:",
     "@webext-core/messaging": "^2.3.0",
     "clsx": "catalog:",
     "es-toolkit": "catalog:",
     "file-saver": "^2.0.5",
-    "i18next": "^25.5.2",
+    "i18next": "^25.7.4",
     "idb": "^8.0.3",
-    "lindera-wasm-ipadic": "^1.0.0",
+    "lindera-wasm-ipadic": "^1.2.0",
     "next-themes": "^0.4.6",
     "picomatch": "^4.0.3",
     "react": "catalog:",
@@ -34,15 +34,15 @@
     "sonner": "^2.0.7",
     "tailwind-merge": "catalog:",
     "wanakana": "^5.3.1",
-    "zod": "^4.1.8",
+    "zod": "^4.3.5",
     "zustand": "catalog:"
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "catalog:",
     "@headlessui/tailwindcss": "catalog:",
     "@iconify-json/fa6-brands": "catalog:",
-    "@iconify-json/tabler": "^1.2.22",
-    "@playwright/test": "^1.56.1",
+    "@iconify-json/tabler": "^1.2.26",
+    "@playwright/test": "^1.57.0",
     "@tailwindcss/forms": "catalog:",
     "@tailwindcss/typography": "catalog:",
     "@tailwindcss/vite": "catalog:",
@@ -51,11 +51,11 @@
     "@types/picomatch": "^4.0.2",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "@vitejs/plugin-react-swc": "^4.0.1",
+    "@vitejs/plugin-react-swc": "^4.2.2",
     "@wxt-dev/auto-icons": "^1.1.0",
     "react-scan": "catalog:",
     "tailwindcss": "catalog:",
     "vite-plugin-svgr": "^4.5.0",
-    "wxt": "^0.20.11"
+    "wxt": "^0.20.13"
   }
 }

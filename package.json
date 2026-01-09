@@ -2,7 +2,7 @@
   "name": "furigana-maker",
   "description": "Add furigana to Japanese text on any page for learning kanji pronunciation.",
   "type": "module",
-  "packageManager": "pnpm@10.16.0",
+  "packageManager": "pnpm@10.27.0",
   "engines": {
     "node": ">=22.0.0"
   },
@@ -33,12 +33,12 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
-    "@commitlint/cli": "^20.0.0",
-    "@commitlint/config-conventional": "^20.0.0",
-    "@commitlint/types": "^20.0.0",
-    "@types/node": "^24.3.3",
-    "lefthook": "^2.0.4",
-    "typescript": "^5.9.2"
+    "@commitlint/cli": "^20.3.1",
+    "@commitlint/config-conventional": "^20.3.1",
+    "@commitlint/types": "^20.3.1",
+    "@types/node": "^25.0.3",
+    "lefthook": "^2.0.13",
+    "typescript": "^5.9.3"
   },
   "pnpm": {
     "overrides": {

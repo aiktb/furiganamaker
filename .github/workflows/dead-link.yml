@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   schedule:
     # Run every Sunday at 00:00
-    - cron: '0 0 * * SUN'
+    - cron: "0 0 * * SUN"
 
 jobs:
   linkChecker:

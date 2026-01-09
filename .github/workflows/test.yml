@@ -5,12 +5,12 @@ on:
   workflow_dispatch:
   pull_request:
     paths-ignore:
-      - '.vscode/**'
-      - '.github/**'
-      - 'LICENSE'
-      - 'renovate.json'
+      - ".vscode/**"
+      - ".github/**"
+      - "LICENSE"
+      - "renovate.json"
       - "CHANGELOG.md"
-      - '**/README.md'
+      - "**/README.md"
       - .gitignore
   push:
     branches:
@@ -23,9 +23,9 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
-          node-version-file: '.node-version'
-          cache: 'pnpm'
-          cache-dependency-path: 'pnpm-lock.yaml'
+          node-version-file: ".node-version"
+          cache: "pnpm"
+          cache-dependency-path: "pnpm-lock.yaml"
       - run: pnpm install --frozen-lockfile
 
       - name: Build the extension
@@ -36,7 +36,7 @@ jobs:
 
       - name: Run Playwright tests
         run: pnpm run test:e2e
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
