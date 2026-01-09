@@ -30,13 +30,9 @@ export const toKanjiToken = (linderaTokens: FormattedToken[], text: string): Kan
   return filteredTokens;
 };
 
-type LinderaTokenWithDetails = Omit<FormattedToken, "details"> & {
-  details: NonNullable<FormattedToken["details"]>;
-};
-
-const isPhonetic = (linderaToken: FormattedToken): linderaToken is LinderaTokenWithDetails => {
+const isPhonetic = (linderaToken: FormattedToken) => {
   const hasKanji = /\p{sc=Han}/v.test(linderaToken.text);
-  const hasReading = Boolean(linderaToken.details?.reading && linderaToken.details.reading !== "*");
+  const hasReading = Boolean(linderaToken.reading && linderaToken.reading !== "*");
   return hasReading && hasKanji;
 };
 
@@ -47,15 +43,12 @@ interface SimplifiedToken {
   end: number;
 }
 
-const toSimplifiedToken = (
-  linderaToken: LinderaTokenWithDetails,
-  text: string,
-): SimplifiedToken => {
+const toSimplifiedToken = (linderaToken: FormattedToken, text: string): SimplifiedToken => {
   return {
     start: byteIndexToUtf16Index(linderaToken.byteStart, text),
     end: byteIndexToUtf16Index(linderaToken.byteEnd, text),
     original: linderaToken.text,
-    reading: linderaToken.details.reading,
+    reading: linderaToken.reading,
   };
 };
 
