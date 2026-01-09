@@ -45,6 +45,9 @@ catalogs:
     '@types/react-dom':
       specifier: ^19.2.3
       version: 19.2.3
+    baseline-browser-mapping:
+      specifier: ^2.9.12
+      version: 2.9.14
     clsx:
       specifier: ^2.1.1
       version: 2.1.1
@@ -220,7 +223,7 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0(wxt@0.20.13(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.50.1)(tsx@4.20.5)(yaml@2.8.1))
       baseline-browser-mapping:
-        specifier: ^2.9.14
+        specifier: 'catalog:'
         version: 2.9.14
       react-scan:
         specifier: 'catalog:'

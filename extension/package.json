@@ -53,7 +53,7 @@
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react-swc": "^4.2.2",
     "@wxt-dev/auto-icons": "^1.1.0",
-    "baseline-browser-mapping": "^2.9.14",
+    "baseline-browser-mapping": "catalog:",
     "react-scan": "catalog:",
     "tailwindcss": "catalog:",
     "vite-plugin-svgr": "^4.5.0",
