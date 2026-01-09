@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next";
 import defaultSelectorRules from "@/assets/rules/selector.json";
 import { cn } from "@/commons/utils";
 import { PopupTransition } from "../../../components/PopupTransition";
-import { CreateNewSelectorRuleButton } from "../components/CreateNewSelectorRuleButton";
 import { useSelectorsStore } from "../store";
+import { CreateNewSelectorRuleButton } from "./CreateNewSelectorRuleButton";
 import { ImportSelectorRuleButton } from "./ImportSelectorRuleButton";
 
 export const SelectorDashboard = () => {

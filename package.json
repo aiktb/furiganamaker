@@ -26,7 +26,10 @@
     "lint:fix": "biome check --write --unsafe .",
     "typecheck": "pnpm --recursive --sequential run typecheck",
     "test:e2e": "pnpm --recursive --sequential run test:e2e:prod",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install",
+    "dev": "pnpm --filter extension run dev",
+    "build": "pnpm --recursive --sequential run build",
+    "zip": "pnpm --filter extension run zip"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",

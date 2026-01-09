@@ -13,8 +13,8 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     outputs:
-      tag_name: ${{ steps.release.outputs['apps/extension--tag_name'] }}
-      release_created: ${{ steps.release.outputs['apps/extension--release_created'] }}
+      tag_name: ${{ steps.release.outputs['extension--tag_name'] }}
+      release_created: ${{ steps.release.outputs['extension--release_created'] }}
 
     steps:
       - uses: googleapis/release-please-action@v4
@@ -33,20 +33,20 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
-          node-version-file: '.node-version'
-          cache: 'pnpm'
-          cache-dependency-path: 'pnpm-lock.yaml'
+          node-version-file: ".node-version"
+          cache: "pnpm"
+          cache-dependency-path: "pnpm-lock.yaml"
       - run: pnpm install --frozen-lockfile
 
       - name: Build the extension
         run: pnpm --filter extension run zip
 
       - name: Upload Release Artifact
-        working-directory: ./apps/extension
+        working-directory: ./extension
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_NOTES: |
-            Please refer to [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/apps/extension/CHANGELOG.md) for details.
+            Please refer to [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/extension/CHANGELOG.md) for details.
             ## Download
             - [Chrome](https://chromewebstore.google.com/detail/furigana-maker/heodojceeinbkfjfilnfminlkgbacpfp)
             - [Edge](https://microsoftedge.microsoft.com/addons/detail/furigana-maker/kohpoklaaeicnkdapjkmljdachedmbbi)
@@ -55,7 +55,7 @@ jobs:
           gh release edit ${{ needs.release-please.outputs.tag_name }} --notes "$RELEASE_NOTES"
 
       - name: Submit to stores
-        working-directory: ./apps/extension
+        working-directory: ./extension
         run: |
           pnpm --filter extension exec wxt submit \
             --chrome-zip ./.output/*-chrome.zip \
