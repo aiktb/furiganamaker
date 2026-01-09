@@ -16,6 +16,7 @@ catalog:
   '@total-typescript/ts-reset': ^0.6.1
   '@types/react': ^19.2.7
   '@types/react-dom': ^19.2.3
+  baseline-browser-mapping: ^2.9.12
   clsx: ^2.1.1
   es-toolkit: ^1.43.0
   react: ^19.1.4
