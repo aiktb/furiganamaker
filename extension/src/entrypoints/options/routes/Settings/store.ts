@@ -9,6 +9,7 @@ interface MoreSettingsStore extends MoreSettings {
   toggleColoringKanji: () => void;
   setExcludeSites: (sites: string[]) => void;
   setAlwaysRunSites: (sites: string[]) => void;
+  resetMoreSettings: () => void;
 }
 
 export const useMoreSettingsStore = create<MoreSettingsStore>()(
@@ -33,6 +34,9 @@ export const useMoreSettingsStore = create<MoreSettingsStore>()(
       },
       setAlwaysRunSites: (sites) => {
         set({ [ExtStorage.AlwaysRunSites]: sites });
+      },
+      resetMoreSettings: () => {
+        set({ ...moreSettingsFallback });
       },
     }),
     {
