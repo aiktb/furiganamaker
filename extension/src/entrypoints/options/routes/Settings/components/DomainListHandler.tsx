@@ -5,12 +5,12 @@ import { useTranslation } from "react-i18next";
 import { DomainFieldDesc } from "@/entrypoints/options/components/DomainFieldDesc";
 import { PopupTransition } from "../../../components/PopupTransition";
 
-interface ExclusionHandlerProps {
+interface DomainListHandlerProps {
   sites: string[];
   onChange: (sites: string[]) => void;
-  mode: "excludedSites" | "alwaysRunSites";
+  mode: "includeSites" | "excludedSites" | "alwaysRunSites";
 }
-export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerProps) {
+export function DomainListHandler({ sites, onChange, mode }: DomainListHandlerProps) {
   const [addDomainDialogIsOpen, setAddDomainDialogIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const { t } = useTranslation();
@@ -21,12 +21,18 @@ export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerPro
       <div className="mb-4 flex items-center justify-between">
         <div>
           <div className="font-bold text-lg text-slate-800 dark:text-slate-200">
-            {mode === "excludedSites" ? t("settingsExclusionList") : t("settingsAlwaysRunList")}
+            {mode === "includeSites"
+              ? t("settingsIncludeList")
+              : mode === "excludedSites"
+                ? t("settingsExclusionList")
+                : t("settingsAlwaysRunList")}
           </div>
           <div>
-            {mode === "excludedSites"
-              ? t("settingsExclusionListDesc")
-              : t("settingsAlwaysRunListDesc")}
+            {mode === "includeSites"
+              ? t("settingsIncludeListDesc")
+              : mode === "excludedSites"
+                ? t("settingsExclusionListDesc")
+                : t("settingsAlwaysRunListDesc")}
           </div>
         </div>
         <div className="flex flex-col gap-2 sm:flex-row">
@@ -153,7 +159,7 @@ export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerPro
   );
 }
 
-function SiteList({ sites, onChange }: Omit<ExclusionHandlerProps, "mode">) {
+function SiteList({ sites, onChange }: Omit<DomainListHandlerProps, "mode">) {
   return (
     <div className="space-y-2 rounded-lg bg-slate-950/5 p-4 text-slate-800 dark:bg-white/5 dark:text-slate-200">
       {sites.length === 0 ? (
