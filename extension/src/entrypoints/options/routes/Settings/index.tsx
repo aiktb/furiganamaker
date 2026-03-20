@@ -89,11 +89,11 @@ function SettingSwitch({
       <Switch
         checked={enabled}
         onChange={onChange}
-        className="group relative flex h-7 w-14 cursor-pointer rounded-full bg-slate-900/10 p-1 transition duration-200 ease-in-out hover:backdrop-brightness-75 focus:outline-hidden data-[checked]:bg-sky-500 data-[focus]:outline-1 data-[focus]:outline-white dark:bg-white/10 dark:hover:backdrop-brightness-175"
+        className="group relative flex h-7 w-14 cursor-pointer rounded-full bg-slate-900/10 p-1 transition duration-200 ease-in-out hover:backdrop-brightness-75 focus:outline-hidden data-checked:bg-sky-500 data-focus:outline-1 data-focus:outline-white dark:bg-white/10 dark:hover:backdrop-brightness-175"
       >
         <span
           aria-hidden="true"
-          className="pointer-events-none inline-block size-5 translate-x-0 rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out group-data-[checked]:translate-x-7"
+          className="pointer-events-none inline-block size-5 translate-x-0 rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out group-data-checked:translate-x-7"
         />
       </Switch>
     </div>

@@ -46,7 +46,7 @@ export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerPro
                 setAddDomainDialogIsOpen(false);
               }}
             >
-              <DialogPanel className="w-full min-w-[28rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle text-base shadow-xl transition-all dark:bg-slate-900">
+              <DialogPanel className="w-full min-w-md max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle text-base shadow-xl transition-all dark:bg-slate-900">
                 <DialogTitle
                   as="h3"
                   className="font-semibold text-lg text-slate-900 leading-6 dark:text-white"

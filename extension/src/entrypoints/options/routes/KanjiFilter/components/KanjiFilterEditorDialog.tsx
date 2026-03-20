@@ -113,7 +113,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
         className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 max-h-[60vh] overflow-y-auto"
         onClose={onClose}
       >
-        <DialogPanel className="w-full min-w-[28rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-8 text-left align-middle shadow-xl transition-all sm:mx-auto sm:w-full sm:max-w-sm dark:bg-slate-900">
+        <DialogPanel className="w-full min-w-md max-w-md transform overflow-hidden rounded-2xl bg-white p-8 text-left align-middle shadow-xl transition-all sm:mx-auto sm:w-full sm:max-w-sm dark:bg-slate-900">
           <Disclosure as="div">
             {({ open }) => (
               <>
@@ -173,11 +173,11 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
                       onChange={(checked) => {
                         setMatchAll(checked);
                       }}
-                      className="group relative flex h-5 w-10 cursor-pointer rounded-full bg-slate-900/10 p-1 transition duration-200 ease-in-out hover:backdrop-brightness-75 focus:outline-hidden data-[checked]:bg-sky-500 data-[focus]:outline-1 data-[focus]:outline-white dark:bg-white/10 dark:hover:backdrop-brightness-175"
+                      className="group relative flex h-5 w-10 cursor-pointer rounded-full bg-slate-900/10 p-1 transition duration-200 ease-in-out hover:backdrop-brightness-75 focus:outline-hidden data-checked:bg-sky-500 data-focus:outline-1 data-focus:outline-white dark:bg-white/10 dark:hover:backdrop-brightness-175"
                     >
                       <span
                         aria-hidden="true"
-                        className="pointer-events-none inline-block size-3 translate-x-0 rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out group-data-[checked]:translate-x-5"
+                        className="pointer-events-none inline-block size-3 translate-x-0 rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out group-data-checked:translate-x-5"
                       />
                     </Switch>
                   </Field>
