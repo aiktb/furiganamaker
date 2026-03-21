@@ -5,32 +5,42 @@ import { useTranslation } from "react-i18next";
 import { DomainFieldDesc } from "@/entrypoints/options/components/DomainFieldDesc";
 import { PopupTransition } from "../../../components/PopupTransition";
 
-interface ExclusionHandlerProps {
+interface DomainListHandlerProps {
   sites: string[];
   onChange: (sites: string[]) => void;
-  mode: "excludedSites" | "alwaysRunSites";
+  mode: "includeSites" | "excludedSites" | "alwaysRunSites";
 }
-export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerProps) {
+export function DomainListHandler({ sites, onChange, mode }: DomainListHandlerProps) {
   const [addDomainDialogIsOpen, setAddDomainDialogIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const { t } = useTranslation();
   const [clearDomainDialogIsOpen, setClearDomainDialogIsOpen] = useState(false);
 
   return (
-    <li className="w-full items-center justify-between gap-4">
+    <li
+      className="w-full items-center justify-between gap-4"
+      data-testid={`settings-${mode}-section`}
+    >
       <div className="mb-4 flex items-center justify-between">
         <div>
           <div className="font-bold text-lg text-slate-800 dark:text-slate-200">
-            {mode === "excludedSites" ? t("settingsExclusionList") : t("settingsAlwaysRunList")}
+            {mode === "includeSites"
+              ? t("settingsIncludeList")
+              : mode === "excludedSites"
+                ? t("settingsExclusionList")
+                : t("settingsAlwaysRunList")}
           </div>
           <div>
-            {mode === "excludedSites"
-              ? t("settingsExclusionListDesc")
-              : t("settingsAlwaysRunListDesc")}
+            {mode === "includeSites"
+              ? t("settingsIncludeListDesc")
+              : mode === "excludedSites"
+                ? t("settingsExclusionListDesc")
+                : t("settingsAlwaysRunListDesc")}
           </div>
         </div>
         <div className="flex flex-col gap-2 sm:flex-row">
           <button
+            data-testid={`settings-${mode}-add-btn`}
             className="cursor-pointer text-nowrap rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white"
             onClick={() => {
               setAddDomainDialogIsOpen(true);
@@ -46,7 +56,7 @@ export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerPro
                 setAddDomainDialogIsOpen(false);
               }}
             >
-              <DialogPanel className="w-full min-w-[28rem] max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle text-base shadow-xl transition-all dark:bg-slate-900">
+              <DialogPanel className="w-full min-w-md max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle text-base shadow-xl transition-all dark:bg-slate-900">
                 <DialogTitle
                   as="h3"
                   className="font-semibold text-lg text-slate-900 leading-6 dark:text-white"
@@ -58,6 +68,7 @@ export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerPro
                 </div>
                 <Field>
                   <Input
+                    data-testid={`settings-${mode}-input`}
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) => {
@@ -85,6 +96,7 @@ export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerPro
                     {t("btnCancel")}
                   </button>
                   <button
+                    data-testid={`settings-${mode}-submit-btn`}
                     className="cursor-pointer rounded-md bg-sky-600 px-4 py-2 text-white transition enabled:hover:bg-sky-500 disabled:cursor-not-allowed disabled:opacity-50"
                     disabled={!input}
                     onClick={() => {
@@ -100,6 +112,7 @@ export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerPro
             </Dialog>
           </PopupTransition>
           <button
+            data-testid={`settings-${mode}-clear-btn`}
             className="cursor-pointer text-nowrap rounded-md bg-slate-950/5 px-4 py-2 text-slate-800 transition hover:text-sky-500 dark:bg-white/5 dark:text-white"
             onClick={() => {
               setClearDomainDialogIsOpen(true);
@@ -129,8 +142,12 @@ export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerPro
                 </div>
                 <div className="mt-4 flex gap-2.5">
                   <button
+                    data-testid={`settings-${mode}-clear-confirm-btn`}
                     className="inline-flex cursor-pointer justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 font-semibold text-slate-900 text-sm transition hover:bg-red-200 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:bg-red-800 dark:text-slate-200 dark:hover:bg-red-900"
-                    onClick={() => onChange([])}
+                    onClick={() => {
+                      onChange([]);
+                      setClearDomainDialogIsOpen(false);
+                    }}
                   >
                     {t("btnConfirm")}
                   </button>
@@ -148,21 +165,29 @@ export function DomainListHandler({ sites, onChange, mode }: ExclusionHandlerPro
           </PopupTransition>
         </div>
       </div>
-      <SiteList sites={sites} onChange={onChange} />
+      <SiteList sites={sites} onChange={onChange} mode={mode} />
     </li>
   );
 }
 
-function SiteList({ sites, onChange }: Omit<ExclusionHandlerProps, "mode">) {
+function SiteList({ sites, onChange, mode }: DomainListHandlerProps) {
   return (
-    <div className="space-y-2 rounded-lg bg-slate-950/5 p-4 text-slate-800 dark:bg-white/5 dark:text-slate-200">
+    <div
+      className="space-y-2 rounded-lg bg-slate-950/5 p-4 text-slate-800 dark:bg-white/5 dark:text-slate-200"
+      data-testid={`settings-${mode}-list`}
+    >
       {sites.length === 0 ? (
         <div className="flex items-center justify-center">{t("messageEmptyList")}</div>
       ) : (
-        sites.map((site) => (
-          <div key={site} className="flex justify-between">
+        sites.map((site, index) => (
+          <div
+            key={site}
+            className="flex justify-between"
+            data-testid={`settings-${mode}-item-${index}`}
+          >
             <div className="select-all">{site}</div>
             <button
+              data-testid={`settings-${mode}-delete-btn-${index}`}
               className="flex cursor-pointer items-center text-slate-300 hover:text-slate-100"
               onClick={() => {
                 onChange(sites.filter((s) => s !== site));

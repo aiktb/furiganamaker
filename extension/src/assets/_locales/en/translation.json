@@ -78,6 +78,8 @@
   "settingsDisableWarningDesc": "No longer show \"Page is too large\" warnings on web pages.",
   "settingsColoringKanji": "Coloring Kanji",
   "settingsColoringKanjiDesc": "The kanji on the page will be colored along with the furigana.",
+  "settingsIncludeList": "Only add furigana to the following sites",
+  "settingsIncludeListDesc": "Glob patterns are supported. Default is \"*\" which matches all sites. This list works together with the exclusion list. To specify certain sites, delete \"*\" first.",
   "btnOK": "OK",
   "btnAdd": "Add",
   "btnClearAll": "Clear All",

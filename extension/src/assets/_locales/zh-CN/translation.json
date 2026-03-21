@@ -79,6 +79,8 @@
   "dialogAddDomainDialogTitle": "添加域",
   "settingsColoringKanji": "着色汉字",
   "settingsColoringKanjiDesc": "页面上的汉字将与注音假名一起着色。",
+  "settingsIncludeList": "仅在以下网站添加注音假名",
+  "settingsIncludeListDesc": "支持通配符模式。默认值为 \"*\" 匹配所有网站。此列表与排除列表同时生效。如果要指定特定网站，请先删除 \"*\"。",
   "settingsDisableWarning": "禁用警告",
   "settingsDisableWarningDesc": "网页上不再显示“页面太大”警告。",
   "messageEmptyList": "列表为空，请先添加。",

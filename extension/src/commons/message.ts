@@ -1,8 +1,9 @@
 import { defineExtensionMessaging } from "@webext-core/messaging";
+import type { FuriganaType } from "@/commons/constants";
 import type { KanjiMark } from "@/entrypoints/background/listeners/onGetKanjiMarksMessage";
 
 interface ProtocolMap {
-  getKanjiMarks(data: { text: string }): { tokens: KanjiMark[] };
+  getKanjiMarks(data: { text: string; furiganaType: FuriganaType }): { tokens: KanjiMark[] };
   getSelector(data: { domain: string }): { selector: string };
 }
 

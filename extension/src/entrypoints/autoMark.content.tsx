@@ -19,10 +19,17 @@ export default defineContentScript({
 
   async main(ctx) {
     const autoModeIsEnabled = await getGeneralSettings(ExtStorage.AutoMode);
+    if (!autoModeIsEnabled) {
+      return;
+    }
+
+    const includeSites = await getMoreSettings(ExtStorage.IncludeSites);
     const excludeSites = await getMoreSettings(ExtStorage.ExcludeSites);
-    const isMatch = picomatch(excludeSites, { nocase: true });
-    const isExcluded = isMatch(location.hostname);
-    if (!autoModeIsEnabled || isExcluded) {
+    const isIncluded = picomatch(includeSites, { nocase: true })(location.hostname);
+    const isExcluded = picomatch(excludeSites, { nocase: true })(location.hostname);
+    // Site must be included AND not excluded
+    const shouldProcess = isIncluded && !isExcluded;
+    if (!shouldProcess) {
       /**
        * If the user does not enable the extension, the extension will not attempt to add furigana to the page.
        * The page must be refreshed after switching the extension to the enabled state.

@@ -79,6 +79,8 @@
   "messageEmptyList": "リストは空です。最初に追加してください。",
   "settingsColoringKanji": "漢字のぬりえ",
   "settingsColoringKanjiDesc": "ページ上の漢字にはふりがなとともに色がつきます。",
+  "settingsIncludeList": "以下のサイトのみにふりがなを追加する",
+  "settingsIncludeListDesc": "グロブパターンがサポートされています。デフォルトは \"*\" で、すべてのサイトに一致します。このリストは除外リストと併用されます。特定のサイトを指定する場合は、まず \"*\" を削除してください。",
   "settingsDisableWarning": "警告を無効にする",
   "settingsDisableWarningDesc": "Web ページに「ページが大きすぎます」という警告が表示されなくなりました。",
   "settingsExclusionListDesc": "この設定は、カスタム ルール (ルール エディターで編集) より優先されます。",

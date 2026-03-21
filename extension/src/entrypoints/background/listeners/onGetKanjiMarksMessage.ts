@@ -1,4 +1,6 @@
-import { ExtEvent } from "@/commons/constants";
+import { match } from "ts-pattern";
+import { toHiragana, toRomaji } from "wanakana";
+import { ExtEvent, FuriganaType } from "@/commons/constants";
 import { onMessage } from "@/commons/message";
 import { type KanjiToken, toKanjiToken } from "@/commons/toKanjiToken";
 import { initAsync, type Tokenizer, TokenizerBuilder } from "@/commons/tokenize";
@@ -24,9 +26,7 @@ const getTokenizer = async () => {
     return await deferredTokenizer.promise;
   }
   try {
-    await initAsync({
-      moduleOrPath: "lindera_wasm_bg.wasm",
-    });
+    await initAsync();
     const builder = new TokenizerBuilder();
     const tokenizer = builder.build();
     deferredTokenizer.resolve(tokenizer);
@@ -72,6 +72,11 @@ export const registerOnGetKanjiMarksMessage = () => {
         yomikatas !== undefined && (yomikatas === "*" || yomikatas.includes(token.reading));
       return {
         ...token,
+        reading: match(data.furiganaType)
+          .with(FuriganaType.Hiragana, () => toHiragana(token.reading))
+          .with(FuriganaType.Romaji, () => toRomaji(token.reading))
+          .with(FuriganaType.Katakana, () => token.reading)
+          .exhaustive(),
         isFiltered,
       };
     });

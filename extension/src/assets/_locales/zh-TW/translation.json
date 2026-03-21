@@ -57,6 +57,8 @@
   "optionRomaji": "羅馬字",
   "settingsColoringKanji": "著色漢字",
   "settingsColoringKanjiDesc": "頁面上的漢字將與注音假名一起著色。",
+  "settingsIncludeList": "僅在以下網站新增註音假名",
+  "settingsIncludeListDesc": "支援萬用字元模式。預設值為 \"*\" 可匹配所有網站。此清單與排除清單同時生效。如果要指定特定網站，請先刪除 \"*\"。",
   "settingsDisableWarning": "禁用警告",
   "settingsDisableWarningDesc": "網頁上不再顯示「頁面太大」警告。",
   "settingsExclusionList": "以下網站從不添加註音假名",
