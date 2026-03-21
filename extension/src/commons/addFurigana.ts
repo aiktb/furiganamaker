@@ -1,6 +1,6 @@
 import { sendMessage } from "@/commons/message";
 import type { KanjiMark } from "@/entrypoints/background/listeners/onGetKanjiMarksMessage";
-import { ExtStorage, FURIGANA_CLASS } from "./constants";
+import { ExtStorage, FURIGANA_CLASS, type FuriganaType } from "./constants";
 import { getGeneralSettings } from "./utils";
 
 /**
@@ -12,8 +12,9 @@ import { getGeneralSettings } from "./utils";
  **/
 export async function addFurigana(...elements: Element[]) {
   const japaneseTexts = elements.flatMap(collectTexts);
+  const furiganaType = await getGeneralSettings(ExtStorage.FuriganaType);
   for (const text of japaneseTexts) {
-    const tokens = await tokenize(text.textContent!);
+    const tokens = await tokenize(text.textContent!, furiganaType);
     // reverse() prevents the range from being invalidated
     for (const token of tokens.reverse()) {
       const ruby = createRuby(token);
@@ -43,13 +44,12 @@ const collectTexts = (element: Element): Text[] => {
   return texts;
 };
 
-const tokenize = async (text: string) => {
+const tokenize = async (text: string, furiganaType: FuriganaType) => {
   // Performance Optimization: This will reduce the number of Service Worker requests by more than 50%.
   const hasKanji = /\p{sc=Han}/v.test(text);
   if (!hasKanji) {
     return [];
   }
-  const furiganaType = await getGeneralSettings(ExtStorage.FuriganaType);
   const { tokens } = await sendMessage("getKanjiMarks", { text, furiganaType });
   return tokens;
 };
