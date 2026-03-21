@@ -1,11 +1,7 @@
-import { match } from "ts-pattern";
-import { toHiragana, toRomaji } from "wanakana";
 import { sendMessage } from "@/commons/message";
-
 import type { KanjiMark } from "@/entrypoints/background/listeners/onGetKanjiMarksMessage";
+import { FURIGANA_CLASS } from "./constants";
 
-import { ExtStorage, FURIGANA_CLASS, FuriganaType } from "./constants";
-import { getGeneralSettings } from "./utils";
 /**
  * Append ruby tag to all text nodes of a batch of elements.
  * @remarks
@@ -14,17 +10,12 @@ import { getGeneralSettings } from "./utils";
  * Ruby tag is "\<ruby>original\<rp>(\</rp>\<rt>reading\</rt>\<rp>)\</rp>\</ruby>".
  **/
 export async function addFurigana(...elements: Element[]) {
-  const furiganaType = await getGeneralSettings(ExtStorage.FuriganaType);
-  if (!furiganaType) {
-    return;
-  }
-
   const japaneseTexts = elements.flatMap(collectTexts);
   for (const text of japaneseTexts) {
-    const tokens: KanjiMark[] = await tokenize(text.textContent!);
+    const tokens = await tokenize(text.textContent!);
     // reverse() prevents the range from being invalidated
     for (const token of tokens.reverse()) {
-      const ruby = createRuby(token, furiganaType);
+      const ruby = createRuby(token);
       const range = document.createRange();
       range.setStart(text, token.start);
       range.setEnd(text, token.end);
@@ -61,7 +52,7 @@ const tokenize = async (text: string) => {
   return tokens;
 };
 
-const createRuby = (token: KanjiMark, furiganaType: FuriganaType): HTMLElement => {
+const createRuby = (token: KanjiMark): HTMLElement => {
   const ruby = document.createElement("ruby");
   ruby.classList.add(FURIGANA_CLASS);
   if (token.isFiltered) {
@@ -73,11 +64,6 @@ const createRuby = (token: KanjiMark, furiganaType: FuriganaType): HTMLElement =
   leftParenthesisRp.textContent = "(";
   const originalText = document.createTextNode(token.original);
 
-  token.reading = match(furiganaType)
-    .with(FuriganaType.Hiragana, () => toHiragana(token.reading))
-    .with(FuriganaType.Romaji, () => toRomaji(token.reading))
-    .with(FuriganaType.Katakana, () => token.reading)
-    .exhaustive();
   const readingTextNode = document.createTextNode(token.reading);
   const rt = document.createElement("rt");
   rt.appendChild(readingTextNode);
