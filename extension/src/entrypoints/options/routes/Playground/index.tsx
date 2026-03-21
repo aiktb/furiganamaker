@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { match } from "ts-pattern";
 import { toHiragana, toKatakana, toRomaji } from "wanakana";
 import type { FuriganaType } from "@/commons/constants";
 import { FuriganaTypeRadioGroup } from "./components/FuriganaTypeRadioGroup";
@@ -18,17 +19,11 @@ export const Playground = () => {
           setFuriganaSegments((segments) => {
             return segments.map((segment) => {
               if (segment.type === "furigana") {
-                let reading: string;
-                switch (value) {
-                  case "katakana":
-                    reading = toKatakana(segment.reading);
-                    break;
-                  case "hiragana":
-                    reading = toHiragana(segment.reading);
-                    break;
-                  default:
-                    reading = toRomaji(segment.reading);
-                }
+                const reading = match(value)
+                  .with("katakana", () => toKatakana(segment.reading))
+                  .with("hiragana", () => toHiragana(segment.reading))
+                  .with("romaji", () => toRomaji(segment.reading))
+                  .exhaustive();
                 return {
                   ...segment,
                   reading,

@@ -1,3 +1,4 @@
+import { match } from "ts-pattern";
 import { toHiragana, toKatakana, toRomaji } from "wanakana";
 
 import {
@@ -40,7 +41,6 @@ export default defineContentScript({
   },
 });
 
-// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: This doesn't look complicated.
 async function styleHandler(type: StyleEvent) {
   const rubySelector = `ruby.${FURIGANA_CLASS}`;
   const rtSelector = `${rubySelector} > rt`;
@@ -49,34 +49,41 @@ async function styleHandler(type: StyleEvent) {
   const filteredRtSelector = `${rubySelector}.isFiltered > rt`;
 
   const value = await getGeneralSettings(toStorageKey(type));
-  let css = "";
-  switch (type) {
-    case ExtEvent.SwitchDisplayMode:
-      if (value === DisplayMode.Never) {
-        css = `
+  const css = await match(type)
+    .with(ExtEvent.SwitchDisplayMode, () =>
+      match(value as DisplayMode)
+        .with(
+          DisplayMode.Never,
+          () => `
           ${rtSelector} {
             display: none;
-          }`;
-      } else if (value === DisplayMode.Hover) {
-        css = `
+          }`,
+        )
+        .with(
+          DisplayMode.Hover,
+          () => `
           ${rtSelector} {
             opacity: 0;
           }
 
           ${rtHoverSelector} {
             opacity: 1;
-          }`;
-      } else if (value === DisplayMode.HoverNoGap) {
-        css = `
+          }`,
+        )
+        .with(
+          DisplayMode.HoverNoGap,
+          () => `
           ${rtSelector} {
             display: none;
           }
 
           ${rtHoverSelector} {
             display: revert;
-          }`;
-      } else if (value === DisplayMode.HoverMask) {
-        css = `
+          }`,
+        )
+        .with(
+          DisplayMode.HoverMask,
+          () => `
           ${rtSelector} {
             background-color: currentColor;
             border-radius: 0.25em;
@@ -85,11 +92,14 @@ async function styleHandler(type: StyleEvent) {
           ${rtHoverSelector} {
             background-color: transparent;
             transition: background-color 0.15s ease-in-out;
-          }`;
-      }
-      break;
-    case ExtEvent.SwitchSelectMode:
-      css = `
+          }`,
+        )
+        .with(DisplayMode.Always, () => "")
+        .exhaustive(),
+    )
+    .with(
+      ExtEvent.SwitchSelectMode,
+      () => `
         ${rtSelector} {
           user-select: ${value === SelectMode.Original ? "none" : "text"};
         }
@@ -105,31 +115,31 @@ async function styleHandler(type: StyleEvent) {
           clip: rect(0, 0, 0, 0);
           white-space: nowrap;
           border-width: 0;
-        }`;
-      break;
-    case ExtEvent.AdjustFontSize:
-      css = `
+        }`,
+    )
+    .with(
+      ExtEvent.AdjustFontSize,
+      () => `
         ${rtSelector} {
           font-size: ${value}%;
-        }`;
-      break;
-    case ExtEvent.AdjustFontColor: {
+        }`,
+    )
+    .with(ExtEvent.AdjustFontColor, async () => {
       const coloringKanji = await getMoreSettings(ExtStorage.ColoringKanji);
-      css = `
+      return `
         ${coloringKanji ? rubySelector : rtSelector} {
           color: ${value};
         }`;
-      break;
-    }
-    case ExtEvent.ToggleKanjiFilter:
-      if (value) {
-        css = `
+    })
+    .with(ExtEvent.ToggleKanjiFilter, () =>
+      value
+        ? `
           ${filteredRtSelector} {
             display: none;
-          }`;
-      }
-      break;
-  }
+          }`
+        : "",
+    )
+    .exhaustive();
   const id = `${FURIGANA_CLASS}${type}`;
   const oldStyle = document.getElementById(id);
   if (oldStyle) {
@@ -147,22 +157,13 @@ async function switchFuriganaHandler() {
   const rtSelector = `ruby.${FURIGANA_CLASS} > rt`;
   const nodes = document.querySelectorAll(rtSelector);
   const value = await getGeneralSettings(ExtStorage.FuriganaType);
-  switch (value) {
-    case FuriganaType.Hiragana:
-      for (const node of nodes) {
-        node.textContent = toHiragana(node.textContent!);
-      }
-      break;
-    case FuriganaType.Katakana:
-      for (const node of nodes) {
-        node.textContent = toKatakana(node.textContent!);
-      }
-      break;
-    case FuriganaType.Romaji:
-      for (const node of nodes) {
-        node.textContent = toRomaji(node.textContent!);
-      }
-      break;
+  const transformer = match(value)
+    .with(FuriganaType.Hiragana, () => toHiragana)
+    .with(FuriganaType.Katakana, () => toKatakana)
+    .with(FuriganaType.Romaji, () => toRomaji)
+    .exhaustive();
+  for (const node of nodes) {
+    node.textContent = transformer(node.textContent!);
   }
 }
 

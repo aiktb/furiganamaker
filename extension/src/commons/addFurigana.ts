@@ -1,3 +1,4 @@
+import { match } from "ts-pattern";
 import { toHiragana, toRomaji } from "wanakana";
 import { sendMessage } from "@/commons/message";
 
@@ -72,17 +73,11 @@ const createRuby = (token: KanjiMark, furiganaType: FuriganaType): HTMLElement =
   leftParenthesisRp.textContent = "(";
   const originalText = document.createTextNode(token.original);
 
-  switch (furiganaType) {
-    case FuriganaType.Hiragana:
-      token.reading = toHiragana(token.reading);
-      break;
-    case FuriganaType.Romaji:
-      token.reading = toRomaji(token.reading);
-      break;
-    case FuriganaType.Katakana:
-      // token.reading default is katakana
-      break;
-  }
+  token.reading = match(furiganaType)
+    .with(FuriganaType.Hiragana, () => toHiragana(token.reading))
+    .with(FuriganaType.Romaji, () => toRomaji(token.reading))
+    .with(FuriganaType.Katakana, () => token.reading)
+    .exhaustive();
   const readingTextNode = document.createTextNode(token.reading);
   const rt = document.createElement("rt");
   rt.appendChild(readingTextNode);

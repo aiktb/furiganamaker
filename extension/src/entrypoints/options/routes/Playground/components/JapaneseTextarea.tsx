@@ -2,6 +2,7 @@ import { Textarea } from "@headlessui/react";
 import { debounce } from "es-toolkit";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { match } from "ts-pattern";
 import { toHiragana, toRomaji } from "wanakana";
 import type { FuriganaType } from "@/commons/constants";
 import { sendMessage } from "@/commons/message";
@@ -90,20 +91,11 @@ const getFuriganaSegments = (tokens: KanjiMark[], text: string, furiganaType: Fu
       id: crypto.randomUUID(),
       reading: token.reading,
     } as const;
-    switch (furiganaType) {
-      case "katakana":
-        return data;
-      case "hiragana":
-        return {
-          ...data,
-          reading: toHiragana(token.reading),
-        };
-      default:
-        return {
-          ...data,
-          reading: toRomaji(token.reading),
-        };
-    }
+    return match(furiganaType)
+      .with("katakana", () => data)
+      .with("hiragana", () => ({ ...data, reading: toHiragana(token.reading) }))
+      .with("romaji", () => ({ ...data, reading: toRomaji(token.reading) }))
+      .exhaustive();
   };
   for (const token of tokens) {
     if (token.start > lastIndex) {
