@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.5.0](https://github.com/aiktb/furiganamaker/compare/v3.4.0...v3.5.0) (2026-03-21)
+
+
+### Features
+
+* Add include sites list for flexible site control.
+* Allows users to reset the options page settings to default values.
+
 ## 3.4.0 (2025-09-13)
 
 
