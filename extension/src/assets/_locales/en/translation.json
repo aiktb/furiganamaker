@@ -127,7 +127,7 @@
   "settingsAlwaysRunList": "The following sites always run in Auto Mode",
   "settingsAlwaysRunListDesc": "These sites will not display the \"Page is too large\" warning. This setting has lower priority than the \"never add\" list.",
   "settingsResetAll": "Reset all settings",
-  "settingsResetAllDesc": "Restore language and site rules to default values.",
+  "settingsResetAllDesc": "Restore language and site rules to default values. Current page language stays unchanged until reload.",
   "settingsResetDialogTitle": "Reset settings to default?",
   "settingsResetDialogDesc": "All changes on this page will be cleared.",
   "navPlayground": "Playground",

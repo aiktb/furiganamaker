@@ -48,8 +48,6 @@ export function Settings() {
 
   function handleResetSettings() {
     resetMoreSettings();
-    i18n.changeLanguage("en");
-    document.documentElement.lang = "en";
     setIsResetDialogOpen(false);
   }
 
