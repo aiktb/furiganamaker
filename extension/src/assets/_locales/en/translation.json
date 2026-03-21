@@ -127,7 +127,7 @@
   "settingsResetAll": "Reset all settings",
   "settingsResetAllDesc": "Restore language and site rules to default values.",
   "settingsResetDialogTitle": "Reset settings to default?",
-  "settingsResetDialogDesc": "All changes in this page will be cleared.",
+  "settingsResetDialogDesc": "All changes on this page will be cleared.",
   "navPlayground": "Playground",
   "tipCopy": "Copy to clipboard",
   "msgCopied": "Copied to clipboard.",
