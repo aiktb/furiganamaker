@@ -10,9 +10,11 @@ export function Settings() {
   const language = useMoreSettingsStore((state) => state[ExtStorage.Language]);
   const warningDisabled = useMoreSettingsStore((state) => state[ExtStorage.DisableWarning]);
   const coloringKanjiEnabled = useMoreSettingsStore((state) => state[ExtStorage.ColoringKanji]);
+  const includeSites = useMoreSettingsStore((state) => state[ExtStorage.IncludeSites]);
   const excludedSites = useMoreSettingsStore((state) => state[ExtStorage.ExcludeSites]);
   const alwaysRunSites = useMoreSettingsStore((state) => state[ExtStorage.AlwaysRunSites]);
   const setLanguage = useMoreSettingsStore((state) => state.setLanguage);
+  const setIncludeSites = useMoreSettingsStore((state) => state.setIncludeSites);
   const setExcludeSites = useMoreSettingsStore((state) => state.setExcludeSites);
   const setAlwaysRunSites = useMoreSettingsStore((state) => state.setAlwaysRunSites);
   const toggleColoringKanji = useMoreSettingsStore((state) => state.toggleColoringKanji);
@@ -25,6 +27,11 @@ export function Settings() {
     document.documentElement.lang = newLanguage;
   }
 
+  function handleIncludeListChange(sites: string[]) {
+    const unrepeatedSites = uniq(sites);
+    setIncludeSites(unrepeatedSites);
+  }
+
   function handleExclusionListChange(sites: string[]) {
     const unrepeatedSites = uniq(sites);
     setExcludeSites(unrepeatedSites);
@@ -34,6 +41,7 @@ export function Settings() {
     const unrepeatedSites = uniq(sites);
     setAlwaysRunSites(unrepeatedSites);
   }
+
   return (
     <menu className="flex flex-col items-center justify-between space-y-10 text-pretty lg:max-w-5xl lg:px-8">
       <li className="flex w-full items-center justify-between gap-4">
@@ -54,6 +62,11 @@ export function Settings() {
         </div>
         <SettingSwitch enabled={coloringKanjiEnabled} onChange={toggleColoringKanji} />
       </li>
+      <DomainListHandler
+        sites={includeSites}
+        onChange={handleIncludeListChange}
+        mode="includeSites"
+      />
       <DomainListHandler
         sites={excludedSites}
         onChange={handleExclusionListChange}
@@ -89,11 +102,11 @@ function SettingSwitch({
       <Switch
         checked={enabled}
         onChange={onChange}
-        className="group relative flex h-7 w-14 cursor-pointer rounded-full bg-slate-900/10 p-1 transition duration-200 ease-in-out hover:backdrop-brightness-75 focus:outline-hidden data-[checked]:bg-sky-500 data-[focus]:outline-1 data-[focus]:outline-white dark:bg-white/10 dark:hover:backdrop-brightness-175"
+        className="group relative flex h-7 w-14 cursor-pointer rounded-full bg-slate-900/10 p-1 transition duration-200 ease-in-out hover:backdrop-brightness-75 focus:outline-hidden data-checked:bg-sky-500 data-focus:outline-1 data-focus:outline-white dark:bg-white/10 dark:hover:backdrop-brightness-175"
       >
         <span
           aria-hidden="true"
-          className="pointer-events-none inline-block size-5 translate-x-0 rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out group-data-[checked]:translate-x-7"
+          className="pointer-events-none inline-block size-5 translate-x-0 rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out group-data-checked:translate-x-7"
         />
       </Switch>
     </div>

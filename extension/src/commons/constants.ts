@@ -27,6 +27,7 @@ export const ExtStorage = {
   Language: "language",
   DisableWarning: "disableWarning",
   ColoringKanji: "coloringKanji",
+  IncludeSites: "includeSites",
   ExcludeSites: "excludeSites",
   SelectorRules: "selectorRules",
   FilterRules: "filterRules",
@@ -87,6 +88,11 @@ export interface MoreSettings {
   [ExtStorage.Language]: string | null;
   [ExtStorage.DisableWarning]: boolean;
   [ExtStorage.ColoringKanji]: boolean;
+  /**
+   * Glob is supported.
+   * Default is ["*"] which matches all sites.
+   */
+  [ExtStorage.IncludeSites]: string[];
   /**
    * Glob is supported.
    */

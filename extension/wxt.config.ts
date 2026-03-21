@@ -1,8 +1,5 @@
-import fs from "node:fs/promises";
-import path from "node:path";
-
 import tailwindcss from "@tailwindcss/vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 import { defineConfig } from "wxt";
 
@@ -48,23 +45,9 @@ export default defineConfig({
     name: "furigana-maker",
   },
   vite: () => ({
-    plugins: [react({ devTarget: "esnext" }), svgr(), tailwindcss()],
-    build: {
-      target: "esnext",
-    },
+    plugins: [react(), svgr(), tailwindcss()],
   }),
   hooks: {
-    "build:publicAssets": async ({ config }, publicFiles) => {
-      const srcPath = path.resolve(
-        import.meta.dirname,
-        "./node_modules/lindera-wasm-ipadic/lindera_wasm_bg.wasm",
-      );
-      await fs.mkdir(config.outDir, { recursive: true });
-      publicFiles.push({
-        absoluteSrc: srcPath,
-        relativeDest: path.join(config.outDir, "lindera_wasm_bg.wasm"),
-      });
-    },
     "build:manifestGenerated": ({ config }, manifest) => {
       if (config.mode === "development") {
         // WXT will handle CSP issues in the development environment

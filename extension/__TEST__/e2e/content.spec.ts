@@ -87,4 +87,71 @@ describe("Content scripts", () => {
     const bodyRubyCount = await page.$$eval("body ruby", (els) => els.length);
     expect(bodyRubyCount).toBeGreaterThan(0);
   });
+
+  test("shouldProcess follows include/exclude settings configured from options page", async ({
+    page,
+    extensionId,
+  }) => {
+    const url = "https://example.org/test-should-process";
+    const html = `<!doctype html>
+      <html lang="ja">
+      <head>
+        <meta charset="utf-8" />
+      </head>
+      <body>
+        <p id="target">漢字テスト</p>
+      </body>
+      </html>`;
+
+    await page.route(url, async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "text/html; charset=utf-8",
+        body: html,
+      });
+    });
+
+    const optionsUrl = `chrome-extension://${extensionId}/options.html#/`;
+    const includeAddButton = page.getByTestId("settings-includeSites-add-btn");
+    const includeInput = page.getByTestId("settings-includeSites-input");
+    const includeSubmit = page.getByTestId("settings-includeSites-submit-btn");
+    const includeClear = page.getByTestId("settings-includeSites-clear-btn");
+    const includeList = page.getByTestId("settings-includeSites-list");
+    const excludeAddButton = page.getByTestId("settings-excludedSites-add-btn");
+    const excludeInput = page.getByTestId("settings-excludedSites-input");
+    const excludeSubmit = page.getByTestId("settings-excludedSites-submit-btn");
+    const excludeClear = page.getByTestId("settings-excludedSites-clear-btn");
+
+    await page.goto(optionsUrl);
+
+    await includeClear.click();
+    await page.getByTestId("settings-includeSites-clear-confirm-btn").click();
+    await excludeClear.click();
+    await page.getByTestId("settings-excludedSites-clear-confirm-btn").click();
+    await page.waitForTimeout(50);
+
+    await page.goto(url);
+    await expect(page.locator("body ruby")).toHaveCount(0);
+
+    await page.goto(optionsUrl);
+    await includeAddButton.click();
+    await includeInput.fill("example.org");
+    await includeSubmit.click();
+    await expect(includeList).toContainText("example.org");
+    await page.waitForTimeout(50);
+
+    await page.goto(url);
+    await page.waitForSelector("body ruby");
+    const includedHtml = await page.$eval("#target", (el) => el.innerHTML);
+    expect(cleanRubyHtml(includedHtml)).toBe("<ruby>漢字<rt>かんじ</rt></ruby>テスト");
+
+    await page.goto(optionsUrl);
+    await excludeAddButton.click();
+    await excludeInput.fill("example.org");
+    await excludeSubmit.click();
+    await page.waitForTimeout(50);
+
+    await page.goto(url);
+    await expect(page.locator("body ruby")).toHaveCount(0);
+  });
 });

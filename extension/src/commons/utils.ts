@@ -78,17 +78,22 @@ export const moreSettingsFallback = {
   [ExtStorage.Language]: null,
   [ExtStorage.DisableWarning]: false,
   [ExtStorage.ColoringKanji]: false,
+  [ExtStorage.IncludeSites]: ["*"],
   [ExtStorage.ExcludeSites]: [],
   [ExtStorage.AlwaysRunSites]: [],
 } satisfies MoreSettings;
 
 export const moreSettings = storage.defineItem<MoreSettings>("local:moreSettings", {
-  version: 2,
+  version: 3,
   fallback: moreSettingsFallback,
   migrations: {
     2: (oldValue: Omit<MoreSettings, "alwaysRunSites">) => ({
       ...oldValue,
       [ExtStorage.AlwaysRunSites]: [],
+    }),
+    3: (oldValue: Omit<MoreSettings, "includeSites">) => ({
+      ...oldValue,
+      [ExtStorage.IncludeSites]: ["*"],
     }),
   },
 });

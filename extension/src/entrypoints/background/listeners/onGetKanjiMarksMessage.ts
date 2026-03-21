@@ -26,9 +26,7 @@ const getTokenizer = async () => {
     return await deferredTokenizer.promise;
   }
   try {
-    await initAsync({
-      moduleOrPath: "lindera_wasm_bg.wasm",
-    });
+    await initAsync();
     const builder = new TokenizerBuilder();
     const tokenizer = builder.build();
     deferredTokenizer.resolve(tokenizer);

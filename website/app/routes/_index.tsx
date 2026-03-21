@@ -75,7 +75,7 @@ export default function Index() {
           </span>{" "}
           to Japanese text on any page.
         </h1>
-        <p className="animeRising max-w-[42rem] leading-normal sm:text-xl sm:leading-8">
+        <p className="animeRising max-w-2xl leading-normal sm:text-xl sm:leading-8">
           Simply click on the text and furigana will appear on the text to help you understand the
           pronunciation of kanji, allowing automation!
         </p>
@@ -104,13 +104,13 @@ export default function Index() {
           Operation Guide
         </h2>
         <iframe
-          className="animeRising mt-12 aspect-video w-[90%] rounded-md lg:mt-15 lg:w-[65rem] xl:mt-20"
+          className="animeRising mt-12 aspect-video w-[90%] rounded-md lg:mt-15 lg:w-260 xl:mt-20"
           src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}`}
           allowFullScreen
           title="Furigana Maker Demo"
         />
       </div>
-      <section className="container mx-auto my-12 flex max-w-[50rem] flex-col items-center justify-center gap-5 text-pretty py-8 lg:my-15 xl:my-20">
+      <section className="container mx-auto my-12 flex max-w-200 flex-col items-center justify-center gap-5 text-pretty py-8 lg:my-15 xl:my-20">
         <div className="mb-4 inline-block rounded-full border border-slate-700 bg-slate-800 px-4 py-1.5 font-bold uppercase">
           Open Source
         </div>
