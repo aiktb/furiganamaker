@@ -1,10 +1,10 @@
 import { match } from "ts-pattern";
 import { toHiragana, toRomaji } from "wanakana";
-import { ExtEvent, ExtStorage, FuriganaType } from "@/commons/constants";
+import { ExtEvent, FuriganaType } from "@/commons/constants";
 import { onMessage } from "@/commons/message";
 import { type KanjiToken, toKanjiToken } from "@/commons/toKanjiToken";
 import { initAsync, type Tokenizer, TokenizerBuilder } from "@/commons/tokenize";
-import { DB, getGeneralSettings, getKanjiFilterDB } from "@/commons/utils";
+import { DB, getKanjiFilterDB } from "@/commons/utils";
 
 class Deferred {
   promise: Promise<Tokenizer>;
@@ -65,8 +65,6 @@ export const registerOnGetKanjiMarksMessage = () => {
     }
   });
   onMessage("getKanjiMarks", async ({ data }) => {
-    const furiganaType = await getGeneralSettings(ExtStorage.FuriganaType);
-
     const tokenizer = await getTokenizer();
     const mojiTokens = tokenizer.tokenize(data.text);
     const filterMap = await getKanjiFilterMap();
@@ -76,7 +74,7 @@ export const registerOnGetKanjiMarksMessage = () => {
         yomikatas !== undefined && (yomikatas === "*" || yomikatas.includes(token.reading));
       return {
         ...token,
-        reading: match(furiganaType)
+        reading: match(data.furiganaType)
           .with(FuriganaType.Hiragana, () => toHiragana(token.reading))
           .with(FuriganaType.Romaji, () => toRomaji(token.reading))
           .with(FuriganaType.Katakana, () => token.reading)

@@ -1,6 +1,7 @@
 import { sendMessage } from "@/commons/message";
 import type { KanjiMark } from "@/entrypoints/background/listeners/onGetKanjiMarksMessage";
-import { FURIGANA_CLASS } from "./constants";
+import { ExtStorage, FURIGANA_CLASS } from "./constants";
+import { getGeneralSettings } from "./utils";
 
 /**
  * Append ruby tag to all text nodes of a batch of elements.
@@ -48,7 +49,8 @@ const tokenize = async (text: string) => {
   if (!hasKanji) {
     return [];
   }
-  const { tokens } = await sendMessage("getKanjiMarks", { text });
+  const furiganaType = await getGeneralSettings(ExtStorage.FuriganaType);
+  const { tokens } = await sendMessage("getKanjiMarks", { text, furiganaType });
   return tokens;
 };
 
