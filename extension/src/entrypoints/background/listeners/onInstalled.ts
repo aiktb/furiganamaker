@@ -13,11 +13,8 @@ export const registerOnInstalled = () => {
     };
     browser.contextMenus.create(contextMenuItem);
 
-    switch (details.reason) {
-      case browser.runtime.OnInstalledReason.INSTALL: {
-        browser.tabs.create({ url: "https://furiganamaker.app/welcome" });
-        break;
-      }
+    if (details.reason === browser.runtime.OnInstalledReason.INSTALL) {
+      browser.tabs.create({ url: "https://furiganamaker.app/welcome" });
     }
   });
 };

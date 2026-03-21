@@ -2,7 +2,6 @@ import { Textarea } from "@headlessui/react";
 import { debounce } from "es-toolkit";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { toHiragana, toRomaji } from "wanakana";
 import type { FuriganaType } from "@/commons/constants";
 import { sendMessage } from "@/commons/message";
 import type { KanjiMark } from "@/entrypoints/background/listeners/onGetKanjiMarksMessage";
@@ -16,8 +15,8 @@ export const JapaneseTextarea = ({ onSegmentsChange, furiganaType }: JapaneseTex
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [userInput, setUserInput] = useState("");
   const getKanjiMarksAndResponse = debounce(async (text: string) => {
-    const { tokens } = await sendMessage("getKanjiMarks", { text });
-    const segments = getFuriganaSegments(tokens, text, furiganaType);
+    const { tokens } = await sendMessage("getKanjiMarks", { text, furiganaType });
+    const segments = getFuriganaSegments(tokens, text);
     onSegmentsChange(segments);
   }, 100);
   const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -79,31 +78,17 @@ export type FuriganaSegment =
       id: string;
     };
 
-const getFuriganaSegments = (tokens: KanjiMark[], text: string, furiganaType: FuriganaType) => {
+const getFuriganaSegments = (tokens: KanjiMark[], text: string) => {
   const result: FuriganaSegment[] = [];
 
   let lastIndex = 0;
   const getFurigana = (token: KanjiMark) => {
-    const data = {
+    return {
       type: "furigana",
       original: text.slice(token.start, token.end),
       id: crypto.randomUUID(),
       reading: token.reading,
     } as const;
-    switch (furiganaType) {
-      case "katakana":
-        return data;
-      case "hiragana":
-        return {
-          ...data,
-          reading: toHiragana(token.reading),
-        };
-      default:
-        return {
-          ...data,
-          reading: toRomaji(token.reading),
-        };
-    }
   };
   for (const token of tokens) {
     if (token.start > lastIndex) {
