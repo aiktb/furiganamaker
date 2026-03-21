@@ -5,8 +5,8 @@
 
 ### Features
 
-* add include sites list for flexible site control ([#439](https://github.com/aiktb/furiganamaker/issues/439)) ([c4830ed](https://github.com/aiktb/furiganamaker/commit/c4830ed4d81f7f0aa337f3b22c2b21dfa6ff9471))
-* allow users to reset the options page settings to default values ([#440](https://github.com/aiktb/furiganamaker/issues/440)) ([e1afb3b](https://github.com/aiktb/furiganamaker/commit/e1afb3b77eccf395375c2366a274f60ab5a28f4b))
+* Add include sites list for flexible site control.
+* Allows users to reset the options page settings to default values.
 
 ## 3.4.0 (2025-09-13)
 
