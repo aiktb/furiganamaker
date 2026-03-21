@@ -36,7 +36,6 @@ export const ExtStorage = {
 export type ExtStorage = (typeof ExtStorage)[keyof typeof ExtStorage];
 
 export type StyleEvent =
-  | typeof ExtEvent.ToggleAutoMode
   | typeof ExtEvent.SwitchDisplayMode
   | typeof ExtEvent.SwitchSelectMode
   | typeof ExtEvent.AdjustFontSize
