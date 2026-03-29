@@ -138,8 +138,8 @@ importers:
         specifier: ^8.0.3
         version: 8.0.3
       lindera-wasm-ipadic:
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^2.0.0
+        version: 2.1.0
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -2865,6 +2865,7 @@ packages:
   git-raw-commits@4.0.0:
     resolution: {integrity: sha512-ICsMM1Wk8xSGMowkOmPrzo2Fgmfo4bMHLNX6ytHjajRJUqvHOw/TFapQ+QG75c3X/tTDDhOSRPGC52dDbNM8FQ==}
     engines: {node: '>=16'}
+    deprecated: This package is no longer maintained. For the JavaScript API, please use @conventional-changelog/git-client instead.
     hasBin: true
 
   glob-to-regexp@0.4.1:
@@ -3360,8 +3361,8 @@ packages:
     resolution: {integrity: sha512-NXYBzinNrblfraPGyrbPoD19C1h9lfI/1mzgWYvXUTe414Gz/X1FD2XBZSZM7rRTrMA8JL3OtAaGifrIKhQ5yQ==}
     engines: {node: '>= 12.0.0'}
 
-  lindera-wasm-ipadic@1.2.0:
-    resolution: {integrity: sha512-+aM/oK1fYd+C+eBS9v+2IsYiXyPbfVfFNa5S7DCkiwekC+AT80f6TiRE88i0SbHftl4+tA/tDrvYGwFLRyF8+g==}
+  lindera-wasm-ipadic@2.1.0:
+    resolution: {integrity: sha512-KdUku5OKNfbswatINoiTPAi63SskH4uw4OVTodtQZiZwOP3VkSjR4DIs+/MZmGS8ydUXBIDdCxxRl3+jBVHhZw==}
 
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
@@ -7289,7 +7290,7 @@ snapshots:
       lightningcss-win32-arm64-msvc: 1.32.0
       lightningcss-win32-x64-msvc: 1.32.0
 
-  lindera-wasm-ipadic@1.2.0: {}
+  lindera-wasm-ipadic@2.1.0: {}
 
   lines-and-columns@1.2.4: {}
 
