@@ -15,7 +15,7 @@ jobs:
       - uses: pnpm/action-setup@v5
       - uses: actions/setup-node@v6
         with:
-          node-version-file: ".node-version"
+          node-version-file: "package.json"
           cache: "pnpm"
           cache-dependency-path: "pnpm-lock.yaml"
       - run: pnpm install --frozen-lockfile
