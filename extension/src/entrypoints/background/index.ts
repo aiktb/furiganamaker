@@ -5,6 +5,7 @@ import { registerOnGetSelector } from "./listeners/onGetSelectorMessage";
 import { registerOnInstalled } from "./listeners/onInstalled";
 import { registerOnMarkActiveMessage } from "./listeners/onMarkActiveMessage";
 import { registerOnOpenOptionsMessage } from "./listeners/onOpenOptions";
+import { registerOnUpdateJlptColorsMessage } from "./listeners/onUpdateJlptColorsMessage";
 
 export default defineBackground({
   type: "module",
@@ -19,5 +20,6 @@ export default defineBackground({
     registerOnGetSelector();
     registerOnMarkActiveMessage();
     registerOnOpenOptionsMessage();
+    registerOnUpdateJlptColorsMessage();
   },
 });
