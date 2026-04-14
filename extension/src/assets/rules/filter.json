@@ -1,7390 +1,4977 @@
 [
   {
     "kanji": "一",
-    "yomikatas": [
-      "イチ",
-      "ヒト"
-    ],
+    "yomikatas": ["イチ", "ヒト"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "一人",
-    "yomikatas": [
-      "ヒトリ"
-    ],
+    "yomikatas": ["ヒトリ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "一度",
-    "yomikatas": [
-      "イチド"
-    ],
+    "yomikatas": ["イチド"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "一日",
-    "yomikatas": [
-      "イチニチ",
-      "ツイタチ"
-    ],
+    "yomikatas": ["イチニチ", "ツイタチ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "一昨年",
-    "yomikatas": [
-      "オトトシ"
-    ],
+    "yomikatas": ["オトトシ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "一昨日",
-    "yomikatas": [
-      "オトトイ"
-    ],
+    "yomikatas": ["オトトイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "一番",
-    "yomikatas": [
-      "イチバン"
-    ],
+    "yomikatas": ["イチバン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "一緒",
-    "yomikatas": [
-      "イッショ"
-    ],
+    "yomikatas": ["イッショ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "丁度",
-    "yomikatas": [
-      "チョウド"
-    ],
+    "yomikatas": ["チョウド"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "七",
-    "yomikatas": [
-      "シチ",
-      "ナナ",
-      "ナノ"
-    ],
+    "yomikatas": ["シチ", "ナナ", "ナノ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "七日",
-    "yomikatas": [
-      "ナノカ"
-    ],
+    "yomikatas": ["ナノカ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "万",
-    "yomikatas": [
-      "マン",
-      "バン"
-    ],
+    "yomikatas": ["マン", "バン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "万年筆",
-    "yomikatas": [
-      "マンネンヒツ"
-    ],
+    "yomikatas": ["マンネンヒツ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "丈夫",
-    "yomikatas": [
-      "ジョウブ"
-    ],
+    "yomikatas": ["ジョウブ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "三",
-    "yomikatas": [
-      "サン",
-      "ミッ",
-      "ミ"
-    ],
+    "yomikatas": ["サン", "ミッ", "ミ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "三日",
-    "yomikatas": [
-      "ミッカ"
-    ],
+    "yomikatas": ["ミッカ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "上",
-    "yomikatas": [
-      "ア",
-      "ウエ",
-      "シャン",
-      "ショウ",
-      "ジョウ",
-      "ウワー",
-      "カミ",
-      "ノボ",
-      "タテマツ"
-    ],
+    "yomikatas": ["ア", "ウエ", "シャン", "ショウ", "ジョウ", "ウワー", "カミ", "ノボ", "タテマツ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "上手",
-    "yomikatas": [
-      "ジョウズ"
-    ],
+    "yomikatas": ["ジョウズ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "上着",
-    "yomikatas": [
-      "ウワギ"
-    ],
+    "yomikatas": ["ウワギ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "下",
-    "yomikatas": [
-      "カ",
-      "クダ",
-      "ゲ",
-      "シタ",
-      "シモ",
-      "モト",
-      "サ",
-      "オ"
-    ],
+    "yomikatas": ["カ", "クダ", "ゲ", "シタ", "シモ", "モト", "サ", "オ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "下手",
-    "yomikatas": [
-      "ヘタ"
-    ],
+    "yomikatas": ["ヘタ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "不味",
-    "yomikatas": [
-      "マズ"
-    ],
+    "yomikatas": ["マズ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "両親",
-    "yomikatas": [
-      "リョウシン"
-    ],
+    "yomikatas": ["リョウシン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "並",
-    "yomikatas": [
-      "ナラ"
-    ],
+    "yomikatas": ["ナラ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "中",
-    "yomikatas": [
-      "チュウ",
-      "ナカ",
-      "ウチ",
-      "アタ"
-    ],
+    "yomikatas": ["チュウ", "ナカ", "ウチ", "アタ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "丸",
-    "yomikatas": [
-      "マル"
-    ],
+    "yomikatas": ["マル"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "乗",
-    "yomikatas": [
-      "ノ"
-    ],
+    "yomikatas": ["ノ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "九",
-    "yomikatas": [
-      "キュウ",
-      "ク",
-      "ココノ"
-    ],
+    "yomikatas": ["キュウ", "ク", "ココノ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "九日",
-    "yomikatas": [
-      "ココノカ"
-    ],
+    "yomikatas": ["ココノカ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "二",
-    "yomikatas": [
-      "ジ",
-      "ニ",
-      "フタ"
-    ],
+    "yomikatas": ["ジ", "ニ", "フタ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "二人",
-    "yomikatas": [
-      "フタリ"
-    ],
+    "yomikatas": ["フタリ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "二十日",
-    "yomikatas": [
-      "ハツカ"
-    ],
+    "yomikatas": ["ハツカ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "二十歳",
-    "yomikatas": [
-      "ハタチ"
-    ],
+    "yomikatas": ["ハタチ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "二日",
-    "yomikatas": [
-      "フツカ"
-    ],
+    "yomikatas": ["フツカ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "五",
-    "yomikatas": [
-      "イツ",
-      "ゴ"
-    ],
+    "yomikatas": ["イツ", "ゴ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "五日",
-    "yomikatas": [
-      "イツカ"
-    ],
+    "yomikatas": ["イツカ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "交差点",
-    "yomikatas": [
-      "コウサテン"
-    ],
+    "yomikatas": ["コウサテン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "交番",
-    "yomikatas": [
-      "コウバン"
-    ],
+    "yomikatas": ["コウバン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "人",
-    "yomikatas": [
-      "ジン",
-      "ニン",
-      "ヒト"
-    ],
+    "yomikatas": ["ジン", "ニン", "ヒト"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "今",
-    "yomikatas": [
-      "イマ",
-      "キン",
-      "コン"
-    ],
+    "yomikatas": ["イマ", "キン", "コン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "今年",
-    "yomikatas": [
-      "コトシ"
-    ],
+    "yomikatas": ["コトシ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "今日",
-    "yomikatas": [
-      "キョウ"
-    ],
+    "yomikatas": ["キョウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "今晩",
-    "yomikatas": [
-      "コンバン"
-    ],
+    "yomikatas": ["コンバン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "今月",
-    "yomikatas": [
-      "コンゲツ"
-    ],
+    "yomikatas": ["コンゲツ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "今朝",
-    "yomikatas": [
-      "ケサ"
-    ],
+    "yomikatas": ["ケサ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "今週",
-    "yomikatas": [
-      "コンシュウ"
-    ],
+    "yomikatas": ["コンシュウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "仕事",
-    "yomikatas": [
-      "シゴト"
-    ],
+    "yomikatas": ["シゴト"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "付",
-    "yomikatas": [
-      "ツ"
-    ],
+    "yomikatas": ["ツ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "休",
-    "yomikatas": [
-      "ヤス",
-      "キュウ"
-    ],
+    "yomikatas": ["ヤス", "キュウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "会",
-    "yomikatas": [
-      "ア",
-      "カイ"
-    ],
+    "yomikatas": ["ア", "カイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "会社",
-    "yomikatas": [
-      "カイシャ"
-    ],
+    "yomikatas": ["カイシャ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "伯母",
-    "yomikatas": [
-      "オバ"
-    ],
+    "yomikatas": ["オバ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "伯父",
-    "yomikatas": [
-      "オジ"
-    ],
+    "yomikatas": ["オジ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "低",
-    "yomikatas": [
-      "ヒク"
-    ],
+    "yomikatas": ["ヒク"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "住",
-    "yomikatas": [
-      "ス",
-      "ジュウ",
-      "チュウ"
-    ],
+    "yomikatas": ["ス", "ジュウ", "チュウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "体",
-    "yomikatas": [
-      "カラダ",
-      "タイ"
-    ],
+    "yomikatas": ["カラダ", "タイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "何",
-    "yomikatas": [
-      "ナニ",
-      "カ",
-      "ナン"
-    ],
+    "yomikatas": ["ナニ", "カ", "ナン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "何故",
-    "yomikatas": [
-      "ナゼ"
-    ],
+    "yomikatas": ["ナゼ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "作",
-    "yomikatas": [
-      "ツク",
-      "サク",
-      "サ"
-    ],
+    "yomikatas": ["ツク", "サク", "サ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "作文",
-    "yomikatas": [
-      "サクブン"
-    ],
+    "yomikatas": ["サクブン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "使",
-    "yomikatas": [
-      "ツカ",
-      "シ"
-    ],
+    "yomikatas": ["ツカ", "シ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "便利",
-    "yomikatas": [
-      "ベンリ"
-    ],
+    "yomikatas": ["ベンリ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "借",
-    "yomikatas": [
-      "カ",
-      "シャク"
-    ],
+    "yomikatas": ["カ", "シャク"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "傘",
-    "yomikatas": [
-      "カサ"
-    ],
+    "yomikatas": ["カサ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "働",
-    "yomikatas": [
-      "ハタラ"
-    ],
+    "yomikatas": ["ハタラ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "元気",
-    "yomikatas": [
-      "ゲンキ"
-    ],
+    "yomikatas": ["ゲンキ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "兄",
-    "yomikatas": [
-      "アニ",
-      "ニイ",
-      "キョウ",
-      "ケイ"
-    ],
+    "yomikatas": ["アニ", "ニイ", "キョウ", "ケイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "兄弟",
-    "yomikatas": [
-      "キョウダイ"
-    ],
+    "yomikatas": ["キョウダイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "先",
-    "yomikatas": [
-      "サキ",
-      "セン",
-      "マ"
-    ],
+    "yomikatas": ["サキ", "セン", "マ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "先月",
-    "yomikatas": [
-      "センゲツ"
-    ],
+    "yomikatas": ["センゲツ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "先生",
-    "yomikatas": [
-      "センセイ"
-    ],
+    "yomikatas": ["センセイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "先週",
-    "yomikatas": [
-      "センシュウ"
-    ],
+    "yomikatas": ["センシュウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "入",
-    "yomikatas": [
-      "イ",
-      "ニュウ",
-      "ハイ"
-    ],
+    "yomikatas": ["イ", "ニュウ", "ハイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "入口",
-    "yomikatas": [
-      "イリグチ"
-    ],
+    "yomikatas": ["イリグチ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "全部",
-    "yomikatas": [
-      "ゼンブ"
-    ],
+    "yomikatas": ["ゼンブ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "八",
-    "yomikatas": [
-      "ハチ",
-      "ヤッ",
-      "ヤ",
-      "ヨウ"
-    ],
+    "yomikatas": ["ハチ", "ヤッ", "ヤ", "ヨウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "八日",
-    "yomikatas": [
-      "ヨウカ"
-    ],
+    "yomikatas": ["ヨウカ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "八百屋",
-    "yomikatas": [
-      "ヤオヤ"
-    ],
+    "yomikatas": ["ヤオヤ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "公園",
-    "yomikatas": [
-      "コウエン"
-    ],
+    "yomikatas": ["コウエン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "六",
-    "yomikatas": [
-      "ムッ",
-      "ロク",
-      "ム",
-      "ムイ"
-    ],
+    "yomikatas": ["ムッ", "ロク", "ム", "ムイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "六日",
-    "yomikatas": [
-      "ムイカ"
-    ],
+    "yomikatas": ["ムイカ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "円",
-    "yomikatas": [
-      "エン",
-      "マル"
-    ],
+    "yomikatas": ["エン", "マル"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "再来年",
-    "yomikatas": [
-      "サライネン"
-    ],
+    "yomikatas": ["サライネン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "写真",
-    "yomikatas": [
-      "シャシン"
-    ],
+    "yomikatas": ["シャシン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "冬",
-    "yomikatas": [
-      "フユ",
-      "トウ"
-    ],
+    "yomikatas": ["フユ", "トウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "冷",
-    "yomikatas": [
-      "ツメ",
-      "ヒ"
-    ],
+    "yomikatas": ["ツメ", "ヒ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "冷蔵庫",
-    "yomikatas": [
-      "レイゾウコ"
-    ],
+    "yomikatas": ["レイゾウコ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "出",
-    "yomikatas": [
-      "シュツ",
-      "スイ",
-      "ダ",
-      "デ",
-      "イ"
-    ],
+    "yomikatas": ["シュツ", "スイ", "ダ", "デ", "イ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "出口",
-    "yomikatas": [
-      "デグチ"
-    ],
+    "yomikatas": ["デグチ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "分",
-    "yomikatas": [
-      "フン",
-      "ブ",
-      "ブン",
-      "ワ"
-    ],
+    "yomikatas": ["フン", "ブ", "ブン", "ワ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "切",
-    "yomikatas": [
-      "キ",
-      "セツ",
-      "サイ"
-    ],
+    "yomikatas": ["キ", "セツ", "サイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "切手",
-    "yomikatas": [
-      "キッテ"
-    ],
+    "yomikatas": ["キッテ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "切符",
-    "yomikatas": [
-      "キップ"
-    ],
+    "yomikatas": ["キップ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "初",
-    "yomikatas": [
-      "ハジ"
-    ],
+    "yomikatas": ["ハジ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "前",
-    "yomikatas": [
-      "ゼン",
-      "マエ"
-    ],
+    "yomikatas": ["ゼン", "マエ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "勉強",
-    "yomikatas": [
-      "ベンキョウ"
-    ],
+    "yomikatas": ["ベンキョウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "動物",
-    "yomikatas": [
-      "ドウブツ"
-    ],
+    "yomikatas": ["ドウブツ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "勤",
-    "yomikatas": [
-      "ツト"
-    ],
+    "yomikatas": ["ツト"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "北",
-    "yomikatas": [
-      "キタ",
-      "ホク"
-    ],
+    "yomikatas": ["キタ", "ホク"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "医者",
-    "yomikatas": [
-      "イシャ"
-    ],
+    "yomikatas": ["イシャ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "十",
-    "yomikatas": [
-      "ジュウ",
-      "トオ",
-      "ト"
-    ],
+    "yomikatas": ["ジュウ", "トオ", "ト"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "十日",
-    "yomikatas": [
-      "トオカ"
-    ],
+    "yomikatas": ["トオカ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "千",
-    "yomikatas": [
-      "セン",
-      "チ"
-    ],
+    "yomikatas": ["セン", "チ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "午前",
-    "yomikatas": [
-      "ゴゼン"
-    ],
+    "yomikatas": ["ゴゼン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "午後",
-    "yomikatas": [
-      "ゴゴ"
-    ],
+    "yomikatas": ["ゴゴ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "半",
-    "yomikatas": [
-      "ハン",
-      "ナカ"
-    ],
+    "yomikatas": ["ハン", "ナカ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "半分",
-    "yomikatas": [
-      "ハンブン"
-    ],
+    "yomikatas": ["ハンブン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "南",
-    "yomikatas": [
-      "ミナミ",
-      "ナン",
-      "ナ"
-    ],
+    "yomikatas": ["ミナミ", "ナン", "ナ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "危",
-    "yomikatas": [
-      "アブ"
-    ],
+    "yomikatas": ["アブ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "卵",
-    "yomikatas": [
-      "タマゴ"
-    ],
+    "yomikatas": ["タマゴ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "厚",
-    "yomikatas": [
-      "アツ"
-    ],
+    "yomikatas": ["アツ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "去年",
-    "yomikatas": [
-      "キョネン"
-    ],
+    "yomikatas": ["キョネン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "友達",
-    "yomikatas": [
-      "トモダチ"
-    ],
+    "yomikatas": ["トモダチ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "取",
-    "yomikatas": [
-      "ト"
-    ],
+    "yomikatas": ["ト"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "口",
-    "yomikatas": [
-      "クチ",
-      "コウ"
-    ],
+    "yomikatas": ["クチ", "コウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "古",
-    "yomikatas": [
-      "フル",
-      "コ"
-    ],
+    "yomikatas": ["フル", "コ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "可愛",
-    "yomikatas": [
-      "カワイ"
-    ],
+    "yomikatas": ["カワイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "台所",
-    "yomikatas": [
-      "ダイドコロ"
-    ],
+    "yomikatas": ["ダイドコロ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "右",
-    "yomikatas": [
-      "ミギ",
-      "ウ",
-      "ユウ"
-    ],
+    "yomikatas": ["ミギ", "ウ", "ユウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "同",
-    "yomikatas": [
-      "オナ",
-      "ドウ"
-    ],
+    "yomikatas": ["オナ", "ドウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "名前",
-    "yomikatas": [
-      "ナマエ"
-    ],
+    "yomikatas": ["ナマエ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "向",
-    "yomikatas": [
-      "ム"
-    ],
+    "yomikatas": ["ム"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "吸",
-    "yomikatas": [
-      "ス"
-    ],
+    "yomikatas": ["ス"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "吹",
-    "yomikatas": [
-      "フ"
-    ],
+    "yomikatas": ["フ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "呼",
-    "yomikatas": [
-      "ヨ"
-    ],
+    "yomikatas": ["ヨ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "咲",
-    "yomikatas": [
-      "サ"
-    ],
+    "yomikatas": ["サ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "問題",
-    "yomikatas": [
-      "モンダイ"
-    ],
+    "yomikatas": ["モンダイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "喫茶店",
-    "yomikatas": [
-      "キッサテン"
-    ],
+    "yomikatas": ["キッサテン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "四",
-    "yomikatas": [
-      "シ",
-      "ヨ",
-      "ヨン"
-    ],
+    "yomikatas": ["シ", "ヨ", "ヨン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "四日",
-    "yomikatas": [
-      "ヨッカ"
-    ],
+    "yomikatas": ["ヨッカ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "困",
-    "yomikatas": [
-      "コマ"
-    ],
+    "yomikatas": ["コマ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "図書館",
-    "yomikatas": [
-      "トショカン"
-    ],
+    "yomikatas": ["トショカン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "国",
-    "yomikatas": [
-      "クニ",
-      "コク"
-    ],
+    "yomikatas": ["クニ", "コク"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "土",
-    "yomikatas": [
-      "ツチ",
-      "ド",
-      "ト"
-    ],
+    "yomikatas": ["ツチ", "ド", "ト"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "土曜日",
-    "yomikatas": [
-      "ドヨウビ"
-    ],
+    "yomikatas": ["ドヨウビ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "地下鉄",
-    "yomikatas": [
-      "チカテツ"
-    ],
+    "yomikatas": ["チカテツ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "地図",
-    "yomikatas": [
-      "チズ"
-    ],
+    "yomikatas": ["チズ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "塩",
-    "yomikatas": [
-      "シオ"
-    ],
+    "yomikatas": ["シオ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "声",
-    "yomikatas": [
-      "コエ"
-    ],
+    "yomikatas": ["コエ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "売",
-    "yomikatas": [
-      "ウ",
-      "バイ"
-    ],
+    "yomikatas": ["ウ", "バイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "売上",
-    "yomikatas": [
-      "ウリアゲ"
-    ],
+    "yomikatas": ["ウリアゲ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "売店",
-    "yomikatas": [
-      "ウリテン"
-    ],
+    "yomikatas": ["ウリテン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "夏",
-    "yomikatas": [
-      "ナツ",
-      "ナツヤ",
-      "カ",
-      "ゲ"
-    ],
+    "yomikatas": ["ナツ", "ナツヤ", "カ", "ゲ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "夕方",
-    "yomikatas": [
-      "ユウガタ"
-    ],
+    "yomikatas": ["ユウガタ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "夕飯",
-    "yomikatas": [
-      "ユウハン"
-    ],
+    "yomikatas": ["ユウハン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "外",
-    "yomikatas": [
-      "ガイ",
-      "ゲ",
-      "ソト",
-      "ー",
-      "ーソト",
-      "ホカ",
-      "ハズ",
-      "トー"
-    ],
+    "yomikatas": ["ガイ", "ゲ", "ソト", "ー", "ーソト", "ホカ", "ハズ", "トー"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "外国",
-    "yomikatas": [
-      "ガイコク"
-    ],
+    "yomikatas": ["ガイコク"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "外国人",
-    "yomikatas": [
-      "ガイコクジン"
-    ],
+    "yomikatas": ["ガイコクジン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "多",
-    "yomikatas": [
-      "オオ",
-      "タ"
-    ],
+    "yomikatas": ["オオ", "タ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "多分",
-    "yomikatas": [
-      "タブン"
-    ],
+    "yomikatas": ["タブン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "夜",
-    "yomikatas": [
-      "ヨル",
-      "ヤ",
-      "ヨ"
-    ],
+    "yomikatas": ["ヨル", "ヤ", "ヨ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "大",
-    "yomikatas": [
-      "オオ",
-      "タイ",
-      "ダイ"
-    ],
+    "yomikatas": ["オオ", "タイ", "ダイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "大丈夫",
-    "yomikatas": [
-      "ダイジョウブ"
-    ],
+    "yomikatas": ["ダイジョウブ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "大人",
-    "yomikatas": [
-      "オトナ"
-    ],
+    "yomikatas": ["オトナ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "大使館",
-    "yomikatas": [
-      "タイシカン"
-    ],
+    "yomikatas": ["タイシカン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "大切",
-    "yomikatas": [
-      "タイセツ"
-    ],
+    "yomikatas": ["タイセツ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "大勢",
-    "yomikatas": [
-      "オオゼイ"
-    ],
+    "yomikatas": ["オオゼイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "大変",
-    "yomikatas": [
-      "タイヘン"
-    ],
+    "yomikatas": ["タイヘン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "大好",
-    "yomikatas": [
-      "ダイス"
-    ],
+    "yomikatas": ["ダイス"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "大学",
-    "yomikatas": [
-      "ダイガク"
-    ],
+    "yomikatas": ["ダイガク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "大根",
-    "yomikatas": [
-      "ダイコン"
-    ],
+    "yomikatas": ["ダイコン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "天気",
-    "yomikatas": [
-      "テンキ"
-    ],
+    "yomikatas": ["テンキ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "太",
-    "yomikatas": [
-      "フト"
-    ],
+    "yomikatas": ["フト"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "奥",
-    "yomikatas": [
-      "オク"
-    ],
+    "yomikatas": ["オク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "女",
-    "yomikatas": [
-      "オンナ",
-      "ジョ",
-      "メ"
-    ],
+    "yomikatas": ["オンナ", "ジョ", "メ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "好",
-    "yomikatas": [
-      "ス"
-    ],
+    "yomikatas": ["ス"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "妹",
-    "yomikatas": [
-      "イモウト",
-      "マイ"
-    ],
+    "yomikatas": ["イモウト", "マイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "姉",
-    "yomikatas": [
-      "アネ",
-      "ネエ",
-      "シ"
-    ],
+    "yomikatas": ["アネ", "ネエ", "シ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "始",
-    "yomikatas": [
-      "ハジ",
-      "シ"
-    ],
+    "yomikatas": ["ハジ", "シ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "嫌",
-    "yomikatas": [
-      "イヤ",
-      "キラ"
-    ],
+    "yomikatas": ["イヤ", "キラ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "嬉",
-    "yomikatas": [
-      "ウレ"
-    ],
+    "yomikatas": ["ウレ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "子",
-    "yomikatas": [
-      "コ",
-      "シ",
-      "ス",
-      "ツ",
-      "ネ"
-    ],
+    "yomikatas": ["コ", "シ", "ス", "ツ", "ネ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "子供",
-    "yomikatas": [
-      "コドモ"
-    ],
+    "yomikatas": ["コドモ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "字引",
-    "yomikatas": [
-      "ジビキ"
-    ],
+    "yomikatas": ["ジビキ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "学",
-    "yomikatas": [
-      "ガク",
-      "マナ"
-    ],
+    "yomikatas": ["ガク", "マナ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "学校",
-    "yomikatas": [
-      "ガッコウ"
-    ],
+    "yomikatas": ["ガッコウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "学生",
-    "yomikatas": [
-      "ガクセイ"
-    ],
+    "yomikatas": ["ガクセイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "安",
-    "yomikatas": [
-      "ヤス",
-      "アン"
-    ],
+    "yomikatas": ["ヤス", "アン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "家",
-    "yomikatas": [
-      "イエ",
-      "カ",
-      "ヤ",
-      "ウチ"
-    ],
+    "yomikatas": ["イエ", "カ", "ヤ", "ウチ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "家庭",
-    "yomikatas": [
-      "カテイ"
-    ],
+    "yomikatas": ["カテイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "家族",
-    "yomikatas": [
-      "カゾク"
-    ],
+    "yomikatas": ["カゾク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "宿題",
-    "yomikatas": [
-      "シュクダイ"
-    ],
+    "yomikatas": ["シュクダイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "寒",
-    "yomikatas": [
-      "サム"
-    ],
+    "yomikatas": ["サム"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "寝",
-    "yomikatas": [
-      "ネ"
-    ],
+    "yomikatas": ["ネ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "封筒",
-    "yomikatas": [
-      "フウトウ"
-    ],
+    "yomikatas": ["フウトウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "小",
-    "yomikatas": [
-      "ショウ",
-      "チイ",
-      "ー",
-      "ーチイ",
-      "コー",
-      "オー",
-      "サー"
-    ],
+    "yomikatas": ["ショウ", "チイ", "ー", "ーチイ", "コー", "オー", "サー"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "少",
-    "yomikatas": [
-      "スク",
-      "スコ",
-      "ショウ"
-    ],
+    "yomikatas": ["スク", "スコ", "ショウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "居",
-    "yomikatas": [
-      "イ"
-    ],
+    "yomikatas": ["イ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "履",
-    "yomikatas": [
-      "ハ"
-    ],
+    "yomikatas": ["ハ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "山",
-    "yomikatas": [
-      "サン",
-      "セン",
-      "ヤマ"
-    ],
+    "yomikatas": ["サン", "セン", "ヤマ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "川",
-    "yomikatas": [
-      "カワ",
-      "セン"
-    ],
+    "yomikatas": ["カワ", "セン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "巡",
-    "yomikatas": [
-      "マワ"
-    ],
+    "yomikatas": ["マワ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "左",
-    "yomikatas": [
-      "ヒダリ",
-      "サ",
-      "シャ"
-    ],
+    "yomikatas": ["ヒダリ", "サ", "シャ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "差",
-    "yomikatas": [
-      "サ"
-    ],
+    "yomikatas": ["サ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "帰",
-    "yomikatas": [
-      "カエ",
-      "キ"
-    ],
+    "yomikatas": ["カエ", "キ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "帽子",
-    "yomikatas": [
-      "ボウシ"
-    ],
+    "yomikatas": ["ボウシ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "年",
-    "yomikatas": [
-      "トシ",
-      "ネン"
-    ],
+    "yomikatas": ["トシ", "ネン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "広",
-    "yomikatas": [
-      "ヒロ",
-      "コウ"
-    ],
+    "yomikatas": ["ヒロ", "コウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "店",
-    "yomikatas": [
-      "ミセ",
-      "テン"
-    ],
+    "yomikatas": ["ミセ", "テン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "座",
-    "yomikatas": [
-      "スワ"
-    ],
+    "yomikatas": ["スワ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "庭",
-    "yomikatas": [
-      "ニワ"
-    ],
+    "yomikatas": ["ニワ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "廊下",
-    "yomikatas": [
-      "ロウカ"
-    ],
+    "yomikatas": ["ロウカ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "建物",
-    "yomikatas": [
-      "タテモノ"
-    ],
+    "yomikatas": ["タテモノ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "弁当",
-    "yomikatas": [
-      "ベントウ"
-    ],
+    "yomikatas": ["ベントウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "引",
-    "yomikatas": [
-      "ヒ"
-    ],
+    "yomikatas": ["ヒ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "弟",
-    "yomikatas": [
-      "オトウト",
-      "テイ",
-      "ダイ",
-      "デ"
-    ],
+    "yomikatas": ["オトウト", "テイ", "ダイ", "デ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "弱",
-    "yomikatas": [
-      "ヨワ"
-    ],
+    "yomikatas": ["ヨワ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "強",
-    "yomikatas": [
-      "ツヨ",
-      "キョウ",
-      "ゴウ"
-    ],
+    "yomikatas": ["ツヨ", "キョウ", "ゴウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "弾",
-    "yomikatas": [
-      "ヒ"
-    ],
+    "yomikatas": ["ヒ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "待",
-    "yomikatas": [
-      "マ",
-      "タイ"
-    ],
+    "yomikatas": ["マ", "タイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "後",
-    "yomikatas": [
-      "アト",
-      "ウシ",
-      "コウ",
-      "ゴ",
-      "ノチ"
-    ],
+    "yomikatas": ["アト", "ウシ", "コウ", "ゴ", "ノチ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "得",
-    "yomikatas": [
-      "エ"
-    ],
+    "yomikatas": ["エ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "忘",
-    "yomikatas": [
-      "ワス"
-    ],
+    "yomikatas": ["ワス"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "忙",
-    "yomikatas": [
-      "イソガ"
-    ],
+    "yomikatas": ["イソガ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "悪",
-    "yomikatas": [
-      "ワル",
-      "アク"
-    ],
+    "yomikatas": ["ワル", "アク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "意味",
-    "yomikatas": [
-      "イミ"
-    ],
+    "yomikatas": ["イミ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "戸",
-    "yomikatas": [
-      "ト"
-    ],
+    "yomikatas": ["ト"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "所",
-    "yomikatas": [
-      "トコロ"
-    ],
+    "yomikatas": ["トコロ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "手",
-    "yomikatas": [
-      "テ",
-      "シュ"
-    ],
+    "yomikatas": ["テ", "シュ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "手洗",
-    "yomikatas": [
-      "テアラ"
-    ],
+    "yomikatas": ["テアラ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "手紙",
-    "yomikatas": [
-      "テガミ"
-    ],
+    "yomikatas": ["テガミ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "押",
-    "yomikatas": [
-      "オ"
-    ],
+    "yomikatas": ["オ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "持",
-    "yomikatas": [
-      "モ",
-      "ジ"
-    ],
+    "yomikatas": ["モ", "ジ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "掃除",
-    "yomikatas": [
-      "ソウジ"
-    ],
+    "yomikatas": ["ソウジ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "授業",
-    "yomikatas": [
-      "ジュギョウ"
-    ],
+    "yomikatas": ["ジュギョウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "掛",
-    "yomikatas": [
-      "カ"
-    ],
+    "yomikatas": ["カ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "撮",
-    "yomikatas": [
-      "ト"
-    ],
+    "yomikatas": ["ト"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "教",
-    "yomikatas": [
-      "オシ",
-      "キョウ",
-      "オソ"
-    ],
+    "yomikatas": ["オシ", "キョウ", "オソ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "教室",
-    "yomikatas": [
-      "キョウシツ"
-    ],
+    "yomikatas": ["キョウシツ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "散歩",
-    "yomikatas": [
-      "サンポ"
-    ],
+    "yomikatas": ["サンポ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "文章",
-    "yomikatas": [
-      "ブンショウ"
-    ],
+    "yomikatas": ["ブンショウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "料理",
-    "yomikatas": [
-      "リョウリ"
-    ],
+    "yomikatas": ["リョウリ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "新",
-    "yomikatas": [
-      "アタラ",
-      "シン",
-      "アラ"
-    ],
+    "yomikatas": ["アタラ", "シン", "アラ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "新聞",
-    "yomikatas": [
-      "シンブン"
-    ],
+    "yomikatas": ["シンブン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "方",
-    "yomikatas": [
-      "カタ",
-      "ホウ"
-    ],
+    "yomikatas": ["カタ", "ホウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "旅行",
-    "yomikatas": [
-      "リョコウ"
-    ],
+    "yomikatas": ["リョコウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "日",
-    "yomikatas": [
-      "ジツ",
-      "ニチ",
-      "ー",
-      "ーヒ",
-      "ービ",
-      "ーカ"
-    ],
+    "yomikatas": ["ジツ", "ニチ", "ー", "ーヒ", "ービ", "ーカ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "日曜日",
-    "yomikatas": [
-      "ニチヨウビ"
-    ],
+    "yomikatas": ["ニチヨウビ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "日記",
-    "yomikatas": [
-      "ニッキ"
-    ],
+    "yomikatas": ["ニッキ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "早",
-    "yomikatas": [
-      "ハヤ",
-      "ソウ",
-      "サッ"
-    ],
+    "yomikatas": ["ハヤ", "ソウ", "サッ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "明",
-    "yomikatas": [
-      "アカ",
-      "メイ",
-      "ミョウ"
-    ],
+    "yomikatas": ["アカ", "メイ", "ミョウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "明後日",
-    "yomikatas": [
-      "アサッテ"
-    ],
+    "yomikatas": ["アサッテ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "明日",
-    "yomikatas": [
-      "アシタ"
-    ],
+    "yomikatas": ["アシタ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "易",
-    "yomikatas": [
-      "ヤサ"
-    ],
+    "yomikatas": ["ヤサ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "映画",
-    "yomikatas": [
-      "エイガ"
-    ],
+    "yomikatas": ["エイガ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "映画館",
-    "yomikatas": [
-      "エイガカン"
-    ],
+    "yomikatas": ["エイガカン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "春",
-    "yomikatas": [
-      "ハル",
-      "シュン"
-    ],
+    "yomikatas": ["ハル", "シュン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "昨夜",
-    "yomikatas": [
-      "ユウベ",
-      "サクヤ"
-    ],
+    "yomikatas": ["ユウベ", "サクヤ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "昨日",
-    "yomikatas": [
-      "キノウ"
-    ],
+    "yomikatas": ["キノウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "昼",
-    "yomikatas": [
-      "ヒル",
-      "チュウ"
-    ],
+    "yomikatas": ["ヒル", "チュウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "時",
-    "yomikatas": [
-      "ジ",
-      "トキ",
-      "ードキ"
-    ],
+    "yomikatas": ["ジ", "トキ", "ードキ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "時々",
-    "yomikatas": [
-      "トキドキ"
-    ],
+    "yomikatas": ["トキドキ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "時計",
-    "yomikatas": [
-      "トケイ"
-    ],
+    "yomikatas": ["トケイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "時間",
-    "yomikatas": [
-      "ジカン"
-    ],
+    "yomikatas": ["ジカン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "晩",
-    "yomikatas": [
-      "バン"
-    ],
+    "yomikatas": ["バン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "晴",
-    "yomikatas": [
-      "ハ"
-    ],
+    "yomikatas": ["ハ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "暇",
-    "yomikatas": [
-      "ヒマ"
-    ],
+    "yomikatas": ["ヒマ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "暑",
-    "yomikatas": [
-      "アツ"
-    ],
+    "yomikatas": ["アツ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "暖",
-    "yomikatas": [
-      "アタタ"
-    ],
+    "yomikatas": ["アタタ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "暗",
-    "yomikatas": [
-      "クラ"
-    ],
+    "yomikatas": ["クラ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "曇",
-    "yomikatas": [
-      "クモ"
-    ],
+    "yomikatas": ["クモ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "曲",
-    "yomikatas": [
-      "マ"
-    ],
+    "yomikatas": ["マ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "書",
-    "yomikatas": [
-      "カ",
-      "ショ"
-    ],
+    "yomikatas": ["カ", "ショ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "月",
-    "yomikatas": [
-      "ガツ",
-      "ゲツ",
-      "ツキ"
-    ],
+    "yomikatas": ["ガツ", "ゲツ", "ツキ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "月曜日",
-    "yomikatas": [
-      "ゲツヨウビ"
-    ],
+    "yomikatas": ["ゲツヨウビ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "有名",
-    "yomikatas": [
-      "ユウメイ"
-    ],
+    "yomikatas": ["ユウメイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "服",
-    "yomikatas": [
-      "フク"
-    ],
+    "yomikatas": ["フク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "朝",
-    "yomikatas": [
-      "アサ",
-      "チョウ"
-    ],
+    "yomikatas": ["アサ", "チョウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "木",
-    "yomikatas": [
-      "キ",
-      "ボク",
-      "モク",
-      "コー"
-    ],
+    "yomikatas": ["キ", "ボク", "モク", "コー"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "木曜日",
-    "yomikatas": [
-      "モクヨウビ"
-    ],
+    "yomikatas": ["モクヨウビ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "本",
-    "yomikatas": [
-      "ホン",
-      "モト"
-    ],
+    "yomikatas": ["ホン", "モト"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "本当",
-    "yomikatas": [
-      "ホントウ"
-    ],
+    "yomikatas": ["ホントウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "本棚",
-    "yomikatas": [
-      "ホンダナ"
-    ],
+    "yomikatas": ["ホンダナ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "机",
-    "yomikatas": [
-      "ツクエ"
-    ],
+    "yomikatas": ["ツクエ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "村",
-    "yomikatas": [
-      "ムラ"
-    ],
+    "yomikatas": ["ムラ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "来",
-    "yomikatas": [
-      "ク",
-      "タイ",
-      "ライ",
-      "キタ",
-      "キ",
-      "コ"
-    ],
+    "yomikatas": ["ク", "タイ", "ライ", "キタ", "キ", "コ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "来年",
-    "yomikatas": [
-      "ライネン"
-    ],
+    "yomikatas": ["ライネン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "来月",
-    "yomikatas": [
-      "ライゲツ"
-    ],
+    "yomikatas": ["ライゲツ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "来週",
-    "yomikatas": [
-      "ライシュウ"
-    ],
+    "yomikatas": ["ライシュウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "東",
-    "yomikatas": [
-      "トウ",
-      "ヒガシ"
-    ],
+    "yomikatas": ["トウ", "ヒガシ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "果物",
-    "yomikatas": [
-      "クダモノ"
-    ],
+    "yomikatas": ["クダモノ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "椅子",
-    "yomikatas": [
-      "イス"
-    ],
+    "yomikatas": ["イス"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "楽",
-    "yomikatas": [
-      "タノ",
-      "ガク",
-      "ラク"
-    ],
+    "yomikatas": ["タノ", "ガク", "ラク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "横",
-    "yomikatas": [
-      "ヨコ"
-    ],
+    "yomikatas": ["ヨコ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "橋",
-    "yomikatas": [
-      "ハシ"
-    ],
+    "yomikatas": ["ハシ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "次",
-    "yomikatas": [
-      "ツギ"
-    ],
+    "yomikatas": ["ツギ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "欲",
-    "yomikatas": [
-      "ホ"
-    ],
+    "yomikatas": ["ホ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "歌",
-    "yomikatas": [
-      "ウタ",
-      "カ"
-    ],
+    "yomikatas": ["ウタ", "カ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "止",
-    "yomikatas": [
-      "ト",
-      "シ",
-      "トド",
-      "ヤ",
-      "ヨ"
-    ],
+    "yomikatas": ["ト", "シ", "トド", "ヤ", "ヨ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "歩",
-    "yomikatas": [
-      "アル",
-      "ホ",
-      "ブ",
-      "アユ"
-    ],
+    "yomikatas": ["アル", "ホ", "ブ", "アユ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "歯",
-    "yomikatas": [
-      "ハ"
-    ],
+    "yomikatas": ["ハ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "死",
-    "yomikatas": [
-      "シ"
-    ],
+    "yomikatas": ["シ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "母",
-    "yomikatas": [
-      "カア",
-      "ハハ",
-      "ボ"
-    ],
+    "yomikatas": ["カア", "ハハ", "ボ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "毎年",
-    "yomikatas": [
-      "マイトシ",
-      "マイネン"
-    ],
+    "yomikatas": ["マイトシ", "マイネン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "毎日",
-    "yomikatas": [
-      "マイニチ"
-    ],
+    "yomikatas": ["マイニチ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "毎晩",
-    "yomikatas": [
-      "マイバン"
-    ],
+    "yomikatas": ["マイバン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "毎月",
-    "yomikatas": [
-      "マイツキ"
-    ],
+    "yomikatas": ["マイツキ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "毎朝",
-    "yomikatas": [
-      "マイアサ"
-    ],
+    "yomikatas": ["マイアサ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "毎週",
-    "yomikatas": [
-      "マイシュウ"
-    ],
+    "yomikatas": ["マイシュウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "気",
-    "yomikatas": [
-      "キ",
-      "ケ",
-      "イキ"
-    ],
+    "yomikatas": ["キ", "ケ", "イキ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "水",
-    "yomikatas": [
-      "ミズ",
-      "スイ"
-    ],
+    "yomikatas": ["ミズ", "スイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "水曜日",
-    "yomikatas": [
-      "スイヨウビ"
-    ],
+    "yomikatas": ["スイヨウビ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "汚",
-    "yomikatas": [
-      "キタナ",
-      "ヨゴ"
-    ],
+    "yomikatas": ["キタナ", "ヨゴ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "池",
-    "yomikatas": [
-      "イケ"
-    ],
+    "yomikatas": ["イケ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "沢山",
-    "yomikatas": [
-      "タクサン"
-    ],
+    "yomikatas": ["タクサン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "泥",
-    "yomikatas": [
-      "ドロ"
-    ],
+    "yomikatas": ["ドロ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "泳",
-    "yomikatas": [
-      "オヨ"
-    ],
+    "yomikatas": ["オヨ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "洋服",
-    "yomikatas": [
-      "ヨウフク"
-    ],
+    "yomikatas": ["ヨウフク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "洗",
-    "yomikatas": [
-      "アラ"
-    ],
+    "yomikatas": ["アラ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "洗濯",
-    "yomikatas": [
-      "センタク"
-    ],
+    "yomikatas": ["センタク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "浴",
-    "yomikatas": [
-      "ア"
-    ],
+    "yomikatas": ["ア"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "海",
-    "yomikatas": [
-      "ウミ",
-      "カイ"
-    ],
+    "yomikatas": ["ウミ", "カイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "消",
-    "yomikatas": [
-      "キ",
-      "ケ"
-    ],
+    "yomikatas": ["キ", "ケ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "涼",
-    "yomikatas": [
-      "スズ"
-    ],
+    "yomikatas": ["スズ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "渡",
-    "yomikatas": [
-      "ワタ"
-    ],
+    "yomikatas": ["ワタ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "温",
-    "yomikatas": [
-      "ヌル"
-    ],
+    "yomikatas": ["ヌル"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "漢字",
-    "yomikatas": [
-      "カンジ"
-    ],
+    "yomikatas": ["カンジ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "潤",
-    "yomikatas": [
-      "ウ"
-    ],
+    "yomikatas": ["ウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "潤滑",
-    "yomikatas": [
-      "ジュンカツ"
-    ],
+    "yomikatas": ["ジュンカツ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "火曜日",
-    "yomikatas": [
-      "カヨウビ"
-    ],
+    "yomikatas": ["カヨウビ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "灰皿",
-    "yomikatas": [
-      "ハイザラ"
-    ],
+    "yomikatas": ["ハイザラ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "無",
-    "yomikatas": [
-      "ナ",
-      "ム",
-      "ブ"
-    ],
+    "yomikatas": ["ナ", "ム", "ブ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "煩",
-    "yomikatas": [
-      "ウル",
-      "ウルサ"
-    ],
+    "yomikatas": ["ウル", "ウルサ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "熱",
-    "yomikatas": [
-      "アツ",
-      "ネツ"
-    ],
+    "yomikatas": ["アツ", "ネツ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "父",
-    "yomikatas": [
-      "チチ",
-      "トウ",
-      "フ"
-    ],
+    "yomikatas": ["チチ", "トウ", "フ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "牛乳",
-    "yomikatas": [
-      "ギュウニュウ"
-    ],
+    "yomikatas": ["ギュウニュウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "牛肉",
-    "yomikatas": [
-      "ギュウニク"
-    ],
+    "yomikatas": ["ギュウニク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "物",
-    "yomikatas": [
-      "モノ",
-      "ブツ",
-      "モツ"
-    ],
+    "yomikatas": ["モノ", "ブツ", "モツ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "犬",
-    "yomikatas": [
-      "イヌ",
-      "ケン"
-    ],
+    "yomikatas": ["イヌ", "ケン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "狭",
-    "yomikatas": [
-      "セマ"
-    ],
+    "yomikatas": ["セマ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "猫",
-    "yomikatas": [
-      "ネコ"
-    ],
+    "yomikatas": ["ネコ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "玄関",
-    "yomikatas": [
-      "ゲンカン"
-    ],
+    "yomikatas": ["ゲンカン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "瓜",
-    "yomikatas": [
-      "ウリ"
-    ],
+    "yomikatas": ["ウリ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "甘",
-    "yomikatas": [
-      "アマ"
-    ],
+    "yomikatas": ["アマ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "生",
-    "yomikatas": [
-      "ウ",
-      "ショウ",
-      "セイ",
-      "イ",
-      "オ",
-      "ハ",
-      "ナマ"
-    ],
+    "yomikatas": ["ウ", "ショウ", "セイ", "イ", "オ", "ハ", "ナマ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "生徒",
-    "yomikatas": [
-      "セイト"
-    ],
+    "yomikatas": ["セイト"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "男",
-    "yomikatas": [
-      "オトコ",
-      "ダン",
-      "ナン",
-      "オ"
-    ],
+    "yomikatas": ["オトコ", "ダン", "ナン", "オ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "町",
-    "yomikatas": [
-      "マチ",
-      "チョウ"
-    ],
+    "yomikatas": ["マチ", "チョウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "留学生",
-    "yomikatas": [
-      "リュウガクセイ"
-    ],
+    "yomikatas": ["リュウガクセイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "番号",
-    "yomikatas": [
-      "バンゴウ"
-    ],
+    "yomikatas": ["バンゴウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "疲",
-    "yomikatas": [
-      "ツカ"
-    ],
+    "yomikatas": ["ツカ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "病気",
-    "yomikatas": [
-      "ビョウキ"
-    ],
+    "yomikatas": ["ビョウキ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "病院",
-    "yomikatas": [
-      "ビョウイン"
-    ],
+    "yomikatas": ["ビョウイン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "痛",
-    "yomikatas": [
-      "イタ"
-    ],
+    "yomikatas": ["イタ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "登",
-    "yomikatas": [
-      "ノボ"
-    ],
+    "yomikatas": ["ノボ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "白",
-    "yomikatas": [
-      "シロ",
-      "ハク",
-      "ビャク"
-    ],
+    "yomikatas": ["シロ", "ハク", "ビャク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "百",
-    "yomikatas": [
-      "ヒャク",
-      "ビャク",
-      "モモ"
-    ],
+    "yomikatas": ["ヒャク", "ビャク", "モモ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "皆",
-    "yomikatas": [
-      "ミナ"
-    ],
+    "yomikatas": ["ミナ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "皿",
-    "yomikatas": [
-      "サラ"
-    ],
+    "yomikatas": ["サラ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "目",
-    "yomikatas": [
-      "メ",
-      "モク",
-      "ボク"
-    ],
+    "yomikatas": ["メ", "モク", "ボク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "直",
-    "yomikatas": [
-      "ス",
-      "ナオ"
-    ],
+    "yomikatas": ["ス", "ナオ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "真",
-    "yomikatas": [
-      "マ",
-      "シン",
-      "マコト"
-    ],
+    "yomikatas": ["マ", "シン", "マコト"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "眼鏡",
-    "yomikatas": [
-      "メガネ"
-    ],
+    "yomikatas": ["メガネ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "着",
-    "yomikatas": [
-      "キ",
-      "ツ",
-      "チャク"
-    ],
+    "yomikatas": ["キ", "ツ", "チャク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "知",
-    "yomikatas": [
-      "シ",
-      "チ"
-    ],
+    "yomikatas": ["シ", "チ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "短",
-    "yomikatas": [
-      "ミジカ"
-    ],
+    "yomikatas": ["ミジカ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "石鹼",
-    "yomikatas": [
-      "セッケン"
-    ],
+    "yomikatas": ["セッケン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "砂糖",
-    "yomikatas": [
-      "サトウ"
-    ],
+    "yomikatas": ["サトウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "磨",
-    "yomikatas": [
-      "ミガ"
-    ],
+    "yomikatas": ["ミガ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "私",
-    "yomikatas": [
-      "ワタシ",
-      "シ",
-      "ワタクシ"
-    ],
+    "yomikatas": ["ワタシ", "シ", "ワタクシ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "秋",
-    "yomikatas": [
-      "アキ",
-      "シュウ"
-    ],
+    "yomikatas": ["アキ", "シュウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "空",
-    "yomikatas": [
-      "ソラ",
-      "クウ",
-      "カラ",
-      "ア",
-      "ス",
-      "ムナ"
-    ],
+    "yomikatas": ["ソラ", "クウ", "カラ", "ア", "ス", "ムナ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "窓",
-    "yomikatas": [
-      "マド"
-    ],
+    "yomikatas": ["マド"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "立",
-    "yomikatas": [
-      "タ",
-      "リツ"
-    ],
+    "yomikatas": ["タ", "リツ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "立派",
-    "yomikatas": [
-      "リッパ"
-    ],
+    "yomikatas": ["リッパ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "笑",
-    "yomikatas": [
-      "エラ",
-      "ワラ"
-    ],
+    "yomikatas": ["エラ", "ワラ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "答",
-    "yomikatas": [
-      "コタ",
-      "トウ"
-    ],
+    "yomikatas": ["コタ", "トウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "箱",
-    "yomikatas": [
-      "ハコ"
-    ],
+    "yomikatas": ["ハコ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "箸",
-    "yomikatas": [
-      "ハシ"
-    ],
+    "yomikatas": ["ハシ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "紅茶",
-    "yomikatas": [
-      "コウチャ"
-    ],
+    "yomikatas": ["コウチャ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "紙",
-    "yomikatas": [
-      "カミ",
-      "シ"
-    ],
+    "yomikatas": ["カミ", "シ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "細",
-    "yomikatas": [
-      "ホソ",
-      "コマ"
-    ],
+    "yomikatas": ["ホソ", "コマ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "終",
-    "yomikatas": [
-      "オ",
-      "シュウ"
-    ],
+    "yomikatas": ["オ", "シュウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "結婚",
-    "yomikatas": [
-      "ケッコン"
-    ],
+    "yomikatas": ["ケッコン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "結構",
-    "yomikatas": [
-      "ケッコウ"
-    ],
+    "yomikatas": ["ケッコウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "絵",
-    "yomikatas": [
-      "エ"
-    ],
+    "yomikatas": ["エ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "綺麗",
-    "yomikatas": [
-      "キレイ"
-    ],
+    "yomikatas": ["キレイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "緑",
-    "yomikatas": [
-      "ミドリ"
-    ],
+    "yomikatas": ["ミドリ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "締",
-    "yomikatas": [
-      "シ"
-    ],
+    "yomikatas": ["シ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "練習",
-    "yomikatas": [
-      "レンシュウ"
-    ],
+    "yomikatas": ["レンシュウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "縁",
-    "yomikatas": [
-      "エン"
-    ],
+    "yomikatas": ["エン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "縦",
-    "yomikatas": [
-      "タテ"
-    ],
+    "yomikatas": ["タテ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "置",
-    "yomikatas": [
-      "オ"
-    ],
+    "yomikatas": ["オ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "美味",
-    "yomikatas": [
-      "オイ"
-    ],
+    "yomikatas": ["オイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "習",
-    "yomikatas": [
-      "ナラ",
-      "シュウ"
-    ],
+    "yomikatas": ["ナラ", "シュウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "耳",
-    "yomikatas": [
-      "ミミ"
-    ],
+    "yomikatas": ["ミミ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "聞",
-    "yomikatas": [
-      "キ",
-      "ブン",
-      "モン"
-    ],
+    "yomikatas": ["キ", "ブン", "モン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "肉",
-    "yomikatas": [
-      "ニク"
-    ],
+    "yomikatas": ["ニク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "背",
-    "yomikatas": [
-      "セ"
-    ],
+    "yomikatas": ["セ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "背広",
-    "yomikatas": [
-      "セビロ"
-    ],
+    "yomikatas": ["セビロ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "脱",
-    "yomikatas": [
-      "ヌ"
-    ],
+    "yomikatas": ["ヌ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "腹",
-    "yomikatas": [
-      "ナカ"
-    ],
+    "yomikatas": ["ナカ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "自分",
-    "yomikatas": [
-      "ジブン"
-    ],
+    "yomikatas": ["ジブン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "自動車",
-    "yomikatas": [
-      "ジドウシャ"
-    ],
+    "yomikatas": ["ジドウシャ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "自転車",
-    "yomikatas": [
-      "ジテンシャ"
-    ],
+    "yomikatas": ["ジテンシャ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "良",
-    "yomikatas": [
-      "イ",
-      "ヨ"
-    ],
+    "yomikatas": ["イ", "ヨ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "色",
-    "yomikatas": [
-      "イロ",
-      "ショク",
-      "シキ"
-    ],
+    "yomikatas": ["イロ", "ショク", "シキ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "色々",
-    "yomikatas": [
-      "イロイロ"
-    ],
+    "yomikatas": ["イロイロ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "花",
-    "yomikatas": [
-      "ハナ",
-      "カ",
-      "ケ"
-    ],
+    "yomikatas": ["ハナ", "カ", "ケ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "花瓶",
-    "yomikatas": [
-      "カビン"
-    ],
+    "yomikatas": ["カビン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "若",
-    "yomikatas": [
-      "ワカ"
-    ],
+    "yomikatas": ["ワカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "英語",
-    "yomikatas": [
-      "エイゴ"
-    ],
+    "yomikatas": ["エイゴ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "茶",
-    "yomikatas": [
-      "チャ",
-      "サ"
-    ],
+    "yomikatas": ["チャ", "サ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "茶碗",
-    "yomikatas": [
-      "チャワン"
-    ],
+    "yomikatas": ["チャワン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "茶色",
-    "yomikatas": [
-      "チャイロ"
-    ],
+    "yomikatas": ["チャイロ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "荷物",
-    "yomikatas": [
-      "ニモツ"
-    ],
+    "yomikatas": ["ニモツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "菓子",
-    "yomikatas": [
-      "カシ"
-    ],
+    "yomikatas": ["カシ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "葉書",
-    "yomikatas": [
-      "ハガキ"
-    ],
+    "yomikatas": ["ハガキ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "薄",
-    "yomikatas": [
-      "ウス"
-    ],
+    "yomikatas": ["ウス"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "薬",
-    "yomikatas": [
-      "クスリ"
-    ],
+    "yomikatas": ["クスリ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "蝦",
-    "yomikatas": [
-      "エビ"
-    ],
+    "yomikatas": ["エビ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "行",
-    "yomikatas": [
-      "アン",
-      "イ",
-      "ギョウ",
-      "コウ",
-      "ユ",
-      "オコナ"
-    ],
+    "yomikatas": ["アン", "イ", "ギョウ", "コウ", "ユ", "オコナ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "西",
-    "yomikatas": [
-      "ニシ",
-      "セイ",
-      "サイ"
-    ],
+    "yomikatas": ["ニシ", "セイ", "サイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "要",
-    "yomikatas": [
-      "イ"
-    ],
+    "yomikatas": ["イ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "見",
-    "yomikatas": [
-      "ケン",
-      "ミ"
-    ],
+    "yomikatas": ["ケン", "ミ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "覚",
-    "yomikatas": [
-      "オボ"
-    ],
+    "yomikatas": ["オボ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "角",
-    "yomikatas": [
-      "カド"
-    ],
+    "yomikatas": ["カド"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "言",
-    "yomikatas": [
-      "イ",
-      "ゲン",
-      "ゴン",
-      "コト"
-    ],
+    "yomikatas": ["イ", "ゲン", "ゴン", "コト"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "言葉",
-    "yomikatas": [
-      "コトバ"
-    ],
+    "yomikatas": ["コトバ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "詰",
-    "yomikatas": [
-      "ツ"
-    ],
+    "yomikatas": ["ツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "話",
-    "yomikatas": [
-      "ハナシ",
-      "ワ",
-      "ハナ"
-    ],
+    "yomikatas": ["ハナシ", "ワ", "ハナ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "誕生日",
-    "yomikatas": [
-      "タンジョウビ"
-    ],
+    "yomikatas": ["タンジョウビ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "読",
-    "yomikatas": [
-      "ヨ",
-      "ドク",
-      "トク",
-      "トウ"
-    ],
+    "yomikatas": ["ヨ", "ドク", "トク", "トウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "誰",
-    "yomikatas": [
-      "ダレ"
-    ],
+    "yomikatas": ["ダレ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "警官",
-    "yomikatas": [
-      "ケイカン"
-    ],
+    "yomikatas": ["ケイカン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "豚肉",
-    "yomikatas": [
-      "ブタニク"
-    ],
+    "yomikatas": ["ブタニク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "財布",
-    "yomikatas": [
-      "サイフ"
-    ],
+    "yomikatas": ["サイフ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "買",
-    "yomikatas": [
-      "カ",
-      "バイ"
-    ],
+    "yomikatas": ["カ", "バイ"],
     "jlptLevel": "N3"
   },
   {
     "kanji": "貸",
-    "yomikatas": [
-      "カ",
-      "タイ",
-      "カシ"
-    ],
+    "yomikatas": ["カ", "タイ", "カシ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "貼",
-    "yomikatas": [
-      "ハ"
-    ],
+    "yomikatas": ["ハ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "賑",
-    "yomikatas": [
-      "ニギ"
-    ],
+    "yomikatas": ["ニギ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "質問",
-    "yomikatas": [
-      "シツモン"
-    ],
+    "yomikatas": ["シツモン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "赤",
-    "yomikatas": [
-      "アカ",
-      "セキ",
-      "シャク"
-    ],
+    "yomikatas": ["アカ", "セキ", "シャク"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "走",
-    "yomikatas": [
-      "ハシ",
-      "ソウ"
-    ],
+    "yomikatas": ["ハシ", "ソウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "起",
-    "yomikatas": [
-      "オ",
-      "キ",
-      "オコ"
-    ],
+    "yomikatas": ["オ", "キ", "オコ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "足",
-    "yomikatas": [
-      "アシ",
-      "ソク",
-      "タ"
-    ],
+    "yomikatas": ["アシ", "ソク", "タ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "車",
-    "yomikatas": [
-      "クルマ",
-      "シャ"
-    ],
+    "yomikatas": ["クルマ", "シャ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "軽",
-    "yomikatas": [
-      "カル"
-    ],
+    "yomikatas": ["カル"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "辛",
-    "yomikatas": [
-      "カラ"
-    ],
+    "yomikatas": ["カラ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "辞書",
-    "yomikatas": [
-      "ジショ"
-    ],
+    "yomikatas": ["ジショ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "辺",
-    "yomikatas": [
-      "ヘン"
-    ],
+    "yomikatas": ["ヘン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "近",
-    "yomikatas": [
-      "チカ",
-      "キン"
-    ],
+    "yomikatas": ["チカ", "キン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "返",
-    "yomikatas": [
-      "カエ"
-    ],
+    "yomikatas": ["カエ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "速",
-    "yomikatas": [
-      "ハヤ"
-    ],
+    "yomikatas": ["ハヤ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "遅",
-    "yomikatas": [
-      "オソ",
-      "オク"
-    ],
+    "yomikatas": ["オソ", "オク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "遊",
-    "yomikatas": [
-      "アソ"
-    ],
+    "yomikatas": ["アソ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "道",
-    "yomikatas": [
-      "ミチ",
-      "ドウ"
-    ],
+    "yomikatas": ["ミチ", "ドウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "違",
-    "yomikatas": [
-      "チガ"
-    ],
+    "yomikatas": ["チガ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "遠",
-    "yomikatas": [
-      "トオ"
-    ],
+    "yomikatas": ["トオ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "部屋",
-    "yomikatas": [
-      "ヘヤ"
-    ],
+    "yomikatas": ["ヘヤ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "郵便局",
-    "yomikatas": [
-      "ユウビンキョク"
-    ],
+    "yomikatas": ["ユウビンキョク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "酒",
-    "yomikatas": [
-      "サケ"
-    ],
+    "yomikatas": ["サケ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "醬油",
-    "yomikatas": [
-      "ショウユ"
-    ],
+    "yomikatas": ["ショウユ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "重",
-    "yomikatas": [
-      "オモ",
-      "ジュウ",
-      "チョウ",
-      "カサ"
-    ],
+    "yomikatas": ["オモ", "ジュウ", "チョウ", "カサ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "野菜",
-    "yomikatas": [
-      "ヤサイ"
-    ],
+    "yomikatas": ["ヤサイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "金",
-    "yomikatas": [
-      "カネ",
-      "キン",
-      "コン",
-      "ゴン",
-      "カナー",
-      "ーガネ"
-    ],
+    "yomikatas": ["カネ", "キン", "コン", "ゴン", "カナー", "ーガネ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "金曜日",
-    "yomikatas": [
-      "キンヨウビ"
-    ],
+    "yomikatas": ["キンヨウビ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "鉛筆",
-    "yomikatas": [
-      "エンピツ"
-    ],
+    "yomikatas": ["エンピツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "銀行",
-    "yomikatas": [
-      "ギンコウ"
-    ],
+    "yomikatas": ["ギンコウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "鍵",
-    "yomikatas": [
-      "カギ"
-    ],
+    "yomikatas": ["カギ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "長",
-    "yomikatas": [
-      "チョウ",
-      "ナガ",
-      "オサ"
-    ],
+    "yomikatas": ["チョウ", "ナガ", "オサ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "門",
-    "yomikatas": [
-      "モン"
-    ],
+    "yomikatas": ["モン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "閉",
-    "yomikatas": [
-      "シ"
-    ],
+    "yomikatas": ["シ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "開",
-    "yomikatas": [
-      "ア",
-      "カイ",
-      "ヒラ"
-    ],
+    "yomikatas": ["ア", "カイ", "ヒラ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "間",
-    "yomikatas": [
-      "カン",
-      "ケン",
-      "アイダ",
-      "マ",
-      "アイ"
-    ],
+    "yomikatas": ["カン", "ケン", "アイダ", "マ", "アイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "降",
-    "yomikatas": [
-      "オ",
-      "フ"
-    ],
+    "yomikatas": ["オ", "フ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "階段",
-    "yomikatas": [
-      "カイダン"
-    ],
+    "yomikatas": ["カイダン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "隣",
-    "yomikatas": [
-      "トナリ"
-    ],
+    "yomikatas": ["トナリ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "雑誌",
-    "yomikatas": [
-      "ザッシ"
-    ],
+    "yomikatas": ["ザッシ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "難",
-    "yomikatas": [
-      "ムズカ"
-    ],
+    "yomikatas": ["ムズカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "雨",
-    "yomikatas": [
-      "アメ",
-      "ウ",
-      "アマ"
-    ],
+    "yomikatas": ["アメ", "ウ", "アマ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "雪",
-    "yomikatas": [
-      "ユキ"
-    ],
+    "yomikatas": ["ユキ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "零",
-    "yomikatas": [
-      "レイ"
-    ],
+    "yomikatas": ["レイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "電気",
-    "yomikatas": [
-      "デンキ"
-    ],
+    "yomikatas": ["デンキ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "電話",
-    "yomikatas": [
-      "デンワ"
-    ],
+    "yomikatas": ["デンワ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "電車",
-    "yomikatas": [
-      "デンシャ"
-    ],
+    "yomikatas": ["デンシャ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "青",
-    "yomikatas": [
-      "アオ",
-      "セイ",
-      "ショウ"
-    ],
+    "yomikatas": ["アオ", "セイ", "ショウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "静",
-    "yomikatas": [
-      "シズ"
-    ],
+    "yomikatas": ["シズ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "面白",
-    "yomikatas": [
-      "オモシロ"
-    ],
+    "yomikatas": ["オモシロ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "靴",
-    "yomikatas": [
-      "クツ"
-    ],
+    "yomikatas": ["クツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "靴下",
-    "yomikatas": [
-      "クツシタ"
-    ],
+    "yomikatas": ["クツシタ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "音楽",
-    "yomikatas": [
-      "オンガク"
-    ],
+    "yomikatas": ["オンガク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "頭",
-    "yomikatas": [
-      "アタマ"
-    ],
+    "yomikatas": ["アタマ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "頼",
-    "yomikatas": [
-      "タノ"
-    ],
+    "yomikatas": ["タノ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "風",
-    "yomikatas": [
-      "カゼ",
-      "フウ",
-      "フ",
-      "ーカゼ",
-      "カザー"
-    ],
+    "yomikatas": ["カゼ", "フウ", "フ", "ーカゼ", "カザー"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "風呂",
-    "yomikatas": [
-      "フロ"
-    ],
+    "yomikatas": ["フロ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "風邪",
-    "yomikatas": [
-      "カゼ"
-    ],
+    "yomikatas": ["カゼ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "飛行機",
-    "yomikatas": [
-      "ヒコウキ"
-    ],
+    "yomikatas": ["ヒコウキ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "食",
-    "yomikatas": [
-      "タ",
-      "ショク",
-      "ジキ",
-      "ク",
-      "ハ"
-    ],
+    "yomikatas": ["タ", "ショク", "ジキ", "ク", "ハ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "食堂",
-    "yomikatas": [
-      "ショクドウ"
-    ],
+    "yomikatas": ["ショクドウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "飯",
-    "yomikatas": [
-      "ハン",
-      "メシ"
-    ],
+    "yomikatas": ["ハン", "メシ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "飲",
-    "yomikatas": [
-      "ノ",
-      "イン"
-    ],
+    "yomikatas": ["ノ", "イン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "飴",
-    "yomikatas": [
-      "アメ"
-    ],
+    "yomikatas": ["アメ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "駄目",
-    "yomikatas": [
-      "ダメ"
-    ],
+    "yomikatas": ["ダメ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "駅",
-    "yomikatas": [
-      "エキ"
-    ],
+    "yomikatas": ["エキ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "高",
-    "yomikatas": [
-      "コウ",
-      "タカ"
-    ],
+    "yomikatas": ["コウ", "タカ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "魚",
-    "yomikatas": [
-      "サカナ",
-      "ギョ",
-      "ウオ"
-    ],
+    "yomikatas": ["サカナ", "ギョ", "ウオ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "鳥",
-    "yomikatas": [
-      "トリ",
-      "チョウ"
-    ],
+    "yomikatas": ["トリ", "チョウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "鳴",
-    "yomikatas": [
-      "ナ"
-    ],
+    "yomikatas": ["ナ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "鶏肉",
-    "yomikatas": [
-      "トリニク"
-    ],
+    "yomikatas": ["トリニク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "黄色",
-    "yomikatas": [
-      "キイロ"
-    ],
+    "yomikatas": ["キイロ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "黒",
-    "yomikatas": [
-      "クロ",
-      "コク"
-    ],
+    "yomikatas": ["クロ", "コク"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "鼻",
-    "yomikatas": [
-      "ハナ"
-    ],
+    "yomikatas": ["ハナ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "事",
-    "yomikatas": [
-      "ジ",
-      "コト"
-    ],
+    "yomikatas": ["ジ", "コト"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "自",
-    "yomikatas": [
-      "ジ",
-      "シ",
-      "ミズカ"
-    ],
+    "yomikatas": ["ジ", "シ", "ミズカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "社",
-    "yomikatas": [
-      "シャ",
-      "ヤシロ"
-    ],
+    "yomikatas": ["シャ", "ヤシロ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "発",
-    "yomikatas": [
-      "ハツ",
-      "ホツ"
-    ],
+    "yomikatas": ["ハツ", "ホツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "者",
-    "yomikatas": [
-      "シャ",
-      "モノ"
-    ],
+    "yomikatas": ["シャ", "モノ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "地",
-    "yomikatas": [
-      "チ",
-      "ジ"
-    ],
+    "yomikatas": ["チ", "ジ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "業",
-    "yomikatas": [
-      "ギョウ",
-      "ワザ"
-    ],
+    "yomikatas": ["ギョウ", "ワザ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "場",
-    "yomikatas": [
-      "ジョウ",
-      "バ"
-    ],
+    "yomikatas": ["ジョウ", "バ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "員",
-    "yomikatas": [
-      "イン"
-    ],
+    "yomikatas": ["イン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "力",
-    "yomikatas": [
-      "リョク",
-      "リキ",
-      "チカラ"
-    ],
+    "yomikatas": ["リョク", "リキ", "チカラ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "問",
-    "yomikatas": [
-      "モン",
-      "ト"
-    ],
+    "yomikatas": ["モン", "ト"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "代",
-    "yomikatas": [
-      "ダイ",
-      "カ"
-    ],
+    "yomikatas": ["ダイ", "カ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "動",
-    "yomikatas": [
-      "ドウ",
-      "ウゴ"
-    ],
+    "yomikatas": ["ドウ", "ウゴ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "京",
-    "yomikatas": [
-      "キョウ",
-      "ケイ",
-      "キン",
-      "ミヤコ"
-    ],
+    "yomikatas": ["キョウ", "ケイ", "キン", "ミヤコ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "通",
-    "yomikatas": [
-      "ツウ",
-      "トオ",
-      "カヨ"
-    ],
+    "yomikatas": ["ツウ", "トオ", "カヨ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "理",
-    "yomikatas": [
-      "リ"
-    ],
+    "yomikatas": ["リ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "田",
-    "yomikatas": [
-      "デン",
-      "タ"
-    ],
+    "yomikatas": ["デン", "タ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "主",
-    "yomikatas": [
-      "シュ",
-      "ヌシ",
-      "オモ"
-    ],
+    "yomikatas": ["シュ", "ヌシ", "オモ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "題",
-    "yomikatas": [
-      "ダイ"
-    ],
+    "yomikatas": ["ダイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "意",
-    "yomikatas": [
-      "イ"
-    ],
+    "yomikatas": ["イ"],
     "jlptLevel": "N3"
   },
   {
     "kanji": "不",
-    "yomikatas": [
-      "フ",
-      "ブ"
-    ],
+    "yomikatas": ["フ", "ブ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "用",
-    "yomikatas": [
-      "ヨウ",
-      "モチ"
-    ],
+    "yomikatas": ["ヨウ", "モチ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "度",
-    "yomikatas": [
-      "ド",
-      "タク",
-      "タビ",
-      "タ"
-    ],
+    "yomikatas": ["ド", "タク", "タビ", "タ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "公",
-    "yomikatas": [
-      "コウ"
-    ],
+    "yomikatas": ["コウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "野",
-    "yomikatas": [
-      "ヤ",
-      "ノ"
-    ],
+    "yomikatas": ["ヤ", "ノ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "以",
-    "yomikatas": [
-      "イ",
-      "モッ"
-    ],
+    "yomikatas": ["イ", "モッ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "思",
-    "yomikatas": [
-      "シ",
-      "オモ"
-    ],
+    "yomikatas": ["シ", "オモ"],
     "jlptLevel": "N3"
   },
   {
     "kanji": "世",
-    "yomikatas": [
-      "セイ",
-      "セ",
-      "ヨ"
-    ],
+    "yomikatas": ["セイ", "セ", "ヨ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "正",
-    "yomikatas": [
-      "セイ",
-      "ショウ",
-      "タダ",
-      "マサ"
-    ],
+    "yomikatas": ["セイ", "ショウ", "タダ", "マサ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "院",
-    "yomikatas": [
-      "イン"
-    ],
+    "yomikatas": ["イン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "心",
-    "yomikatas": [
-      "シン",
-      "ココロ"
-    ],
+    "yomikatas": ["シン", "ココロ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "界",
-    "yomikatas": [
-      "カイ"
-    ],
+    "yomikatas": ["カイ"],
     "jlptLevel": "N3"
   },
   {
     "kanji": "文",
-    "yomikatas": [
-      "ブン",
-      "モン",
-      "フミ"
-    ],
+    "yomikatas": ["ブン", "モン", "フミ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "元",
-    "yomikatas": [
-      "ゲン",
-      "ガン",
-      "モト"
-    ],
+    "yomikatas": ["ゲン", "ガン", "モト"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "考",
-    "yomikatas": [
-      "コウ",
-      "カンガ"
-    ],
+    "yomikatas": ["コウ", "カンガ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "画",
-    "yomikatas": [
-      "ガ",
-      "カク"
-    ],
+    "yomikatas": ["ガ", "カク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "集",
-    "yomikatas": [
-      "シュウ",
-      "アツ"
-    ],
+    "yomikatas": ["シュウ", "アツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "別",
-    "yomikatas": [
-      "ベツ",
-      "ワカ",
-      "ワ"
-    ],
+    "yomikatas": ["ベツ", "ワカ", "ワ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "品",
-    "yomikatas": [
-      "ヒン",
-      "シナ"
-    ],
+    "yomikatas": ["ヒン", "シナ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "計",
-    "yomikatas": [
-      "ケイ",
-      "ハカ"
-    ],
+    "yomikatas": ["ケイ", "ハカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "特",
-    "yomikatas": [
-      "トク"
-    ],
+    "yomikatas": ["トク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "運",
-    "yomikatas": [
-      "ウン",
-      "ハコ"
-    ],
+    "yomikatas": ["ウン", "ハコ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "台",
-    "yomikatas": [
-      "ダイ",
-      "タイ",
-      "ウテナ"
-    ],
+    "yomikatas": ["ダイ", "タイ", "ウテナ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "有",
-    "yomikatas": [
-      "ユウ",
-      "ウ",
-      "ア"
-    ],
+    "yomikatas": ["ユウ", "ウ", "ア"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "料",
-    "yomikatas": [
-      "リョウ"
-    ],
+    "yomikatas": ["リョウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "工",
-    "yomikatas": [
-      "コウ",
-      "ク",
-      "グ"
-    ],
+    "yomikatas": ["コウ", "ク", "グ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "建",
-    "yomikatas": [
-      "ケン",
-      "コン",
-      "タ"
-    ],
+    "yomikatas": ["ケン", "コン", "タ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "急",
-    "yomikatas": [
-      "キュウ",
-      "イソ"
-    ],
+    "yomikatas": ["キュウ", "イソ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "送",
-    "yomikatas": [
-      "ソウ",
-      "オク"
-    ],
+    "yomikatas": ["ソウ", "オク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "転",
-    "yomikatas": [
-      "テン",
-      "コロ"
-    ],
+    "yomikatas": ["テン", "コロ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "研",
-    "yomikatas": [
-      "ケン",
-      "ト"
-    ],
+    "yomikatas": ["ケン", "ト"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "究",
-    "yomikatas": [
-      "キュウ"
-    ],
+    "yomikatas": ["キュウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "病",
-    "yomikatas": [
-      "ビョウ",
-      "ヤ"
-    ],
+    "yomikatas": ["ビョウ", "ヤ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "質",
-    "yomikatas": [
-      "シツ",
-      "シチ",
-      "タチ",
-      "タダ"
-    ],
+    "yomikatas": ["シツ", "シチ", "タチ", "タダ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "試",
-    "yomikatas": [
-      "シ",
-      "ココロ",
-      "タメ"
-    ],
+    "yomikatas": ["シ", "ココロ", "タメ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "族",
-    "yomikatas": [
-      "ゾク"
-    ],
+    "yomikatas": ["ゾク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "銀",
-    "yomikatas": [
-      "ギン"
-    ],
+    "yomikatas": ["ギン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "映",
-    "yomikatas": [
-      "エイ",
-      "ウツ",
-      "ハ"
-    ],
+    "yomikatas": ["エイ", "ウツ", "ハ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "親",
-    "yomikatas": [
-      "シン",
-      "オヤ",
-      "シタ"
-    ],
+    "yomikatas": ["シン", "オヤ", "シタ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "験",
-    "yomikatas": [
-      "ケン"
-    ],
+    "yomikatas": ["ケン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "英",
-    "yomikatas": [
-      "エイ"
-    ],
+    "yomikatas": ["エイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "医",
-    "yomikatas": [
-      "イ"
-    ],
+    "yomikatas": ["イ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "仕",
-    "yomikatas": [
-      "シ"
-    ],
+    "yomikatas": ["シ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "去",
-    "yomikatas": [
-      "キョ",
-      "コ",
-      "サ"
-    ],
+    "yomikatas": ["キョ", "コ", "サ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "味",
-    "yomikatas": [
-      "ミ",
-      "アジ"
-    ],
+    "yomikatas": ["ミ", "アジ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "写",
-    "yomikatas": [
-      "シャ",
-      "ウツ"
-    ],
+    "yomikatas": ["シャ", "ウツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "字",
-    "yomikatas": [
-      "ジ"
-    ],
+    "yomikatas": ["ジ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "音",
-    "yomikatas": [
-      "オン",
-      "オト",
-      "ネ"
-    ],
+    "yomikatas": ["オン", "オト", "ネ"],
     "jlptLevel": "N3"
   },
   {
     "kanji": "注",
-    "yomikatas": [
-      "チュウ",
-      "ソソ",
-      "サ",
-      "ツ"
-    ],
+    "yomikatas": ["チュウ", "ソソ", "サ", "ツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "図",
-    "yomikatas": [
-      "ズ",
-      "ト",
-      "ハカ"
-    ],
+    "yomikatas": ["ズ", "ト", "ハカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "週",
-    "yomikatas": [
-      "シュウ"
-    ],
+    "yomikatas": ["シュウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "室",
-    "yomikatas": [
-      "シツ",
-      "ムロ"
-    ],
+    "yomikatas": ["シツ", "ムロ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "館",
-    "yomikatas": [
-      "カン",
-      "ヤカタ"
-    ],
+    "yomikatas": ["カン", "ヤカタ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "屋",
-    "yomikatas": [
-      "オク",
-      "ヤ"
-    ],
+    "yomikatas": ["オク", "ヤ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "洋",
-    "yomikatas": [
-      "ヨウ"
-    ],
+    "yomikatas": ["ヨウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "旅",
-    "yomikatas": [
-      "リョ",
-      "タビ"
-    ],
+    "yomikatas": ["リョ", "タビ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "夕",
-    "yomikatas": [
-      "ユウ"
-    ],
+    "yomikatas": ["ユウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "曜",
-    "yomikatas": [
-      "ヨウ"
-    ],
+    "yomikatas": ["ヨウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "堂",
-    "yomikatas": [
-      "ドウ"
-    ],
+    "yomikatas": ["ドウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "勉",
-    "yomikatas": [
-      "ベン",
-      "ツト"
-    ],
+    "yomikatas": ["ベン", "ツト"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "牛",
-    "yomikatas": [
-      "ギュウ",
-      "ウシ"
-    ],
+    "yomikatas": ["ギュウ", "ウシ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "漢",
-    "yomikatas": [
-      "カン"
-    ],
+    "yomikatas": ["カン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "午",
-    "yomikatas": [
-      "ゴ",
-      "ウマ"
-    ],
+    "yomikatas": ["ゴ", "ウマ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "名",
-    "yomikatas": [
-      "メイ",
-      "ミョウ",
-      "ナ"
-    ],
+    "yomikatas": ["メイ", "ミョウ", "ナ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "電",
-    "yomikatas": [
-      "デン"
-    ],
+    "yomikatas": ["デン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "校",
-    "yomikatas": [
-      "コウ"
-    ],
+    "yomikatas": ["コウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "語",
-    "yomikatas": [
-      "ゴ",
-      "カタ"
-    ],
+    "yomikatas": ["ゴ", "カタ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "毎",
-    "yomikatas": [
-      "マイ",
-      "ゴト"
-    ],
+    "yomikatas": ["マイ", "ゴト"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "天",
-    "yomikatas": [
-      "テン",
-      "アマツ"
-    ],
+    "yomikatas": ["テン", "アマツ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "火",
-    "yomikatas": [
-      "カ",
-      "ヒ",
-      "ービ",
-      "ホー"
-    ],
+    "yomikatas": ["カ", "ヒ", "ービ", "ホー"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "友",
-    "yomikatas": [
-      "ユウ",
-      "トモ"
-    ],
+    "yomikatas": ["ユウ", "トモ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "挨拶",
-    "yomikatas": [
-      "アイサツ"
-    ],
+    "yomikatas": ["アイサツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "坊",
-    "yomikatas": [
-      "ボウ"
-    ],
+    "yomikatas": ["ボウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "案内",
-    "yomikatas": [
-      "アンナイ"
-    ],
+    "yomikatas": ["アンナイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "安心",
-    "yomikatas": [
-      "アンシン"
-    ],
+    "yomikatas": ["アンシン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "安全",
-    "yomikatas": [
-      "アンゼン"
-    ],
+    "yomikatas": ["アンゼン"],
     "jlptLevel": "N3"
   },
   {
     "kanji": "浅",
-    "yomikatas": [
-      "アサ"
-    ],
+    "yomikatas": ["アサ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "謝",
-    "yomikatas": [
-      "アヤマ"
-    ],
+    "yomikatas": ["アヤマ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "倍",
-    "yomikatas": [
-      "バイ"
-    ],
+    "yomikatas": ["バイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "番組",
-    "yomikatas": [
-      "バングミ"
-    ],
+    "yomikatas": ["バングミ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "場所",
-    "yomikatas": [
-      "バショ"
-    ],
+    "yomikatas": ["バショ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "美術館",
-    "yomikatas": [
-      "ビジュツカン"
-    ],
+    "yomikatas": ["ビジュツカン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "僕",
-    "yomikatas": [
-      "ボク"
-    ],
+    "yomikatas": ["ボク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "貿易",
-    "yomikatas": [
-      "ボウエキ"
-    ],
+    "yomikatas": ["ボウエキ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "部長",
-    "yomikatas": [
-      "ブチョウ"
-    ],
+    "yomikatas": ["ブチョウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "文学",
-    "yomikatas": [
-      "ブンガク"
-    ],
+    "yomikatas": ["ブンガク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "文化",
-    "yomikatas": [
-      "ブンカ"
-    ],
+    "yomikatas": ["ブンカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "文法",
-    "yomikatas": [
-      "ブンポウ"
-    ],
+    "yomikatas": ["ブンポウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "血",
-    "yomikatas": [
-      "チ"
-    ],
+    "yomikatas": ["チ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "地理",
-    "yomikatas": [
-      "チリ"
-    ],
+    "yomikatas": ["チリ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "中学校",
-    "yomikatas": [
-      "チュウガッコウ"
-    ],
+    "yomikatas": ["チュウガッコウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "注意",
-    "yomikatas": [
-      "チュウイ"
-    ],
+    "yomikatas": ["チュウイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "注射",
-    "yomikatas": [
-      "チュウシャ"
-    ],
+    "yomikatas": ["チュウシャ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "駐車場",
-    "yomikatas": [
-      "チュウシャジョウ"
-    ],
+    "yomikatas": ["チュウシャジョウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "大分",
-    "yomikatas": [
-      "ダイブ"
-    ],
+    "yomikatas": ["ダイブ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "大学生",
-    "yomikatas": [
-      "ダイガクセイ"
-    ],
+    "yomikatas": ["ダイガクセイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "大事",
-    "yomikatas": [
-      "ダイジ"
-    ],
+    "yomikatas": ["ダイジ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "大体",
-    "yomikatas": [
-      "ダイタイ"
-    ],
+    "yomikatas": ["ダイタイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "暖房",
-    "yomikatas": [
-      "ダンボウ"
-    ],
+    "yomikatas": ["ダンボウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "男性",
-    "yomikatas": [
-      "ダンセイ"
-    ],
+    "yomikatas": ["ダンセイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "電報",
-    "yomikatas": [
-      "デンポウ"
-    ],
+    "yomikatas": ["デンポウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "電灯",
-    "yomikatas": [
-      "デントウ"
-    ],
+    "yomikatas": ["デントウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "泥棒",
-    "yomikatas": [
-      "ドロボウ"
-    ],
+    "yomikatas": ["ドロボウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "動物園",
-    "yomikatas": [
-      "ドウブツエン"
-    ],
+    "yomikatas": ["ドウブツエン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "道具",
-    "yomikatas": [
-      "ドウグ"
-    ],
+    "yomikatas": ["ドウグ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "枝",
-    "yomikatas": [
-      "エダ"
-    ],
+    "yomikatas": ["エダ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "遠慮",
-    "yomikatas": [
-      "エンリョ"
-    ],
+    "yomikatas": ["エンリョ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "選",
-    "yomikatas": [
-      "エラ"
-    ],
+    "yomikatas": ["エラ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "不便",
-    "yomikatas": [
-      "フベン"
-    ],
+    "yomikatas": ["フベン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "増",
-    "yomikatas": [
-      "フ"
-    ],
+    "yomikatas": ["フ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "深",
-    "yomikatas": [
-      "フカ"
-    ],
+    "yomikatas": ["フカ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "復習",
-    "yomikatas": [
-      "フクシュウ"
-    ],
+    "yomikatas": ["フクシュウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "複雑",
-    "yomikatas": [
-      "フクザツ"
-    ],
+    "yomikatas": ["フクザツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "踏",
-    "yomikatas": [
-      "フ"
-    ],
+    "yomikatas": ["フ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "船",
-    "yomikatas": [
-      "フネ"
-    ],
+    "yomikatas": ["フネ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "布団",
-    "yomikatas": [
-      "フトン"
-    ],
+    "yomikatas": ["フトン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "普通",
-    "yomikatas": [
-      "フツウ"
-    ],
+    "yomikatas": ["フツウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "原因",
-    "yomikatas": [
-      "ゲンイン"
-    ],
+    "yomikatas": ["ゲンイン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "下宿",
-    "yomikatas": [
-      "ゲシュク"
-    ],
+    "yomikatas": ["ゲシュク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "技術",
-    "yomikatas": [
-      "ギジュツ"
-    ],
+    "yomikatas": ["ギジュツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "覧",
-    "yomikatas": [
-      "ラン"
-    ],
+    "yomikatas": ["ラン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "主人",
-    "yomikatas": [
-      "シュジン"
-    ],
+    "yomikatas": ["シュジン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "存",
-    "yomikatas": [
-      "ゾン"
-    ],
+    "yomikatas": ["ゾン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "具合",
-    "yomikatas": [
-      "グアイ"
-    ],
+    "yomikatas": ["グアイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "葉",
-    "yomikatas": [
-      "ハ"
-    ],
+    "yomikatas": ["ハ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "拝見",
-    "yomikatas": [
-      "ハイケン"
-    ],
+    "yomikatas": ["ハイケン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "歯医者",
-    "yomikatas": [
-      "ハイシャ"
-    ],
+    "yomikatas": ["ハイシャ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "花見",
-    "yomikatas": [
-      "ハナミ"
-    ],
+    "yomikatas": ["ハナミ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "反対",
-    "yomikatas": [
-      "ハンタイ"
-    ],
+    "yomikatas": ["ハンタイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "払",
-    "yomikatas": [
-      "ハラ"
-    ],
+    "yomikatas": ["ハラ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "発音",
-    "yomikatas": [
-      "ハツオン"
-    ],
+    "yomikatas": ["ハツオン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "林",
-    "yomikatas": [
-      "ハヤシ"
-    ],
+    "yomikatas": ["ハヤシ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "恥",
-    "yomikatas": [
-      "ハ"
-    ],
+    "yomikatas": ["ハ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "変",
-    "yomikatas": [
-      "ヘン",
-      "カ"
-    ],
+    "yomikatas": ["ヘン", "カ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "返事",
-    "yomikatas": [
-      "ヘンジ"
-    ],
+    "yomikatas": ["ヘンジ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "酷",
-    "yomikatas": [
-      "ヒド"
-    ],
+    "yomikatas": ["ヒド"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "髭",
-    "yomikatas": [
-      "ヒゲ"
-    ],
+    "yomikatas": ["ヒゲ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "非常",
-    "yomikatas": [
-      "ヒジョウ"
-    ],
+    "yomikatas": ["ヒジョウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "光",
-    "yomikatas": [
-      "ヒカリ",
-      "ヒカ"
-    ],
+    "yomikatas": ["ヒカリ", "ヒカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "越",
-    "yomikatas": [
-      "コ"
-    ],
+    "yomikatas": ["コ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "飛行場",
-    "yomikatas": [
-      "ヒコウジョウ"
-    ],
+    "yomikatas": ["ヒコウジョウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "拾",
-    "yomikatas": [
-      "ヒロ"
-    ],
+    "yomikatas": ["ヒロ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "昼間",
-    "yomikatas": [
-      "ヒルマ"
-    ],
+    "yomikatas": ["ヒルマ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "昼休",
-    "yomikatas": [
-      "ヒルヤス"
-    ],
+    "yomikatas": ["ヒルヤス"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "久",
-    "yomikatas": [
-      "ヒサ"
-    ],
+    "yomikatas": ["ヒサ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "褒",
-    "yomikatas": [
-      "ホ"
-    ],
+    "yomikatas": ["ホ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "翻訳",
-    "yomikatas": [
-      "ホンヤク"
-    ],
+    "yomikatas": ["ホンヤク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "星",
-    "yomikatas": [
-      "ホシ"
-    ],
+    "yomikatas": ["ホシ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "法律",
-    "yomikatas": [
-      "ホウリツ"
-    ],
+    "yomikatas": ["ホウリツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "放送",
-    "yomikatas": [
-      "ホウソウ"
-    ],
+    "yomikatas": ["ホウソウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "以外",
-    "yomikatas": [
-      "イガイ"
-    ],
+    "yomikatas": ["イガイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "医学",
-    "yomikatas": [
-      "イガク"
-    ],
+    "yomikatas": ["イガク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "以上",
-    "yomikatas": [
-      "イジョウ"
-    ],
+    "yomikatas": ["イジョウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "以下",
-    "yomikatas": [
-      "イカ"
-    ],
+    "yomikatas": ["イカ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "意見",
-    "yomikatas": [
-      "イケン"
-    ],
+    "yomikatas": ["イケン"],
     "jlptLevel": "N3"
   },
   {
     "kanji": "以内",
-    "yomikatas": [
-      "イナイ"
-    ],
+    "yomikatas": ["イナイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "田舎",
-    "yomikatas": [
-      "イナカ"
-    ],
+    "yomikatas": ["イナカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "祈",
-    "yomikatas": [
-      "イノ"
-    ],
+    "yomikatas": ["イノ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "石",
-    "yomikatas": [
-      "イシ"
-    ],
+    "yomikatas": ["イシ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "一生懸命",
-    "yomikatas": [
-      "イッショウケンメイ"
-    ],
+    "yomikatas": ["イッショウケンメイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "頂",
-    "yomikatas": [
-      "イタダ"
-    ],
+    "yomikatas": ["イタダ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "致",
-    "yomikatas": [
-      "イタ"
-    ],
+    "yomikatas": ["イタ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "糸",
-    "yomikatas": [
-      "イト"
-    ],
+    "yomikatas": ["イト"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "時代",
-    "yomikatas": [
-      "ジダイ"
-    ],
+    "yomikatas": ["ジダイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "事故",
-    "yomikatas": [
-      "ジコ"
-    ],
+    "yomikatas": ["ジコ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "事務所",
-    "yomikatas": [
-      "ジムショ"
-    ],
+    "yomikatas": ["ジムショ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "神社",
-    "yomikatas": [
-      "ジンジャ"
-    ],
+    "yomikatas": ["ジンジャ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "人口",
-    "yomikatas": [
-      "ジンコウ"
-    ],
+    "yomikatas": ["ジンコウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "人生",
-    "yomikatas": [
-      "ジンセイ"
-    ],
+    "yomikatas": ["ジンセイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "地震",
-    "yomikatas": [
-      "ジシン"
-    ],
+    "yomikatas": ["ジシン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "辞典",
-    "yomikatas": [
-      "ジテン"
-    ],
+    "yomikatas": ["ジテン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "自由",
-    "yomikatas": [
-      "ジユウ"
-    ],
+    "yomikatas": ["ジユウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "女性",
-    "yomikatas": [
-      "ジョセイ"
-    ],
+    "yomikatas": ["ジョセイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "準備",
-    "yomikatas": [
-      "ジュンビ"
-    ],
+    "yomikatas": ["ジュンビ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "十分",
-    "yomikatas": [
-      "ジュウブン"
-    ],
+    "yomikatas": ["ジュウブン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "柔道",
-    "yomikatas": [
-      "ジュウドウ"
-    ],
+    "yomikatas": ["ジュウドウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "住所",
-    "yomikatas": [
-      "ジュウショ"
-    ],
+    "yomikatas": ["ジュウショ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "壁",
-    "yomikatas": [
-      "カベ"
-    ],
+    "yomikatas": ["カベ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "課長",
-    "yomikatas": [
-      "カチョウ"
-    ],
+    "yomikatas": ["カチョウ"],
     "jlptLevel": "N3"
   },
   {
     "kanji": "科学",
-    "yomikatas": [
-      "カガク"
-    ],
+    "yomikatas": ["カガク"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "鏡",
-    "yomikatas": [
-      "カガミ"
-    ],
+    "yomikatas": ["カガミ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "海岸",
-    "yomikatas": [
-      "カイガン"
-    ],
+    "yomikatas": ["カイガン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "会議",
-    "yomikatas": [
-      "カイギ"
-    ],
+    "yomikatas": ["カイギ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "会議室",
-    "yomikatas": [
-      "カイギシツ"
-    ],
+    "yomikatas": ["カイギシツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "会場",
-    "yomikatas": [
-      "カイジョウ"
-    ],
+    "yomikatas": ["カイジョウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "会話",
-    "yomikatas": [
-      "カイワ"
-    ],
+    "yomikatas": ["カイワ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "火事",
-    "yomikatas": [
-      "カジ"
-    ],
+    "yomikatas": ["カジ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "格好",
-    "yomikatas": [
-      "カッコウ"
-    ],
+    "yomikatas": ["カッコウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "構",
-    "yomikatas": [
-      "カマ"
-    ],
+    "yomikatas": ["カマ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "髪",
-    "yomikatas": [
-      "カミ"
-    ],
+    "yomikatas": ["カミ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "噛",
-    "yomikatas": [
-      "カ"
-    ],
+    "yomikatas": ["カ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "家内",
-    "yomikatas": [
-      "カナイ"
-    ],
+    "yomikatas": ["カナイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "必",
-    "yomikatas": [
-      "カナラ"
-    ],
+    "yomikatas": ["カナラ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "悲",
-    "yomikatas": [
-      "カナ"
-    ],
+    "yomikatas": ["カナ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "看護婦",
-    "yomikatas": [
-      "カンゴフ"
-    ],
+    "yomikatas": ["カンゴフ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "関係",
-    "yomikatas": [
-      "カンケイ"
-    ],
+    "yomikatas": ["カンケイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "彼女",
-    "yomikatas": [
-      "カノジョ"
-    ],
+    "yomikatas": ["カノジョ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "簡単",
-    "yomikatas": [
-      "カンタン"
-    ],
+    "yomikatas": ["カンタン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "彼",
-    "yomikatas": [
-      "カレ"
-    ],
+    "yomikatas": ["カレ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "形",
-    "yomikatas": [
-      "カタチ"
-    ],
+    "yomikatas": ["カタチ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "片付",
-    "yomikatas": [
-      "カタヅ"
-    ],
+    "yomikatas": ["カタヅ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "硬",
-    "yomikatas": [
-      "カタ"
-    ],
+    "yomikatas": ["カタ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "勝",
-    "yomikatas": [
-      "カ"
-    ],
+    "yomikatas": ["カ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "乾",
-    "yomikatas": [
-      "カワ"
-    ],
+    "yomikatas": ["カワ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "飾",
-    "yomikatas": [
-      "カザ"
-    ],
+    "yomikatas": ["カザ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "毛",
-    "yomikatas": [
-      "ケ"
-    ],
+    "yomikatas": ["ケ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "怪我",
-    "yomikatas": [
-      "ケガ"
-    ],
+    "yomikatas": ["ケガ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "計画",
-    "yomikatas": [
-      "ケイカク"
-    ],
+    "yomikatas": ["ケイカク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "経験",
-    "yomikatas": [
-      "ケイケン"
-    ],
+    "yomikatas": ["ケイケン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "警察",
-    "yomikatas": [
-      "ケイサツ"
-    ],
+    "yomikatas": ["ケイサツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "経済",
-    "yomikatas": [
-      "ケイザイ"
-    ],
+    "yomikatas": ["ケイザイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "見物",
-    "yomikatas": [
-      "ケンブツ"
-    ],
+    "yomikatas": ["ケンブツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "喧嘩",
-    "yomikatas": [
-      "ケンカ"
-    ],
+    "yomikatas": ["ケンカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "研究",
-    "yomikatas": [
-      "ケンキュウ"
-    ],
+    "yomikatas": ["ケンキュウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "研究室",
-    "yomikatas": [
-      "ケンキュウシツ"
-    ],
+    "yomikatas": ["ケンキュウシツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "景色",
-    "yomikatas": [
-      "ケシキ"
-    ],
+    "yomikatas": ["ケシキ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "厳",
-    "yomikatas": [
-      "キビ"
-    ],
+    "yomikatas": ["キビ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "気分",
-    "yomikatas": [
-      "キブン"
-    ],
+    "yomikatas": ["キブン"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "機会",
-    "yomikatas": [
-      "キカイ"
-    ],
+    "yomikatas": ["キカイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "危険",
-    "yomikatas": [
-      "キケン"
-    ],
+    "yomikatas": ["キケン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "決",
-    "yomikatas": [
-      "キ"
-    ],
+    "yomikatas": ["キ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "君",
-    "yomikatas": [
-      "キミ",
-      "クン"
-    ],
+    "yomikatas": ["キミ", "クン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "気持",
-    "yomikatas": [
-      "キモ"
-    ],
+    "yomikatas": ["キモ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "着物",
-    "yomikatas": [
-      "キモノ"
-    ],
+    "yomikatas": ["キモノ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "近所",
-    "yomikatas": [
-      "キンジョ"
-    ],
+    "yomikatas": ["キンジョ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "絹",
-    "yomikatas": [
-      "キヌ"
-    ],
+    "yomikatas": ["キヌ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "季節",
-    "yomikatas": [
-      "キセツ"
-    ],
+    "yomikatas": ["キセツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "汽車",
-    "yomikatas": [
-      "キシャ"
-    ],
+    "yomikatas": ["キシャ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "規則",
-    "yomikatas": [
-      "キソク"
-    ],
+    "yomikatas": ["キソク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "国際",
-    "yomikatas": [
-      "コクサイ"
-    ],
+    "yomikatas": ["コクサイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "米",
-    "yomikatas": [
-      "コメ"
-    ],
+    "yomikatas": ["コメ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "込",
-    "yomikatas": [
-      "コ"
-    ],
+    "yomikatas": ["コ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "今度",
-    "yomikatas": [
-      "コンド"
-    ],
+    "yomikatas": ["コンド"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "今夜",
-    "yomikatas": [
-      "コンヤ"
-    ],
+    "yomikatas": ["コンヤ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "故障",
-    "yomikatas": [
-      "コショウ"
-    ],
+    "yomikatas": ["コショウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "小鳥",
-    "yomikatas": [
-      "コトリ"
-    ],
+    "yomikatas": ["コトリ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "校長",
-    "yomikatas": [
-      "コウチョウ"
-    ],
+    "yomikatas": ["コウチョウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "講堂",
-    "yomikatas": [
-      "コウドウ"
-    ],
+    "yomikatas": ["コウドウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "郊外",
-    "yomikatas": [
-      "コウガイ"
-    ],
+    "yomikatas": ["コウガイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "講義",
-    "yomikatas": [
-      "コウギ"
-    ],
+    "yomikatas": ["コウギ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "工業",
-    "yomikatas": [
-      "コウギョウ"
-    ],
+    "yomikatas": ["コウギョウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "工場",
-    "yomikatas": [
-      "コウジョウ"
-    ],
+    "yomikatas": ["コウジョウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "高校",
-    "yomikatas": [
-      "コウコウ"
-    ],
+    "yomikatas": ["コウコウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "高校生",
-    "yomikatas": [
-      "コウコウセイ"
-    ],
+    "yomikatas": ["コウコウセイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "公務員",
-    "yomikatas": [
-      "コウムイン"
-    ],
+    "yomikatas": ["コウムイン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "高等学校",
-    "yomikatas": [
-      "コウトウガッコウ"
-    ],
+    "yomikatas": ["コウトウガッコウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "交通",
-    "yomikatas": [
-      "コウツウ"
-    ],
+    "yomikatas": ["コウツウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "怖",
-    "yomikatas": [
-      "コワ"
-    ],
+    "yomikatas": ["コワ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "壊",
-    "yomikatas": [
-      "コワ"
-    ],
+    "yomikatas": ["コワ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "首",
-    "yomikatas": [
-      "クビ"
-    ],
+    "yomikatas": ["クビ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "雲",
-    "yomikatas": [
-      "クモ"
-    ],
+    "yomikatas": ["クモ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "比",
-    "yomikatas": [
-      "クラ"
-    ],
+    "yomikatas": ["クラ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "暮",
-    "yomikatas": [
-      "ク"
-    ],
+    "yomikatas": ["ク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "草",
-    "yomikatas": [
-      "クサ"
-    ],
+    "yomikatas": ["クサ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "空気",
-    "yomikatas": [
-      "クウキ"
-    ],
+    "yomikatas": ["クウキ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "空港",
-    "yomikatas": [
-      "クウコウ"
-    ],
+    "yomikatas": ["クウコウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "客",
-    "yomikatas": [
-      "キャク"
-    ],
+    "yomikatas": ["キャク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "教育",
-    "yomikatas": [
-      "キョウイク"
-    ],
+    "yomikatas": ["キョウイク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "教会",
-    "yomikatas": [
-      "キョウカイ"
-    ],
+    "yomikatas": ["キョウカイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "興味",
-    "yomikatas": [
-      "キョウミ"
-    ],
+    "yomikatas": ["キョウミ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "競争",
-    "yomikatas": [
-      "キョウソウ"
-    ],
+    "yomikatas": ["キョウソウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "急行",
-    "yomikatas": [
-      "キュウコウ"
-    ],
+    "yomikatas": ["キュウコウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "間違",
-    "yomikatas": [
-      "マチガ"
-    ],
+    "yomikatas": ["マチガ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "参",
-    "yomikatas": [
-      "マイ"
-    ],
+    "yomikatas": ["マイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "負",
-    "yomikatas": [
-      "マ"
-    ],
+    "yomikatas": ["マ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "漫画",
-    "yomikatas": [
-      "マンガ"
-    ],
+    "yomikatas": ["マンガ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "合",
-    "yomikatas": [
-      "ア"
-    ],
+    "yomikatas": ["ア"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "周",
-    "yomikatas": [
-      "マワ"
-    ],
+    "yomikatas": ["マワ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "回",
-    "yomikatas": [
-      "マワ"
-    ],
+    "yomikatas": ["マワ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "召",
-    "yomikatas": [
-      "メ"
-    ],
+    "yomikatas": ["メ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "珍",
-    "yomikatas": [
-      "メズラ"
-    ],
+    "yomikatas": ["メズラ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "港",
-    "yomikatas": [
-      "ミナト"
-    ],
+    "yomikatas": ["ミナト"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "味噌",
-    "yomikatas": [
-      "ミソ"
-    ],
+    "yomikatas": ["ミソ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "都",
-    "yomikatas": [
-      "ミヤコ"
-    ],
+    "yomikatas": ["ミヤコ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "湖",
-    "yomikatas": [
-      "ミズウミ"
-    ],
+    "yomikatas": ["ミズウミ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "戻",
-    "yomikatas": [
-      "モド"
-    ],
+    "yomikatas": ["モド"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "木綿",
-    "yomikatas": [
-      "モメン"
-    ],
+    "yomikatas": ["モメン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "森",
-    "yomikatas": [
-      "モリ"
-    ],
+    "yomikatas": ["モリ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "申",
-    "yomikatas": [
-      "モウ"
-    ],
+    "yomikatas": ["モウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "迎",
-    "yomikatas": [
-      "ムカ"
-    ],
+    "yomikatas": ["ムカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "昔",
-    "yomikatas": [
-      "ムカシ"
-    ],
+    "yomikatas": ["ムカシ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "無理",
-    "yomikatas": [
-      "ムリ"
-    ],
+    "yomikatas": ["ムリ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "虫",
-    "yomikatas": [
-      "ムシ"
-    ],
+    "yomikatas": ["ムシ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "息子",
-    "yomikatas": [
-      "ムスコ"
-    ],
+    "yomikatas": ["ムスコ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "娘",
-    "yomikatas": [
-      "ムスメ"
-    ],
+    "yomikatas": ["ムスメ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "投",
-    "yomikatas": [
-      "ナ"
-    ],
+    "yomikatas": ["ナ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "泣",
-    "yomikatas": [
-      "ナ"
-    ],
+    "yomikatas": ["ナ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "亡",
-    "yomikatas": [
-      "ナ"
-    ],
+    "yomikatas": ["ナ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "治",
-    "yomikatas": [
-      "ナオ"
-    ],
+    "yomikatas": ["ナオ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "慣",
-    "yomikatas": [
-      "ナ"
-    ],
+    "yomikatas": ["ナ"],
     "jlptLevel": "N3"
   },
   {
     "kanji": "寝坊",
-    "yomikatas": [
-      "ネボウ"
-    ],
+    "yomikatas": ["ネボウ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "値段",
-    "yomikatas": [
-      "ネダン"
-    ],
+    "yomikatas": ["ネダン"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "眠",
-    "yomikatas": [
-      "ネム"
-    ],
+    "yomikatas": ["ネム"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "苦",
-    "yomikatas": [
-      "ニガ"
-    ],
+    "yomikatas": ["ニガ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "逃",
-    "yomikatas": [
-      "ニ"
-    ],
+    "yomikatas": ["ニ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "二階建",
-    "yomikatas": [
-      "ニカイダ"
-    ],
+    "yomikatas": ["ニカイダ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "人形",
-    "yomikatas": [
-      "ニンギョウ"
-    ],
+    "yomikatas": ["ニンギョウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "匂",
-    "yomikatas": [
-      "ニオ"
-    ],
+    "yomikatas": ["ニオ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "似",
-    "yomikatas": [
-      "ニ"
-    ],
+    "yomikatas": ["ニ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "喉",
-    "yomikatas": [
-      "ノド"
-    ],
+    "yomikatas": ["ノド"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "残",
-    "yomikatas": [
-      "ノコ"
-    ],
+    "yomikatas": ["ノコ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "換",
-    "yomikatas": [
-      "カ"
-    ],
+    "yomikatas": ["カ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "濡",
-    "yomikatas": [
-      "ヌ"
-    ],
+    "yomikatas": ["ヌ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "塗",
-    "yomikatas": [
-      "ヌ"
-    ],
+    "yomikatas": ["ヌ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "盗",
-    "yomikatas": [
-      "ヌス"
-    ],
+    "yomikatas": ["ヌス"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "入学",
-    "yomikatas": [
-      "ニュウガク"
-    ],
+    "yomikatas": ["ニュウガク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "入院",
-    "yomikatas": [
-      "ニュウイン"
-    ],
+    "yomikatas": ["ニュウイン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "落",
-    "yomikatas": [
-      "オ"
-    ],
+    "yomikatas": ["オ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "踊",
-    "yomikatas": [
-      "オド"
-    ],
+    "yomikatas": ["オド"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "驚",
-    "yomikatas": [
-      "オドロ"
-    ],
+    "yomikatas": ["オドロ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "祝",
-    "yomikatas": [
-      "イワ"
-    ],
+    "yomikatas": ["イワ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "嬢",
-    "yomikatas": [
-      "ジョウ"
-    ],
+    "yomikatas": ["ジョウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "可笑",
-    "yomikatas": [
-      "オカ"
-    ],
+    "yomikatas": ["オカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "怒",
-    "yomikatas": [
-      "オコ"
-    ],
+    "yomikatas": ["オコ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "億",
-    "yomikatas": [
-      "オク"
-    ],
+    "yomikatas": ["オク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "屋上",
-    "yomikatas": [
-      "オクジョウ"
-    ],
+    "yomikatas": ["オクジョウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "贈",
-    "yomikatas": [
-      "オク"
-    ],
+    "yomikatas": ["オク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "祭",
-    "yomikatas": [
-      "マツ"
-    ],
+    "yomikatas": ["マツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "見舞",
-    "yomikatas": [
-      "ミマ"
-    ],
+    "yomikatas": ["ミマ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "土産",
-    "yomikatas": [
-      "ミヤゲ"
-    ],
+    "yomikatas": ["ミヤゲ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "表",
-    "yomikatas": [
-      "オモテ"
-    ],
+    "yomikatas": ["オモテ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "礼",
-    "yomikatas": [
-      "レイ"
-    ],
+    "yomikatas": ["レイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "折",
-    "yomikatas": [
-      "オ"
-    ],
+    "yomikatas": ["オ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "仰",
-    "yomikatas": [
-      "オッシャ"
-    ],
+    "yomikatas": ["オッシャ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "宅",
-    "yomikatas": [
-      "タク"
-    ],
+    "yomikatas": ["タク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "釣",
-    "yomikatas": [
-      "ツ"
-    ],
+    "yomikatas": ["ツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "夫",
-    "yomikatas": [
-      "オット"
-    ],
+    "yomikatas": ["オット"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "冷房",
-    "yomikatas": [
-      "レイボウ"
-    ],
+    "yomikatas": ["レイボウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "歴史",
-    "yomikatas": [
-      "レキシ"
-    ],
+    "yomikatas": ["レキシ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "連絡",
-    "yomikatas": [
-      "レンラク"
-    ],
+    "yomikatas": ["レンラク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "利用",
-    "yomikatas": [
-      "リヨウ"
-    ],
+    "yomikatas": ["リヨウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "理由",
-    "yomikatas": [
-      "リユウ"
-    ],
+    "yomikatas": ["リユウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "留守",
-    "yomikatas": [
-      "ルス"
-    ],
+    "yomikatas": ["ルス"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "旅館",
-    "yomikatas": [
-      "リョカン"
-    ],
+    "yomikatas": ["リョカン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "両方",
-    "yomikatas": [
-      "リョウホウ"
-    ],
+    "yomikatas": ["リョウホウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "寂",
-    "yomikatas": [
-      "サビ"
-    ],
+    "yomikatas": ["サビ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "探",
-    "yomikatas": [
-      "サガ"
-    ],
+    "yomikatas": ["サガ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "最後",
-    "yomikatas": [
-      "サイゴ"
-    ],
+    "yomikatas": ["サイゴ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "最近",
-    "yomikatas": [
-      "サイキン"
-    ],
+    "yomikatas": ["サイキン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "最初",
-    "yomikatas": [
-      "サイショ"
-    ],
+    "yomikatas": ["サイショ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "坂",
-    "yomikatas": [
-      "サカ"
-    ],
+    "yomikatas": ["サカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "盛",
-    "yomikatas": [
-      "サカ"
-    ],
+    "yomikatas": ["サカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "産業",
-    "yomikatas": [
-      "サンギョウ"
-    ],
+    "yomikatas": ["サンギョウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "再来月",
-    "yomikatas": [
-      "サライゲツ"
-    ],
+    "yomikatas": ["サライゲツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "再来週",
-    "yomikatas": [
-      "サライシュウ"
-    ],
+    "yomikatas": ["サライシュウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "騒",
-    "yomikatas": [
-      "サワ"
-    ],
+    "yomikatas": ["サワ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "触",
-    "yomikatas": [
-      "サワ"
-    ],
+    "yomikatas": ["サワ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "生物",
-    "yomikatas": [
-      "セイブツ"
-    ],
+    "yomikatas": ["セイブツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "政治",
-    "yomikatas": [
-      "セイジ"
-    ],
+    "yomikatas": ["セイジ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "生活",
-    "yomikatas": [
-      "セイカツ"
-    ],
+    "yomikatas": ["セイカツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "生命",
-    "yomikatas": [
-      "セイメイ"
-    ],
+    "yomikatas": ["セイメイ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "生産",
-    "yomikatas": [
-      "セイサン"
-    ],
+    "yomikatas": ["セイサン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "西洋",
-    "yomikatas": [
-      "セイヨウ"
-    ],
+    "yomikatas": ["セイヨウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "世界",
-    "yomikatas": [
-      "セカイ"
-    ],
+    "yomikatas": ["セカイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "席",
-    "yomikatas": [
-      "セキ"
-    ],
+    "yomikatas": ["セキ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "線",
-    "yomikatas": [
-      "セン"
-    ],
+    "yomikatas": ["セン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "背中",
-    "yomikatas": [
-      "セナカ"
-    ],
+    "yomikatas": ["セナカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "先輩",
-    "yomikatas": [
-      "センパイ"
-    ],
+    "yomikatas": ["センパイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "戦争",
-    "yomikatas": [
-      "センソウ"
-    ],
+    "yomikatas": ["センソウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "説明",
-    "yomikatas": [
-      "セツメイ"
-    ],
+    "yomikatas": ["セツメイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "社長",
-    "yomikatas": [
-      "シャチョウ"
-    ],
+    "yomikatas": ["シャチョウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "社会",
-    "yomikatas": [
-      "シャカイ"
-    ],
+    "yomikatas": ["シャカイ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "市",
-    "yomikatas": [
-      "シ"
-    ],
+    "yomikatas": ["シ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "試合",
-    "yomikatas": [
-      "シアイ"
-    ],
+    "yomikatas": ["シアイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "叱",
-    "yomikatas": [
-      "シカ"
-    ],
+    "yomikatas": ["シカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "仕方",
-    "yomikatas": [
-      "シカタ"
-    ],
+    "yomikatas": ["シカタ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "試験",
-    "yomikatas": [
-      "シケン"
-    ],
+    "yomikatas": ["シケン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "島",
-    "yomikatas": [
-      "シマ"
-    ],
+    "yomikatas": ["シマ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "市民",
-    "yomikatas": [
-      "シミン"
-    ],
+    "yomikatas": ["シミン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "品物",
-    "yomikatas": [
-      "シナモノ"
-    ],
+    "yomikatas": ["シナモノ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "新聞社",
-    "yomikatas": [
-      "シンブンシャ"
-    ],
+    "yomikatas": ["シンブンシャ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "親切",
-    "yomikatas": [
-      "シンセツ"
-    ],
+    "yomikatas": ["シンセツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "失敗",
-    "yomikatas": [
-      "シッパイ"
-    ],
+    "yomikatas": ["シッパイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "調",
-    "yomikatas": [
-      "シラ"
-    ],
+    "yomikatas": ["シラ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "下着",
-    "yomikatas": [
-      "シタギ"
-    ],
+    "yomikatas": ["シタギ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "食料品",
-    "yomikatas": [
-      "ショクリョウヒン"
-    ],
+    "yomikatas": ["ショクリョウヒン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "小学校",
-    "yomikatas": [
-      "ショウガッコウ"
-    ],
+    "yomikatas": ["ショウガッコウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "紹介",
-    "yomikatas": [
-      "ショウカイ"
-    ],
+    "yomikatas": ["ショウカイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "将来",
-    "yomikatas": [
-      "ショウライ"
-    ],
+    "yomikatas": ["ショウライ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "小説",
-    "yomikatas": [
-      "ショウセツ"
-    ],
+    "yomikatas": ["ショウセツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "趣味",
-    "yomikatas": [
-      "シュミ"
-    ],
+    "yomikatas": ["シュミ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "習慣",
-    "yomikatas": [
-      "シュウカン"
-    ],
+    "yomikatas": ["シュウカン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "祖母",
-    "yomikatas": [
-      "ソボ"
-    ],
+    "yomikatas": ["ソボ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "育",
-    "yomikatas": [
-      "ソダ"
-    ],
+    "yomikatas": ["ソダ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "祖父",
-    "yomikatas": [
-      "ソフ"
-    ],
+    "yomikatas": ["ソフ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "卒業",
-    "yomikatas": [
-      "ソツギョウ"
-    ],
+    "yomikatas": ["ソツギョウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "相談",
-    "yomikatas": [
-      "ソウダン"
-    ],
+    "yomikatas": ["ソウダン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "素晴",
-    "yomikatas": [
-      "スバ"
-    ],
+    "yomikatas": ["スバ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "滑",
-    "yomikatas": [
-      "スベ"
-    ],
+    "yomikatas": ["スベ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "凄",
-    "yomikatas": [
-      "スゴ"
-    ],
+    "yomikatas": ["スゴ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "水道",
-    "yomikatas": [
-      "スイドウ"
-    ],
+    "yomikatas": ["スイドウ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "水泳",
-    "yomikatas": [
-      "スイエイ"
-    ],
+    "yomikatas": ["スイエイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "隅",
-    "yomikatas": [
-      "スミ"
-    ],
+    "yomikatas": ["スミ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "済",
-    "yomikatas": [
-      "ス"
-    ],
+    "yomikatas": ["ス"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "砂",
-    "yomikatas": [
-      "スナ"
-    ],
+    "yomikatas": ["スナ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "進",
-    "yomikatas": [
-      "スス"
-    ],
+    "yomikatas": ["スス"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "捨",
-    "yomikatas": [
-      "ス"
-    ],
+    "yomikatas": ["ス"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "数学",
-    "yomikatas": [
-      "スウガク"
-    ],
+    "yomikatas": ["スウガク"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "退院",
-    "yomikatas": [
-      "タイイン"
-    ],
+    "yomikatas": ["タイイン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "台風",
-    "yomikatas": [
-      "タイフウ"
-    ],
+    "yomikatas": ["タイフウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "棚",
-    "yomikatas": [
-      "タナ"
-    ],
+    "yomikatas": ["タナ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "誕生",
-    "yomikatas": [
-      "タンジョウ"
-    ],
+    "yomikatas": ["タンジョウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "倒",
-    "yomikatas": [
-      "タオ"
-    ],
+    "yomikatas": ["タオ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "畳",
-    "yomikatas": [
-      "タタミ"
-    ],
+    "yomikatas": ["タタミ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "訪",
-    "yomikatas": [
-      "タズ"
-    ],
+    "yomikatas": ["タズ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "尋",
-    "yomikatas": [
-      "タズ"
-    ],
+    "yomikatas": ["タズ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "手袋",
-    "yomikatas": [
-      "テブクロ"
-    ],
+    "yomikatas": ["テブクロ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "丁寧",
-    "yomikatas": [
-      "テイネイ"
-    ],
+    "yomikatas": ["テイネイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "適当",
-    "yomikatas": [
-      "テキトウ"
-    ],
+    "yomikatas": ["テキトウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "点",
-    "yomikatas": [
-      "テン"
-    ],
+    "yomikatas": ["テン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "店員",
-    "yomikatas": [
-      "テンイン"
-    ],
+    "yomikatas": ["テンイン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "天気予報",
-    "yomikatas": [
-      "テンキヨホウ"
-    ],
+    "yomikatas": ["テンキヨホウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "展覧会",
-    "yomikatas": [
-      "テンランカイ"
-    ],
+    "yomikatas": ["テンランカイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "寺",
-    "yomikatas": [
-      "テラ"
-    ],
+    "yomikatas": ["テラ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "手伝",
-    "yomikatas": [
-      "テツダ"
-    ],
+    "yomikatas": ["テツダ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "途中",
-    "yomikatas": [
-      "トチュウ"
-    ],
+    "yomikatas": ["トチュウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "届",
-    "yomikatas": [
-      "トド"
-    ],
+    "yomikatas": ["トド"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "特急",
-    "yomikatas": [
-      "トッキュウ"
-    ],
+    "yomikatas": ["トッキュウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "床屋",
-    "yomikatas": [
-      "トコヤ"
-    ],
+    "yomikatas": ["トコヤ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "特別",
-    "yomikatas": [
-      "トクベツ"
-    ],
+    "yomikatas": ["トクベツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "泊",
-    "yomikatas": [
-      "ト"
-    ],
+    "yomikatas": ["ト"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "替",
-    "yomikatas": [
-      "カ"
-    ],
+    "yomikatas": ["カ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "到頭",
-    "yomikatas": [
-      "トウトウ"
-    ],
+    "yomikatas": ["トウトウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "続",
-    "yomikatas": [
-      "ツヅ"
-    ],
+    "yomikatas": ["ツヅ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "都合",
-    "yomikatas": [
-      "ツゴウ"
-    ],
+    "yomikatas": ["ツゴウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "捕",
-    "yomikatas": [
-      "ツカ"
-    ],
+    "yomikatas": ["ツカ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "漬",
-    "yomikatas": [
-      "ツ"
-    ],
+    "yomikatas": ["ツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "妻",
-    "yomikatas": [
-      "ツマ"
-    ],
+    "yomikatas": ["ツマ"],
     "jlptLevel": "N5"
   },
   {
     "kanji": "連",
-    "yomikatas": [
-      "ツ"
-    ],
+    "yomikatas": ["ツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "伝",
-    "yomikatas": [
-      "ツタ"
-    ],
+    "yomikatas": ["ツタ"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "包",
-    "yomikatas": [
-      "ツツ"
-    ],
+    "yomikatas": ["ツツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "腕",
-    "yomikatas": [
-      "ウデ"
-    ],
+    "yomikatas": ["ウデ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "植",
-    "yomikatas": [
-      "ウ"
-    ],
+    "yomikatas": ["ウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "伺",
-    "yomikatas": [
-      "ウカガ"
-    ],
+    "yomikatas": ["ウカガ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "受",
-    "yomikatas": [
-      "ウ"
-    ],
+    "yomikatas": ["ウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "受付",
-    "yomikatas": [
-      "ウケツケ"
-    ],
+    "yomikatas": ["ウケツケ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "運転手",
-    "yomikatas": [
-      "ウンテンシュ"
-    ],
+    "yomikatas": ["ウンテンシュ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "裏",
-    "yomikatas": [
-      "ウラ"
-    ],
+    "yomikatas": ["ウラ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "嘘",
-    "yomikatas": [
-      "ウソ"
-    ],
+    "yomikatas": ["ウソ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "打",
-    "yomikatas": [
-      "ウ"
-    ],
+    "yomikatas": ["ウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "美",
-    "yomikatas": [
-      "ウツク"
-    ],
+    "yomikatas": ["ウツク"],
     "jlptLevel": "N4"
   },
   {
     "kanji": "移",
-    "yomikatas": [
-      "ウツ"
-    ],
+    "yomikatas": ["ウツ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "沸",
-    "yomikatas": [
-      "ワ"
-    ],
+    "yomikatas": ["ワ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "割",
-    "yomikatas": [
-      "ワ"
-    ],
+    "yomikatas": ["ワ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "割合",
-    "yomikatas": [
-      "ワリアイ"
-    ],
+    "yomikatas": ["ワリアイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "焼",
-    "yomikatas": [
-      "ヤ"
-    ],
+    "yomikatas": ["ヤ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "役",
-    "yomikatas": [
-      "ヤク"
-    ],
+    "yomikatas": ["ヤク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "約束",
-    "yomikatas": [
-      "ヤクソク"
-    ],
+    "yomikatas": ["ヤクソク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "優",
-    "yomikatas": [
-      "ヤサ"
-    ],
+    "yomikatas": ["ヤサ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "痩",
-    "yomikatas": [
-      "ヤ"
-    ],
+    "yomikatas": ["ヤ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "柔",
-    "yomikatas": [
-      "ヤワ"
-    ],
+    "yomikatas": ["ヤワ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "喜",
-    "yomikatas": [
-      "ヨロコ"
-    ],
+    "yomikatas": ["ヨロコ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "寄",
-    "yomikatas": [
-      "ヨ"
-    ],
+    "yomikatas": ["ヨ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "予習",
-    "yomikatas": [
-      "ヨシュウ"
-    ],
+    "yomikatas": ["ヨシュウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "予定",
-    "yomikatas": [
-      "ヨテイ"
-    ],
+    "yomikatas": ["ヨテイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "用意",
-    "yomikatas": [
-      "ヨウイ"
-    ],
+    "yomikatas": ["ヨウイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "用事",
-    "yomikatas": [
-      "ヨウジ"
-    ],
+    "yomikatas": ["ヨウジ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "予約",
-    "yomikatas": [
-      "ヨヤク"
-    ],
+    "yomikatas": ["ヨヤク"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "湯",
-    "yomikatas": [
-      "ユ"
-    ],
+    "yomikatas": ["ユ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "指",
-    "yomikatas": [
-      "ユビ"
-    ],
+    "yomikatas": ["ユビ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "指輪",
-    "yomikatas": [
-      "ユビワ"
-    ],
+    "yomikatas": ["ユビワ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "夢",
-    "yomikatas": [
-      "ユメ"
-    ],
+    "yomikatas": ["ユメ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "揺",
-    "yomikatas": [
-      "ユ"
-    ],
+    "yomikatas": ["ユ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "残念",
-    "yomikatas": [
-      "ザンネン"
-    ],
+    "yomikatas": ["ザンネン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "全然",
-    "yomikatas": [
-      "ゼンゼン"
-    ],
+    "yomikatas": ["ゼンゼン"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "場合",
-    "yomikatas": [
-      "バアイ"
-    ],
+    "yomikatas": ["バアイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "必要",
-    "yomikatas": [
-      "ヒツヨウ"
-    ],
+    "yomikatas": ["ヒツヨウ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "意向形",
-    "yomikatas": [
-      "イコウケイ"
-    ],
+    "yomikatas": ["イコウケイ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "頃",
-    "yomikatas": [
-      "コロ",
-      "ゴロ"
-    ],
+    "yomikatas": ["コロ", "ゴロ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "他動詞",
-    "yomikatas": [
-      "タドウシ"
-    ],
+    "yomikatas": ["タドウシ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "自動詞",
-    "yomikatas": [
-      "ジドウシ"
-    ],
+    "yomikatas": ["ジドウシ"],
     "jlptLevel": "N2"
   },
   {
     "kanji": "受身形",
-    "yomikatas": [
-      "ウケミケイ"
-    ],
+    "yomikatas": ["ウケミケイ"],
     "jlptLevel": "N2"
   }
 ]
