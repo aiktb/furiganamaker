@@ -19,12 +19,18 @@ export function Settings() {
   const alwaysRunSites = useMoreSettingsStore((state) => state[ExtStorage.AlwaysRunSites]);
   const n5Color = useMoreSettingsStore((state) => state[ExtStorage.N5Color]);
   const n4Color = useMoreSettingsStore((state) => state[ExtStorage.N4Color]);
+  const n3Color = useMoreSettingsStore((state) => state[ExtStorage.N3Color]);
+  const n2Color = useMoreSettingsStore((state) => state[ExtStorage.N2Color]);
+  const n1Color = useMoreSettingsStore((state) => state[ExtStorage.N1Color]);
   const setLanguage = useMoreSettingsStore((state) => state.setLanguage);
   const setIncludeSites = useMoreSettingsStore((state) => state.setIncludeSites);
   const setExcludeSites = useMoreSettingsStore((state) => state.setExcludeSites);
   const setAlwaysRunSites = useMoreSettingsStore((state) => state.setAlwaysRunSites);
   const setN5Color = useMoreSettingsStore((state) => state.setN5Color);
   const setN4Color = useMoreSettingsStore((state) => state.setN4Color);
+  const setN3Color = useMoreSettingsStore((state) => state.setN3Color);
+  const setN2Color = useMoreSettingsStore((state) => state.setN2Color);
+  const setN1Color = useMoreSettingsStore((state) => state.setN1Color);
   const toggleColoringKanji = useMoreSettingsStore((state) => state.toggleColoringKanji);
   const toggleDisableWarning = useMoreSettingsStore((state) => state.toggleDisableWarning);
   const resetMoreSettings = useMoreSettingsStore((state) => state.resetMoreSettings);
@@ -60,6 +66,9 @@ export function Settings() {
   function handleResetJlptColors() {
     setN5Color(moreSettingsFallback[ExtStorage.N5Color]);
     setN4Color(moreSettingsFallback[ExtStorage.N4Color]);
+    setN3Color(moreSettingsFallback[ExtStorage.N3Color]);
+    setN2Color(moreSettingsFallback[ExtStorage.N2Color]);
+    setN1Color(moreSettingsFallback[ExtStorage.N1Color]);
   }
 
   return (
@@ -92,8 +101,14 @@ export function Settings() {
         <JlptColorPicker
           n5Color={n5Color}
           n4Color={n4Color}
+          n3Color={n3Color}
+          n2Color={n2Color}
+          n1Color={n1Color}
           onN5ColorChange={setN5Color}
           onN4ColorChange={setN4Color}
+          onN3ColorChange={setN3Color}
+          onN2ColorChange={setN2Color}
+          onN1ColorChange={setN1Color}
           onReset={handleResetJlptColors}
         />
       </li>

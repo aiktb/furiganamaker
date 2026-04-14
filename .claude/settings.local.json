@@ -4,7 +4,10 @@
       "Bash(cat)",
       "Bash(python3 /tmp/add_jlpt_levels.py)",
       "Bash(npm run:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(node -e ':*)",
+      "Bash(node jlpt_mapper.js)",
+      "Bash(node jlpt_mapper.mjs)"
     ]
   }
 }

@@ -12,6 +12,9 @@ interface MoreSettingsStore extends MoreSettings {
   setAlwaysRunSites: (sites: string[]) => void;
   setN5Color: (color: string) => void;
   setN4Color: (color: string) => void;
+  setN3Color: (color: string) => void;
+  setN2Color: (color: string) => void;
+  setN1Color: (color: string) => void;
   resetMoreSettings: () => void;
 }
 
@@ -47,6 +50,18 @@ export const useMoreSettingsStore = create<MoreSettingsStore>()(
       },
       setN4Color: (color) => {
         set({ [ExtStorage.N4Color]: color });
+        browser.runtime.sendMessage(ExtEvent.UpdateJlptColors);
+      },
+      setN3Color: (color) => {
+        set({ [ExtStorage.N3Color]: color });
+        browser.runtime.sendMessage(ExtEvent.UpdateJlptColors);
+      },
+      setN2Color: (color) => {
+        set({ [ExtStorage.N2Color]: color });
+        browser.runtime.sendMessage(ExtEvent.UpdateJlptColors);
+      },
+      setN1Color: (color) => {
+        set({ [ExtStorage.N1Color]: color });
         browser.runtime.sendMessage(ExtEvent.UpdateJlptColors);
       },
       resetMoreSettings: () => {

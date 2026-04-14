@@ -83,10 +83,13 @@ export const moreSettingsFallback = {
   [ExtStorage.AlwaysRunSites]: [],
   [ExtStorage.N5Color]: "#1E90FF",
   [ExtStorage.N4Color]: "#FF8C00",
+  [ExtStorage.N3Color]: "#FFD700",
+  [ExtStorage.N2Color]: "#DC143C",
+  [ExtStorage.N1Color]: "#8B008B",
 } satisfies MoreSettings;
 
 export const moreSettings = storage.defineItem<MoreSettings>("local:moreSettings", {
-  version: 3,
+  version: 4,
   fallback: moreSettingsFallback,
   migrations: {
     2: (oldValue: Omit<MoreSettings, "alwaysRunSites">) => ({
@@ -96,6 +99,12 @@ export const moreSettings = storage.defineItem<MoreSettings>("local:moreSettings
     3: (oldValue: Omit<MoreSettings, "includeSites">) => ({
       ...oldValue,
       [ExtStorage.IncludeSites]: ["*"],
+    }),
+    4: (oldValue: Omit<MoreSettings, "n3Color" | "n2Color" | "n1Color">) => ({
+      ...oldValue,
+      [ExtStorage.N3Color]: moreSettingsFallback[ExtStorage.N3Color],
+      [ExtStorage.N2Color]: moreSettingsFallback[ExtStorage.N2Color],
+      [ExtStorage.N1Color]: moreSettingsFallback[ExtStorage.N1Color],
     }),
   },
 });

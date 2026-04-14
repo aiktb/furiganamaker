@@ -35,6 +35,9 @@ export const ExtStorage = {
   AlwaysRunSites: "alwaysRunSites",
   N5Color: "n5Color",
   N4Color: "n4Color",
+  N3Color: "n3Color",
+  N2Color: "n2Color",
+  N1Color: "n1Color",
 } as const;
 export type ExtStorage = (typeof ExtStorage)[keyof typeof ExtStorage];
 
@@ -107,6 +110,9 @@ export interface MoreSettings {
   [ExtStorage.AlwaysRunSites]: string[];
   [ExtStorage.N5Color]: string;
   [ExtStorage.N4Color]: string;
+  [ExtStorage.N3Color]: string;
+  [ExtStorage.N2Color]: string;
+  [ExtStorage.N1Color]: string;
 }
 
 export interface SelectorRule {
@@ -118,7 +124,7 @@ export interface SelectorRule {
 export type FilterRule = {
   kanji: string;
   yomikatas?: string[] | undefined; // If undefined, it matches all yomikatas.
-  jlptLevel?: "N5" | "N4" | string; // JLPT proficiency level for coloring
+  jlptLevel?: "N5" | "N4" | "N3" | "N2" | "N1" | string; // JLPT proficiency level for coloring
 };
 
 export type StorageChangeEvent =
