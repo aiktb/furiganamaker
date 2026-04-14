@@ -186,9 +186,15 @@ async function applyJlptColorsHandler() {
   const rubySelector = `ruby.${FURIGANA_CLASS}`;
   const n5ColorSelector = `${rubySelector}.level-n5`;
   const n4ColorSelector = `${rubySelector}.level-n4`;
+  const n3ColorSelector = `${rubySelector}.level-n3`;
+  const n2ColorSelector = `${rubySelector}.level-n2`;
+  const n1ColorSelector = `${rubySelector}.level-n1`;
 
   const n5Color = await getMoreSettings(ExtStorage.N5Color);
   const n4Color = await getMoreSettings(ExtStorage.N4Color);
+  const n3Color = await getMoreSettings(ExtStorage.N3Color);
+  const n2Color = await getMoreSettings(ExtStorage.N2Color);
+  const n1Color = await getMoreSettings(ExtStorage.N1Color);
 
   const css = `
     ${n5ColorSelector} {
@@ -196,6 +202,15 @@ async function applyJlptColorsHandler() {
     }
     ${n4ColorSelector} {
       color: ${n4Color};
+    }
+    ${n3ColorSelector} {
+      color: ${n3Color};
+    }
+    ${n2ColorSelector} {
+      color: ${n2Color};
+    }
+    ${n1ColorSelector} {
+      color: ${n1Color};
     }
   `;
 
