@@ -9,6 +9,7 @@ export const ExtEvent = {
   SwitchSelectMode: "switchSelectMode",
   AdjustFontSize: "adjustFontSize",
   AdjustFontColor: "adjustFontColor",
+  UpdateJlptColors: "updateJlptColors",
   MarkActiveTab: "markActiveTab",
   MarkDisabledTab: "markDisabledTab",
   ModifyKanjiFilter: "modifyKanjiFilter",
@@ -32,6 +33,8 @@ export const ExtStorage = {
   SelectorRules: "selectorRules",
   FilterRules: "filterRules",
   AlwaysRunSites: "alwaysRunSites",
+  N5Color: "n5Color",
+  N4Color: "n4Color",
 } as const;
 export type ExtStorage = (typeof ExtStorage)[keyof typeof ExtStorage];
 
@@ -102,6 +105,8 @@ export interface MoreSettings {
    * Content Scripts also modify this field.
    */
   [ExtStorage.AlwaysRunSites]: string[];
+  [ExtStorage.N5Color]: string;
+  [ExtStorage.N4Color]: string;
 }
 
 export interface SelectorRule {
@@ -113,6 +118,7 @@ export interface SelectorRule {
 export type FilterRule = {
   kanji: string;
   yomikatas?: string[] | undefined; // If undefined, it matches all yomikatas.
+  jlptLevel?: "N5" | "N4" | string; // JLPT proficiency level for coloring
 };
 
 export type StorageChangeEvent =

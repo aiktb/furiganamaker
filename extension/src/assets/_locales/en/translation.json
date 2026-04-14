@@ -108,8 +108,6 @@
   "validationNonRepetitiveKanji": "This kanji is already in use.",
   "validationPureKatakana": "Must be pure katakana.",
   "fieldYomikata": "Yomikata",
-  "fieldMatchAll": "Match ALL",
-  "btnAddKatakana": "Add katakana",
   "inputProhibitedTip": "Input is prohibited.",
   "fieldKanji": "Kanji",
   "fieldDomainDesc1": "Please click the browser address bar to confirm that the \"<boldWwwDot/>\" prefix is hidden. If it is, you must enter it as well, otherwise this feature will not work properly.",
@@ -136,5 +134,13 @@
   "tipClearText": "Clear text",
   "tipPleaseEnter": "Please enter first.",
   "placeholderTypeFurigana": "Type to furiganaify.",
-  "msgCopyFailed": "Copy failed."
+  "msgCopyFailed": "Copy failed.",
+  "settingsJlptLevelHighlighting": "JLPT Level Highlighting",
+  "settingsJlptLevelHighlightingDesc": "Customize text colors for N4 and N5 kanji to quickly identify their difficulty level.",
+  "settingsJlptN5Color": "N5 Color (Beginner)",
+  "settingsJlptN4Color": "N4 Color (Elementary)",
+  "settingsJlptColorDesc": "N5 (highest) and N4 (upper-intermediate) kanji will be displayed in these colors throughout the page.",
+  "settingsJlptPreview": "Kanji Preview",
+  "btnAddKatakana": "Add reading",
+  "fieldMatchAll": "Match All Readings"
 }

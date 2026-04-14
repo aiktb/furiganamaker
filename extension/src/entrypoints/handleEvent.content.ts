@@ -28,12 +28,15 @@ export default defineContentScript({
       ExtEvent.ToggleKanjiFilter,
     ] as const satisfies StyleEvent[];
     await Promise.all(styleEvents.map((item) => styleHandler(item)));
+    await applyJlptColorsHandler();
     const isStyleEvent = (event: ExtEvent): event is StyleEvent => styleEvents.includes(event);
     browser.runtime.onMessage.addListener((event: ExtEvent) => {
       if (event === ExtEvent.AddFurigana) {
         addFuriganaHandler();
       } else if (event === ExtEvent.SwitchFuriganaType) {
         switchFuriganaHandler();
+      } else if (event === ExtEvent.UpdateJlptColors) {
+        applyJlptColorsHandler();
       } else if (isStyleEvent(event)) {
         styleHandler(event);
       }
@@ -177,4 +180,34 @@ function addFuriganaHandler() {
   };
   selector.open();
   document.addEventListener("keydown", selectHandler);
+}
+
+async function applyJlptColorsHandler() {
+  const rubySelector = `ruby.${FURIGANA_CLASS}`;
+  const n5ColorSelector = `${rubySelector}.level-n5`;
+  const n4ColorSelector = `${rubySelector}.level-n4`;
+
+  const n5Color = await getMoreSettings(ExtStorage.N5Color);
+  const n4Color = await getMoreSettings(ExtStorage.N4Color);
+
+  const css = `
+    ${n5ColorSelector} {
+      color: ${n5Color};
+    }
+    ${n4ColorSelector} {
+      color: ${n4Color};
+    }
+  `;
+
+  const id = `${FURIGANA_CLASS}${ExtEvent.UpdateJlptColors}`;
+  const oldStyle = document.getElementById(id);
+  if (oldStyle) {
+    oldStyle.textContent = css;
+  } else {
+    const style = document.createElement("style");
+    style.setAttribute("type", "text/css");
+    style.setAttribute("id", id);
+    style.textContent = css;
+    document.head.appendChild(style);
+  }
 }

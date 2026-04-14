@@ -40,17 +40,29 @@ const getTokenizer = async () => {
 
 export interface KanjiMark extends KanjiToken {
   isFiltered: boolean;
+  jlptLevel?: string;
 }
 
-let kanjiFilterMap: Map<string, string[] | "*"> | null = null;
+interface KanjiFilterEntry {
+  yomikatas: string[] | "*";
+  jlptLevel?: string | undefined;
+}
+
+let kanjiFilterMap: Map<string, KanjiFilterEntry> | null = null;
 const getKanjiFilterMap = async () => {
   if (kanjiFilterMap) {
     return kanjiFilterMap;
   }
   const db = await getKanjiFilterDB();
   const filterRules = await db.getAll(DB.onlyTable);
-  const filterMap = new Map<string, string[] | "*">(
-    filterRules.map((filterRule) => [filterRule.kanji, filterRule.yomikatas ?? "*"]),
+  const filterMap = new Map<string, KanjiFilterEntry>(
+    filterRules.map((filterRule) => [
+      filterRule.kanji,
+      {
+        yomikatas: filterRule.yomikatas ?? "*",
+        jlptLevel: filterRule.jlptLevel,
+      },
+    ]),
   );
   kanjiFilterMap = filterMap;
   return filterMap;
@@ -67,10 +79,11 @@ export const registerOnGetKanjiMarksMessage = () => {
     const mojiTokens = tokenizer.tokenize(data.text);
     const filterMap = await getKanjiFilterMap();
     const tokens = toKanjiToken(mojiTokens, data.text).map((token) => {
-      const yomikatas = filterMap.get(token.original);
+      const filterEntry = filterMap.get(token.original);
       const isFiltered =
-        yomikatas !== undefined && (yomikatas === "*" || yomikatas.includes(token.reading));
-      return {
+        filterEntry !== undefined &&
+        (filterEntry.yomikatas === "*" || filterEntry.yomikatas.includes(token.reading));
+      const result: KanjiMark = {
         ...token,
         reading: match(data.furiganaType)
           .with(FuriganaType.Hiragana, () => toHiragana(token.reading))
@@ -79,6 +92,10 @@ export const registerOnGetKanjiMarksMessage = () => {
           .exhaustive(),
         isFiltered,
       };
+      if (filterEntry?.jlptLevel) {
+        result.jlptLevel = filterEntry.jlptLevel;
+      }
+      return result;
     });
 
     return { tokens };

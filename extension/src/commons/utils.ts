@@ -81,6 +81,8 @@ export const moreSettingsFallback = {
   [ExtStorage.IncludeSites]: ["*"],
   [ExtStorage.ExcludeSites]: [],
   [ExtStorage.AlwaysRunSites]: [],
+  [ExtStorage.N5Color]: "#1E90FF",
+  [ExtStorage.N4Color]: "#FF8C00",
 } satisfies MoreSettings;
 
 export const moreSettings = storage.defineItem<MoreSettings>("local:moreSettings", {

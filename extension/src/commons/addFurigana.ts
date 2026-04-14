@@ -60,6 +60,9 @@ const createRuby = (token: KanjiMark): HTMLElement => {
   if (token.isFiltered) {
     ruby.classList.add("isFiltered");
   }
+  if (token.jlptLevel) {
+    ruby.classList.add(`level-${token.jlptLevel.toLowerCase()}`);
+  }
   const rightParenthesisRp = document.createElement("rp");
   rightParenthesisRp.textContent = ")";
   const leftParenthesisRp = document.createElement("rp");

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { ExtStorage, type MoreSettings } from "@/commons/constants";
+import { ExtEvent, ExtStorage, type MoreSettings } from "@/commons/constants";
 import { moreSettings, moreSettingsFallback } from "@/commons/utils";
 
 interface MoreSettingsStore extends MoreSettings {
@@ -10,6 +10,8 @@ interface MoreSettingsStore extends MoreSettings {
   setIncludeSites: (sites: string[]) => void;
   setExcludeSites: (sites: string[]) => void;
   setAlwaysRunSites: (sites: string[]) => void;
+  setN5Color: (color: string) => void;
+  setN4Color: (color: string) => void;
   resetMoreSettings: () => void;
 }
 
@@ -38,6 +40,14 @@ export const useMoreSettingsStore = create<MoreSettingsStore>()(
       },
       setAlwaysRunSites: (sites) => {
         set({ [ExtStorage.AlwaysRunSites]: sites });
+      },
+      setN5Color: (color) => {
+        set({ [ExtStorage.N5Color]: color });
+        browser.runtime.sendMessage(ExtEvent.UpdateJlptColors);
+      },
+      setN4Color: (color) => {
+        set({ [ExtStorage.N4Color]: color });
+        browser.runtime.sendMessage(ExtEvent.UpdateJlptColors);
       },
       resetMoreSettings: () => {
         set({ ...moreSettingsFallback });

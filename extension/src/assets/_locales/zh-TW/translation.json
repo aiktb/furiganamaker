@@ -88,7 +88,6 @@
   "btnResetConfig": "重置配置",
   "resetWarning": "您確定要將規則清單重設為其初始狀態嗎？",
   "undoneDesc": "此操作無法撤銷。",
-  "btnAddKatakana": "新增片假名",
   "btnClearConfig": "清除配置",
   "btnConfirm": "確認",
   "btnQuickCreate": "快速創建",
@@ -96,7 +95,6 @@
   "createKanjiFilterDialogDesc1": "請在瀏覽器中使用Web搜索工具搜索特定的漢字或Yomikata，然後單擊按鈕開始編輯。另外，Yomikata必須採用片假名格式，不接受羅馬音和平假名。",
   "createKanjiFilterDialogDesc2": "“匹配全部”模式不能與Yomokata字段共存。如果切換到此模式，將清除原始的Yomokata字段，無法檢索。",
   "createKanjiFilterDialogTitle": "如何使用漢字過濾器？",
-  "fieldMatchAll": "匹配全部",
   "fieldYomikata": "Yomikata",
   "inputProhibitedTip": "禁止輸入。",
   "msgDeleteKanjiFilterDesc": "您正在刪除對應於“{{kanji}}”的漢字過濾器。",
@@ -137,5 +135,13 @@
   "tipClearText": "清除文本",
   "tipPleaseEnter": "請先輸入。",
   "placeholderTypeFurigana": "輸入文字生成假名",
-  "msgCopyFailed": "複製失敗。"
+  "msgCopyFailed": "複製失敗。",
+  "settingsJlptLevelHighlighting": "JLPT 等級亮點",
+  "settingsJlptLevelHighlightingDesc": "自訂 N4 和 N5 漢字的文字色彩，快速辨識難度等級。",
+  "settingsJlptN5Color": "N5 色彩（初級）",
+  "settingsJlptN4Color": "N4 色彩（初中級）",
+  "settingsJlptColorDesc": "N5（最高難度）和 N4（中上級）漢字將在整個頁面顯示為這些色彩。",
+  "settingsJlptPreview": "漢字預覽",
+  "btnAddKatakana": "新增讀法",
+  "fieldMatchAll": "比對所有讀法"
 }

@@ -3,8 +3,10 @@ import { uniq } from "es-toolkit";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ExtStorage } from "@/commons/constants";
+import { moreSettingsFallback } from "@/commons/utils";
 import { PopupTransition } from "@/entrypoints/options/components/PopupTransition";
 import { DomainListHandler } from "./components/DomainListHandler";
+import { JlptColorPicker } from "./components/JlptColorPicker";
 import { LanguageSwitcher } from "./components/LanguageSwitcher";
 import { useMoreSettingsStore } from "./store";
 
@@ -15,10 +17,14 @@ export function Settings() {
   const includeSites = useMoreSettingsStore((state) => state[ExtStorage.IncludeSites]);
   const excludedSites = useMoreSettingsStore((state) => state[ExtStorage.ExcludeSites]);
   const alwaysRunSites = useMoreSettingsStore((state) => state[ExtStorage.AlwaysRunSites]);
+  const n5Color = useMoreSettingsStore((state) => state[ExtStorage.N5Color]);
+  const n4Color = useMoreSettingsStore((state) => state[ExtStorage.N4Color]);
   const setLanguage = useMoreSettingsStore((state) => state.setLanguage);
   const setIncludeSites = useMoreSettingsStore((state) => state.setIncludeSites);
   const setExcludeSites = useMoreSettingsStore((state) => state.setExcludeSites);
   const setAlwaysRunSites = useMoreSettingsStore((state) => state.setAlwaysRunSites);
+  const setN5Color = useMoreSettingsStore((state) => state.setN5Color);
+  const setN4Color = useMoreSettingsStore((state) => state.setN4Color);
   const toggleColoringKanji = useMoreSettingsStore((state) => state.toggleColoringKanji);
   const toggleDisableWarning = useMoreSettingsStore((state) => state.toggleDisableWarning);
   const resetMoreSettings = useMoreSettingsStore((state) => state.resetMoreSettings);
@@ -51,6 +57,11 @@ export function Settings() {
     setIsResetDialogOpen(false);
   }
 
+  function handleResetJlptColors() {
+    setN5Color(moreSettingsFallback[ExtStorage.N5Color]);
+    setN4Color(moreSettingsFallback[ExtStorage.N4Color]);
+  }
+
   return (
     <menu className="flex flex-col items-center justify-between space-y-10 text-pretty lg:max-w-5xl lg:px-8">
       <li className="flex w-full items-center justify-between gap-4">
@@ -70,6 +81,21 @@ export function Settings() {
           <div>{t("settingsColoringKanjiDesc")}</div>
         </div>
         <SettingSwitch enabled={coloringKanjiEnabled} onChange={toggleColoringKanji} />
+      </li>
+      <li className="flex w-full flex-col gap-3">
+        <div>
+          <div className="font-bold text-lg text-slate-800 dark:text-slate-200">
+            {t("settingsJlptLevelHighlighting")}
+          </div>
+          <div>{t("settingsJlptLevelHighlightingDesc")}</div>
+        </div>
+        <JlptColorPicker
+          n5Color={n5Color}
+          n4Color={n4Color}
+          onN5ColorChange={setN5Color}
+          onN4ColorChange={setN4Color}
+          onReset={handleResetJlptColors}
+        />
       </li>
       <DomainListHandler
         sites={includeSites}
