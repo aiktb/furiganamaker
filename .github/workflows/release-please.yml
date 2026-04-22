@@ -17,7 +17,7 @@ jobs:
       release_created: ${{ steps.release.outputs['extension--release_created'] }}
 
     steps:
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v5
         id: release
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
