@@ -57,7 +57,7 @@
     "baseline-browser-mapping": "catalog:",
     "react-scan": "catalog:",
     "tailwindcss": "catalog:",
-    "vite-plugin-svgr": "^4.5.0",
+    "vite-plugin-svgr": "^5.0.0",
     "wxt": "^0.20.20"
   }
 }
