@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <header className="w-full select-none transition duration-300">
-      <div className="-translate-x-1/2 fixed top-6 left-1/2 z-50 transform">
+      <div className="fixed top-6 left-1/2 z-50 -translate-x-1/2 transform">
         <nav className="flex gap-2 rounded-full p-2.5 backdrop-blur-3xl backdrop-brightness-75 transition ease-in-out sm:gap-x-2 lg:gap-x-8">
           {navItems.map((item) => (
             <Link
@@ -35,7 +35,7 @@ export default function Header() {
           ))}
         </nav>
       </div>
-      <div className="-translate-x-1/2 container fixed left-1/2 z-40 mx-auto px-8 pt-8">
+      <div className="container fixed left-1/2 z-40 mx-auto -translate-x-1/2 px-8 pt-8">
         <div className="hidden h-9 items-center justify-between lg:flex">
           <Link to="/">
             <img src={Logo} alt="Furigana Maker" className="size-8" />

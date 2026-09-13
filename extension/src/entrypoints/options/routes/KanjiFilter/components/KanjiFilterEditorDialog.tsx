@@ -110,7 +110,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
     <PopupTransition show={open}>
       <Dialog
         as="div"
-        className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 max-h-[60vh] overflow-y-auto"
+        className="fixed top-1/2 left-1/2 z-40 max-h-[60vh] -translate-x-1/2 -translate-y-1/2 overflow-y-auto"
         onClose={onClose}
       >
         <DialogPanel className="w-full min-w-md max-w-md transform overflow-hidden rounded-2xl bg-white p-8 text-left align-middle shadow-xl transition-all sm:mx-auto sm:w-full sm:max-w-sm dark:bg-slate-900">
@@ -122,7 +122,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
                   <i
                     className={`${
                       open ? "rotate-180 transform" : ""
-                    } -rotate-90 i-tabler-chevron-left size-4 text-sky-500`}
+                    } i-tabler-chevron-left size-4 -rotate-90 text-sky-500`}
                   />
                 </DisclosureButton>
                 <DisclosurePanel className="text-pretty px-4 pt-4 pb-2 text-sm">
@@ -161,7 +161,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
                     "mt-2 block w-full rounded-md border-0 py-1.5 text-slate-900 shadow-xs ring-1 ring-gray-300 ring-inset placeholder:text-slate-400 focus:ring-2 focus:ring-sky-600 focus:ring-inset disabled:cursor-not-allowed sm:text-sm sm:leading-6 dark:bg-slate-900 dark:text-white dark:ring-gray-700 dark:focus:ring-sky-600"
                   }
                 />
-                <p className="-bottom-5 absolute left-0 text-red-500">{kanjiInputErrorMessage}</p>
+                <p className="absolute -bottom-5 left-0 text-red-500">{kanjiInputErrorMessage}</p>
               </Field>
               <Field className="relative">
                 <Label className="flex items-center font-semibold text-slate-950 text-sm/6 before:mr-1 before:text-red-500 before:content-['*'] after:ml-0.5 dark:text-white">
@@ -191,7 +191,7 @@ export function KanjiFilterEditorDialog(props: KanjiFilterEditorDialogProps) {
                     validateYomikatasInput(newYomikatas);
                   }}
                 />
-                <p className="-bottom-5 absolute left-0 text-red-500">
+                <p className="absolute -bottom-5 left-0 text-red-500">
                   {yomikatasInputErrorMessage}
                 </p>
               </Field>

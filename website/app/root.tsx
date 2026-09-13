@@ -50,11 +50,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <LinksContext.Provider value={links}>
             <Header />
             <main className="relative flex-1 overflow-hidden">
-              <div className="-z-10 absolute inset-0" aria-hidden="true">
+              <div className="absolute inset-0 -z-10" aria-hidden="true">
                 {backgroundAnimeGroup.map((className) => (
                   <div
                     key={className}
-                    className={`${className} -bottom-40 absolute block size-5 animate-floating bg-white/20`}
+                    className={`${className} absolute -bottom-40 block size-5 animate-floating bg-white/20`}
                   />
                 ))}
               </div>

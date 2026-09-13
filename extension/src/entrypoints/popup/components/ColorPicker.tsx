@@ -233,7 +233,7 @@ function SaturationAndValuePicker({ color, hue, onChange }: SaturationAndValuePi
       >
         <div className="absolute inset-0 rounded-xs bg-gradient-to-b from-transparent to-black" />
         <div
-          className="-translate-x-1/2 -translate-y-1/2 absolute size-1 rounded-full"
+          className="absolute size-1 -translate-x-1/2 -translate-y-1/2 rounded-full"
           style={{
             boxShadow:
               "rgb(255, 255, 255) 0px 0px 0px 1.5px, rgba(0, 0, 0, 0.3) 0px 0px 1px 1px inset, rgba(0, 0, 0, 0.4) 0px 0px 1px 2px",
@@ -271,7 +271,7 @@ function HuePicker({ hue, onChange }: HuePickerProps) {
       }}
     >
       <div
-        className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 h-3.5 w-1 rounded-[1px] bg-white"
+        className="absolute top-1/2 h-3.5 w-1 -translate-x-1/2 -translate-y-1/2 rounded-[1px] bg-white"
         style={{
           boxShadow: "rgba(0, 0, 0, 0.6) 0px 0px 2px",
           left: `${(hue / 360) * 100}%`,
@@ -306,13 +306,13 @@ function OpacityPicker({ opacity, hsv, onChange }: OpacityPickerProps) {
       }}
       className={cn(
         "relative h-4 flex-1 cursor-pointer rounded-xs bg-transparent",
-        "after:-z-10 after:absolute after:top-0 after:left-0 after:h-full after:w-full after:rounded-[inherit] after:content-['']",
+        "after:absolute after:top-0 after:left-0 after:-z-10 after:h-full after:w-full after:rounded-[inherit] after:content-['']",
         "bg-repeat after:bg-[url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAACRJREFUKFNjPHTo0H8GJGBnZ8eIzGekgwJk+0BsdCtRHEQbBQBbbh0dIGKknQAAAABJRU5ErkJggg==)]",
       )}
     >
       <div
         className={cn(
-          "-translate-x-1/2 -translate-y-1/2 absolute top-1/2 h-3.5 w-1 rounded-[1px] bg-white",
+          "absolute top-1/2 h-3.5 w-1 -translate-x-1/2 -translate-y-1/2 rounded-[1px] bg-white",
         )}
         style={{
           boxShadow: "rgba(0, 0, 0, 0.6) 0px 0px 2px",

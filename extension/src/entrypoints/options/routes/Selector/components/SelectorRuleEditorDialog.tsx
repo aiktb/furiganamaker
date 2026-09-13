@@ -95,7 +95,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
     <PopupTransition show={open}>
       <Dialog
         as="div"
-        className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 max-h-[80vh] overflow-y-auto"
+        className="fixed top-1/2 left-1/2 z-40 max-h-[80vh] -translate-x-1/2 -translate-y-1/2 overflow-y-auto"
         onClose={onClose}
       >
         <DialogPanel className="w-full min-w-md max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-slate-900">
@@ -107,7 +107,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
                     <h1>{t("disclosureSelector")}</h1>
                     <i
                       className={cn(
-                        "-rotate-90 i-tabler-chevron-left size-4 text-sky-500",
+                        "i-tabler-chevron-left size-4 -rotate-90 text-sky-500",
                         open && "rotate-180 transform",
                       )}
                     />
@@ -149,7 +149,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
                     <h1>{t("disclosureDomain")}</h1>
                     <i
                       className={cn(
-                        "-rotate-90 i-tabler-chevron-left size-4 text-sky-500",
+                        "i-tabler-chevron-left size-4 -rotate-90 text-sky-500",
                         open && "rotate-180 transform",
                       )}
                     />
@@ -198,7 +198,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
                         }}
                       />
                     </div>
-                    <p className="-bottom-5 absolute left-0 text-red-500">
+                    <p className="absolute -bottom-5 left-0 text-red-500">
                       {domainInputErrorMessage}
                     </p>
                   </Field>
@@ -225,7 +225,7 @@ export function SelectorRuleEditorDialog(props: SelectorRuleEditorDialogProps) {
                         }}
                       />
                     </div>
-                    <p className="-bottom-5 absolute left-0 text-red-500">
+                    <p className="absolute -bottom-5 left-0 text-red-500">
                       {selectorInputErrorMessage}
                     </p>
                   </Field>

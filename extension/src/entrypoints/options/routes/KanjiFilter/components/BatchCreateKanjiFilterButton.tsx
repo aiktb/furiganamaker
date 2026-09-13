@@ -37,7 +37,7 @@ export const BatchCreateKanjiFilterButton = () => {
       <PopupTransition show={quickStartDialogIsOpen}>
         <Dialog
           as="div"
-          className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 min-w-80"
+          className="fixed top-1/2 left-1/2 z-40 min-w-80 -translate-x-1/2 -translate-y-1/2"
           onClose={() => {
             setQuickStartDialogIsOpen(false);
             setQuickStartInput("");
@@ -61,7 +61,7 @@ export const BatchCreateKanjiFilterButton = () => {
               onChange={(e) => setQuickStartInput(e.target.value)}
               className={cn(
                 "mt-3 block w-full resize-none rounded-lg border-none bg-slate-950/5 px-3 py-1.5 text-slate-950 text-sm/6 ring-0 dark:bg-white/5 dark:text-white",
-                "data-focus:-outline-offset-2 resize-y focus:not-data-focus:outline-none data-focus:outline-2 data-focus:outline-sky-500",
+                "resize-y focus:not-data-focus:outline-none data-focus:outline-2 data-focus:outline-sky-500 data-focus:-outline-offset-2",
               )}
               rows={3}
             />

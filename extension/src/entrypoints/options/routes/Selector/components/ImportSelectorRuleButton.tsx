@@ -127,7 +127,7 @@ export const ImportSelectorRuleButton = () => {
       <PopupTransition show={importDialogIsOpen}>
         <Dialog
           as="div"
-          className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40"
+          className="fixed top-1/2 left-1/2 z-40 -translate-x-1/2 -translate-y-1/2"
           onClose={() => {
             setImportDialogIsOpen(false);
           }}
@@ -167,7 +167,7 @@ export const ImportSelectorRuleButton = () => {
       <PopupTransition show={importFailedDialogIsOpen}>
         <Dialog
           as="div"
-          className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 min-w-80"
+          className="fixed top-1/2 left-1/2 z-40 min-w-80 -translate-x-1/2 -translate-y-1/2"
           onClose={() => {
             setImportFailedDialogIsOpen(false);
           }}
