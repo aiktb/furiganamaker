@@ -26,6 +26,16 @@
   "files": {
     "includes": ["**", "!**/tailwind.css"]
   },
+  "overrides": [
+    {
+      "includes": ["**/*.svg"],
+      "linter": {
+        "rules": {
+          "a11y": { "noSvgWithoutTitle": "off" }
+        }
+      }
+    }
+  ],
   "linter": {
     "enabled": true,
     "rules": {
