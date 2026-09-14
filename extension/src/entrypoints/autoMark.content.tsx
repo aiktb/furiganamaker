@@ -150,7 +150,7 @@ const PageTooLargeWarningDialog = ({
       ref={dialogRef}
       onClose={onClose}
       className={cn(
-        "-translate-x-1/2 top-5 left-1/2 flex max-w-xl transform flex-col rounded-2xl bg-white p-4 text-base text-slate-800 shadow dark:bg-slate-900 dark:text-white",
+        "top-5 left-1/2 flex max-w-xl -translate-x-1/2 transform flex-col rounded-2xl bg-white p-4 text-base text-slate-800 shadow dark:bg-slate-900 dark:text-white",
         window.matchMedia("(prefers-color-scheme: dark)").matches && "dark",
       )}
     >

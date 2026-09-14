@@ -23,7 +23,7 @@
     "ts-pattern": "catalog:"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^5.20260908.1",
+    "@cloudflare/workers-types": "^5.20260911.1",
     "@egoist/tailwindcss-icons": "catalog:",
     "@fontsource/dm-sans": "^5.3.0",
     "@fontsource/lobster": "^5.3.0",
@@ -39,6 +39,6 @@
     "tailwindcss": "catalog:",
     "vite": "catalog:",
     "vite-plugin-devtools-json": "^1.1.0",
-    "wrangler": "^4.130.0"
+    "wrangler": "^4.131.1"
   }
 }

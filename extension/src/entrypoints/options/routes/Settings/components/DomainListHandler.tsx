@@ -51,7 +51,7 @@ export function DomainListHandler({ sites, onChange, mode }: DomainListHandlerPr
           <PopupTransition show={addDomainDialogIsOpen}>
             <Dialog
               as="div"
-              className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40"
+              className="fixed top-1/2 left-1/2 z-40 -translate-x-1/2 -translate-y-1/2"
               onClose={() => {
                 setAddDomainDialogIsOpen(false);
               }}
@@ -123,7 +123,7 @@ export function DomainListHandler({ sites, onChange, mode }: DomainListHandlerPr
           <PopupTransition show={clearDomainDialogIsOpen}>
             <Dialog
               as="div"
-              className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 min-w-80"
+              className="fixed top-1/2 left-1/2 z-40 min-w-80 -translate-x-1/2 -translate-y-1/2"
               onClose={() => {
                 setClearDomainDialogIsOpen(false);
               }}

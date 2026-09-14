@@ -65,7 +65,7 @@ export default function Welcome() {
       <Fireworks
         ref={ref}
         options={{ opacity: 0.5 }}
-        className="-z-10 fixed top-0 left-0 h-full w-full"
+        className="fixed top-0 left-0 -z-10 h-full w-full"
       />
       <section className="container flex flex-col items-center gap-5 text-pretty text-center sm:px-10">
         <h1 className="animeRising font-bold text-3xl sm:text-5xl md:text-6xl lg:text-8xl">
@@ -143,7 +143,7 @@ export default function Welcome() {
       <Link
         to={links.github}
         target="_blank"
-        className="hover:-translate-y-2 mb-12 flex select-none items-center gap-2 rounded-xl border-2 border-sky-400 border-solid bg-slate-900 px-4 py-2 font-bold transition duration-300 hover:shadow-[0_0_15px_0_hsla(201,80%,66%,.5),0_0_30px_0_hsla(161,55%,49%,.5)] lg:mb-15 xl:mb-20"
+        className="mb-12 flex select-none items-center gap-2 rounded-xl border-2 border-sky-400 border-solid bg-slate-900 px-4 py-2 font-bold transition duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_0_hsla(201,80%,66%,.5),0_0_30px_0_hsla(161,55%,49%,.5)] lg:mb-15 xl:mb-20"
       >
         <i className="i-mdi-github size-5" />
         View on GitHub

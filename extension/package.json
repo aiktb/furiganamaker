@@ -22,7 +22,7 @@
     "@floating-ui/react": "^0.27.20",
     "@headlessui/react": "catalog:",
     "@tanstack/react-query": "^5.102.8",
-    "@webext-core/messaging": "^2.3.0",
+    "@webext-core/messaging": "^4.0.0",
     "clsx": "catalog:",
     "es-toolkit": "catalog:",
     "file-saver": "^2.0.5",
@@ -33,7 +33,7 @@
     "picomatch": "^4.0.7",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-i18next": "16.3.3",
+    "react-i18next": "17.0.13",
     "react-markdown": "^10.1.0",
     "react-router": "catalog:",
     "react-share": "^5.3.0",
@@ -41,7 +41,7 @@
     "tailwind-merge": "catalog:",
     "ts-pattern": "catalog:",
     "wanakana": "^5.3.1",
-    "zod": "^4.6.1",
+    "zod": "^4.6.2",
     "zustand": "catalog:"
   },
   "devDependencies": {
@@ -65,7 +65,7 @@
     "react-scan": "catalog:",
     "tailwindcss": "catalog:",
     "vite-plugin-svgr": "^5.2.0",
-    "vitest": "^4.1.11",
-    "wxt": "^0.20.27"
+    "vitest": "^5.0.0",
+    "wxt": "^0.21.4"
   }
 }

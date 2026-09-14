@@ -114,7 +114,7 @@ export function Settings() {
       <PopupTransition show={isResetDialogOpen}>
         <Dialog
           as="div"
-          className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40"
+          className="fixed top-1/2 left-1/2 z-40 -translate-x-1/2 -translate-y-1/2"
           onClose={() => setIsResetDialogOpen(false)}
         >
           <DialogPanel className="w-full min-w-85 max-w-md transform overflow-hidden rounded-2xl bg-white p-5 text-left align-middle text-sm shadow-xl transition-all dark:bg-slate-900 dark:text-slate-100">

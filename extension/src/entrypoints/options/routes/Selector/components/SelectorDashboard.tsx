@@ -52,7 +52,7 @@ export const SelectorDashboard = () => {
       <PopupTransition show={clearRuleDialogIsOpen}>
         <Dialog
           as="div"
-          className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 min-w-80"
+          className="fixed top-1/2 left-1/2 z-40 min-w-80 -translate-x-1/2 -translate-y-1/2"
           onClose={() => {
             setClearRuleDialogIsOpen(false);
           }}
@@ -102,7 +102,7 @@ export const SelectorDashboard = () => {
       <PopupTransition show={resetRuleDialogIsOpen}>
         <Dialog
           as="div"
-          className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40 min-w-80"
+          className="fixed top-1/2 left-1/2 z-40 min-w-80 -translate-x-1/2 -translate-y-1/2"
           onClose={() => {
             setResetRuleDialogIsOpen(false);
           }}

@@ -44,7 +44,7 @@ export const KanjiFilterItem = ({ rule, index }: KanjiFilterItemProps) => {
           onClick={() => {
             setDeleteDialogIsOpen(true);
           }}
-          className="playwright-kanji-filter-item-delete-btn -translate-y-1/2 absolute top-0 right-0 translate-x-1/2 cursor-pointer rounded-full bg-white transition hover:text-slate-800 dark:bg-slate-900 dark:hover:text-white"
+          className="playwright-kanji-filter-item-delete-btn absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full bg-white transition hover:text-slate-800 dark:bg-slate-900 dark:hover:text-white"
         >
           <div className="grid size-5 place-content-center rounded-full bg-slate-950/5 dark:bg-white/5">
             <i className="i-tabler-x size-4" />
@@ -67,7 +67,7 @@ export const KanjiFilterItem = ({ rule, index }: KanjiFilterItemProps) => {
         <PopupTransition show={deleteDialogIsOpen}>
           <Dialog
             as="div"
-            className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-40"
+            className="fixed top-1/2 left-1/2 z-40 -translate-x-1/2 -translate-y-1/2"
             onClose={() => {
               setDeleteDialogIsOpen(false);
             }}
