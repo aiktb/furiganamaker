@@ -35,7 +35,7 @@ export function Footer() {
               i18nKey="footerCopyright"
               values={{ yearsRange: generateYear() }}
               components={{
-                author: <FooterLink content="aiktb" href="https://github.com/aiktb" />,
+                author: <FooterLink content="Brian Zhou" href="https://github.com/aiktb" />,
               }}
             />
           </span>
