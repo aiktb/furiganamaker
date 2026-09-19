@@ -61,4 +61,4 @@ If you like this project, please consider supporting me by buying me a coffee.
 
 ## License
 
-[MIT](./LICENSE) | © 2023 aiktb made with ❤️.
+[MIT](./LICENSE) | © 2023 Brian Zhou made with ❤️.
