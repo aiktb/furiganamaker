@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.9.1](https://github.com/aiktb/furiganamaker/compare/v3.9.0...v3.9.1) (2026-09-23)
+
+
+### Bug Fixes
+
+* **selector:** stop Escape keydown from propagating to the page ([#489](https://github.com/aiktb/furiganamaker/issues/489)) ([0b4671d](https://github.com/aiktb/furiganamaker/commit/0b4671d2016bf1639926dbe538a03bc18a0128d7))
+
 ## [3.9.0](https://github.com/aiktb/furiganamaker/compare/v3.8.2...v3.9.0) (2026-09-11)
 
 
