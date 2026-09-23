@@ -146,9 +146,13 @@ export class Selector {
   };
 
   readonly #keydownHandler = (event: KeyboardEvent) => {
-    if (event.key === "Escape") {
-      this.close();
+    if (event.key !== "Escape") {
+      return;
     }
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    this.close();
   };
 
   static readonly create = () => {
@@ -172,7 +176,7 @@ export class Selector {
     this.#renderer.initialize();
     document.addEventListener("click", this.#clickHandler, { capture: true });
     document.addEventListener("pointerover", this.#pointeroverHandler, { capture: true });
-    document.addEventListener("keydown", this.#keydownHandler);
+    document.addEventListener("keydown", this.#keydownHandler, { capture: true });
   };
 
   readonly close = () => {
@@ -182,7 +186,7 @@ export class Selector {
     this.#isOpen = false;
     document.removeEventListener("click", this.#clickHandler, { capture: true });
     document.removeEventListener("pointerover", this.#pointeroverHandler, { capture: true });
-    document.removeEventListener("keydown", this.#keydownHandler);
+    document.removeEventListener("keydown", this.#keydownHandler, { capture: true });
     this.#renderer.destroy();
   };
 }
