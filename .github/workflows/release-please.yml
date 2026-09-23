@@ -24,10 +24,12 @@ jobs:
           config-file: ".github/release-please-config.json"
           manifest-file: ".github/.release-please-manifest.json"
 
-  submit:
+  build:
     runs-on: ubuntu-latest
-    if: needs.release-please.outputs.release_created
+    if: needs.release-please.outputs.release_created == 'true'
     needs: release-please
+    outputs:
+      tag_name: ${{ needs.release-please.outputs.tag_name }}
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -54,26 +56,69 @@ jobs:
             - [Edge](https://microsoftedge.microsoft.com/addons/detail/furigana-maker/kohpoklaaeicnkdapjkmljdachedmbbi)
             - [Firefox](https://addons.mozilla.org/firefox/addon/furigana-maker/)
         run: |
-          gh release upload ${{ needs.release-please.outputs.tag_name }} ./.output/*-chrome.zip
-          gh release upload ${{ needs.release-please.outputs.tag_name }} ./.output/*-firefox.zip
+          gh release upload ${{ needs.release-please.outputs.tag_name }} ./.output/*-chrome.zip --clobber
+          gh release upload ${{ needs.release-please.outputs.tag_name }} ./.output/*-firefox.zip --clobber
           gh release edit ${{ needs.release-please.outputs.tag_name }} --notes "$RELEASE_NOTES"
 
-      - name: Submit to stores
+  submit:
+    name: Submit to ${{ matrix.store }}
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - store: Chrome
+            zip: chrome
+          - store: Firefox
+            zip: firefox
+          - store: Edge
+            zip: chrome
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: "package.json"
+          cache: "pnpm"
+          cache-dependency-path: "pnpm-lock.yaml"
+      - run: pnpm install --frozen-lockfile
+
+      - name: Download Release Artifact
         working-directory: ./extension
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ needs.build.outputs.tag_name }}
         run: |
-          pnpm --filter extension exec wxt submit \
-            --chrome-zip ./.output/*-chrome.zip \
-            --firefox-zip ./.output/*-firefox.zip \
-            --edge-zip ./.output/*-chrome.zip \
+          gh release download "$RELEASE_TAG" --pattern '*-${{ matrix.zip }}.zip' --dir .output
+
+      - name: Submit to Chrome
+        if: matrix.store == 'Chrome'
+        working-directory: ./extension
+        run: pnpm exec wxt submit --chrome-zip ./.output/*-chrome.zip
         env:
           CHROME_API_VERSION: v2
           CHROME_EXTENSION_ID: ${{ secrets.CHROME_EXTENSION_ID }}
           CHROME_PUBLISHER_ID: ${{ secrets.CHROME_PUBLISHER_ID }}
           CHROME_SERVICE_ACCOUNT_CLIENT_EMAIL: ${{ secrets.CHROME_SERVICE_ACCOUNT_CLIENT_EMAIL }}
           CHROME_SERVICE_ACCOUNT_PRIVATE_KEY: ${{ secrets.CHROME_SERVICE_ACCOUNT_PRIVATE_KEY }}
+
+      - name: Submit to Firefox
+        if: matrix.store == 'Firefox'
+        working-directory: ./extension
+        run: pnpm exec wxt submit --firefox-zip ./.output/*-firefox.zip
+        env:
           FIREFOX_EXTENSION_ID: ${{ secrets.FIREFOX_EXTENSION_ID }}
           FIREFOX_JWT_ISSUER: ${{ secrets.FIREFOX_JWT_ISSUER }}
           FIREFOX_JWT_SECRET: ${{ secrets.FIREFOX_JWT_SECRET }}
+
+      - name: Submit to Edge
+        if: matrix.store == 'Edge'
+        working-directory: ./extension
+        run: pnpm exec wxt submit --edge-zip ./.output/*-chrome.zip
+        env:
           EDGE_PRODUCT_ID: ${{ secrets.EDGE_PRODUCT_ID }}
           EDGE_CLIENT_ID: ${{ secrets.EDGE_CLIENT_ID }}
           EDGE_API_KEY: ${{ secrets.EDGE_API_KEY }}
