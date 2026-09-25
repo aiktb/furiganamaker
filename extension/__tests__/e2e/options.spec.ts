@@ -12,12 +12,30 @@ describe("Extension options page", () => {
   test("Hash routes are able to navigate correctly", async ({ page, extensionId }) => {
     const rulesEditorLink = page.getByRole("link", { name: "Settings" });
     await expect(rulesEditorLink).toBeVisible();
-    await expect(rulesEditorLink).toHaveAttribute("href", "#/");
+    await expect(rulesEditorLink).toHaveAttribute("href", "/options.html#/");
     await expect(rulesEditorLink).toHaveAttribute("aria-current", "page");
     const changelogLink = page.getByRole("link", { name: "Changelog" });
-    await expect(changelogLink).toHaveAttribute("href", "#/changelog");
+    await expect(changelogLink).toHaveAttribute("href", "/options.html#/changelog");
     await changelogLink.click();
     expect(page.url()).toBe(`chrome-extension://${extensionId}/options.html#/changelog`);
+    await expect(changelogLink).toHaveAttribute("aria-current", "page");
+    await expect(rulesEditorLink).not.toHaveAttribute("aria-current", "page");
+    await page.reload();
+    await expect(changelogLink).toHaveAttribute("aria-current", "page");
+    await page.goBack();
+    await expect(rulesEditorLink).toHaveAttribute("aria-current", "page");
+    await page.goForward();
+    await expect(changelogLink).toHaveAttribute("aria-current", "page");
+  });
+
+  test("Unknown hash routes can return to settings", async ({ page, extensionId }) => {
+    await page.goto(`chrome-extension://${extensionId}/options.html#/missing-route`);
+    await expect(page.getByText("Not Found", { exact: true })).toBeVisible();
+    await page.getByRole("link", { name: "Go back to the Home Page" }).click();
+    await expect(page.getByRole("link", { name: "Settings", exact: true })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
   });
 
   test("Toggle theme to Dark/Light ", async ({ page }) => {

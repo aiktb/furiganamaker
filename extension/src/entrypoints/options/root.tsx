@@ -1,5 +1,5 @@
+import { Outlet } from "@tanstack/react-router";
 import { useTheme } from "next-themes";
-import { Outlet } from "react-router";
 import { Toaster } from "sonner";
 
 import { Footer } from "./components/Footer";

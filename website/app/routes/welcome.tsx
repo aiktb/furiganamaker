@@ -1,16 +1,14 @@
 import { Fireworks, type FireworksHandlers } from "@fireworks-js/react";
+import { createFileRoute } from "@tanstack/react-router";
 import { useContext, useEffect, useRef } from "react";
-import { Link, type MetaFunction } from "react-router";
 import pinExtensionImage from "../assets/pin-extension.png";
 import { LinksContext } from "../contexts";
 
-export const meta: MetaFunction = () => {
-  return [
-    {
-      title: "Welcome to Furigana Maker",
-    },
-  ];
-};
+export const Route = createFileRoute("/welcome")({
+  head: () => ({ meta: [{ title: "Welcome to Furigana Maker" }] }),
+  component: Welcome,
+});
+
 export default function Welcome() {
   const links = useContext(LinksContext)!;
   const ref = useRef<FireworksHandlers>(null);
@@ -140,15 +138,16 @@ export default function Welcome() {
           </li>
         </ol>
       </section>
-      <Link
-        to={links.github}
+      <a
+        href={links.github}
         target="_blank"
         className="mb-12 flex select-none items-center gap-2 rounded-xl border-2 border-sky-400 border-solid bg-slate-900 px-4 py-2 font-bold transition duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_0_hsla(201,80%,66%,.5),0_0_30px_0_hsla(161,55%,49%,.5)] lg:mb-15 xl:mb-20"
+        rel="noopener"
       >
         <i className="i-mdi-github size-5" />
         View on GitHub
         <i className="i-mdi-arrow-top-right" />
-      </Link>
+      </a>
     </div>
   );
 }

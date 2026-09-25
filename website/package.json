@@ -3,27 +3,25 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "react-router dev",
-    "build": "react-router build",
-    "deploy": "wrangler pages deploy ./build/client",
-    "start": "wrangler pages dev ./build/client",
-    "typecheck": "react-router typegen && tsc --noEmit"
+    "dev": "vite dev",
+    "build": "vite build",
+    "deploy": "pnpm run build && wrangler deploy",
+    "start": "vite preview",
+    "typecheck": "tsr generate && tsc --noEmit",
+    "test:e2e:prod": "playwright test"
   },
   "dependencies": {
     "@fireworks-js/react": "^2.10.8",
     "@headlessui/react": "catalog:",
-    "@react-router/cloudflare": "catalog:",
-    "@react-router/dev": "catalog:",
-    "@react-router/fs-routes": "catalog:",
+    "@tanstack/react-router": "catalog:",
+    "@tanstack/react-start": "^1.168.58",
     "detect-browser": "^5.3.0",
-    "isbot": "^5.2.2",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-router": "catalog:",
     "ts-pattern": "catalog:"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^5.20260911.1",
+    "@cloudflare/vite-plugin": "1.59.0",
     "@egoist/tailwindcss-icons": "catalog:",
     "@fontsource/dm-sans": "^5.3.0",
     "@fontsource/lobster": "^5.3.0",
@@ -31,14 +29,17 @@
     "@headlessui/tailwindcss": "catalog:",
     "@iconify-json/fa6-brands": "catalog:",
     "@iconify-json/mdi": "^1.2.3",
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/forms": "catalog:",
     "@tailwindcss/vite": "catalog:",
+    "@tanstack/router-cli": "^1.167.38",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "^6.1.1",
     "react-grab": "catalog:",
     "tailwindcss": "catalog:",
     "vite": "catalog:",
     "vite-plugin-devtools-json": "^1.1.0",
-    "wrangler": "^4.131.1"
+    "wrangler": "4.138.0"
   }
 }

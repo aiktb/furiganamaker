@@ -1,51 +1,27 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { useContext, useEffect } from "react";
-import { Link, type MetaFunction, useLoaderData } from "react-router";
 
 import AddToBrowser from "../components/AddToBrowser";
 import Features from "../components/Features";
 import { LinksContext } from "../contexts";
 
-interface Repo {
-  stargazers_count: number;
-}
-export const loader = async () => {
-  let data = 0;
-  try {
-    const res = await fetch("https://api.github.com/repos/aiktb/furiganamaker", {
-      headers: {
-        // Necessary for GitHub API
-        // The absence of this header in Cloudflare Pages will result in an HTTP 403
-        "User-Agent": "FuriganaMaker",
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Furigana Maker - Add furigana to Japanese text on any page" },
+      {
+        name: "description",
+        content:
+          "A browser extension that adds furigana to Japanese text on any page, for learning kanji pronunciation.",
       },
-    });
-    data = ((await res.json()) as Repo).stargazers_count;
-  } catch (e) {
-    // biome-ignore lint/suspicious/noConsole: nothing
-    console.error(e);
-  }
-  const AN_HOUR = 60 * 60;
-  return new Response(JSON.stringify(data), {
-    status: 200,
-    headers: { "Cache-Control": `public, max-age=${AN_HOUR}` },
-  });
-};
-export const meta: MetaFunction = () => {
-  return [
-    {
-      title: "Furigana Maker - Add furigana to Japanese text on any page",
-    },
-    {
-      name: "description",
-      content:
-        "A browser extension that adds furigana to Japanese text on any page, for learning kanji pronunciation.",
-    },
-  ];
-};
+    ],
+  }),
+  component: Index,
+});
 
 export default function Index() {
   const links = useContext(LinksContext)!;
 
-  const data = useLoaderData();
   const YOUTUBE_VIDEO_ID = "_j954tDLXjw";
 
   useEffect(() => {
@@ -82,15 +58,16 @@ export default function Index() {
       </section>
       <div className="animeRising relative mt-6 flex flex-col items-center gap-6 sm:flex-row">
         <AddToBrowser />
-        <Link
-          to={links.github}
+        <a
+          href={links.github}
           target="_blank"
           className="flex select-none items-center gap-2 rounded-xl border-2 border-sky-400 border-solid bg-slate-900 px-4 py-2 font-bold transition duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_0_hsla(201,80%,66%,.5),0_0_30px_0_hsla(161,55%,49%,.5)]"
+          rel="noopener"
         >
           <i className="i-mdi-github size-5" />
           View on GitHub
           <i className="i-mdi-arrow-top-right" />
-        </Link>
+        </a>
       </div>
       <Features />
       <div className="flex w-full flex-col items-center px-4">
@@ -120,29 +97,32 @@ export default function Index() {
         <p className="animeRising max-w-[85%] text-center leading-normal sm:text-lg sm:leading-7">
           This extension has benefited from the support of many open source software and developers,
           with special thanks to{" "}
-          <Link
-            to="https://github.com/mirigana/mirigana"
+          <a
+            href="https://github.com/mirigana/mirigana"
             target="_blank"
             className="underline decoration-sky-400 underline-offset-2 transition hover:text-sky-400/90 hover:decoration-2"
+            rel="noopener"
           >
             Mirigana
-          </Link>{" "}
+          </a>{" "}
           (inspiration),{" "}
-          <Link
-            to="https://github.com/atilika/kuromoji"
+          <a
+            href="https://github.com/atilika/kuromoji"
             target="_blank"
             className="underline decoration-sky-400 underline-offset-2 transition hover:text-sky-400/90 hover:decoration-2"
+            rel="noopener"
           >
             Kuromoji
-          </Link>{" "}
+          </a>{" "}
           (core feature), and{" "}
-          <Link
-            to="https://github.com/wxt-dev/wxt"
+          <a
+            href="https://github.com/wxt-dev/wxt"
             target="_blank"
             className="underline decoration-sky-400 underline-offset-2 transition hover:text-sky-400/90 hover:decoration-2"
+            rel="noopener"
           >
             WXT
-          </Link>{" "}
+          </a>{" "}
           (build tools), without these great open source software, the development of this extension
           would not have been possible!
         </p>
@@ -151,17 +131,22 @@ export default function Index() {
           please consider giving it a Star to motivate me to implement new features and fix bugs for
           it! Any good idea and PR are welcome. Thank you. ❤️
         </p>
-        <Link target="_blank" className="animeRising group mt-4 flex select-none" to={links.github}>
+        <a
+          target="_blank"
+          className="animeRising group mt-4 flex select-none"
+          href={links.github}
+          rel="noopener"
+        >
           <div className="group flex size-10 items-center justify-center space-x-2 rounded-md border-2 border-sky-400 bg-muted bg-slate-900 transition duration-300 group-hover:shadow-[0_0_15px_0_hsla(201,80%,66%,.5),0_0_30px_0_hsla(161,55%,49%,.5)]">
             <i className="i-mdi-github text-2xl" />
           </div>
           <div className="flex items-center">
             <div className="size-4 border-sky-400 border-y-8 border-y-transparent border-r-8 border-l-0 border-solid" />
             <div className="flex h-10 items-center gap-2 rounded-md border-2 border-sky-400 bg-slate-900 px-4 font-display font-semibold transition duration-300 group-hover:shadow-[0_0_15px_0_hsla(201,80%,66%,.5),0_0_30px_0_hsla(161,55%,49%,.5)]">
-              <span>{data}</span> Stars on GitHub ⭐
+              Star on GitHub ⭐
             </div>
           </div>
-        </Link>
+        </a>
       </section>
     </div>
   );

@@ -1,36 +1,32 @@
+import { Link, linkOptions, useLocation } from "@tanstack/react-router";
 import { useContext } from "react";
-import { Link, useLocation } from "react-router";
 import Logo from "../assets/Logo.svg";
 import { LinksContext } from "../contexts";
 
 export default function Header() {
   const links = useContext(LinksContext)!;
-  const navItems = [
-    { text: "Home", to: { pathname: "/" } },
-    { text: "Features", to: { pathname: "/", hash: "#features" } },
-    { text: "Demo", to: { pathname: "/", hash: "#demo" } },
-    { text: "Welcome", to: { pathname: "/welcome" } },
-  ];
+  const navItems = linkOptions([
+    { text: "Home", to: "/" },
+    { text: "Features", to: "/", hash: "features" },
+    { text: "Demo", to: "/", hash: "demo" },
+    { text: "Welcome", to: "/welcome" },
+  ]);
   const location = useLocation();
-  const isActive = (to: { pathname: string; hash?: string }) => {
-    const pathnameMatched = to.pathname === location.pathname;
-    return pathnameMatched && !to.hash;
-  };
 
   return (
     <header className="w-full select-none transition duration-300">
       <div className="fixed top-6 left-1/2 z-50 -translate-x-1/2 transform">
         <nav className="flex gap-2 rounded-full p-2.5 backdrop-blur-3xl backdrop-brightness-75 transition ease-in-out sm:gap-x-2 lg:gap-x-8">
-          {navItems.map((item) => (
+          {navItems.map(({ text, ...options }) => (
             <Link
-              key={item.text}
+              key={text}
               className={`block rounded-full px-3.5 py-1 font-semibold text-slate-300 transition ease-in-out hover:bg-white/10 hover:text-slate-100 sm:px-6 sm:py-1.5 ${
-                isActive(item.to) ? "bg-white/10" : ""
+                options.to === location.pathname && !("hash" in options) ? "bg-white/10" : ""
               }`}
-              prefetch="render"
-              to={item.to}
+              preload="render"
+              {...options}
             >
-              {item.text}
+              {text}
             </Link>
           ))}
         </nav>
@@ -40,7 +36,9 @@ export default function Header() {
           <Link to="/">
             <img src={Logo} alt="Furigana Maker" className="size-8" />
           </Link>
-          <Link className="i-mdi-github size-8" to={links.github} target="_blank" />
+          <a className="i-mdi-github size-8" href={links.github} target="_blank" rel="noopener">
+            <span className="sr-only">GitHub</span>
+          </a>
         </div>
       </div>
     </header>

@@ -1,6 +1,5 @@
 import { detect } from "detect-browser";
 import { useContext, useEffect, useRef, useState } from "react";
-import { Link } from "react-router";
 import { match } from "ts-pattern";
 import { LinksContext } from "../contexts";
 
@@ -43,9 +42,8 @@ export default function AddToBrowser() {
 
   return (
     <div className="relative select-none">
-      <Link
-        to={button.to}
-        prefetch="viewport"
+      <a
+        href={button.to}
         className="group relative inline-flex w-70 items-center justify-center gap-2 overflow-hidden rounded-full bg-white px-4 py-2 font-bold text-black hover:bg-[#cbcace]"
         onPointerMove={onPointerMove}
       >
@@ -71,7 +69,7 @@ export default function AddToBrowser() {
             <i className="i-mdi-plus size-5 text-black" />
           </div>
         </div>
-      </Link>
+      </a>
     </div>
   );
 }

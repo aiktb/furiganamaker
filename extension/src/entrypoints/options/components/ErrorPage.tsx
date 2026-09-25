@@ -1,18 +1,17 @@
+import { type ErrorComponentProps, Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import { isRouteErrorResponse, Link, useRouteError } from "react-router";
 
-export function ErrorPage() {
-  const error = useRouteError();
-  // biome-ignore lint/suspicious/noConsole: Log errors to the console for debugging
+export function ErrorPage({ error }: ErrorComponentProps) {
+  // biome-ignore lint/suspicious/noConsole: Log route errors for debugging
   console.error(error);
-  let message: string;
-  if (isRouteErrorResponse(error)) {
-    message = error.statusText;
-  } else if (error instanceof Error) {
-    message = error.message;
-  } else {
-    message = "Unknown error";
-  }
+  return <ErrorMessage message={error instanceof Error ? error.message : "Unknown error"} />;
+}
+
+export function NotFoundPage() {
+  return <ErrorMessage message="Not Found" />;
+}
+
+function ErrorMessage({ message }: { message: string }) {
   const { t } = useTranslation();
   return (
     <div className="prose prose-slate dark:prose-invert mx-auto flex min-h-screen flex-col items-center justify-center">

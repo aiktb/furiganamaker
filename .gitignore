@@ -41,4 +41,8 @@ playwright-report
 build
 .husky
 
-.react-router/
+.tanstack/
+dist/
+
+# TanStack Router regenerates this during dev, build, and typecheck.
+website/app/routeTree.gen.ts

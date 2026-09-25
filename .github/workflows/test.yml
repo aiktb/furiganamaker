@@ -31,6 +31,9 @@ jobs:
       - name: Run Vitest tests
         run: pnpm run test:unit
 
+      - name: Build the website
+        run: pnpm --filter website run build
+
       - name: Build the extension
         run: pnpm --filter extension run build
 

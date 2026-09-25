@@ -4,14 +4,25 @@ import "@fontsource/lobster/400.css";
 import "@fontsource/noto-sans-jp/400.css";
 import "@fontsource/noto-sans-jp/700.css";
 
-import "./tailwind.css";
+import "../tailwind.css";
 
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import { LinksContext } from "./contexts";
+import { createRootRoute, HeadContent, Link, Outlet, Scripts } from "@tanstack/react-router";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import { LinksContext } from "../contexts";
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export const Route = createRootRoute({
+  component: Outlet,
+  shellComponent: Layout,
+  notFoundComponent: () => (
+    <div className="py-32 text-center">
+      <h1>Page not found</h1>
+      <Link to="/">Go home</Link>
+    </div>
+  ),
+});
+
+function Layout({ children }: { children: React.ReactNode }) {
   const links = {
     chrome:
       "https://chromewebstore.google.com/detail/furigana-maker/heodojceeinbkfjfilnfminlkgbacpfp",
@@ -42,8 +53,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Brian Zhou <brianzhou.dev@gmail.com>" />
         <meta name="color-scheme" content="light dark" />
-        <Meta />
-        <Links />
+        <HeadContent />
       </head>
       <body className="flex min-h-screen flex-col font-sans text-base text-white">
         <div className="flex flex-col justify-between">
@@ -63,13 +73,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Footer />
           </LinksContext.Provider>
         </div>
-        <ScrollRestoration />
         <Scripts />
       </body>
     </html>
   );
-}
-
-export default function App() {
-  return <Outlet />;
 }

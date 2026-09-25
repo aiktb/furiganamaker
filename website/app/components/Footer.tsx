@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router";
 
 import cloudflare from "../assets/cloudflare.svg";
 import { LinksContext } from "../contexts";
@@ -54,34 +53,36 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
         <nav className="flex items-center justify-center space-x-4 sm:space-x-12">
           {navItems.map((item) => (
-            <Link
+            <a
               target="_blank"
               key={item.text}
               className="text-sm text-zinc-300 leading-6 hover:text-sky-400"
-              to={item.to}
+              href={item.to}
+              rel="noopener"
             >
               {item.text}
-            </Link>
+            </a>
           ))}
         </nav>
         <div className="mt-8 flex justify-center space-x-10">
           {iconLinkItems.map((item) => (
-            <Link
+            <a
               key={item.icon}
               className="size-6 text-zinc-300 hover:text-sky-400"
-              to={item.to}
+              href={item.to}
               target="_blank"
+              rel="noopener"
             >
               <span className="sr-only">{item.title}</span>
               <span className={`${item.icon} size-5`} />
-            </Link>
+            </a>
           ))}
         </div>
         <div className="mt-8 flex items-center justify-center text-xs">
-          Proudly hosted with <span className="sr-only">Cloudflare Pages.</span>
-          <Link to="https://pages.cloudflare.com/" target="_blank">
+          Proudly hosted with <span className="sr-only">Cloudflare Workers.</span>
+          <a href="https://workers.cloudflare.com/" target="_blank" rel="noopener">
             <img src={cloudflare} alt="Cloudflare Logo" className="inline-block h-8 w-auto" />
-          </Link>
+          </a>
         </div>
         <div>
           <p className="mt-8 text-pretty text-center text-text/90 text-xs leading-5">
