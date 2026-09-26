@@ -3,5 +3,6 @@
   "name": "furigana-maker",
   "main": "@tanstack/react-start/server-entry",
   "compatibility_date": "2026-09-25",
-  "compatibility_flags": ["nodejs_compat"]
+  "compatibility_flags": ["nodejs_compat"],
+  "previews": {}
 }
