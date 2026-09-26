@@ -46,3 +46,4 @@ dist/
 
 # TanStack Router regenerates this during dev, build, and typecheck.
 website/src/routeTree.gen.ts
+extension/src/entrypoints/options/routeTree.gen.ts

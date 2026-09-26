@@ -1,4 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 import { defineConfig } from "wxt";
@@ -56,7 +57,12 @@ export default defineConfig({
     name: "furigana-maker",
   },
   vite: () => ({
-    plugins: [react(), svgr(), tailwindcss()],
+    plugins: [
+      tanstackRouter({ target: "react", autoCodeSplitting: true }),
+      react(),
+      svgr(),
+      tailwindcss(),
+    ],
   }),
   hooks: {
     "build:manifestGenerated": ({ config }, manifest) => {
