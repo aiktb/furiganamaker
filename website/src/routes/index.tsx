@@ -98,21 +98,12 @@ export default function Index() {
           This extension has benefited from the support of many open source software and developers,
           with special thanks to{" "}
           <a
-            href="https://github.com/mirigana/mirigana"
+            href="https://github.com/lindera/lindera"
             target="_blank"
             className="underline decoration-sky-400 underline-offset-2 transition hover:text-sky-400/90 hover:decoration-2"
             rel="noopener noreferrer"
           >
-            Mirigana
-          </a>{" "}
-          (inspiration),{" "}
-          <a
-            href="https://github.com/atilika/kuromoji"
-            target="_blank"
-            className="underline decoration-sky-400 underline-offset-2 transition hover:text-sky-400/90 hover:decoration-2"
-            rel="noopener noreferrer"
-          >
-            Kuromoji
+            Lindera
           </a>{" "}
           (core feature), and{" "}
           <a
