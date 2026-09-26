@@ -1,10 +1,15 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { NotFoundRule } from "../../components/NotFoundRule";
-import { SelectorDashboard } from "./components/SelectorDashboard";
+import { SelectorDashboard } from "./-components/SelectorDashboard";
 
-import { SelectorRuleItem } from "./components/SelectorRuleItem";
-import { useSelectorsStore } from "./store";
+import { SelectorRuleItem } from "./-components/SelectorRuleItem";
+import { useSelectorsStore } from "./-store";
 
-export function Selector() {
+export const Route = createFileRoute("/selector")({
+  component: Selector,
+});
+
+function Selector() {
   const selectors = useSelectorsStore((state) => state.selectors);
 
   return (

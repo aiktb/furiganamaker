@@ -6,7 +6,7 @@ import { isKanji, isKatakana } from "wanakana";
 import { z } from "zod";
 import type { FilterRule } from "@/constants";
 import { PopupTransition } from "@/entrypoints/options/components/PopupTransition";
-import { useKanjiFiltersStore } from "../store";
+import { useKanjiFiltersStore } from "../-store";
 
 function validateJSONStructure(data: string) {
   const RuleSchema = z.object({

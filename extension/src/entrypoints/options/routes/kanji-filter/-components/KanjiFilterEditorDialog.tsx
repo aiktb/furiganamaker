@@ -16,7 +16,7 @@ import { isKanji, isKatakana } from "wanakana";
 import type { FilterRule } from "@/constants";
 
 import { PopupTransition } from "../../../components/PopupTransition";
-import { useKanjiFiltersStore } from "../store";
+import { useKanjiFiltersStore } from "../-store";
 import { YomikatasInput } from "./YomikatasInput";
 
 interface UpdateProps {

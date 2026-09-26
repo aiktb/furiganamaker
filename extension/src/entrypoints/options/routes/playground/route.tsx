@@ -1,12 +1,17 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { match } from "ts-pattern";
 import { toHiragana, toKatakana, toRomaji } from "wanakana";
 import type { FuriganaType } from "@/constants";
-import { FuriganaTypeRadioGroup } from "./components/FuriganaTypeRadioGroup";
-import { type FuriganaSegment, JapaneseTextarea } from "./components/JapaneseTextarea";
-import { TextWithFurigana } from "./components/TextWithFurigana";
+import { FuriganaTypeRadioGroup } from "./-components/FuriganaTypeRadioGroup";
+import { type FuriganaSegment, JapaneseTextarea } from "./-components/JapaneseTextarea";
+import { TextWithFurigana } from "./-components/TextWithFurigana";
 
-export const Playground = () => {
+export const Route = createFileRoute("/playground")({
+  component: Playground,
+});
+
+function Playground() {
   const [furiganaSegments, setFuriganaSegments] = useState<FuriganaSegment[]>([]);
   const [selectedFuriganaType, setSelectedFuriganaType] = useState<FuriganaType>("hiragana");
 
@@ -43,4 +48,4 @@ export const Playground = () => {
       </div>
     </div>
   );
-};
+}

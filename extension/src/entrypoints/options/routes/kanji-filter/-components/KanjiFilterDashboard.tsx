@@ -6,7 +6,7 @@ import { cn } from "@/cn";
 import { DB } from "@/constants";
 import { getKanjiFilterDB } from "@/storage/kanjiFilterDB";
 import { PopupTransition } from "../../../components/PopupTransition";
-import { useKanjiFiltersStore } from "../store";
+import { useKanjiFiltersStore } from "../-store";
 import { BatchCreateKanjiFilterButton } from "./BatchCreateKanjiFilterButton";
 import { CreateKanjiFilterButton } from "./CreateKanjiFilterButton";
 import { ImportKanjiFilterButton } from "./ImportKanjiFilterButton";

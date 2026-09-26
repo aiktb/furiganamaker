@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useKanjiFiltersStore } from "../store";
+import { useKanjiFiltersStore } from "../-store";
 import { KanjiFilterEditorDialog } from "./KanjiFilterEditorDialog";
 
 export const CreateKanjiFilterButton = () => {

@@ -1,15 +1,20 @@
 import { Button, Field, Input, Label, Switch } from "@headlessui/react";
+import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/cn";
 import { NotFoundRule } from "../../components/NotFoundRule";
-import { KanjiFilterDashboard } from "./components/KanjiFilterDashboard";
-import { KanjiFilterItem } from "./components/KanjiFilterItem";
-import { useKanjiFiltersStore } from "./store";
+import { KanjiFilterDashboard } from "./-components/KanjiFilterDashboard";
+import { KanjiFilterItem } from "./-components/KanjiFilterItem";
+import { useKanjiFiltersStore } from "./-store";
 
 const PAGE_SIZE = 100;
 
-export function KanjiFilter() {
+export const Route = createFileRoute("/kanji-filter")({
+  component: KanjiFilter,
+});
+
+function KanjiFilter() {
   const kanjiFilters = useKanjiFiltersStore((state) => state.kanjiFilters);
 
   const { t } = useTranslation();

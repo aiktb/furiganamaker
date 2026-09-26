@@ -16,7 +16,7 @@ import { cn } from "@/cn";
 import type { SelectorRule } from "@/constants";
 import { DomainFieldDesc } from "@/entrypoints/options/components/DomainFieldDesc";
 import { PopupTransition } from "@/entrypoints/options/components/PopupTransition";
-import { useSelectorsStore } from "../store";
+import { useSelectorsStore } from "../-store";
 
 type SelectorRuleEditorDialogProps = UpdateProps | CreateProps;
 

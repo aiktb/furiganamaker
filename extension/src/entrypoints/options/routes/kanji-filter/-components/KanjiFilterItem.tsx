@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { FilterRule } from "@/constants";
 import { PopupTransition } from "@/entrypoints/options/components/PopupTransition";
-import { useKanjiFiltersStore } from "../store";
+import { useKanjiFiltersStore } from "../-store";
 import { KanjiFilterEditorDialog } from "./KanjiFilterEditorDialog";
 
 interface KanjiFilterItemProps {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelectorsStore } from "../store";
+import { useSelectorsStore } from "../-store";
 import { SelectorRuleEditorDialog } from "./SelectorRuleEditorDialog";
 
 export const CreateNewSelectorRuleButton = () => {

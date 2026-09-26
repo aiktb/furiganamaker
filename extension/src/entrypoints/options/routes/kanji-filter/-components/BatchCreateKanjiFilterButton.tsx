@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { isKanji } from "wanakana";
 import { cn } from "@/cn";
 import { PopupTransition } from "@/entrypoints/options/components/PopupTransition";
-import { useKanjiFiltersStore } from "../store";
+import { useKanjiFiltersStore } from "../-store";
 
 export const BatchCreateKanjiFilterButton = () => {
   const { t } = useTranslation();

@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { z } from "zod";
 import type { SelectorRule } from "@/constants";
 import { PopupTransition } from "@/entrypoints/options/components/PopupTransition";
-import { useSelectorsStore } from "../store";
+import { useSelectorsStore } from "../-store";
 
 function validateJSONStructure(data: string) {
   const RuleSchema = z.object({
