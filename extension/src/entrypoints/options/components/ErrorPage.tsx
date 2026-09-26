@@ -14,7 +14,7 @@ export function NotFoundPage() {
 function ErrorMessage({ message }: { message: string }) {
   const { t } = useTranslation();
   return (
-    <div className="prose prose-slate dark:prose-invert mx-auto flex min-h-screen flex-col items-center justify-center">
+    <div className="prose prose-slate dark:prose-invert mx-auto flex flex-1 flex-col items-center justify-center">
       <p>
         <i className="i-tabler-alert-triangle size-20 text-sky-500" />
       </p>
