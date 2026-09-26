@@ -82,7 +82,7 @@ export function Sidebar() {
             href="https://furiganamaker.app"
             target="_blank"
             className="flex items-center gap-2 text-black transition hover:text-sky-500 dark:text-white"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <div className="flex items-center justify-center gap-2 px-1.5">
               <span className="font-bold text-lg underline decoration-sky-500 decoration-wavy">

@@ -62,7 +62,7 @@ export default function Index() {
           href={links.github}
           target="_blank"
           className="flex select-none items-center gap-2 rounded-xl border-2 border-sky-400 border-solid bg-slate-900 px-4 py-2 font-bold transition duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_0_hsla(201,80%,66%,.5),0_0_30px_0_hsla(161,55%,49%,.5)]"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <i className="i-mdi-github size-5" />
           View on GitHub
@@ -101,7 +101,7 @@ export default function Index() {
             href="https://github.com/mirigana/mirigana"
             target="_blank"
             className="underline decoration-sky-400 underline-offset-2 transition hover:text-sky-400/90 hover:decoration-2"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             Mirigana
           </a>{" "}
@@ -110,7 +110,7 @@ export default function Index() {
             href="https://github.com/atilika/kuromoji"
             target="_blank"
             className="underline decoration-sky-400 underline-offset-2 transition hover:text-sky-400/90 hover:decoration-2"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             Kuromoji
           </a>{" "}
@@ -119,7 +119,7 @@ export default function Index() {
             href="https://github.com/wxt-dev/wxt"
             target="_blank"
             className="underline decoration-sky-400 underline-offset-2 transition hover:text-sky-400/90 hover:decoration-2"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             WXT
           </a>{" "}
@@ -135,7 +135,7 @@ export default function Index() {
           target="_blank"
           className="animeRising group mt-4 flex select-none"
           href={links.github}
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <div className="group flex size-10 items-center justify-center space-x-2 rounded-md border-2 border-sky-400 bg-muted bg-slate-900 transition duration-300 group-hover:shadow-[0_0_15px_0_hsla(201,80%,66%,.5),0_0_30px_0_hsla(161,55%,49%,.5)]">
             <i className="i-mdi-github text-2xl" />

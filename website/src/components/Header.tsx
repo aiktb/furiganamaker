@@ -36,7 +36,12 @@ export default function Header() {
           <Link to="/">
             <img src={Logo} alt="Furigana Maker" className="size-8" />
           </Link>
-          <a className="i-mdi-github size-8" href={links.github} target="_blank" rel="noopener">
+          <a
+            className="i-mdi-github size-8"
+            href={links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span className="sr-only">GitHub</span>
           </a>
         </div>

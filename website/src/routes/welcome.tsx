@@ -142,7 +142,7 @@ export default function Welcome() {
         href={links.github}
         target="_blank"
         className="mb-12 flex select-none items-center gap-2 rounded-xl border-2 border-sky-400 border-solid bg-slate-900 px-4 py-2 font-bold transition duration-300 hover:-translate-y-2 hover:shadow-[0_0_15px_0_hsla(201,80%,66%,.5),0_0_30px_0_hsla(161,55%,49%,.5)] lg:mb-15 xl:mb-20"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         <i className="i-mdi-github size-5" />
         View on GitHub

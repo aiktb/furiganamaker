@@ -58,7 +58,7 @@ export default function Footer() {
               key={item.text}
               className="text-sm text-zinc-300 leading-6 hover:text-sky-400"
               href={item.to}
-              rel="noopener"
+              rel="noopener noreferrer"
             >
               {item.text}
             </a>
@@ -71,7 +71,7 @@ export default function Footer() {
               className="size-6 text-zinc-300 hover:text-sky-400"
               href={item.to}
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
             >
               <span className="sr-only">{item.title}</span>
               <span className={`${item.icon} size-5`} />
@@ -80,7 +80,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 flex items-center justify-center text-xs">
           Proudly hosted with <span className="sr-only">Cloudflare Workers.</span>
-          <a href="https://workers.cloudflare.com/" target="_blank" rel="noopener">
+          <a href="https://workers.cloudflare.com/" target="_blank" rel="noopener noreferrer">
             <img src={cloudflare} alt="Cloudflare Logo" className="inline-block h-8 w-auto" />
           </a>
         </div>
