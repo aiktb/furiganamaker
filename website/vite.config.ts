@@ -8,7 +8,7 @@ import devtoolsJson from "vite-plugin-devtools-json";
 export default defineConfig({
   plugins: [
     cloudflare({ viteEnvironment: { name: "ssr" } }),
-    tanstackStart({ srcDirectory: "app" }),
+    tanstackStart(),
     react(),
     tailwindcss(),
     devtoolsJson(),

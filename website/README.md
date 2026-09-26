@@ -11,7 +11,7 @@ pnpm install
 pnpm --filter website dev
 ```
 
-Routes live in `app/routes`. TanStack Start generates `app/routeTree.gen.ts`; do not edit it manually. `pnpm --filter website typecheck` also regenerates the route tree, so type checking works on a clean checkout. The router is registered in `app/router.tsx` to type-check internal links and navigation. Use ordinary anchors for external URLs.
+Routes live in `src/routes`. TanStack Start generates `src/routeTree.gen.ts`; do not edit it manually. `pnpm --filter website typecheck` also regenerates the route tree, so type checking works on a clean checkout. The router is registered in `src/router.tsx` to type-check internal links and navigation. Use ordinary anchors for external URLs.
 
 ## Build and preview
 

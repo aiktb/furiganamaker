@@ -45,4 +45,4 @@ build
 dist/
 
 # TanStack Router regenerates this during dev, build, and typecheck.
-website/app/routeTree.gen.ts
+website/src/routeTree.gen.ts
