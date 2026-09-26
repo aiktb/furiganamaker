@@ -23,8 +23,6 @@ pnpm --filter website start
 
 The Cloudflare Vite plugin runs development and production previews in the Workers runtime. Build output is written to `dist/client` and `dist/server`.
 
-Run `pnpm --filter website test:e2e:prod` after building to verify SSR, hydration, navigation, and 404 responses with Playwright.
-
 ## Deployment
 
 This migration replaces the old Cloudflare Pages Functions adapter with the official TanStack Start Cloudflare Workers integration. The existing Pages deployment must be moved to Workers before publishing this build; configure the custom domain for the Worker when switching production traffic.
