@@ -9,7 +9,7 @@ export const Route = createFileRoute("/welcome")({
   component: Welcome,
 });
 
-export default function Welcome() {
+function Welcome() {
   const links = useContext(LinksContext)!;
   const ref = useRef<FireworksHandlers>(null);
 

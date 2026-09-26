@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-export default function Index() {
+function Index() {
   const links = useContext(LinksContext)!;
 
   const YOUTUBE_VIDEO_ID = "_j954tDLXjw";
