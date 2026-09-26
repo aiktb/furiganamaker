@@ -33,7 +33,7 @@ pnpm --filter website deploy
 
 ### Cloudflare Workers Builds
 
-Connect the repository to a Worker and use these settings:
+Workers Builds configuration:
 
 | Setting | Value |
 | --- | --- |
@@ -44,7 +44,7 @@ Connect the repository to a Worker and use these settings:
 | Deploy command | `pnpm exec wrangler deploy` |
 | Non-production branch deploy command | `pnpm exec wrangler preview` |
 
-Configure build watch paths relative to the repository root:
+Build watch paths are relative to the repository root:
 
 ```text
 website/**
@@ -53,7 +53,7 @@ pnpm-workspace.yaml
 package.json
 ```
 
-Wrangler deploys the generated Worker and its static assets together. Cloudflare Pages build output settings such as `build/client` do not apply to this setup. Configure the production custom domain on the Worker.
+Wrangler deploys the generated Worker and its static assets together.
 
 ### Cloudflare Previews
 
