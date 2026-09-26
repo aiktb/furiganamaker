@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 
-import cloudflare from "../assets/cloudflare.svg";
+import cloudflareWorkers from "../assets/cloudflare-workers.svg";
 import { LinksContext } from "../contexts";
 
 const getCopiedYear = () => {
@@ -78,10 +78,16 @@ export default function Footer() {
             </a>
           ))}
         </div>
-        <div className="mt-8 flex items-center justify-center text-xs">
-          Proudly hosted with <span className="sr-only">Cloudflare Workers.</span>
-          <a href="https://workers.cloudflare.com/" target="_blank" rel="noopener noreferrer">
-            <img src={cloudflare} alt="Cloudflare Logo" className="inline-block h-8 w-auto" />
+        <div className="mt-8 flex items-center justify-center gap-2 text-xs">
+          Proudly hosted with
+          <a
+            href="https://workers.cloudflare.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2"
+          >
+            <img src={cloudflareWorkers} alt="" className="h-5 w-auto" />
+            <span>Cloudflare Workers</span>
           </a>
         </div>
         <div>
