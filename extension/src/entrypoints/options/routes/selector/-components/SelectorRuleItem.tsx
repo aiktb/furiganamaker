@@ -49,7 +49,7 @@ export function SelectorRuleItem({ rule, index }: SelectorRuleItemProps) {
                 {rule.domain}
               </p>
             )}
-            <p className="w-64 truncate text-xs leading-5 sm:w-96 xl:w-[32rem] 2xl:w-[40rem]">
+            <p className="w-64 truncate text-xs leading-5 sm:w-96 xl:w-lg 2xl:w-160">
               {rule.selector}
             </p>
           </div>

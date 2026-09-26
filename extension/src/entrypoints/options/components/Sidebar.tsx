@@ -74,7 +74,7 @@ export function Sidebar() {
       <Transition show={sidebarIsOpen}>
         <nav
           className={cn(
-            "fixed top-0 z-30 min-h-screen w-72 flex-col gap-6 border-gray-200 border-r border-solid bg-white px-6 py-5 font-semibold text-base transition ease-in-out data-[enter]:data-[closed]:-translate-x-full data-[leave]:data-[closed]:-translate-x-full data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-300 lg:flex dark:border-slate-800 dark:bg-slate-900",
+            "fixed top-0 z-30 min-h-screen w-72 flex-col gap-6 border-gray-200 border-r border-solid bg-white px-6 py-5 font-semibold text-base transition ease-in-out data-enter:data-closed:-translate-x-full data-leave:data-closed:-translate-x-full data-closed:opacity-0 data-enter:duration-100 data-leave:duration-300 lg:flex dark:border-slate-800 dark:bg-slate-900",
             sidebarIsOpen && "flex!",
           )}
         >

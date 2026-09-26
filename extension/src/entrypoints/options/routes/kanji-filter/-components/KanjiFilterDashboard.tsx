@@ -58,7 +58,7 @@ export function KanjiFilterDashboard({
             disabled={disableExportAndClear}
           >
             <i className="i-tabler-clear-all size-5" />
-            <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
+            <span className="max-w-32 overflow-hidden text-ellipsis whitespace-nowrap">
               {t("btnClearConfig")}
             </span>
           </button>
@@ -108,7 +108,7 @@ export function KanjiFilterDashboard({
             }}
           >
             <i className="i-tabler-restore size-5" />
-            <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
+            <span className="max-w-32 overflow-hidden text-ellipsis whitespace-nowrap">
               {t("btnResetConfig")}
             </span>
           </button>
@@ -155,14 +155,14 @@ export function KanjiFilterDashboard({
           <button
             className={cn(
               "playwright-kanji-filter-export-config-btn",
-              "flex w-40 cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition enabled:hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white",
+              "flex w-40 cursor-pointer items-center justify-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition enabled:hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white",
               disableExportAndClear && "cursor-not-allowed opacity-50",
             )}
             disabled={disableExportAndClear}
             onClick={exportConfig}
           >
             <i className="i-tabler-file-export size-5" />
-            <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
+            <span className="max-w-32 overflow-hidden text-ellipsis whitespace-nowrap">
               {t("btnExportConfig")}
             </span>
           </button>

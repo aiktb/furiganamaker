@@ -114,13 +114,13 @@ export const ImportSelectorRuleButton = () => {
   return (
     <>
       <button
-        className="flex w-40 cursor-pointer items-center justify-center gap-1 overflow-hidden overflow-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
+        className="flex w-40 cursor-pointer items-center justify-center gap-1 overflow-hidden text-ellipsis whitespace-nowrap rounded-md bg-slate-950/5 px-1.5 py-2 text-slate-800 transition hover:text-sky-500 sm:px-3 dark:bg-white/5 dark:text-white"
         onClick={() => {
           setImportDialogIsOpen(true);
         }}
       >
         <i className="i-tabler-file-import size-5" />
-        <span className="max-w-32 overflow-hidden overflow-ellipsis whitespace-nowrap">
+        <span className="max-w-32 overflow-hidden text-ellipsis whitespace-nowrap">
           {t("btnImportConfig")}
         </span>
       </button>

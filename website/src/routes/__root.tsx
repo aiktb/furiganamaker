@@ -28,18 +28,18 @@ function Layout({ children }: { children: React.ReactNode }) {
   };
 
   const backgroundAnimeGroup = [
-    "left-[25%] size-[80px]  [animation-delay:0]",
-    "left-[10%] size-[20px]  [animation-delay:2s]  [animation-duration:12s]",
-    "left-[70%] size-[20px]  [animation-delay:4s]",
-    "left-[40%] size-[60px]  [animation-delay:0]   [animation-duration:18s]",
-    "left-[65%] size-[20px]  [animation-delay:0]",
-    "left-[75%] size-[110px] [animation-delay:3s]",
-    "left-[35%] size-[150px] [animation-delay:7s]",
-    "left-[50%] size-[25px]  [animation-delay:15s] [animation-duration:45s]",
-    "left-[20%] size-[15px]  [animation-delay:2s]  [animation-duration:35s]",
-    "left-[85%] size-[150px] [animation-delay:0]   [animation-duration:11s]",
-    "left-[90%] size-[50px]  [animation-delay:0]  [animation-duration:20s]",
-    "left-[15%] size-[30px]  [animation-delay:0] [animation-duration:50s]",
+    "left-[25%] size-20  [animation-delay:0]",
+    "left-[10%] size-5  [animation-delay:2s]  [animation-duration:12s]",
+    "left-[70%] size-5  [animation-delay:4s]",
+    "left-[40%] size-15  [animation-delay:0]   [animation-duration:18s]",
+    "left-[65%] size-5  [animation-delay:0]",
+    "left-[75%] size-27.5 [animation-delay:3s]",
+    "left-[35%] size-37.5 [animation-delay:7s]",
+    "left-[50%] size-6.25  [animation-delay:15s] [animation-duration:45s]",
+    "left-[20%] size-3.75  [animation-delay:2s]  [animation-duration:35s]",
+    "left-[85%] size-37.5 [animation-delay:0]   [animation-duration:11s]",
+    "left-[90%] size-12.5  [animation-delay:0]  [animation-duration:20s]",
+    "left-[15%] size-7.5  [animation-delay:0] [animation-duration:50s]",
   ];
 
   return (

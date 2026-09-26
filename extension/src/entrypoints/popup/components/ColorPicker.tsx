@@ -219,7 +219,7 @@ function SaturationAndValuePicker({ color, hue, onChange }: SaturationAndValuePi
   }
 
   return (
-    <div className="relative aspect-[7/6] w-full cursor-crosshair rounded-xs">
+    <div className="relative aspect-7/6 w-full cursor-crosshair rounded-xs">
       <div
         onPointerDown={handleSaturationCanvasPointerDown}
         className="absolute inset-0 rounded-xs shadow-inner"
@@ -231,7 +231,7 @@ function SaturationAndValuePicker({ color, hue, onChange }: SaturationAndValuePi
           }).toHexString()})`,
         }}
       >
-        <div className="absolute inset-0 rounded-xs bg-gradient-to-b from-transparent to-black" />
+        <div className="absolute inset-0 rounded-xs bg-linear-to-b from-transparent to-black" />
         <div
           className="absolute size-1 -translate-x-1/2 -translate-y-1/2 rounded-full"
           style={{

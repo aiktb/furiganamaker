@@ -35,7 +35,7 @@ export const FuriganaTypeRadioGroup = ({ selected, onChange }: FuriganaTypeRadio
               <div className="flex w-full items-center justify-between">
                 <div className="text-base/6">
                   <div className="flex gap-2 opacity-70 transition group-data-checked:opacity-100">
-                    <i className="!size-6 i-tabler-circle-dashed-check group-data-checked:i-tabler-circle-check-filled" />
+                    <i className="i-tabler-circle-dashed-check group-data-checked:i-tabler-circle-check-filled size-6!" />
                     <div>{option.displayValue}</div>
                   </div>
                 </div>

@@ -32,7 +32,7 @@ export default function Features() {
         Core Features of Furigana Maker
       </h2>
       {/* grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  */}
-      <div className="mx-auto mt-12 flex max-w-[80rem] flex-wrap justify-center gap-7 px-4 md:px-8 lg:mt-15 xl:mt-20 xl:gap-12 xl:px-0">
+      <div className="mx-auto mt-12 flex max-w-7xl flex-wrap justify-center gap-7 px-4 md:px-8 lg:mt-15 xl:mt-20 xl:gap-12 xl:px-0">
         {features.map((feature) => (
           <FeatureItem key={feature.title} {...feature} />
         ))}
