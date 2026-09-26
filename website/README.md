@@ -23,6 +23,8 @@ pnpm --filter website preview
 
 The Cloudflare Vite plugin runs development and local build previews in the Workers runtime. Build output is written to `website/dist/client` (static assets) and `website/dist/server` (the SSR Worker).
 
+TanStack Start prerenders `/` and `/welcome` to HTML at build time. Cloudflare serves these pages as static assets without invoking the SSR Worker, while React hydrates them for client-side interactions. Rebuild and deploy to update the generated HTML. Requests that do not match a static asset still fall back to the Worker, including unknown routes that render the not-found page.
+
 ## Deployment
 
 Worker configuration lives in [`wrangler.jsonc`](./wrangler.jsonc). To build and deploy from the repository root with an authenticated Wrangler session:
