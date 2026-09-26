@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "preview": "vite preview",
     "deploy": "pnpm run build && wrangler deploy",
     "start": "vite preview",
-    "typecheck": "tsr generate && tsc --noEmit"
+    "typecheck": "tsr generate && tsc --noEmit",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@fireworks-js/react": "^2.10.8",
