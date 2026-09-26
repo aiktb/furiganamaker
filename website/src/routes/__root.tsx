@@ -6,20 +6,16 @@ import "@fontsource/noto-sans-jp/700.css";
 
 import "../tailwind.css";
 
-import { createRootRoute, HeadContent, Link, Outlet, Scripts } from "@tanstack/react-router";
+import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import NotFoundPage from "../components/NotFoundPage";
 import { LinksContext } from "../contexts";
 
 export const Route = createRootRoute({
   component: Outlet,
   shellComponent: Layout,
-  notFoundComponent: () => (
-    <div className="py-32 text-center">
-      <h1>Page not found</h1>
-      <Link to="/">Go home</Link>
-    </div>
-  ),
+  notFoundComponent: NotFoundPage,
 });
 
 function Layout({ children }: { children: React.ReactNode }) {
@@ -56,7 +52,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body className="flex min-h-screen flex-col font-sans text-base text-white">
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-1 flex-col justify-between">
           <LinksContext.Provider value={links}>
             <Header />
             <main className="relative flex-1 overflow-hidden">
