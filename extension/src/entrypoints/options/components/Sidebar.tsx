@@ -66,7 +66,7 @@ export function Sidebar() {
         <div
           className={cn(
             "fixed inset-0 bg-transparent/40 backdrop-blur-sm backdrop-filter",
-            sidebarIsOpen ? "!flex" : "hidden",
+            sidebarIsOpen ? "flex!" : "hidden",
           )}
         />
         <i className="i-tabler-chevrons-right size-7" />
@@ -75,7 +75,7 @@ export function Sidebar() {
         <nav
           className={cn(
             "fixed top-0 z-30 min-h-screen w-72 flex-col gap-6 border-gray-200 border-r border-solid bg-white px-6 py-5 font-semibold text-base transition ease-in-out data-[enter]:data-[closed]:-translate-x-full data-[leave]:data-[closed]:-translate-x-full data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-300 lg:flex dark:border-slate-800 dark:bg-slate-900",
-            sidebarIsOpen && "!flex",
+            sidebarIsOpen && "flex!",
           )}
         >
           <a
@@ -126,7 +126,7 @@ export function Sidebar() {
                     href={browser.runtime.getURL("/popup.html")}
                     target="_blank"
                     className="group flex w-64 items-center justify-between rounded-md p-2 hover:bg-slate-100 hover:text-black dark:hover:bg-gray-800 dark:hover:text-white"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                   >
                     <div className="flex items-center gap-4">
                       <i className="i-tabler-puzzle size-6 text-slate-600 dark:text-slate-300" />
@@ -154,7 +154,7 @@ export function Sidebar() {
               href="https://buymeacoffee.com/aiktb"
               target="_blank"
               className="flex items-center justify-center gap-2 rounded-lg border border-slate-300 border-solid bg-slate-50 p-2 text-zinc-800 hover:bg-gray-100 dark:border-neutral-700 dark:bg-gray-800 dark:text-slate-300 dark:hover:border-neutral-600 dark:hover:bg-gray-700"
-              rel="noopener"
+              rel="noopener noreferrer"
             >
               <i className="i-tabler-heart size-6 text-pink-500" />
               {t("sidebarSponsor")}
