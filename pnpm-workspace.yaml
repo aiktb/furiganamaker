@@ -19,9 +19,7 @@ catalog:
   '@headlessui/react': ^2.2.10
   '@headlessui/tailwindcss': ^0.2.2
   '@iconify-json/fa6-brands': ^1.2.6
-  '@react-router/cloudflare': ^8.3.1
-  '@react-router/dev': ^8.3.1
-  '@react-router/fs-routes': ^8.3.1
+  '@tanstack/react-router': 1.170.39
   '@tailwindcss/forms': ^0.5.11
   '@tailwindcss/typography': ^0.5.20
   '@tailwindcss/vite': ^4.3.3
@@ -33,7 +31,6 @@ catalog:
   es-toolkit: ^1.52.0
   react: ^19.3.0
   react-dom: ^19.3.0
-  react-router: ^8.3.1
   react-grab: ^0.2.0
   react-scan: ^0.5.7
   tailwind-merge: ^3.6.0

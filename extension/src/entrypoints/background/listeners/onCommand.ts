@@ -2,6 +2,7 @@ import type { Command } from "@@/wxt.config";
 import { match } from "ts-pattern";
 import { DisplayMode, ExtStorage } from "@/constants";
 import { sendMessage } from "@/message";
+import { getOptionsUrl } from "@/optionsUrl";
 import { getGeneralSettings, setGeneralSettings } from "@/storage/settings";
 
 export const registerOnCommand = () => {
@@ -28,7 +29,7 @@ export const registerOnCommand = () => {
         await setGeneralSettings(ExtStorage.DisplayMode, nextDisplayMode);
       })
       .with("openPlaygroundPage", () => {
-        browser.tabs.create({ url: browser.runtime.getURL("/options.html#/playground") });
+        browser.tabs.create({ url: getOptionsUrl("/playground") });
       })
       .with("openOptionsPage", () => {
         browser.runtime.openOptionsPage();

@@ -14,6 +14,7 @@ import ShareIcon from "@/assets/icons/Share.svg?react";
 import { cn } from "@/cn";
 import { DisplayMode, ExtStorage, FuriganaType, SelectMode } from "@/constants";
 import { sendMessage } from "@/message";
+import { getOptionsUrl } from "@/optionsUrl";
 import { Button } from "./components/Button";
 import { CheckBox } from "./components/CheckBox";
 import { ColorPicker } from "./components/ColorPicker";
@@ -142,10 +143,7 @@ export function Root() {
         />
       </MenuItem>
       <MenuItem icon={<i className="i-tabler-ballpen" />}>
-        <Link
-          href={browser.runtime.getURL("/options.html#/playground")}
-          text={t("navPlayground")}
-        />
+        <Link href={getOptionsUrl("/playground")} text={t("navPlayground")} />
       </MenuItem>
       <MenuItem icon={<SettingIcon />}>
         <Link href={browser.runtime.getURL("/options.html")} text={t("linkSettings")} />

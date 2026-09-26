@@ -4,36 +4,17 @@ if (import.meta.env.DEV) {
   scan({ enabled: true });
 }
 
+import { RouterProvider } from "@tanstack/react-router";
 import { ThemeProvider } from "next-themes";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createHashRouter, RouterProvider } from "react-router";
 
 import "@/tailwind.css";
 import "@/i18n";
 
-import { ErrorPage } from "./components/ErrorPage";
-import { Root } from "./root";
-import { Changelog } from "./routes/Changelog";
-import { KanjiFilter } from "./routes/KanjiFilter";
-import { Playground } from "./routes/Playground";
-import { Selector } from "./routes/Selector";
-import { Settings } from "./routes/Settings";
+import { createOptionsRouter } from "./router";
 
-const router = createHashRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    children: [
-      { path: "/", element: <Settings /> },
-      { path: "/playground", element: <Playground /> },
-      { path: "/kanji-filter", element: <KanjiFilter /> },
-      { path: "/selector", element: <Selector /> },
-      { path: "/changelog", element: <Changelog /> },
-    ],
-  },
-]);
+const router = createOptionsRouter();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

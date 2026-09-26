@@ -1,0 +1,5 @@
+{
+  "routesDirectory": "./src/entrypoints/options/routes",
+  "generatedRouteTree": "./src/entrypoints/options/routeTree.gen.ts",
+  "quoteStyle": "double"
+}
