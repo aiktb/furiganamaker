@@ -2,6 +2,59 @@ import { describe, expect, test } from "../fixtures";
 import { cleanRubyHtml } from "../utils";
 
 describe("Content scripts", () => {
+  test("excludes textareas and editable text during initial and dynamic annotation", async ({
+    page,
+  }) => {
+    const url = "https://example.org/test-editable-exclusions";
+    await page.route(url, (route) =>
+      route.fulfill({
+        contentType: "text/html; charset=utf-8",
+        body: `<!doctype html>
+          <html lang="ja"><body>
+            <textarea data-excluded>漢字テスト</textarea>
+            <code data-readable>漢字テスト</code>
+            <code><span lang="ja" data-readable>漢字テスト</span></code>
+            <div contenteditable="true" data-excluded>漢字テスト</div>
+            <div contenteditable="true"><span lang="ja" data-excluded>漢字テスト</span></div>
+            <div contenteditable="" data-excluded>漢字テスト</div>
+            <div contenteditable="plaintext-only" data-excluded>漢字テスト</div>
+            <div contenteditable="true"><span contenteditable="invalid" data-excluded>漢字テスト</span></div>
+            <div contenteditable="false" data-readable>漢字テスト</div>
+            <div contenteditable="true"><span contenteditable="false" data-readable>漢字テスト</span></div>
+            <p data-readable>漢字テスト</p>
+          </body></html>`,
+      }),
+    );
+    await page.goto(url);
+
+    const expectAnnotations = async (text: string) => {
+      await expect(page.locator("[data-readable] ruby")).toHaveCount(5);
+      await expect(page.locator("[data-excluded] ruby")).toHaveCount(0);
+      await expect(page.locator("[data-excluded]")).toHaveText(Array(6).fill(text));
+      await expect(page.locator("textarea")).toHaveValue(text);
+    };
+    await expectAnnotations("漢字テスト");
+
+    // Exercise repeated editor changes, including text-only mutations and newly
+    // inserted highlighting spans whose excluded ancestor is outside the walker.
+    for (const text of ["日本語", "漢字", "日本語"]) {
+      await page.evaluate((value) => {
+        for (const element of document.querySelectorAll("[data-excluded]")) {
+          element.firstChild!.textContent = value;
+        }
+        for (const element of document.querySelectorAll("[data-readable]")) {
+          element.textContent = value;
+        }
+        const span = document.createElement("span");
+        span.textContent = value;
+        document
+          .querySelector("[contenteditable='true'] > span[data-excluded]")!
+          .replaceChildren(span);
+      }, text);
+      await expectAnnotations(text);
+    }
+  });
+
   test("Automatically add furigana when lang is ja", async ({ page }) => {
     const url = "https://example.org/test-ja";
     const html = `<!doctype html>

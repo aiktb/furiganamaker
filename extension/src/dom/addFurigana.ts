@@ -21,7 +21,7 @@ export async function addFurigana(...elements: Element[]) {
   for (const [index, text] of japaneseTexts.entries()) {
     const tokens = tokensPerText[index];
     // A node the page rewrote in the meantime would be annotated at the wrong offsets.
-    if (!tokens || text.textContent !== snapshots[index]) {
+    if (!tokens || text.textContent !== snapshots[index] || !canAnnotateText(text)) {
       continue;
     }
     // reverse() prevents the range from being invalidated
@@ -36,17 +36,26 @@ export async function addFurigana(...elements: Element[]) {
   }
 }
 
-const exclusionParentTagSet = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "RUBY", "RT", "TITLE"]);
+const exclusionParentTagSet = new Set([
+  "SCRIPT",
+  "STYLE",
+  "NOSCRIPT",
+  "RUBY",
+  "RT",
+  "TITLE",
+  "TEXTAREA",
+]);
+const canAnnotateText = (text: Text): boolean => {
+  const parent = text.parentElement;
+  return parent !== null && !exclusionParentTagSet.has(parent.tagName) && !parent.isContentEditable;
+};
+
 const collectTexts = (element: Element): Text[] => {
   const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
   const texts: Text[] = [];
   while (walker.nextNode()) {
     const node = walker.currentNode as Text;
-    const parent = node.parentElement;
-    if (!parent) {
-      continue;
-    }
-    if (!exclusionParentTagSet.has(parent.tagName)) {
+    if (canAnnotateText(node)) {
       texts.push(node);
     }
   }
