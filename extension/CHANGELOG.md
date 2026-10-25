@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.9.2](https://github.com/aiktb/furiganamaker/compare/v3.9.1...v3.9.2) (2026-10-25)
+
+
+### Bug Fixes
+
+* skip furigana in textareas and editable elements ([#496](https://github.com/aiktb/furiganamaker/issues/496)) ([1ed1943](https://github.com/aiktb/furiganamaker/commit/1ed19431afe0984bd993b595eb403cdb0b6c1e06))
+
 ## [3.9.1](https://github.com/aiktb/furiganamaker/compare/v3.9.0...v3.9.1) (2026-09-23)
 
 
