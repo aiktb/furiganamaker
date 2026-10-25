@@ -21,7 +21,7 @@ export async function addFurigana(...elements: Element[]) {
   for (const [index, text] of japaneseTexts.entries()) {
     const tokens = tokensPerText[index];
     // A node the page rewrote in the meantime would be annotated at the wrong offsets.
-    if (!tokens || text.textContent !== snapshots[index] || !canAnnotateText(text)) {
+    if (!tokens || text.textContent !== snapshots[index]) {
       continue;
     }
     // reverse() prevents the range from being invalidated
